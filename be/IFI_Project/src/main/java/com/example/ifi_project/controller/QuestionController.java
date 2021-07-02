@@ -5,12 +5,10 @@ import com.example.ifi_project.model.Type;
 import com.example.ifi_project.service.QuestionService;
 import com.example.ifi_project.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/question")
@@ -23,9 +21,29 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
+    @GetMapping(path="all")
+    public List<Question> getAllQuestion() {
+        return questionService.getAllQuestion();
+    }
+
     @GetMapping
     public List<Question> getQuestion() {
         return questionService.getQuestion();
+    }
+
+    @GetMapping(path="{questionId}")
+    public Optional<Question> getTypeById(@PathVariable("questionId") Long questionId) {
+        return questionService.getQuestionById(questionId);
+    }
+
+    @DeleteMapping(path="{questionId}")
+    public void deleteType(@PathVariable("questionId") Long questionId){
+        questionService.deleteQuestionById(questionId);
+    }
+
+    @PutMapping(path="restore/{questionId}")
+    public void restoreType(@PathVariable("questionId") Long questionId){
+        questionService.restoreQuestionById(questionId);
     }
 
 

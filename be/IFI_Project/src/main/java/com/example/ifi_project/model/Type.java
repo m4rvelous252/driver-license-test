@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity // Đánh dấu đây là table trong db
@@ -19,6 +21,11 @@ public class Type {
     @Id
     @GeneratedValue
     private Long id;
+
+    private LocalDate create_date;
+    private LocalDate update_date;
+    private LocalDate delete_date;
+    private Boolean deleted;
 
     private String type_name;
 

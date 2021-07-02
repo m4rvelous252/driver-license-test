@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity // Đánh dấu đây là table trong db
@@ -23,9 +24,9 @@ public class Answer {
     private String text;
     private String img;
     private String is_correct;
-    private Date create_date;
-    private Date update_date;
-    private Date delete_date;
+    private LocalDate create_date;
+    private LocalDate update_date;
+    private LocalDate delete_date;
 
     @Column(name = "question_id", insertable = false, updatable = false)
     Integer question_id;

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -23,10 +24,11 @@ public class Question {
 
     private String text;
     private String img;
-    private Date create_date;
-    private Date update_date;
-    private Date delete_date;
+    private LocalDate create_date;
+    private LocalDate update_date;
+    private LocalDate delete_date;
     private int dead_point;
+    private  Boolean deleted;
 
     @Column(name = "type_id", insertable = false, updatable = false)
     Integer type_id;
