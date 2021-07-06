@@ -1,0 +1,9 @@
+.exam{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.question {
+    width: 50vw;
+}
