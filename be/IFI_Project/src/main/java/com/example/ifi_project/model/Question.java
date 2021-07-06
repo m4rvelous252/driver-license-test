@@ -2,6 +2,7 @@ package com.example.ifi_project.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,21 +18,28 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonView(Views.Public.class)
 public class Question {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String text;
+
     private String img;
+
     private LocalDate create_date;
+
     private LocalDate update_date;
+
     private LocalDate delete_date;
+
     private int dead_point;
+
     private  Boolean deleted;
 
     @Column(name = "type_id", insertable = false, updatable = false)
-    Integer type_id;
+    Long type_id;
 
     @JoinColumn(name = "type_id", insertable = true, updatable = true)
     @JsonIgnore

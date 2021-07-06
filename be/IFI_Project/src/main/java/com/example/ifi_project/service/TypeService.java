@@ -34,8 +34,6 @@ public class TypeService {
 
     public void addNewType(Type type) {
         System.out.println(type);
-        List<Question> questions = new ArrayList<>();
-        type.setQuestions(questions);
         typeRepository.save(type);
     }
 

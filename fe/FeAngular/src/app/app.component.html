@@ -1,16 +1,13 @@
-<div>
-
-  <div style="background-color: green;">
+<div class="d-flex flex-column h-100">
+  <header>
     <app-header></app-header>
-  </div>
+  </header>
 
-  <div class="container">
+  <div class="mb-auto">
     <router-outlet></router-outlet>
   </div>
-  
 
-  <div style="background-color: blue;">
+  <footer class="footer bg-light">
     <app-footer></app-footer>
-  </div>
-  
+  </footer>
 </div>

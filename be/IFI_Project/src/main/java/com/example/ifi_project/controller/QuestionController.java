@@ -36,6 +36,11 @@ public class QuestionController {
         return questionService.getQuestionById(questionId);
     }
 
+    @PostMapping(path="add")
+    public void addNewType(@RequestBody Question question) {
+        questionService.addNewQuestion(question);
+    }
+
     @DeleteMapping(path="{questionId}")
     public void deleteType(@PathVariable("questionId") Long questionId){
         questionService.deleteQuestionById(questionId);

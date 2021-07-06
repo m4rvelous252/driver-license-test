@@ -17,12 +17,11 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
 import { AnswerItemComponent } from './components/answer-item/answer-item.component';
 import { AnswersComponent } from './components/answers/answers.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.component';
 
-const appRountes: Routes=[
-  {path:'type',component: TypesComponent},
-  {path:'question',component: QuestionsComponent},
-  {path: 'about',component: AboutComponent}
-]
 
 @NgModule({
   declarations: [
@@ -37,6 +36,10 @@ const appRountes: Routes=[
     QuestionsItemComponent,
     AnswerItemComponent,
     AnswersComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    IconAvatarComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,6 @@ const appRountes: Routes=[
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRountes, {enableTracing: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
