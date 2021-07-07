@@ -1,0 +1,58 @@
+
+
+
+<div class="exam">
+    <div class="question">
+        <app-question-item  
+        [question] = "curQuestion"
+
+        >
+        </app-question-item>
+    </div>
+
+    <div class="map">
+        <div class="timer">
+            <app-timer></app-timer>
+        </div>
+
+        <div *ngFor="let question of questions">
+            <app-question-map-button
+            [curQuestion]="curQuestion"
+            [question] ="question" 
+            (btnClick)="viewQuestion(question)">
+            </app-question-map-button>
+        </div>
+
+        <div class="submit">
+            <app-button 
+            color="grey" 
+            text="Nộp bài" 
+            border="1px solid black"
+            (btnClick)="submit(this.questions!)"
+            ></app-button>
+         </div>
+    </div>
+
+
+
+  <!-- <app-question-map></app-question-map> -->
+</div>
+<div class="nav">
+    <app-button 
+    color="cyan" 
+    text="Câu trước" 
+    border="1px solid black" 
+    (btnClick)="preQuestion()"
+    *ngIf="curQuestion?.index!=1">
+    </app-button>
+    <app-button 
+    color="cyan"
+    text="Câu sau" 
+    border="1px solid black" 
+    (btnClick)="nextQuestion()"
+    *ngIf="curQuestion?.index!=questions?.length">
+    </app-button>
+</div>
+
+
+

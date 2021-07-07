@@ -9,18 +9,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { QuizComponent } from './components/quiz/quiz.component';
 import { AboutComponent } from './components/about/about.component';
 import { TypesComponent } from './components/types/types.component';
 import { TypeItemComponent } from './components/type-item/type-item.component';
-import { QuestionsComponent } from './components/questions/questions.component';
-import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
-import { AnswerItemComponent } from './components/answer-item/answer-item.component';
-import { AnswersComponent } from './components/answers/answers.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.component';
+import { AnswerButtonComponent } from './components/answer-button/answer-button.component';
+import { QuestionComponent } from './components/question/question.component';
+import { QuestionItemComponent } from './components/question-item/question-item.component';
+import { QuestionMapComponent } from './components/question-map/question-map.component';
+import { QuestionMapButtonComponent } from './components/question-map-button/question-map-button.component';
+import { TestComponent } from './components/test/test.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { ButtonComponent } from './components/button/button.component';
+
 
 
 @NgModule({
@@ -28,18 +32,21 @@ import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.compon
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    QuizComponent,
     AboutComponent,
     TypesComponent,
     TypeItemComponent,
-    QuestionsComponent,
-    QuestionsItemComponent,
-    AnswerItemComponent,
-    AnswersComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
     IconAvatarComponent,
+    AnswerButtonComponent,
+    QuestionComponent,
+    QuestionMapComponent,
+    QuestionMapButtonComponent,
+    TestComponent,
+    TimerComponent,
+    QuestionItemComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

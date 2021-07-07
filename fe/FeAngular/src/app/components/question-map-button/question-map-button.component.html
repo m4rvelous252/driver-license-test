@@ -1,0 +1,5 @@
+<app-button 
+    (click)="onClick(question)"
+    color = "{{question==curQuestion? 'red' : question?.is_done}}" 
+    text="{{question?.index}}"
+></app-button>

@@ -1,18 +1,45 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http'
-import {Observable,of} from 'rxjs';
-import {Question} from '../../model/Question';
+import { Question } from 'src/app/model/question';
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
+  questions: Question[]= [];
+  private apiUrl = 'http://localhost:8080/api/question'
+  private answerUrl = "http://localhost:5000/answer"
 
-  private apiUrl ='http://localhost:8080/api/question'
+  constructor(private http:HttpClient) { }
 
-  constructor(private httpClient: HttpClient) { }
-
-  getQuestions(): Observable<Question[]>{
-    return this.httpClient.get<Question[]>(this.apiUrl);
+  getQuestions(): Observable<Question[]> {
+    return this.http.get<Question[]>(this.apiUrl)
   }
+
+  // submitQuiz(answeredQuestionId: number[]): Observable<number[]> {    
+  //   console.log('submited')
+  //   return this.http.post<number[]>(this.answerUrl, answeredQuestionId, httpOptions);
+
+  // }
+
+
+
+  // This works
+  submitQuiz(answeredQuestion: Question[]): Observable<Question[]> {
+    console.log('submited')
+    return this.http.post<Question[]>(this.answerUrl, answeredQuestion, httpOptions);
+    
+  }
+
+  clearAnswer(){
+    return this.http.delete<Question[]>(this.answerUrl)
+  }
+
 }
