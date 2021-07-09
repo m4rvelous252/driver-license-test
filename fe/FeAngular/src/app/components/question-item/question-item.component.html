@@ -1,10 +1,15 @@
 <div class="question" [ngStyle]="{'display': display}">
     <h3>{{question?.index}}. {{question?.text}}</h3>
     <!-- <p *ngFor="let answer of question?.answers">{{answer.text}}</p> -->
-    <app-answer-button 
-    *ngFor="let answer of question?.answers" 
-    [answer] = "answer"
-    (onSelectAnswer)="toggleChoice(answer)"
-    (onCheck)="check()"
-    ></app-answer-button>
+
+
+    <div class="answers">
+        <app-answer-button 
+        *ngFor="let answer of question?.answers" 
+        [pick_one]="question?.pick_one"
+        [answer] = "answer"
+        (onSelectAnswer)="toggleChoice(answer)"
+        (onCheck)="check()"
+        ></app-answer-button>
+    </div>
 </div>

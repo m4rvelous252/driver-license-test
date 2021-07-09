@@ -1,5 +1,9 @@
+
+import { Type } from 'src/app/model/Type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
-import {Type} from '../../model/Type'
+import { Question } from 'src/app/model/Question';
+import { TypeService } from 'src/app/services/type/type.service';
+
 
 @Component({
   selector: 'app-type-item',
@@ -8,11 +12,23 @@ import {Type} from '../../model/Type'
 })
 export class TypeItemComponent implements OnInit {
 
-  @Input() type?: Type
 
-  constructor() { }
+  type? : Type 
+ 
+    
+  constructor(private typeService:TypeService) { }
 
   ngOnInit(): void {
+    this.typeService.getTypeQuestions().subscribe((type)=>(this.type=type,console.log(this.type), this.addIndex()));
+  }
+
+  addIndex(){
+    var i = 1;
+    this.type?.questions.forEach(question => {
+        question.index = i;
+        i++;
+        //question.is_done='blue';
+    });
   }
 
 }

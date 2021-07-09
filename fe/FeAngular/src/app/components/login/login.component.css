@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     width: 100%;
     font-family: 'Numans', sans-serif;
+
+    height: 90vh;
 }
 .card{
     height: auto;

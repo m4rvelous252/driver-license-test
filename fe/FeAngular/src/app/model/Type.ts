@@ -1,7 +1,12 @@
-import { Question } from "./question";
+
+import { Question } from "./Question";
 
 export interface Type {
-    id: number | undefined;
-    type_name: string | undefined;
+    id: number 
+    create_date: string
+    update_date: string
+    delete_date: string
+    deleted: boolean
+    type_name: string 
     questions: Question[]
-};
+}

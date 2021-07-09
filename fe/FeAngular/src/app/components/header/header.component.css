@@ -6,3 +6,9 @@ a{
 a:hover{
     color: #FFC312;
 }
+
+
+.login a {
+    margin-left: 20px;
+}
+

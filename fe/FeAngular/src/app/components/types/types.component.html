@@ -1,4 +1,8 @@
-<h1>Type</h1>
-<div>
-    <app-type-item *ngFor="let type of types" [type]="type"></app-type-item>
+
+<div *ngFor="let type of types">
+    <app-button
+    text="{{type.type_name}}"
+    color="{{primeColor}}"
+    textColor="{{primeTxtColor}}"
+    ></app-button>
 </div>

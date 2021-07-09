@@ -1,7 +1,9 @@
 import { Subscription } from 'rxjs';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Question } from 'src/app/model/question';
+
+import { Question } from 'src/app/model/Question';
 import { UiService } from 'src/app/services/Ui/ui.service';
+import { STYLE } from 'src/app/model/style';
 
 @Component({
   selector: 'app-question-map-button',
@@ -14,6 +16,13 @@ export class QuestionMapButtonComponent implements OnInit {
   @Input()
   curQuestion?: Question;
 
+  public primeTxtColor = STYLE.primeTxtColor
+  public secondTxtColor = STYLE.secondTxtColor
+  public primaryColor = STYLE.primeColor
+  public selectColor = STYLE.secondColor
+  public navColor = STYLE.navColor
+
+  public imgDone = "https://centralresidences.vn/wp-content/uploads/2020/05/da%CC%82%CC%81u-tick-.png"
 
   @Output() btnClick = new EventEmitter();
 
@@ -23,7 +32,9 @@ export class QuestionMapButtonComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.question!.is_done='blue';
+
+    if(!localStorage.getItem("listq"))
+    {this.question!.is_done='#086375';}
   }
 
   toggleQuestion() {

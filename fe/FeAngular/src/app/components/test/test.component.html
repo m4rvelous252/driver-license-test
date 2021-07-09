@@ -1,58 +1,78 @@
 
-
-
-<div class="exam">
-    <div class="question">
-        <app-question-item  
-        [question] = "curQuestion"
-
-        >
-        </app-question-item>
-    </div>
-
-    <div class="map">
-        <div class="timer">
-            <app-timer></app-timer>
-        </div>
-
-        <div *ngFor="let question of questions">
-            <app-question-map-button
-            [curQuestion]="curQuestion"
-            [question] ="question" 
-            (btnClick)="viewQuestion(question)">
-            </app-question-map-button>
-        </div>
-
-        <div class="submit">
-            <app-button 
-            color="grey" 
-            text="Nộp bài" 
-            border="1px solid black"
-            (btnClick)="submit(this.questions!)"
+<div class="body">
+    <div class="exam">
+        <div class="test-name">
+            <app-button
+                text="Bài thi bằng lái xe B1"
+                color="{{navColor}}"
+                borderRadius="10px"
             ></app-button>
-         </div>
+        </div>
+
+        <div class="exam-main">
+            <div class="questionNav">
+                <div class="question">
+                    <app-question-item  
+                    [question] = "curQuestion"
+                    >
+                    </app-question-item>
+                </div>
+                <div class="nav">
+                    <app-button 
+                    color="{{navColor}}"
+                    text="Câu trước" 
+                    widthPer='100px'
+                    (btnClick)="preQuestion()"
+                    display="{{curQuestion?.index!=1 ? '' : 'none'}}">
+                    </app-button>
+                    <app-button 
+                    color="{{navColor}}"
+                    text='Câu sau' 
+                    widthPer='100px'
+                    (btnClick)="nextQuestion()"
+                    display="{{curQuestion?.index!=questions?.length ? '' : 'none'}}">
+                    </app-button>
+                    </div>
+
+            </div>
+
+
+            <div class="map">
+                <div class="timer" >
+                    <app-timer
+                    bgColor="{{alert ? warningColor : primaryColor}}" 
+                    txColor="{{alert ? secondTxtColor : primeTxtColor}}"
+                    (fiveMins)="fiveMin()"
+                    ></app-timer>
+                </div>
+
+                <div class="map-buttons">
+                    <div *ngFor="let question of questions" >
+                        <app-question-map-button
+                        [curQuestion]="curQuestion"
+                        [question] ="question" 
+                        (btnClick)="viewQuestion(question)">
+                        </app-question-map-button>
+                    </div>
+                </div>
+                
+                <div class="submit">
+                    <app-button 
+                    color="{{alert ? warningColor : primaryColor}}" 
+                    text="Nộp bài" 
+                    textColor="{{alert ? secondTxtColor : primeTxtColor}}"
+                    (btnClick)="submit(this.questions!)"
+                    ></app-button>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
-
-  <!-- <app-question-map></app-question-map> -->
 </div>
-<div class="nav">
-    <app-button 
-    color="cyan" 
-    text="Câu trước" 
-    border="1px solid black" 
-    (btnClick)="preQuestion()"
-    *ngIf="curQuestion?.index!=1">
-    </app-button>
-    <app-button 
-    color="cyan"
-    text="Câu sau" 
-    border="1px solid black" 
-    (btnClick)="nextQuestion()"
-    *ngIf="curQuestion?.index!=questions?.length">
-    </app-button>
-</div>
+
+
+
+
 
 
 

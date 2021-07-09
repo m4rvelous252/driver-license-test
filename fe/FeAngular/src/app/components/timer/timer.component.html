@@ -1,1 +1,17 @@
-<p>timer works!</p>
+
+
+<div
+[ngStyle]="{
+    'background-color': bgColor
+    
+}"
+>
+    <countdown 
+        [ngStyle]="{
+            'color': txColor
+        }"
+        [config]="{ leftTime: 310, format: 'm:ss', notify: [ 300 ]}"
+        (event)="onFiveMin($event)"
+    ></countdown>
+</div>
+

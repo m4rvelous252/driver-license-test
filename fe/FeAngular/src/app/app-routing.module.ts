@@ -25,6 +25,9 @@ const routes: Routes=[
   
   {path:'test',component: TestComponent},
 
+  {path:'type',component: TypesComponent},
+  {path:'type/1',component: TypeItemComponent}
+
 ];
 
 @NgModule({

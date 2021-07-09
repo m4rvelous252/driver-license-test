@@ -1,8 +1,10 @@
-import { Answer } from './../../model/answer';
+
+import { Answer } from '../../model/answer';
 import { AnswerService } from './../../services/answer/answer.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Question } from 'src/app/model/question';
+import { Question } from 'src/app/model/Question';
 import { UiService } from 'src/app/services/Ui/ui.service';
+import { STYLE } from 'src/app/model/style';
 
 @Component({
   selector: 'app-question-item',
@@ -58,14 +60,16 @@ export class QuestionItemComponent implements OnInit {
         this.question!.is_correct = true;     
       }
     }
+
+    
     console.log(this.question)        
     for(let answer of this.question!.answers){
       if(answer?.is_select == true){
-        this.question!.is_done = 'green';
+        this.question!.is_done = STYLE.secondColor;
         return
       }
       else{
-        this.question!.is_done = 'blue'
+        this.question!.is_done = STYLE.primeColor
       }
 
     }

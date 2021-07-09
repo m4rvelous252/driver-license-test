@@ -16,9 +16,17 @@ export class TypeService {
 
   private apiUrl ='http://localhost:8080/api/type'
 
+
+  private apiTypeUrl = 'http://localhost:8080/api/type/1'
+
   constructor(private httpClient: HttpClient) { }
 
   getTypes(): Observable<Type[]>{
     return this.httpClient.get<Type[]>(this.apiUrl);
+  }
+
+
+  getTypeQuestions(): Observable<Type>{
+    return this.httpClient.get<Type>(this.apiTypeUrl)
   }
 }
