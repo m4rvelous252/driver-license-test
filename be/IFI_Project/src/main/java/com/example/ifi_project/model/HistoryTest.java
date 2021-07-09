@@ -36,7 +36,7 @@ public class HistoryTest {
     private int time;
 
     private int id_user;
-    
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "history_test_id")
     @JsonIgnoreProperties("historyTest")
