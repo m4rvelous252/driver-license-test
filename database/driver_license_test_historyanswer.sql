@@ -28,6 +28,8 @@ CREATE TABLE `historyanswer` (
   `img` varchar(255) DEFAULT NULL,
   `is_correct` tinyint(4) DEFAULT NULL,
   `history_question_id` int(11) DEFAULT NULL,
+  `is_select` tinyint(4) NOT NULL DEFAULT '0',
+  `historyanswercol` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtfqe9le451s2p3d6m231y6el0` (`history_question_id`),
   CONSTRAINT `FKtfqe9le451s2p3d6m231y6el0` FOREIGN KEY (`history_question_id`) REFERENCES `historyquestion` (`id`),
@@ -41,7 +43,7 @@ CREATE TABLE `historyanswer` (
 
 LOCK TABLES `historyanswer` WRITE;
 /*!40000 ALTER TABLE `historyanswer` DISABLE KEYS */;
-INSERT INTO `historyanswer` VALUES (1,'fire',NULL,1,1),(2,'water',NULL,0,1),(3,'earth',NULL,0,2),(4,'wind',NULL,1,2);
+INSERT INTO `historyanswer` VALUES (1,'fire',NULL,1,1,0,NULL),(2,'water',NULL,0,1,0,NULL),(3,'earth',NULL,0,2,0,NULL),(4,'wind',NULL,1,2,0,NULL);
 /*!40000 ALTER TABLE `historyanswer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-09 14:40:21
+-- Dump completed on 2021-07-09 15:50:57
