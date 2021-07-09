@@ -1,3 +1,25 @@
 <div>
-    Thi bang lai
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Home</a>
+
+          <div class="collapse d-flex" style="color: white;">
+            <ul *ngIf="user" class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{user?.name ? user?.name : user?.username}} <app-icon-avatar src = {{user?.img}} style="margin-left: 5px;"></app-icon-avatar>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a (click)="Logout()" class="dropdown-item" href="">Đăng xuất</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div *ngIf="!user" class="login">
+                <a href="login">Đăng nhập</a>
+                <a href="register">Đăng ký</a>
+            </div>
+          </div>
+        </div>
+      </nav>
 </div>
+

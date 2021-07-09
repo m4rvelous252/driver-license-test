@@ -1,4 +1,4 @@
-import { Question } from './../../model/question';
+import { Question } from './../../model/Question';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 

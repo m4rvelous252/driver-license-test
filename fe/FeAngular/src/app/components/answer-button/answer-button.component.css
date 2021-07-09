@@ -1,1 +1,19 @@
+div{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
 
+img:hover{
+    opacity: 0.8;
+}
+
+.answer-text{
+    margin-left: 5px;
+    justify-self: flex-start;
+    width: 100%;
+}
+
+.ticker{
+    justify-self: flex-start;
+}

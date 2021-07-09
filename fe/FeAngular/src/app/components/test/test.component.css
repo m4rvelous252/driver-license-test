@@ -1,9 +1,123 @@
+.body{
+    display: flex;
+    justify-content: center;
+
+}
+
 .exam{
+    box-shadow: 1px 1px 10px 1px #888888;
+    width: 90%;
+    margin-top: 30px;
+    background-color: #c6c1c1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+@media (min-width:1300px){
+    .exam{
+        width: 1300px;
+    }
+}
+
+.test-name{
+    margin: 20px 0px 0px 35px;
+    
+}
+
+.exam-main{
+    background-color: #c6c1c1;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-radius: 20px;
+}
+
+@media (max-width: 750px){
+    .exam-main{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .map{
+        margin-bottom: 20px;
+        width: 80% !important;
+    }
+
+    .questionNav{
+        width: 80% !important;
+    }
+    
+}
+
+.questionNav{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
 }
 
 .question {
-    width: 50vw;
+    width: 100%;
+    background-color: #e2e0e0;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 5%;
+    height: fit-content;
 }
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+}
+
+.map{
+    background-color: #e2e0e0;
+    border-radius: 25px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.timer {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.map-buttons{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    justify-items: center;
+    margin: 15px 0 15px 0;
+
+}
+
+.submit{
+    margin: 15px 0 15px 0;
+}
+
+.blinking{
+    animation:blinkingText 0.3s;
+}
+
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: transparent; }
+    50%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
+

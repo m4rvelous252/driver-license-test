@@ -1,4 +1,26 @@
-<app-button 
-color = "{{answer.is_select ? 'green' : 'blue'}}"
-text="x" 
-(btnClick)="OnSelect(answer)"></app-button>{{answer?.text}}
+
+<div>
+    <app-button class="ticker"
+    color = "{{answer.is_select ? selectColor : primaryColor}}"
+    img="{{answer.is_select ? imgSelect : imgUnselect}}"
+    borderRadius="{{pick_one ? '20px':'5px'}}"
+    widthPer="43px"
+    (btnClick)="OnSelect(answer)"
+    ></app-button>
+    <app-button class="answer-text" *ngIf="!answer.img"
+    color = "{{answer.is_select ? selectColor : primaryColor}}"
+    text="{{answer?.text}}"
+    textColor= "{{answer.is_select ? selectTxtColor : primeTxtColor}}"
+    class="answer-text"
+    widthPer="100%"
+    textAlign="start"
+    borderRadius="13px"
+    (btnClick)="OnSelect(answer)"
+    >
+    </app-button>
+        <img  class="btn" *ngIf="answer.img"
+         src="{{answer.img}}"
+        (click)="OnSelect(answer)"
+        >
+</div>
+

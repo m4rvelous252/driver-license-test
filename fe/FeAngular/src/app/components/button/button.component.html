@@ -1,11 +1,21 @@
 <button 
 [ngStyle]="{
     'background-color': color, 
-    'border': border
+    'border': border,
+    'color': textColor,
+    'width': widthPer,
+    'text-align': textAlign,
+    'border-radius': borderRadius,
+    'display': display
     }"
 type="button" 
-class="btn"
 (click)="onClick()"
+class="btn"
 >
-{{text}}</button>
+{{text}}
+<div *ngIf="img!=null && img!=''">
+    <img  src="{{img}}" alt="">
+</div>
+
+</button>
 

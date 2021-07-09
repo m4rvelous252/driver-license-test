@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": false
+    "analytics": "a97461b8-164b-4155-9d05-20cc5c3d6b53"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "driver-license-test": {
+    "FeAngular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/driver-license-test",
+            "outputPath": "dist/FeAngular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,7 +30,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -66,16 +65,19 @@
               "namedChunks": true
             }
           },
+          
+          
           "defaultConfiguration": "production"
+        
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "driver-license-test:build:production"
+              "browserTarget": "FeAngular:build:production"
             },
             "development": {
-              "browserTarget": "driver-license-test:build:development"
+              "browserTarget": "FeAngular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "driver-license-test:build"
+            "browserTarget": "FeAngular:build"
           }
         },
         "test": {
@@ -106,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "driver-license-test"
+  "defaultProject": "FeAngular"
 }

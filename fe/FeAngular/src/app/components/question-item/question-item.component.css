@@ -1,0 +1,13 @@
+.answers{
+    display: flex;
+    flex-direction: column;
+
+}
+
+h3{
+    /* background-color: #086375; */
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black;
+}
+
