@@ -27,7 +27,7 @@ CREATE TABLE `answer` (
   `question_id` int(11) NOT NULL,
   `text` varchar(45) DEFAULT NULL,
   `img` varchar(45) DEFAULT NULL,
-  `is_correct` tinyint(4) DEFAULT '0',
+  `is_correct` tinyint(1) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   `delete_date` datetime DEFAULT NULL,
   `update_date` datetime DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `answer` (
   KEY `FK8frr4bcabmmeyyu60qt7iiblo` (`question_id`),
   CONSTRAINT `FK8frr4bcabmmeyyu60qt7iiblo` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`),
   CONSTRAINT `fk_answer_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `answer` (
 
 LOCK TABLES `answer` WRITE;
 /*!40000 ALTER TABLE `answer` DISABLE KEYS */;
-INSERT INTO `answer` VALUES (17,1,'burn',NULL,1,NULL,NULL,NULL),(18,1,'hot',NULL,0,NULL,NULL,NULL),(19,2,'ice',NULL,1,NULL,NULL,NULL),(20,2,'cool',NULL,1,NULL,NULL,NULL),(21,3,'black',NULL,0,NULL,NULL,NULL),(22,3,'hard',NULL,0,NULL,NULL,NULL),(23,4,'while',NULL,1,NULL,NULL,NULL),(24,4,'smooth',NULL,0,NULL,NULL,NULL);
+INSERT INTO `answer` VALUES (17,1,'burn',NULL,1,NULL,NULL,NULL),(18,1,'hot',NULL,0,NULL,NULL,NULL),(19,2,'ice',NULL,1,NULL,NULL,NULL),(20,2,'cool',NULL,1,NULL,NULL,NULL),(21,3,'black',NULL,0,NULL,NULL,NULL),(22,3,'hard',NULL,0,NULL,NULL,NULL),(23,4,'while',NULL,1,NULL,NULL,NULL),(24,4,'smooth',NULL,0,NULL,NULL,NULL),(25,5,'duck',NULL,1,NULL,NULL,NULL),(26,5,'chiken',NULL,0,NULL,NULL,NULL),(27,5,'flamingo',NULL,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-30 10:33:44
+-- Dump completed on 2021-07-09 14:40:22

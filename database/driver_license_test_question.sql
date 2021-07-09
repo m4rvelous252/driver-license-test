@@ -23,19 +23,20 @@ DROP TABLE IF EXISTS `question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `question` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) NOT NULL,
   `text` varchar(45) NOT NULL,
   `img` varchar(45) DEFAULT NULL,
   `create_date` date DEFAULT NULL,
   `update_date` date DEFAULT NULL,
   `delete_date` date DEFAULT NULL,
-  `dead_point` tinyint(4) DEFAULT '0',
+  `dead_point` tinyint(4) NOT NULL DEFAULT '0',
+  `deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `type_idx` (`type_id`),
   CONSTRAINT `FKbesk0j7i5b9vsrpy50834xxlw` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`),
   CONSTRAINT `fk_question_type` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +45,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,1,'fire',NULL,NULL,NULL,NULL,0),(2,1,'water',NULL,NULL,NULL,NULL,1),(3,2,'iron',NULL,NULL,NULL,NULL,1),(4,2,'sliver',NULL,NULL,NULL,NULL,0);
+INSERT INTO `question` VALUES (1,1,'fire',NULL,NULL,NULL,NULL,0,0),(2,1,'water',NULL,NULL,NULL,NULL,1,0),(3,2,'iron',NULL,NULL,NULL,NULL,1,0),(4,2,'sliver',NULL,NULL,NULL,NULL,0,0),(5,6,'bird',NULL,NULL,NULL,NULL,0,0);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-30 10:33:45
+-- Dump completed on 2021-07-09 14:40:21

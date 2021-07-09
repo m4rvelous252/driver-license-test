@@ -24,9 +24,17 @@ DROP TABLE IF EXISTS `type`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_category` int(11) DEFAULT NULL,
   `type_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `create_date` date DEFAULT NULL,
+  `update_date` date DEFAULT NULL,
+  `delete_date` date DEFAULT NULL,
+  `deleted` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FKfpkphn1gri9h6893j7him5222` (`id_category`),
+  CONSTRAINT `FKfpkphn1gri9h6893j7him5222` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`),
+  CONSTRAINT `fk_type_category` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +43,7 @@ CREATE TABLE `type` (
 
 LOCK TABLES `type` WRITE;
 /*!40000 ALTER TABLE `type` DISABLE KEYS */;
-INSERT INTO `type` VALUES (1,'element'),(2,'metal');
+INSERT INTO `type` VALUES (1,1,'element',NULL,NULL,NULL,0),(2,1,'metal',NULL,NULL,NULL,0),(6,1,'animal',NULL,NULL,NULL,0),(7,2,'animal','2021-07-08',NULL,NULL,0),(8,6,'food','2021-07-08',NULL,NULL,0),(9,6,'food','2021-07-09',NULL,NULL,0),(10,6,'food','2021-07-09',NULL,NULL,0);
 /*!40000 ALTER TABLE `type` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-30 10:33:45
+-- Dump completed on 2021-07-09 14:40:22

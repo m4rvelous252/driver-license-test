@@ -33,6 +33,7 @@ public class QuestionService {
     }
 
     public void addNewQuestion(Question question) {
+        question.setDeleted(false);
         LocalDate localDate = LocalDate.now();
         Long id_type = question.getType_id();
         Type type = typeRepository.findById(id_type)

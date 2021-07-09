@@ -25,7 +25,7 @@ public class Answer {
 
     private String text;
     private String img;
-    private String is_correct;
+    private Boolean is_correct;
     private LocalDate create_date;
     private LocalDate update_date;
     private LocalDate delete_date;

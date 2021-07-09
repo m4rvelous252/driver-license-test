@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,13 +31,25 @@ public class Type {
 
     private LocalDate delete_date;
 
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     private String type_name;
+
+    @Column(name = "id_category", insertable = false, updatable = false)
+    Long id_category;
+
+    @JoinColumn(name = "id_category", insertable = true, updatable = true)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    Category category;
 
     @JsonView(Views.Internal.class)
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
     @JsonIgnoreProperties("type")
     List<Question> questions;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "quiz")
+    private List<QuizType> quizType = new ArrayList<QuizType>();
 }

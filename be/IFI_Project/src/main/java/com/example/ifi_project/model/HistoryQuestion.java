@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity // Đánh dấu đây là table trong db
@@ -19,7 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @JsonView(Views.Public.class)
-public class Question {
+@Table(name="historyquestion")
+public class HistoryQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,28 +28,21 @@ public class Question {
 
     private String img;
 
-    private LocalDate create_date;
-
-    private LocalDate update_date;
-
-    private LocalDate delete_date;
-
-    private int dead_point;
-
-    private  Boolean deleted = false;
-
-    @Column(name = "type_id", insertable = false, updatable = false)
-    Long type_id;
-
-    @JoinColumn(name = "type_id", insertable = true, updatable = true)
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    Type type;
+    private Boolean dead_point;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id")
-    @JsonIgnoreProperties("question")
-    List<Answer> answers;
+    @JoinColumn(name = "history_question_id")
+    @JsonIgnoreProperties("historyQuestion")
+    List<HistoryAnswer> historyAnswers;
+
+    @Column(name = "history_test_id", insertable = false, updatable = false)
+    Long history_test_id;
+
+    @JoinColumn(name = "history_test_id", insertable = true, updatable = true)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    HistoryTest historyTest;
+
 
 
 

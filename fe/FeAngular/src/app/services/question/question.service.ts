@@ -20,7 +20,7 @@ export class QuestionService {
   constructor(private http:HttpClient) { }
 
   getQuestions(): Observable<Question[]> {
-    return this.http.get<Question[]>(this.apiUrl)
+    return this.http.get<Question[]>(this.apiUrl,httpOptions)
   }
 
   // submitQuiz(answeredQuestionId: number[]): Observable<number[]> {    

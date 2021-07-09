@@ -1,23 +1,25 @@
 package com.example.ifi_project.service;
 
-import com.example.ifi_project.model.Question;
+import com.example.ifi_project.model.Category;
 import com.example.ifi_project.model.Type;
+import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TypeService {
     private final TypeRepository typeRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public TypeService(TypeRepository typeRepository) {
+    public TypeService(TypeRepository typeRepository, CategoryRepository categoryRepository) {
         this.typeRepository = typeRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public List<Type> getAllType(){
@@ -33,7 +35,12 @@ public class TypeService {
     }
 
     public void addNewType(Type type) {
-        System.out.println(type);
+        type.setDeleted(false);
+        Category category = categoryRepository.findById(type.getId_category())
+                .orElseThrow(() -> new IllegalStateException(" id does not exisits"));
+        LocalDate localDate = LocalDate.now();
+        type.setCreate_date(localDate);
+        type.setCategory(category);
         typeRepository.save(type);
     }
 

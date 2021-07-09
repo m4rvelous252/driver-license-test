@@ -22,6 +22,7 @@ public class TypeController {
         this.typeService = typeService;
     }
 
+    @JsonView(Views.Public.class)
     @GetMapping(path="all")
     public List<Type> getAllType() {
         return typeService.getAllType();
