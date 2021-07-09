@@ -5,9 +5,6 @@ import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-import {HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { CountdownModule } from 'ngx-countdown';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,12 +56,8 @@ import { ButtonComponent } from './components/button/button.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-
-    HttpClientModule,
-    FormsModule,
     BrowserModule, 
-    CountdownModule,
-
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
