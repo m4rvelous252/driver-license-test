@@ -41,11 +41,12 @@ export class TestComponent implements OnInit {
     if(localStorage.getItem("listq")!=null){
       this.questions = JSON.parse(localStorage.getItem("listq")!)
       this.curQuestion = this.questions?.find(x => x.index == 1)
-    }else
-    this.questionService.getQuestions().subscribe((quesitons) => (this.questions = quesitons,this.addIndex()));
-    console.log(this.questions)
-
+    }else{
+      this.questionService.getQuestions().subscribe((quesitons) => (this.questions = quesitons,this.addIndex()));
+    }
     
+    console.log(this.questions)
+    console.log("hello")
   }
 
   viewQuestion(question: Question){
