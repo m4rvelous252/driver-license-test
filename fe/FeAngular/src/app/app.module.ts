@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CountdownModule } from 'ngx-countdown';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +26,8 @@ import { QuestionMapButtonComponent } from './components/question-map-button/que
 import { TestComponent } from './components/test/test.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoryItemComponent } from './components/category-item/category-item.component';
 
 
 
@@ -47,14 +51,17 @@ import { ButtonComponent } from './components/button/button.component';
     TimerComponent,
     QuestionItemComponent,
     ButtonComponent,
+    CategoryComponent,
+    CategoryItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule,
     HttpClientModule,
     FormsModule,
     BrowserModule, 
-    CountdownModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

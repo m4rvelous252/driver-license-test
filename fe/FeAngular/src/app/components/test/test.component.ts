@@ -1,8 +1,10 @@
+
 import { Question } from 'src/app/model/Question';
 import { Answer } from '../../model/answer';
 import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question/question.service';
 import { STYLE } from 'src/app/model/style';
+
 
 @Component({
   selector: 'app-test',
@@ -15,6 +17,7 @@ export class TestComponent implements OnInit {
   questions?: Question[]= [];
 
   curQuestion?:Question;
+
 
   quizTime?: Date
 
@@ -29,33 +32,40 @@ export class TestComponent implements OnInit {
   navColor = STYLE.navColor
   warningColor = STYLE.warningColor
 
+
   constructor(private questionService: QuestionService) {
    }
 
   ngOnInit(): void {
+
     if(localStorage.getItem("listq")!=null){
       this.questions = JSON.parse(localStorage.getItem("listq")!)
       this.curQuestion = this.questions?.find(x => x.index == 1)
-    }else
-    this.questionService.getQuestions().subscribe((quesitons) => (this.questions = quesitons,this.addIndex()));
-    console.log(this.questions)
+    }else{
+      this.questionService.getQuestions().subscribe((quesitons) => (this.questions = quesitons,this.addIndex()));
+    }
     
+    console.log(this.questions)
+    console.log("hello")
   }
 
   viewQuestion(question: Question){
     this.curQuestion=question;
     console.log(question)
+
     localStorage.setItem("listq",JSON.stringify(this.questions))
+
   }
 
   viewQuestionByIndex(index: number){
     this.viewQuestion(this.questions?.find(x => x.index == index)!)
     console.log(this.questions?.find(x => x.index == index)!)
-    
+
   }
 
 
   submit(questions: Question[]){
+
 
     // 
     // This works
@@ -89,6 +99,7 @@ export class TestComponent implements OnInit {
     
     
   }
+
 
   fiveMin(){
     console.log(this.alert)

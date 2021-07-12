@@ -1,3 +1,4 @@
+
 import { Answer } from '../../model/answer';
 import { AnswerService } from './../../services/answer/answer.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -59,6 +60,7 @@ export class QuestionItemComponent implements OnInit {
         this.question!.is_correct = true;     
       }
     }
+
     
     console.log(this.question)        
     for(let answer of this.question!.answers){

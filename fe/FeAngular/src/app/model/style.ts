@@ -5,6 +5,7 @@ export interface Style {
     warningColor: string,
     primeTxtColor: string,
     secondTxtColor: string,
+    bgColor: string
 }
 
 export const STYLE: Style = {
@@ -13,6 +14,7 @@ export const STYLE: Style = {
     navColor: "#fe5f55",
     warningColor: "#FFC145",
     primeTxtColor: "aliceblue",
-    secondTxtColor: "black"
+    secondTxtColor: "black",
+    bgColor:"#c3c3c3"
 }
 

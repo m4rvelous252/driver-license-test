@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Answer } from 'src/app/model/answer';
+
 import { STYLE } from 'src/app/model/style';
+
 
 @Component({
   selector: 'app-answer-button',
@@ -9,6 +11,7 @@ import { STYLE } from 'src/app/model/style';
 })
 export class AnswerButtonComponent implements OnInit {
   @Input() answer!: Answer;
+
   @Input() pick_one?: boolean;
   @Output() onSelectAnswer: EventEmitter<Answer> = new EventEmitter();
   @Output() onCheck: EventEmitter<any> = new EventEmitter();
@@ -18,6 +21,7 @@ export class AnswerButtonComponent implements OnInit {
   public selectColor: string = STYLE.secondColor
   public primeTxtColor: string = STYLE.primeTxtColor
   public selectTxtColor: string = STYLE.secondTxtColor
+
 
   constructor() { 
   }
@@ -41,6 +45,7 @@ export class AnswerButtonComponent implements OnInit {
     // console.log(this.answer.is_select)
     this.onCheck.emit();
   }
+
   
   // isMarked() :boolean {
   //   if(is_correct=)

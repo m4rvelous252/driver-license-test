@@ -1,7 +1,10 @@
+
 import { Type } from 'src/app/model/Type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Question } from 'src/app/model/Question';
 import { TypeService } from 'src/app/services/type/type.service';
+import { STYLE } from 'src/app/model/style';
+
 
 @Component({
   selector: 'app-type-item',
@@ -10,8 +13,17 @@ import { TypeService } from 'src/app/services/type/type.service';
 })
 export class TypeItemComponent implements OnInit {
 
+
   type? : Type 
  
+  primeTxtColor = STYLE.primeTxtColor
+  secondTxtColor = STYLE.secondTxtColor
+  primeColor = STYLE.primeColor
+  selectColor = STYLE.secondColor
+  navColor = STYLE.navColor
+  warningColor = STYLE.warningColor
+  bgColor = STYLE.bgColor
+
     
   constructor(private typeService:TypeService) { }
 
@@ -27,4 +39,5 @@ export class TypeItemComponent implements OnInit {
         //question.is_done='blue';
     });
   }
+
 }

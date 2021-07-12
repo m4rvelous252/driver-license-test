@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Type} from '../../model/Type'
 import { TypeService } from '../../services/type/type.service';
+
 import { STYLE } from 'src/app/model/style';
+
 
 @Component({
   selector: 'app-types',
@@ -9,6 +11,7 @@ import { STYLE } from 'src/app/model/style';
   styleUrls: ['./types.component.css']
 })
 export class TypesComponent implements OnInit {
+
 
   primeColor = STYLE.primeColor
   primeTxtColor = STYLE.primeTxtColor
