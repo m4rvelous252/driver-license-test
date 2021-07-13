@@ -1,0 +1,22 @@
+<div class=" main">
+    <div 
+    class="container questions"
+    
+    >
+        <div class="container">
+            <app-question-item
+            *ngFor="let question of result?.questions"
+            [question]="question"
+            >
+            </app-question-item>
+        </div>
+    </div>
+
+    <div 
+    class="container details"
+    >
+    <h3>{{result?.name}}</h3>
+    <p>Số câu hỏi: {{result?.questions?.length}}</p>
+    <p>Điểm: {{result?.mark}}</p>
+    </div>
+</div>

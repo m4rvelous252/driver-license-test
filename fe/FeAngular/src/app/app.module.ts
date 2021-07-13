@@ -28,6 +28,8 @@ import { TimerComponent } from './components/timer/timer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { ResultComponent } from './components/result/result.component';
 
 
 
@@ -53,6 +55,8 @@ import { CategoryItemComponent } from './components/category-item/category-item.
     ButtonComponent,
     CategoryComponent,
     CategoryItemComponent,
+    QuizComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,

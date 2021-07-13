@@ -1,7 +1,7 @@
 
-import { Type } from 'src/app/model/Type';
+import { Type } from 'src/app/model/type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 import { TypeService } from 'src/app/services/type/type.service';
 import { STYLE } from 'src/app/model/constants';
 

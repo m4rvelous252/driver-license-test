@@ -2,7 +2,7 @@
 import { Answer } from '../../model/answer';
 import { AnswerService } from './../../services/answer/answer.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 import { UiService } from 'src/app/services/Ui/ui.service';
 import { STYLE } from 'src/app/model/constants';
 
@@ -24,7 +24,7 @@ export class QuestionItemComponent implements OnInit {
   constructor(private answerService: AnswerService, private uiService: UiService) { }
 
   ngOnInit(): void {
-    this.answerService.getAnswer().subscribe((pickedAnswers) => this.pickedAnswers = pickedAnswers)
+    //this.answerService.getAnswer().subscribe((pickedAnswers) => this.pickedAnswers = pickedAnswers)
   }
 
   // makeAnswer(answer: Answer){

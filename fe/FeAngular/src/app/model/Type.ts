@@ -1,5 +1,5 @@
 
-import { Question } from "./Question";
+import { Question } from "./question";
 
 export interface Type {
     id: number 

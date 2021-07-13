@@ -16,6 +16,8 @@ import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { CategoryComponent } from './components/category/category.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -33,7 +35,11 @@ const routes: Routes=[
 
   {path:'category/1',component: CategoryItemComponent},
 
-  {path:'category',component: CategoryComponent}
+  {path:'category',component: CategoryComponent},
+
+  {path:'quiz/:id_quiz',component: QuizComponent},
+
+  {path:'result',component: ResultComponent},
 ];
 
 @NgModule({

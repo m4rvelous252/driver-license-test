@@ -35,10 +35,30 @@ public class HistoryTest {
 
     private int time;
 
+
+    private int timeStart;
+
     private int id_user;
+
+    private int mark;
     
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_test_id")
     @JsonIgnoreProperties("historyTest")
-    List<HistoryQuestion> historyQuestions;
+    List<HistoryQuestion> questions;
+
+    @Override
+    public String toString() {
+        return "HistoryTest{" +
+                "id=" + id +
+                ", create_date=" + create_date +
+                ", delete_date=" + delete_date +
+                ", deleted=" + deleted +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                ", timeStart=" + timeStart +
+                ", id_user=" + id_user +
+                ", questions=" + questions +
+                '}';
+    }
 }

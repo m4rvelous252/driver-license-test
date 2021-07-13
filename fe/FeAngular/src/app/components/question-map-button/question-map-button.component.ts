@@ -33,7 +33,7 @@ export class QuestionMapButtonComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(!localStorage.getItem("listq"))
+    if(this.question?.is_done==null)
     {this.question!.is_done='#086375';}
   }
 

@@ -1,5 +1,5 @@
 import { Quiz } from "./quiz";
-import { Type } from "./Type";
+import { Type } from "./type";
 
 export interface Category {
     id: number
