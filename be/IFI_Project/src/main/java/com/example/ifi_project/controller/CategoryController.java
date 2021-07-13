@@ -24,7 +24,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @JsonView(Views.Public.class)
+    @JsonView(Views.Internal.class)
     @GetMapping(path="all")
     public List<Category> getAllCategory() {
         return categoryService.getAllCategory();

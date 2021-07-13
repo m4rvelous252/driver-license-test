@@ -34,7 +34,7 @@ public class Question {
 
     private LocalDate delete_date;
 
-    private int dead_point;
+    private boolean dead_point;
 
     private  Boolean deleted = false;
 

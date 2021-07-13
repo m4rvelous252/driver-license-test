@@ -35,7 +35,11 @@ public class HistoryTest {
 
     private int time;
 
-    private int id_user;
+    private Long id_user;
+
+    private int is_done;
+
+    private int mark;
     
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "history_test_id")

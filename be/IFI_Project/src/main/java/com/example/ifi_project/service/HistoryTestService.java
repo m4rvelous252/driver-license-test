@@ -6,6 +6,7 @@ import com.example.ifi_project.repository.HistoryTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -67,6 +68,37 @@ public class HistoryTestService {
         test.setQuiz(quiz);
         test.setQuestions(questions);
         return test;
+    }
+
+    public Test saveTestWithid(Test test, Long userId){
+        HistoryTest historyTest = convertTesttoHistoryTest(test);
+        historyTest.setId_user(userId);
+        historytestRepository.save(historyTest);
+        test.setId(historyTest.getId());
+        return test;
+    }
+
+    public HistoryTest convertTesttoHistoryTest(Test test){
+        LocalDate localDate = LocalDate.now();
+        HistoryTest historyTest = new HistoryTest();
+        historyTest.setCreate_date(localDate);
+        historyTest.setName(test.getQuiz().getName());
+        historyTest.setTime(test.getQuiz().getTime());
+        for (Question q: test.getQuestions()) {
+            HistoryQuestion historyQuestion = new HistoryQuestion();
+            historyQuestion.setHistoryTest(historyTest);
+            historyQuestion.setDead_point(q.isDead_point());
+            historyQuestion.setImg(q.getImg());
+            historyQuestion.setText(q.getText());
+            for (Answer a: q.getAnswers()) {
+                HistoryAnswer historyAnswer = new HistoryAnswer();
+                historyAnswer.setHistoryQuestion(historyQuestion);
+                historyAnswer.setText(a.getText());
+                historyAnswer.setImg(a.getImg());
+                historyAnswer.setIs_correct(a.getIs_correct());
+            }
+        }
+        return historyTest;
     }
 
 }

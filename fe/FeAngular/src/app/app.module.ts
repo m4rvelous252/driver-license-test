@@ -26,6 +26,7 @@ import { QuestionMapButtonComponent } from './components/question-map-button/que
 import { TestComponent } from './components/test/test.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 
@@ -49,6 +50,7 @@ import { ButtonComponent } from './components/button/button.component';
     TimerComponent,
     QuestionItemComponent,
     ButtonComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

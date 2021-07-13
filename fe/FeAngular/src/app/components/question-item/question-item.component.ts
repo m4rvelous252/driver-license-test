@@ -2,7 +2,7 @@
 import { Answer } from '../../model/answer';
 import { AnswerService } from './../../services/answer/answer.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 import { UiService } from 'src/app/services/Ui/ui.service';
 import { STYLE } from 'src/app/model/style';
 

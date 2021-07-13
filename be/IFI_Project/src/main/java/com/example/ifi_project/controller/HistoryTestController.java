@@ -38,10 +38,18 @@ public class HistoryTestController {
     }
 
 
-    @JsonView(Views.Public.class)
     @GetMapping(path="random/{quizId}")
+    @JsonView(Views.Public.class)
     public Test getNewQuizById(@PathVariable("quizId") Long quizId) {
         return historyTestService.getTestByQuiz(quizId);
+    }
+
+    @GetMapping(path="random/{quizId}/{userId}")
+    @JsonView(Views.Public.class)
+    public Test getNewQuizByIdWithUser(@PathVariable("quizId") Long quizId,@PathVariable("quizId") Long userId) {
+        Test test = historyTestService.getTestByQuiz(quizId);
+        test = historyTestService.saveTestWithid(test,userId);
+        return test;
     }
 
 

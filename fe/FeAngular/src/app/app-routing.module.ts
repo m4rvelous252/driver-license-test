@@ -14,6 +14,7 @@ import {AuthenticationService} from './services/authentication/authentication.se
 import {NotAuthenticationService} from './services/authentication/not-authentication.service'
 import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
+import { CategoryComponent } from './components/category/category.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -24,9 +25,10 @@ const routes: Routes=[
   {path: 'about',component: AboutComponent,canActivate:[AuthenticationService]},
   
   {path:'test',component: TestComponent},
+  {path:'test/:id_quiz',component: TestComponent},
 
   {path:'type',component: TypesComponent},
-  {path:'type/1',component: TypeItemComponent}
+  {path:'category',component: CategoryComponent}
 
 ];
 
