@@ -30,20 +30,32 @@ public class HistoryQuestion {
 
     private Boolean dead_point;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    private Boolean is_correct;
+
+    private boolean pick_one = false;
+
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_question_id")
     @JsonIgnoreProperties("historyQuestion")
-    List<HistoryAnswer> historyAnswers;
+    List<HistoryAnswer> answers;
 
     @Column(name = "history_test_id", insertable = false, updatable = false)
     Long history_test_id;
 
     @JoinColumn(name = "history_test_id", insertable = true, updatable = true)
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    HistoryTest historyTest;
+    @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+    HistoryTest test;
 
-
-
-
+    @Override
+    public String toString() {
+        return "HistoryQuestion{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", img='" + img + '\'' +
+                ", dead_point=" + dead_point +
+                ", answers=" + answers +
+                ", history_test_id=" + history_test_id +
+                '}';
+    }
 }

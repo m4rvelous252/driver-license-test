@@ -3,11 +3,12 @@ import { Question } from 'src/app/model/question';
 import { Answer } from '../../model/answer';
 import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question/question.service';
-import { TestService } from 'src/app/services/test/test.service';
-import { STYLE } from 'src/app/model/style';
-import { Quiz } from 'src/app/model/quiz';
-import { ActivatedRoute, Params } from '@angular/router';
+import { STYLE,KEY } from 'src/app/model/constants';
 import { Test } from 'src/app/model/test';
+import { Quiz } from 'src/app/model/quiz';
+import { DatePipe } from '@angular/common';
+import { TestService } from 'src/app/services/test/test.service';
+
 
 
 @Component({
@@ -17,13 +18,16 @@ import { Test } from 'src/app/model/test';
 })
 export class TestComponent implements OnInit {
 
-  id_quiz!:string
 
-  test!: Test;
-  quiz!: Quiz;
   questions?: Question[]= [];
 
   curQuestion?:Question;
+
+  test!: Test
+
+  quiz!: Quiz
+
+  durationTime!:number
 
 
   quizTime?: Date
@@ -40,59 +44,42 @@ export class TestComponent implements OnInit {
   warningColor = STYLE.warningColor
 
 
-  constructor(
-    private questionService: QuestionService,
-    private testService: TestService,
-    private route: ActivatedRoute) {
+  constructor(private questionService: QuestionService, private testService: TestService) {
    }
 
   ngOnInit(): void {
-    if(localStorage.getItem("test")!=null){
-      this.test = JSON.parse(localStorage.getItem("test")!)
-      this.questions = this.test!.questions
-      this.quiz = this.test!.quiz
-      this.curQuestion = this.questions?.find(x => x.index == 1)
-      if(this.questions!.length<=0){
-        localStorage.removeItem("test")
-        this.ngOnInit()
-        return
+      this.test = JSON.parse(localStorage.getItem(KEY.test)!)
+      this.quiz=this.test.quiz
+      this.questions=this.test.questions
+      this.test.time = this.quiz.time;
+      this.test.name = this.quiz.name;
+      if(localStorage.getItem(KEY.user)){
+        const userJson = localStorage.getItem(KEY.user);
+        let user = userJson !== null ? JSON.parse(userJson) : null;
+        this.test.id_user = user.id;
       }
-    }else{
-      console.log("not local")
-      this.route.params.subscribe(
-        (params: Params) => {
-          this.id_quiz = params['id_quiz'];
-        }
-      );
-      this.testService.getRandomQuestionByQuiz(this.id_quiz).subscribe((test) => (
-        this.questions = test.questions,
-        this.quiz=test.quiz,
-        this.test=test,
-        localStorage.setItem("test",JSON.stringify(this.test))
-        ));
-    }
-    this.addIndex()
+      this.curQuestion = this.questions?.find(x => x.index == 1)
+      console.log(this.questions)
+      this.addIndex()
   }
 
   viewQuestion(question: Question){
     this.curQuestion=question;
-    localStorage.setItem("test",JSON.stringify(this.test))
+    console.log(question)
+
+    localStorage.setItem(KEY.test,JSON.stringify(this.test))
+
   }
 
   viewQuestionByIndex(index: number){
     this.viewQuestion(this.questions?.find(x => x.index == index)!)
     console.log(this.questions?.find(x => x.index == index)!)
+
   }
 
 
-  submit(questions: Question[]){
-
-
-    // 
-    // This works
-    this.questionService.submitQuiz(questions).subscribe(() => (this.questions?.push))
-    localStorage.removeItem("test")
-
+  submit(){
+    this.testService.submitTest(this.test)
   }
 
   checkwork(){
@@ -126,5 +113,11 @@ export class TestComponent implements OnInit {
     console.log(this.alert)
     this.alert=!this.alert
     console.log(this.alert)
+  }
+
+  countDurationTime(){
+    let date
+    this.durationTime= Date.now()
+    return 300
   }
 }

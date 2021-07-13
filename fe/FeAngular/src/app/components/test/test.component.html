@@ -3,7 +3,7 @@
     <div class="exam">
         <div class="test-name">
             <app-button
-                text="{{quiz.name}}"
+                text="Bài thi bằng lái xe B1"
                 color="{{navColor}}"
                 borderRadius="10px"
             ></app-button>
@@ -43,6 +43,7 @@
                     bgColor="{{alert ? warningColor : primaryColor}}" 
                     txColor="{{alert ? secondTxtColor : primeTxtColor}}"
                     (fiveMins)="fiveMin()"
+                    (durationTime)="countDurationTime()"
                     ></app-timer>
                 </div>
 
@@ -61,7 +62,7 @@
                     color="{{alert ? warningColor : primaryColor}}" 
                     text="Nộp bài" 
                     textColor="{{alert ? secondTxtColor : primeTxtColor}}"
-                    (btnClick)="submit(this.questions!)"
+                    (btnClick)="submit()"
                     ></app-button>
                 </div>
             </div>

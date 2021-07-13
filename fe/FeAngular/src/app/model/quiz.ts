@@ -1,6 +1,7 @@
-import { QuestionMapButtonComponent } from "../components/question-map-button/question-map-button.component";
+
 import { Question } from "./question";
 import { QuizType } from "./quiztype";
+import { Type } from "./type";
 
 export interface Quiz{
     id:number;

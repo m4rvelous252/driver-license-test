@@ -1,9 +1,6 @@
 package com.example.ifi_project.controller;
 
-import com.example.ifi_project.model.HistoryTest;
-import com.example.ifi_project.model.Quiz;
-import com.example.ifi_project.model.Test;
-import com.example.ifi_project.model.Views;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.service.HistoryTestService;
 import com.example.ifi_project.service.QuizService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -37,21 +34,10 @@ public class HistoryTestController {
         return historyTestService.getHistoryTestById(Id);
     }
 
-
-    @GetMapping(path="random/{quizId}")
-    @JsonView(Views.Public.class)
-    public Test getNewQuizById(@PathVariable("quizId") Long quizId) {
-        return historyTestService.getTestByQuiz(quizId);
+    @PostMapping(path="submitTest")
+    public HistoryTest submitTest(@RequestBody HistoryTest historyTest) {
+        return this.historyTestService.addNewTest(historyTest);
     }
-
-    @GetMapping(path="random/{quizId}/{userId}")
-    @JsonView(Views.Public.class)
-    public Test getNewQuizByIdWithUser(@PathVariable("quizId") Long quizId,@PathVariable("quizId") Long userId) {
-        Test test = historyTestService.getTestByQuiz(quizId);
-        test = historyTestService.saveTestWithid(test,userId);
-        return test;
-    }
-
 
 
 }

@@ -25,15 +25,25 @@ public class HistoryAnswer {
     private String text;
     private String img;
     private Boolean is_correct;
+    private Boolean is_select=false;
 
     @Column(name = "history_question_id", insertable = false, updatable = false)
     Long history_question_id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_question_id", insertable = true, updatable = true)
-    HistoryQuestion historyQuestion;
+    HistoryQuestion question;
 
-
-
+    @Override
+    public String toString() {
+        return "HistoryAnswer{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", img='" + img + '\'' +
+                ", is_correct=" + is_correct +
+                ", is_select=" + is_select +
+                ", history_question_id=" + history_question_id +
+                '}';
+    }
 }

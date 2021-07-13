@@ -17,11 +17,12 @@ const httpOptions = {
 export class QuestionService {
   questions: Question[]= [];
   private apiUrl = 'http://localhost:8080/api/question'
-  private answerUrl = "http://localhost:5000/answer"
+  // private answerUrl = "http://localhost:5000/answer"
 
   constructor(private http:HttpClient) { }
 
   getQuestions(): Observable<Question[]> {
+    console.log(this.http.get<Question[]>(this.apiUrl))
     return this.http.get<Question[]>(this.apiUrl)
 
   }
@@ -35,14 +36,14 @@ export class QuestionService {
 
 
   // This works
-  submitQuiz(answeredQuestion: Question[]): Observable<Question[]> {
-    console.log('submited')
-    return this.http.post<Question[]>(this.answerUrl, answeredQuestion, httpOptions);
+  // submitQuiz(answeredQuestion: Question[]): Observable<Question[]> {
+  //   console.log('submited')
+  //   return this.http.post<Question[]>(this.answerUrl, answeredQuestion, httpOptions);
     
-  }
+  // }
 
-  clearAnswer(){
-    return this.http.delete<Question[]>(this.answerUrl)
-  }
+  // clearAnswer(){
+  //   return this.http.delete<Question[]>(this.answerUrl)
+  // }
 
 }

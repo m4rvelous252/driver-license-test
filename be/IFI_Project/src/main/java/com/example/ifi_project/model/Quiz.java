@@ -44,6 +44,13 @@ public class Quiz {
     @ManyToOne(fetch = FetchType.EAGER)
     Category category;
 
-    @OneToMany(mappedBy = "type")
+    @OneToMany(mappedBy = "quiz")
     private List<QuizType> quizType = new ArrayList<QuizType>();
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "id=" + id +
+                '}';
+    }
 }

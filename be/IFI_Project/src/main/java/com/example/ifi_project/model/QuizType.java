@@ -36,7 +36,7 @@ public class QuizType implements Serializable {
 
     @ManyToOne
     @MapsId("id_type")
-    @JoinColumn(name="id_type")
+    @JoinColumn(name="id_type",insertable = true, updatable = true)
     private Type type;
 
     private int amount;

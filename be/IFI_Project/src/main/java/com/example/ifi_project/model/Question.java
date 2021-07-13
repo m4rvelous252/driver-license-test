@@ -3,10 +3,7 @@ package com.example.ifi_project.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -34,7 +31,9 @@ public class Question {
 
     private LocalDate delete_date;
 
-    private boolean dead_point;
+    private int dead_point;
+
+    private boolean pick_one = false;
 
     private  Boolean deleted = false;
 
@@ -51,6 +50,11 @@ public class Question {
     @JsonIgnoreProperties("question")
     List<Answer> answers;
 
-
-
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", answers=" + answers +
+                '}';
+    }
 }

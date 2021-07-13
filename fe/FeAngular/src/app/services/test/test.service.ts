@@ -5,6 +5,8 @@ import {Test} from '../../model/test';
 import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { User } from 'src/app/model/User';
+import { KEY } from 'src/app/model/constants';
+import { Result } from 'src/app/model/result';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,8 +22,9 @@ export class TestService {
   id_quiz?: string
   user!: User
 
-  private apiUrl ='http://localhost:8080/api/historytest'
+  private apiUrl ='http://localhost:8080/api/quiz'
 
+  private apiUrlTest ='http://localhost:8080/api/historytest/submitTest'
 
   constructor(private httpClient: HttpClient,private route: ActivatedRoute) { }
 
@@ -36,6 +39,15 @@ export class TestService {
       url = `${this.apiUrl}/random/${id_quiz}`
     }
     return this.httpClient.get<Test>(url);
+  }
+
+  submitTest(test: Test) {
+    localStorage.removeItem(KEY.test)
+    console.log(test)
+    this.httpClient.post<Result>(this.apiUrlTest,test).subscribe((result)=>(
+      localStorage.setItem(KEY.result,JSON.stringify(result)),
+      console.log(result)
+      ));
   }
 
 }

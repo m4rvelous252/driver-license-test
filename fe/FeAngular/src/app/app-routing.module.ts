@@ -14,7 +14,9 @@ import {AuthenticationService} from './services/authentication/authentication.se
 import {NotAuthenticationService} from './services/authentication/not-authentication.service'
 import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -25,11 +27,16 @@ const routes: Routes=[
   {path: 'about',component: AboutComponent,canActivate:[AuthenticationService]},
   
   {path:'test',component: TestComponent},
-  {path:'test/:id_quiz',component: TestComponent},
 
   {path:'type',component: TypesComponent},
-  {path:'category',component: CategoryComponent}
+  
+  {path:'type/1',component: TypeItemComponent},
 
+  {path:'category/1',component: CategoryItemComponent},
+
+  {path:'quiz/:id_quiz',component: QuizComponent},
+
+  {path:'result',component: ResultComponent},
 ];
 
 @NgModule({

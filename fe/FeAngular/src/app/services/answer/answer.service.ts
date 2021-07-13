@@ -18,16 +18,16 @@ export class AnswerService {
 
   constructor(private http:HttpClient) { }
 
-  addAnswer(selectAnswer: Answer): Observable<Answer> {
-    return this.http.post<Answer>(this.answerUrl, selectAnswer, httpOptions )
-  }
+  // addAnswer(selectAnswer: Answer): Observable<Answer> {
+  //   return this.http.post<Answer>(this.answerUrl, selectAnswer, httpOptions )
+  // }
 
-  removeAnswer(unselectAnswer: Answer): Observable<Answer> {
-    const url = `${this.answerUrl}/${unselectAnswer.id}`;
-    return this.http.delete<Answer>(url);
-  }
+  // removeAnswer(unselectAnswer: Answer): Observable<Answer> {
+  //   const url = `${this.answerUrl}/${unselectAnswer.id}`;
+  //   return this.http.delete<Answer>(url);
+  // }
 
-  getAnswer(): Observable<Answer[]> {
-    return this.http.get<Answer[]>(this.answerUrl);
-  }
+  // getAnswer(): Observable<Answer[]> {
+  //   return this.http.get<Answer[]>(this.answerUrl);
+  // }
 }

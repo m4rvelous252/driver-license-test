@@ -50,6 +50,6 @@ public class Type {
     List<Question> questions;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany(mappedBy = "type")
     private List<QuizType> quizType = new ArrayList<QuizType>();
 }

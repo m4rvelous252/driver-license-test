@@ -1,0 +1,25 @@
+<div class="container">
+    <div *ngIf="viewMode=='type'">
+        <div 
+        *ngFor="let type of category?.type">
+            <p>{{type.type_name}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="viewMode=='quiz'">
+        <div 
+        *ngFor="let quiz of category?.quiz">
+            <p>{{quiz.name}}</p>
+        </div>
+    </div>
+    <div class="modeToggle">
+        <app-button
+        text="Type"
+        (btnClick)="viewType()"
+        ></app-button>
+        <app-button
+        text="Quiz"
+        (btnClick)="viewQuiz()"
+        ></app-button>
+    </div>
+</div>
