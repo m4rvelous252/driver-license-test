@@ -15,6 +15,7 @@ import {NotAuthenticationService} from './services/authentication/not-authentica
 import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { CategoryComponent } from './components/category/category.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -30,7 +31,9 @@ const routes: Routes=[
   
   {path:'type/1',component: TypeItemComponent},
 
-  {path:'category/1',component: CategoryItemComponent}
+  {path:'category/1',component: CategoryItemComponent},
+
+  {path:'category',component: CategoryComponent}
 ];
 
 @NgModule({

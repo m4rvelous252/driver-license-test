@@ -3,7 +3,7 @@ import { Type } from 'src/app/model/Type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Question } from 'src/app/model/Question';
 import { TypeService } from 'src/app/services/type/type.service';
-import { STYLE } from 'src/app/model/style';
+import { STYLE } from 'src/app/model/constants';
 
 
 @Component({

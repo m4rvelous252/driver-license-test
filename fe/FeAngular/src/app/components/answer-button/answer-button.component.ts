@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Answer } from 'src/app/model/answer';
 
-import { STYLE } from 'src/app/model/style';
+import { STYLE } from 'src/app/model/constants';
 
 
 @Component({

@@ -4,7 +4,7 @@ import { AnswerService } from './../../services/answer/answer.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Question } from 'src/app/model/Question';
 import { UiService } from 'src/app/services/Ui/ui.service';
-import { STYLE } from 'src/app/model/style';
+import { STYLE } from 'src/app/model/constants';
 
 @Component({
   selector: 'app-question-item',

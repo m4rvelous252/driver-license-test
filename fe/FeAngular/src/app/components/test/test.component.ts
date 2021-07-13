@@ -3,7 +3,7 @@ import { Question } from 'src/app/model/Question';
 import { Answer } from '../../model/answer';
 import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question/question.service';
-import { STYLE } from 'src/app/model/style';
+import { STYLE } from 'src/app/model/constants';
 
 
 @Component({
