@@ -4,7 +4,7 @@ import {Observable,of} from 'rxjs';
 import {Test} from '../../model/test';
 import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
-import { User } from 'src/app/model/User';
+import { User } from 'src/app/model/user';
 import { KEY } from 'src/app/model/constants';
 import { Result } from 'src/app/model/result';
 

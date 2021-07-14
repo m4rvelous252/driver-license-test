@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 import { Subscription } from 'rxjs';
 
 @Component({

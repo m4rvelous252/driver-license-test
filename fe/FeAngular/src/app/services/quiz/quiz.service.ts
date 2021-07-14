@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/model/User';
+import { User } from 'src/app/model/user';
 import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';

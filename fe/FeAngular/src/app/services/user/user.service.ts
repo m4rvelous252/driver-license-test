@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of, Subject} from 'rxjs';
-import {User} from '../../model/User';
+import {User} from '../../model/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
