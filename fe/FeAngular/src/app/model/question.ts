@@ -1,10 +1,7 @@
 import { Answer } from "./answer";
+import { Type } from "./type";
 
 
-export interface Type {
-    id?: number;
-    type_name: string;
-}
 
 export interface Question {
     index: number;
