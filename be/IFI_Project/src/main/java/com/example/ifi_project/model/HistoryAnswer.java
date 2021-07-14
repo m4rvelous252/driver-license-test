@@ -25,12 +25,14 @@ public class HistoryAnswer {
     private String text;
     private String img;
     private Boolean is_correct;
+
     private Boolean is_select=false;
 
     @Column(name = "history_question_id", insertable = false, updatable = false)
     Long history_question_id;
 
     @JsonIgnore
+
     @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_question_id", insertable = true, updatable = true)
     HistoryQuestion question;

@@ -25,7 +25,9 @@ public class Answer {
 
     private String text;
     private String img;
+
     @JsonView(Views.Private.class)
+
     private Boolean is_correct;
     private LocalDate create_date;
     private LocalDate update_date;
@@ -38,6 +40,7 @@ public class Answer {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "question_id", insertable = true, updatable = true)
     Question question;
+
 
     @Override
     public String toString() {

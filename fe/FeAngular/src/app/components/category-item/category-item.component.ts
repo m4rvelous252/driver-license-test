@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/model/category';
+import { STYLE } from 'src/app/model/constants';
 import { CategoryService } from 'src/app/services/category/category.service';
 
 
@@ -10,9 +11,18 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class CategoryItemComponent implements OnInit {
 
+  primeTxtColor = STYLE.primeTxtColor
+  secondTxtColor = STYLE.secondTxtColor
+  primaryColor = STYLE.primeColor
+  selectColor = STYLE.secondColor
+  navColor = STYLE.navColor
+  warningColor = STYLE.warningColor
+
+  style = STYLE
+
   category?: Category
 
-  viewMode: string = "quiz"
+  viewMode: string = "type"
 
   constructor(private categoryService: CategoryService) { }
 
@@ -28,4 +38,7 @@ export class CategoryItemComponent implements OnInit {
     this.viewMode="quiz"
   }
 
+  viewDetails(){
+
+  }
 }

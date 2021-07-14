@@ -15,6 +15,7 @@ import {NotAuthenticationService} from './services/authentication/not-authentica
 import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { CategoryComponent } from './components/category/category.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { ResultComponent } from './components/result/result.component';
 
@@ -33,6 +34,8 @@ const routes: Routes=[
   {path:'type/1',component: TypeItemComponent},
 
   {path:'category/1',component: CategoryItemComponent},
+
+  {path:'category',component: CategoryComponent},
 
   {path:'quiz/:id_quiz',component: QuizComponent},
 

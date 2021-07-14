@@ -58,6 +58,7 @@ public class QuizController {
         quizService.restoreQuizById(quizId);
     }
 
+
     @JsonView(Views.Public.class)
     @GetMapping(path="random/{quizId}")
     public Test getNewQuizById(@PathVariable("quizId") Long quizId) {

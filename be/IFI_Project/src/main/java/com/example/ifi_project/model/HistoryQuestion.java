@@ -30,6 +30,7 @@ public class HistoryQuestion {
 
     private Boolean dead_point;
 
+
     private Boolean is_correct;
 
     private boolean pick_one = false;
@@ -44,6 +45,7 @@ public class HistoryQuestion {
 
     @JoinColumn(name = "history_test_id", insertable = true, updatable = true)
     @JsonIgnore
+
     @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     HistoryTest test;
 

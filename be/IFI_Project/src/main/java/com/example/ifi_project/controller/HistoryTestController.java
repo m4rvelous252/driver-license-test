@@ -1,6 +1,6 @@
 package com.example.ifi_project.controller;
 
-import com.example.ifi_project.model.*;
+
 import com.example.ifi_project.service.HistoryTestService;
 import com.example.ifi_project.service.QuizService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -33,6 +33,7 @@ public class HistoryTestController {
     public Optional<HistoryTest> getHistoryTestById(@PathVariable("Id") Long Id) {
         return historyTestService.getHistoryTestById(Id);
     }
+
 
     @PostMapping(path="submitTest")
     public HistoryTest submitTest(@RequestBody HistoryTest historyTest) {
