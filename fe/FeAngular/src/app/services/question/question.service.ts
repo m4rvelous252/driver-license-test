@@ -4,6 +4,7 @@ import { Question } from 'src/app/model/question';
 
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HOSTNAME } from 'src/app/model/constants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
 })
 export class QuestionService {
   questions: Question[]= [];
-  private apiUrl = 'http://localhost:8080/api/question'
+  private apiUrl = `${HOSTNAME.backend}/api/question`
   // private answerUrl = "http://localhost:5000/answer"
 
   constructor(private http:HttpClient) { }

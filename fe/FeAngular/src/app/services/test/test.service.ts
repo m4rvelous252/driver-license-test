@@ -3,9 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
 import {Test} from '../../model/test';
 import { Route } from '@angular/compiler/src/core';
-import { ActivatedRoute, Params, RouterModule } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterModule } from '@angular/router';
 import { User } from 'src/app/model/user';
-import { KEY } from 'src/app/model/constants';
+import { HOSTNAME, KEY } from 'src/app/model/constants';
 import { Result } from 'src/app/model/result';
 
 const httpOptions = {
@@ -22,11 +22,14 @@ export class TestService {
   id_quiz?: string
   user!: User
 
-  private apiUrl ='http://localhost:8080/api/quiz'
+  private apiUrl =`${HOSTNAME.backend}/api/quiz`
 
-  private apiUrlTest ='http://localhost:8080/api/historytest/submitTest'
+  private apiUrlTest =`${HOSTNAME.backend}/api/historytest/submitTest`
 
-  constructor(private httpClient: HttpClient,private route: ActivatedRoute) { }
+  constructor(private httpClient: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router,
+    ) { }
 
   getRandomQuestionByQuiz(id_quiz: string): Observable<Test>{
     let url;
@@ -45,8 +48,9 @@ export class TestService {
     localStorage.removeItem(KEY.test)
     console.log(test)
     this.httpClient.post<Result>(this.apiUrlTest,test).subscribe((result)=>(
+      localStorage.removeItem(KEY.result),
       localStorage.setItem(KEY.result,JSON.stringify(result)),
-      console.log(result)
+      this.router.navigate(['/result'])
       ));
   }
 

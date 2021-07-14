@@ -31,9 +31,9 @@ const routes: Routes=[
 
   {path:'type',component: TypesComponent},
   
-  {path:'type/1',component: TypeItemComponent},
+  {path:'type/:id_type',component: TypeItemComponent},
 
-  {path:'category/1',component: CategoryItemComponent},
+  {path:'category/:id_category',component: CategoryItemComponent},
 
   {path:'category',component: CategoryComponent},
 

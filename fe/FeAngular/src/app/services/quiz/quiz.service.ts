@@ -6,14 +6,14 @@ import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Test } from 'src/app/model/test';
 import { Quiz } from 'src/app/model/quiz';
+import { HOSTNAME } from 'src/app/model/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
 
-  private apiUrl ='http://localhost:8080/api/quiz'
-
+  private apiUrl =`${HOSTNAME.backend}/api/quiz`
   user!: User
 
   constructor(private httpClient: HttpClient,private route: ActivatedRoute) { }

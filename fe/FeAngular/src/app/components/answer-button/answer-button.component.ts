@@ -15,18 +15,27 @@ export class AnswerButtonComponent implements OnInit {
   @Input() pick_one?: boolean;
   @Output() onSelectAnswer: EventEmitter<Answer> = new EventEmitter();
   @Output() onCheck: EventEmitter<any> = new EventEmitter();
+
   public imgSelect: string = "https://centralresidences.vn/wp-content/uploads/2020/05/da%CC%82%CC%81u-tick-.png"
   public imgUnselect: string = "https://cdn.pixabay.com/photo/2014/05/21/19/14/the-question-mark-350168_1280.png"
   public primaryColor: string = STYLE.primeColor
   public selectColor: string = STYLE.secondColor
   public primeTxtColor: string = STYLE.primeTxtColor
   public selectTxtColor: string = STYLE.secondTxtColor
+  public unCorrectColor: string = STYLE.dangerColor
+
+  is_test!: boolean
 
 
   constructor() { 
   }
 
   ngOnInit(): void {
+    if(this.answer.is_correct==null){
+      this.is_test=true
+    }else{
+      this.is_test=false
+    }
   }
 
   toggleAnswer(){
@@ -54,5 +63,6 @@ export class AnswerButtonComponent implements OnInit {
   colorBlue() :string{
     return "blue"
   }
+
 
 }

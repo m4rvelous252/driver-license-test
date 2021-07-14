@@ -4,6 +4,7 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Question } from 'src/app/model/question';
 import { TypeService } from 'src/app/services/type/type.service';
 import { STYLE } from 'src/app/model/constants';
+import { ActivatedRoute,Params, Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { STYLE } from 'src/app/model/constants';
 export class TypeItemComponent implements OnInit {
 
 
-  type? : Type 
+  type? : Type
+  id_type!:string 
  
   primeTxtColor = STYLE.primeTxtColor
   secondTxtColor = STYLE.secondTxtColor
@@ -25,15 +27,20 @@ export class TypeItemComponent implements OnInit {
   bgColor = STYLE.bgColor
 
     
-  constructor(private typeService:TypeService) { }
+  constructor(private typeService:TypeService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.typeService.getTypeQuestions().subscribe((type)=>(this.type=type,console.log(this.type), this.addIndex()));
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id_type = params['id_type'];
+      }
+    );
+    this.typeService.getTypeQuestions(this.id_type).subscribe((type)=>(this.type=type,console.log(this.type), this.addIndex()));
   }
 
   addIndex(){
     var i = 1;
-    this.type?.questions.forEach(question => {
+    this.type?.questions.forEach((question: { index: number; }) => {
         question.index = i;
         i++;
         //question.is_done='blue';

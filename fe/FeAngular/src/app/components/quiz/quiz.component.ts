@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params, Router } from '@angular/router';
-import { KEY } from 'src/app/model/constants';
+import { KEY, STYLE } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 
@@ -10,6 +10,9 @@ import { QuizService } from 'src/app/services/quiz/quiz.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+
+  primeTxtColor = STYLE.primeTxtColor
+  primaryColor = STYLE.primeColor
 
   id_quiz!: string
   quiz!: Quiz

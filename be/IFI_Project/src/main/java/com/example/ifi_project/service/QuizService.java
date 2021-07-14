@@ -82,11 +82,11 @@ public class QuizService {
 
         }
         test.setQuiz(quiz);
-        test.setQuestions(randomQuestion(questions));
+        test.setQuestions(randomQuestionHideCorrectAnswer(questions));
         return test;
     }
 
-    public List<Question> randomQuestion(List<Question>questions){
+    public List<Question> randomQuestionHideCorrectAnswer(List<Question>questions){
         List<Question> reQuestions = new ArrayList<>();
         int sizeOfQuestions = questions.size();
         for(int i=0; i < sizeOfQuestions; i++) {
@@ -97,6 +97,7 @@ public class QuizService {
             int sizeOfAnswers = tempAnswers.size();
             for (int j = 0; j < sizeOfAnswers; j++) {
                 int indexA = random.nextInt(tempAnswers.size());
+                tempAnswers.get(indexA).setIs_correct(null);
                 answers.add(tempAnswers.get(indexA));
                 tempAnswers.remove(indexA);
             }

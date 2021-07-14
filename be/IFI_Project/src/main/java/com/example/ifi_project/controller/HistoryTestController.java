@@ -1,6 +1,8 @@
 package com.example.ifi_project.controller;
 
 
+import com.example.ifi_project.model.HistoryTest;
+import com.example.ifi_project.model.Views;
 import com.example.ifi_project.service.HistoryTestService;
 import com.example.ifi_project.service.QuizService;
 import com.fasterxml.jackson.annotation.JsonView;

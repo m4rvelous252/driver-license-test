@@ -8,6 +8,8 @@ import { Test } from 'src/app/model/test';
 import { Quiz } from 'src/app/model/quiz';
 import { DatePipe } from '@angular/common';
 import { TestService } from 'src/app/services/test/test.service';
+import { DateTime } from 'luxon';
+import { TimeService } from 'src/app/services/time/time.service';
 
 
 
@@ -24,9 +26,7 @@ export class TestComponent implements OnInit {
   curQuestion?:Question;
 
   test!: Test
-
   quiz!: Quiz
-
   durationTime!:number
 
 
@@ -36,6 +36,8 @@ export class TestComponent implements OnInit {
 
   alert: boolean = false;
 
+  is_submit: boolean = false;
+
   primeTxtColor = STYLE.primeTxtColor
   secondTxtColor = STYLE.secondTxtColor
   primaryColor = STYLE.primeColor
@@ -44,7 +46,10 @@ export class TestComponent implements OnInit {
   warningColor = STYLE.warningColor
 
 
-  constructor(private questionService: QuestionService, private testService: TestService) {
+  constructor(private questionService: QuestionService, 
+    private testService: TestService,
+    private timeService: TimeService,
+    ) {
    }
 
   ngOnInit(): void {
@@ -61,12 +66,12 @@ export class TestComponent implements OnInit {
       this.curQuestion = this.questions?.find(x => x.index == 1)
       console.log(this.questions)
       this.addIndex()
+      this.countDurationTime()
+      setInterval(()=>{this.checkEvent()}, 1000);
   }
 
   viewQuestion(question: Question){
     this.curQuestion=question;
-    console.log(question)
-
     localStorage.setItem(KEY.test,JSON.stringify(this.test))
 
   }
@@ -79,6 +84,7 @@ export class TestComponent implements OnInit {
 
 
   submit(){
+    this.is_submit=true;
     this.testService.submitTest(this.test)
   }
 
@@ -108,16 +114,22 @@ export class TestComponent implements OnInit {
     
   }
 
-
-  fiveMin(){
-    console.log(this.alert)
-    this.alert=!this.alert
-    console.log(this.alert)
+  countDurationTime(){
+    let time = this.test.timeStart+this.test.time-this.timeService.getCurSecond()
+    if(time<0){
+      time=0
+    }
+    this.durationTime = time
   }
 
-  countDurationTime(){
-    let date
-    this.durationTime= Date.now()
-    return 300
+  checkEvent(){
+    this.countDurationTime();
+    if(this.durationTime < this.quiz.time/3){
+      this.alert = !this.alert;
+    }
+    if(this.durationTime==0&&this.is_submit == false){
+      this.is_submit=true;
+      this.submit()
+    }
   }
 }

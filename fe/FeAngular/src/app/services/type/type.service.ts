@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
 import {Type} from '../../model/type';
+import { HOSTNAME } from 'src/app/model/constants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,10 +15,7 @@ const httpOptions = {
 })
 export class TypeService {
 
-  private apiUrl ='http://localhost:8080/api/type'
-
-
-  private apiTypeUrl = 'http://localhost:8080/api/type/1'
+  private apiUrl =`${HOSTNAME.backend}/api/type`
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,7 +24,9 @@ export class TypeService {
   }
 
 
-  getTypeQuestions(): Observable<Type>{
-    return this.httpClient.get<Type>(this.apiTypeUrl)
+  getTypeQuestions(id_type:string): Observable<Type>{
+
+    let url = `${this.apiUrl}/${id_type}`
+    return this.httpClient.get<Type>(url)
   }
 }

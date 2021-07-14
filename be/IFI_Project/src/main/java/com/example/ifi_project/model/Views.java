@@ -9,7 +9,7 @@ public class Views {
 
     }
 
-    public static class Private extends Internal{
+    public static class Hide extends Public{
 
     }
 }

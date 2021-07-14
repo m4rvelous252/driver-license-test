@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,Params, Router } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { STYLE } from 'src/app/model/constants';
 import { CategoryService } from 'src/app/services/category/category.service';
@@ -22,12 +23,19 @@ export class CategoryItemComponent implements OnInit {
 
   category?: Category
 
+  id_category!:string
+
   viewMode: string = "type"
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategory().subscribe((category) => this.category=category)
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id_category = params['id_category'];
+      }
+    );
+    this.categoryService.getCategory(this.id_category).subscribe((category) => this.category=category)
   }
 
   viewType(){

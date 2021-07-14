@@ -16,11 +16,17 @@ export const STYLE = {
     primeTxtColor: "aliceblue",
     secondTxtColor: "black",
     bgColor:"#c3c3c3",
+    dangerColor:"red"
 }
 
 export const KEY={
     test:"test",
     user:"user",
     result:"result",
+}
+
+export const HOSTNAME={
+    backend: "http://localhost:8080",
+    frontend: "http://localhost:4200",
 }
 
