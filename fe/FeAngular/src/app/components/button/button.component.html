@@ -15,8 +15,11 @@ type="button"
 class="btn"
 >
 {{text}}
-<div *ngIf="img!=null && img!=''">
-    <img  src="{{img}}" alt="">
+<div *ngIf="img!=null && img!=''" class="answer">
+    <img  src={{img}} alt="">
+</div>
+<div *ngIf="icon!=null && icon!=''" >
+    <img  src={{icon}} alt="">
 </div>
 
 </button>

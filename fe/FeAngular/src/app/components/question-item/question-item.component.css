@@ -11,3 +11,8 @@ h3{
     color: black;
 }
 
+.question{
+    border-radius: 15px;
+    padding: 20px 10px;
+}
+

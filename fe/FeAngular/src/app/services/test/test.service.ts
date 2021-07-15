@@ -24,6 +24,13 @@ export class TestService {
 
   private apiUrlQuiz =`${HOSTNAME.backend}/api/quiz`
 
+  private apiUrlTest =`${HOSTNAME.backend}/api/historytest/submitTest`
+
+  constructor(private httpClient: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router,
+    ) { }
+
   private apiUrl =`${HOSTNAME.backend}/api/historytest`
 
   constructor(private httpClient: HttpClient,
@@ -62,6 +69,12 @@ export class TestService {
         localStorage.removeItem(KEY.result),
         localStorage.setItem(KEY.result,JSON.stringify(result)),
         this.router.navigate(['/result'])
+    this.httpClient.post<Result>(this.apiUrlTest,test).subscribe((result)=>(
+
+      localStorage.removeItem(KEY.result),
+      localStorage.setItem(KEY.result,JSON.stringify(result)),
+      this.router.navigate(['/result'])
+
       ));
   }
 

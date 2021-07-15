@@ -15,6 +15,8 @@ export class QuestionItemComponent implements OnInit {
   pickedAnswers?: Answer[];
   @Input()
   question?: Question;
+  @Input()
+  bgColor?: string;
   // @Input()
   // answers?: Answer[];
 

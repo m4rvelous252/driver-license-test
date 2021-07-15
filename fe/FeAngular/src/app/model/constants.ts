@@ -16,7 +16,7 @@ export const STYLE = {
     primeTxtColor: "aliceblue",
     secondTxtColor: "black",
     bgColor:"#c3c3c3",
-    dangerColor:"red"
+    dangerColor:"#FE5F55"
 }
 
 export const KEY={

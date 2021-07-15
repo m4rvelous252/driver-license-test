@@ -26,6 +26,7 @@ export class TestComponent implements OnInit {
   curQuestion?:Question;
 
   test!: Test
+  
   quiz!: Quiz
   durationTime!:number
 
@@ -44,7 +45,6 @@ export class TestComponent implements OnInit {
   selectColor = STYLE.secondColor
   navColor = STYLE.navColor
   warningColor = STYLE.warningColor
-
 
   constructor(private questionService: QuestionService, 
     private testService: TestService,
@@ -120,6 +120,17 @@ export class TestComponent implements OnInit {
       time=0
     }
     this.durationTime = time
+  }
+
+  checkEvent(){
+    this.countDurationTime();
+    if(this.durationTime < this.quiz.time/3){
+      this.alert = !this.alert;
+    }
+    if(this.durationTime==0&&this.is_submit == false){
+      this.is_submit=true;
+      this.submit()
+    }
   }
 
   checkEvent(){

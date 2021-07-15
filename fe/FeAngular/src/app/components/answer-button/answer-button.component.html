@@ -3,7 +3,7 @@
 <div *ngIf="is_test">
     <app-button class="ticker"
     color = "{{answer.is_select ? selectColor : primaryColor}}"
-    img="{{answer.is_select ? imgSelect : imgUnselect}}"
+    icon="{{answer.is_select ? imgSelect : imgUnselect}}"
     borderRadius="{{pick_one ? '20px':'5px'}}"
     widthPer="43px"
     (btnClick)="OnSelect(answer)"
@@ -13,13 +13,14 @@
     text="{{answer?.text}}"
     textColor= "{{answer.is_select ? selectTxtColor : primeTxtColor}}"
     class="answer-text"
-    widthPer="100%"
+    widthPer="{{answer.img==null ? '100%' : '25%'}}"
     textAlign="start"
     borderRadius="13px"
     (btnClick)="OnSelect(answer)"
     img={{answer.img}}
     >
     </app-button>
+    
 </div>
 
 <div *ngIf="!is_test">
@@ -34,7 +35,7 @@
     text="{{answer?.text}}"
     textColor= "{{answer.is_select ? selectTxtColor : primeTxtColor}}"
     class="answer-text"
-    widthPer="100%"
+    widthPer="{{answer.img==null ? '100%' : '25%'}}"
     textAlign="start"
     borderRadius="13px"
     img={{answer.img}}

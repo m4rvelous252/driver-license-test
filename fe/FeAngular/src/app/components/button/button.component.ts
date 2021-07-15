@@ -19,7 +19,7 @@ export class ButtonComponent implements OnInit {
   @Input() img!: string;
   @Input() fontSize!: string
   @Input() height!: string
-  @Input() heightImg!: string
+  @Input() icon!: string
  
 
   @Output() btnClick = new EventEmitter();

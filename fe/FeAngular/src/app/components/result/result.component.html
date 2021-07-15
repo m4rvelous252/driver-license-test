@@ -1,17 +1,37 @@
 <div class=" main">
     <div 
+<<<<<<< HEAD
+    class="container details"
+    >
+    <h3>{{result?.name}}</h3>
+    <p>Số câu hỏi: {{result?.questions?.length}}</p>
+    <p>Điểm: {{result?.mark}}</p>
+    </div>
+
+    <div 
+    class="container questions"
+    
+    >
+        <div class="container" *ngFor="let question of result?.questions">
+            <app-question-item
+            bgColor="{{question.is_correct ? '#B6E2BA':'#FE8D85'}}"
+=======
     class="container questions"
     
     >
         <div class="container">
             <app-question-item
             *ngFor="let question of result?.questions"
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
             [question]="question"
             >
             </app-question-item>
         </div>
     </div>
 
+<<<<<<< HEAD
+
+=======
     <div 
     class="container details"
     >
@@ -19,4 +39,5 @@
     <p>Số câu hỏi: {{result?.questions?.length}}</p>
     <p>Điểm: {{result?.mark}}</p>
     </div>
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 </div>
