@@ -22,9 +22,9 @@ export class TestService {
   id_quiz?: string
   user!: User
 
-  private apiUrl =`${HOSTNAME.backend}/api/quiz`
+  private apiUrlQuiz =`${HOSTNAME.backend}/api/quiz`
 
-  private apiUrlTest =`${HOSTNAME.backend}/api/historytest/submitTest`
+  private apiUrl =`${HOSTNAME.backend}/api/historytest`
 
   constructor(private httpClient: HttpClient,
     private route: ActivatedRoute,
@@ -33,24 +33,35 @@ export class TestService {
 
   getRandomQuestionByQuiz(id_quiz: string): Observable<Test>{
     let url;
-    if(localStorage.getItem('user')!=null){
-      const userJson = localStorage.getItem('user');
-      this.user = userJson !== null ? JSON.parse(userJson) : null;
-      url = `${this.apiUrl}/random/${id_quiz}/${this.user.id}`
-      console.log(url)
-    }else{
-      url = `${this.apiUrl}/random/${id_quiz}`
-    }
+    url = `${this.apiUrlQuiz}/random/${id_quiz}`
     return this.httpClient.get<Test>(url);
   }
 
   submitTest(test: Test) {
+    let url=`${this.apiUrl}/submitTest`
     localStorage.removeItem(KEY.test)
     console.log(test)
-    this.httpClient.post<Result>(this.apiUrlTest,test).subscribe((result)=>(
+    this.httpClient.post<Result>(url,test).subscribe((result)=>(
       localStorage.removeItem(KEY.result),
       localStorage.setItem(KEY.result,JSON.stringify(result)),
       this.router.navigate(['/result'])
+      ));
+  }
+
+  getHistoryTestOfUser():Observable<Result[]>{
+    const userJson = localStorage.getItem('user');
+    this.user = userJson !== null ? JSON.parse(userJson) : null;
+    let url=`${this.apiUrl}/user/${this.user.id}`
+    return this.httpClient.get<Result[]>(url);
+  }
+
+  getHistoryTestById(id_test: string){
+    
+      let url=`${this.apiUrl}/${id_test}`
+      return this.httpClient.get<Result>(url).subscribe((result)=>(
+        localStorage.removeItem(KEY.result),
+        localStorage.setItem(KEY.result,JSON.stringify(result)),
+        this.router.navigate(['/result'])
       ));
   }
 

@@ -5,6 +5,7 @@ import com.example.ifi_project.repository.AnswerRepository;
 import com.example.ifi_project.repository.QuizRepository;
 import com.example.ifi_project.repository.HistoryTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class HistoryTestService {
         return historytestRepository.findById(id);
     }
 
+    public List<HistoryTest> getHistoryTestByIdUser(Long idUser){
+        return historytestRepository.findByIdUser(idUser,Sort.by(Sort.Direction.DESC, "create_date"));
+    }
+
     public HistoryTest addNewTest(HistoryTest historyTest) {
         int mark = 0;
         for (HistoryQuestion question: historyTest.getQuestions()) {
@@ -57,5 +62,7 @@ public class HistoryTestService {
         historytestRepository.save(historyTest);
         return historyTest;
     }
+
+
 
 }

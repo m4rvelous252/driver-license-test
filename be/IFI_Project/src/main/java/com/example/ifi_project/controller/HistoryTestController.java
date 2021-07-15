@@ -42,5 +42,11 @@ public class HistoryTestController {
         return this.historyTestService.addNewTest(historyTest);
     }
 
+    @GetMapping(path="/user/{IdUser}")
+    @JsonView(Views.Public.class)
+    public List<HistoryTest> getHistoryTestByIdUser(@PathVariable("IdUser") Long IdUser) {
+        return historyTestService.getHistoryTestByIdUser(IdUser);
+    }
+
 
 }

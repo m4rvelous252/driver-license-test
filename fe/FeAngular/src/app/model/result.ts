@@ -12,5 +12,6 @@ export interface Result{
     timeStart:number;
     name:string;
     time:number;
+    max:number;
     questions: Question[];
 }

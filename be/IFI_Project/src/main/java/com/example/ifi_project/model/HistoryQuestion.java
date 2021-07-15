@@ -45,7 +45,6 @@ public class HistoryQuestion {
 
     @JoinColumn(name = "history_test_id", insertable = true, updatable = true)
     @JsonIgnore
-
     @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     HistoryTest test;
 
