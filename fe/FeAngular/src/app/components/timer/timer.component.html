@@ -10,8 +10,7 @@
         [ngStyle]="{
             'color': txColor
         }"
-        [config]="{ leftTime: 310, format: 'm:ss', notify: [ 300 ]}"
-        (event)="onFiveMin($event)"
+        [config]="{ leftTime: durationTime, format: 'm:ss'}"
     ></countdown>
 </div>
 

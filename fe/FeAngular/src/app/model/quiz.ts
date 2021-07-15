@@ -1,23 +1,18 @@
 
-import { Question } from "./Question";
-import { Type } from "./Type";
-
-export interface QuizType {
-    id: string
-    id_quiz: number
-    id_type: number
-    type: Type
-    amount: number
-}
+import { Question } from "./question";
+import { QuizType } from "./quiztype";
+import { Type } from "./type";
 
 export interface Quiz{
+    id:number;
+    create_date: Date,
+    update_date: Date,
+    delete_date: Date,
+    deleted: boolean,
+    name:string;
+    time:number;
+    id_category:number;
     questions: Question[];
-    time: string
-    id: string
-    create_date: Date
-    update_date: Date
-    delete_date: Date
-    name: string
-    id_category: number
-    quizType: QuizType
+    quizType: QuizType[];
+
 }

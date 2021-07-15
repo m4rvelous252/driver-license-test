@@ -42,7 +42,7 @@
                     <app-timer
                     bgColor="{{alert ? warningColor : primaryColor}}" 
                     txColor="{{alert ? secondTxtColor : primeTxtColor}}"
-                    (fiveMins)="fiveMin()"
+                    durationTime= {{durationTime}}
                     ></app-timer>
                 </div>
 
@@ -61,7 +61,7 @@
                     color="{{alert ? warningColor : primaryColor}}" 
                     text="Nộp bài" 
                     textColor="{{alert ? secondTxtColor : primeTxtColor}}"
-                    (btnClick)="submit(this.questions!)"
+                    (btnClick)="submit()"
                     ></app-button>
                 </div>
             </div>

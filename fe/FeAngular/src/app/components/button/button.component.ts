@@ -19,6 +19,7 @@ export class ButtonComponent implements OnInit {
   @Input() img!: string;
   @Input() fontSize!: string
   @Input() height!: string
+  @Input() icon!: string
  
 
   @Output() btnClick = new EventEmitter();
@@ -26,6 +27,7 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.img)
   }
 
   onClick(){

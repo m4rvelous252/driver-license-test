@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HOSTNAME } from 'src/app/model/constants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,8 +17,8 @@ const httpOptions = {
 })
 export class QuestionService {
   questions: Question[]= [];
-  private apiUrl = 'http://localhost:8080/api/question'
-  private answerUrl = "http://localhost:5000/answer"
+  private apiUrl = `${HOSTNAME.backend}/api/question`
+  // private answerUrl = "http://localhost:5000/answer"
 
   constructor(private http:HttpClient) { }
 
@@ -36,14 +37,14 @@ export class QuestionService {
 
 
   // This works
-  submitQuiz(answeredQuestion: Question[]): Observable<Question[]> {
-    console.log('submited')
-    return this.http.post<Question[]>(this.answerUrl, answeredQuestion, httpOptions);
+  // submitQuiz(answeredQuestion: Question[]): Observable<Question[]> {
+  //   console.log('submited')
+  //   return this.http.post<Question[]>(this.answerUrl, answeredQuestion, httpOptions);
     
-  }
+  // }
 
-  clearAnswer(){
-    return this.http.delete<Question[]>(this.answerUrl)
-  }
+  // clearAnswer(){
+  //   return this.http.delete<Question[]>(this.answerUrl)
+  // }
 
 }

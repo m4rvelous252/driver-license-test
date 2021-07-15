@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of, Subject} from 'rxjs';
-import {User} from '../../model/User';
+import {User} from '../../model/user';
+import { HOSTNAME } from 'src/app/model/constants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,8 +16,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private apiUrl ='http://localhost:8080/api/user'
-
+  private apiUrl =`${HOSTNAME.backend}/api/user`
   private subject = new Subject<any>();
 
   constructor(private httpClient: HttpClient) { }

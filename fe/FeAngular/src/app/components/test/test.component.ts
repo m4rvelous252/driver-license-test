@@ -1,9 +1,16 @@
 
-import { Question } from 'src/app/model/Question';
+import { Question } from 'src/app/model/question';
 import { Answer } from '../../model/answer';
 import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question/question.service';
-import { STYLE } from 'src/app/model/constants';
+import { STYLE,KEY } from 'src/app/model/constants';
+import { Test } from 'src/app/model/test';
+import { Quiz } from 'src/app/model/quiz';
+import { DatePipe } from '@angular/common';
+import { TestService } from 'src/app/services/test/test.service';
+import { DateTime } from 'luxon';
+import { TimeService } from 'src/app/services/time/time.service';
+
 
 
 @Component({
@@ -18,12 +25,18 @@ export class TestComponent implements OnInit {
 
   curQuestion?:Question;
 
+  test!: Test
+  quiz!: Quiz
+  durationTime!:number
+
 
   quizTime?: Date
 
   pageCtn?: number;
 
   alert: boolean = false;
+
+  is_submit: boolean = false;
 
   primeTxtColor = STYLE.primeTxtColor
   secondTxtColor = STYLE.secondTxtColor
@@ -33,27 +46,33 @@ export class TestComponent implements OnInit {
   warningColor = STYLE.warningColor
 
 
-  constructor(private questionService: QuestionService) {
+  constructor(private questionService: QuestionService, 
+    private testService: TestService,
+    private timeService: TimeService,
+    ) {
    }
 
   ngOnInit(): void {
-
-    if(localStorage.getItem("listq")!=null){
-      this.questions = JSON.parse(localStorage.getItem("listq")!)
+      this.test = JSON.parse(localStorage.getItem(KEY.test)!)
+      this.quiz=this.test.quiz
+      this.questions=this.test.questions
+      this.test.time = this.quiz.time;
+      this.test.name = this.quiz.name;
+      if(localStorage.getItem(KEY.user)){
+        const userJson = localStorage.getItem(KEY.user);
+        let user = userJson !== null ? JSON.parse(userJson) : null;
+        this.test.id_user = user.id;
+      }
       this.curQuestion = this.questions?.find(x => x.index == 1)
-    }else{
-      this.questionService.getQuestions().subscribe((quesitons) => (this.questions = quesitons,this.addIndex()));
-    }
-    
-    console.log(this.questions)
-    console.log("hello")
+      console.log(this.questions)
+      this.addIndex()
+      this.countDurationTime()
+      setInterval(()=>{this.checkEvent()}, 1000);
   }
 
   viewQuestion(question: Question){
     this.curQuestion=question;
-    console.log(question)
-
-    localStorage.setItem("listq",JSON.stringify(this.questions))
+    localStorage.setItem(KEY.test,JSON.stringify(this.test))
 
   }
 
@@ -64,14 +83,9 @@ export class TestComponent implements OnInit {
   }
 
 
-  submit(questions: Question[]){
-
-
-    // 
-    // This works
-    this.questionService.submitQuiz(questions).subscribe(() => (this.questions?.push))
-    localStorage.removeItem("listq")
-
+  submit(){
+    this.is_submit=true;
+    this.testService.submitTest(this.test)
   }
 
   checkwork(){
@@ -100,10 +114,22 @@ export class TestComponent implements OnInit {
     
   }
 
+  countDurationTime(){
+    let time = this.test.timeStart+this.test.time-this.timeService.getCurSecond()
+    if(time<0){
+      time=0
+    }
+    this.durationTime = time
+  }
 
-  fiveMin(){
-    console.log(this.alert)
-    this.alert=!this.alert
-    console.log(this.alert)
+  checkEvent(){
+    this.countDurationTime();
+    if(this.durationTime < this.quiz.time/3){
+      this.alert = !this.alert;
+    }
+    if(this.durationTime==0&&this.is_submit == false){
+      this.is_submit=true;
+      this.submit()
+    }
   }
 }

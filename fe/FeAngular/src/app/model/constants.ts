@@ -15,6 +15,18 @@ export const STYLE = {
     warningColor: "#FFC145",
     primeTxtColor: "aliceblue",
     secondTxtColor: "black",
-    bgColor:"#c3c3c3"
+    bgColor:"#c3c3c3",
+    dangerColor:"#FE5F55"
+}
+
+export const KEY={
+    test:"test",
+    user:"user",
+    result:"result",
+}
+
+export const HOSTNAME={
+    backend: "http://localhost:8080",
+    frontend: "http://localhost:4200",
 }
 

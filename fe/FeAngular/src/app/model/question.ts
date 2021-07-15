@@ -1,5 +1,5 @@
 import { Answer } from "./answer";
-import { Type } from "./Type";
+import { Type } from "./type";
 
 
 

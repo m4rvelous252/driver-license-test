@@ -3,7 +3,7 @@
         <div *ngIf="viewMode=='type'" class="content-btn">
             <div 
             *ngFor="let type of category?.type">
-                <a href="http://localhost:4200/type/{{type.id}}">
+                <a href="type/{{type.id}}">
                     <app-button
                     color="{{primaryColor}}"
                     textColor="{{primeTxtColor}}"
@@ -18,7 +18,7 @@
         <div *ngIf="viewMode=='quiz'" class="content-btn">
             <div 
             *ngFor="let quiz of category?.quiz">
-                <a href="">
+                <a href="quiz/{{quiz.id}}">
                     <app-button
                     color="{{primaryColor}}"
                     textColor="{{primeTxtColor}}"

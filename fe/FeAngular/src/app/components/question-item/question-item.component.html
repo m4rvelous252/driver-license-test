@@ -1,4 +1,8 @@
-<div class="question" [ngStyle]="{'display': display}">
+<div class="container question" 
+    [ngStyle]="{
+        'display': display,
+        'background-color': bgColor
+    }">
     <h3>{{question?.index}}. {{question?.text}}</h3>
     <!-- <p *ngFor="let answer of question?.answers">{{answer.text}}</p> -->
 

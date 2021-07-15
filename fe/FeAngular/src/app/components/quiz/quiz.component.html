@@ -1,0 +1,15 @@
+
+<div>
+    <div *ngFor="let quizType of quiz?.quizType">
+        <a href="type/{{quizType.type.id}}">
+            <app-button
+            color="{{primaryColor}}"
+            textColor="{{primeTxtColor}}"
+            text="{{quizType.type.type_name}}"
+            widthPer="100px"
+            >
+            </app-button>
+        </a>
+    </div>
+</div>
+<button (click)="startQuiz()">Start quiz</button>
