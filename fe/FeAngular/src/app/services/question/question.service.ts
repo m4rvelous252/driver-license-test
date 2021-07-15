@@ -17,7 +17,11 @@ const httpOptions = {
 })
 export class QuestionService {
   questions: Question[]= [];
+<<<<<<< HEAD
   private apiUrl = `${HOSTNAME.backend}/api/question`
+=======
+  private apiUrl = 'http://localhost:8080/api/question'
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
   // private answerUrl = "http://localhost:5000/answer"
 
   constructor(private http:HttpClient) { }

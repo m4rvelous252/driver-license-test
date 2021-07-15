@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
 import {Type} from '../../model/type';
+<<<<<<< HEAD
 import { HOSTNAME } from 'src/app/model/constants';
+=======
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 
 const httpOptions = {
   headers: new HttpHeaders({

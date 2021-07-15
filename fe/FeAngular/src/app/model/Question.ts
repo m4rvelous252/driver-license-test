@@ -1,8 +1,4 @@
 import { Answer } from "./answer";
-<<<<<<< HEAD
-import { Type } from "./type";
-=======
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 
 
 export interface Type {

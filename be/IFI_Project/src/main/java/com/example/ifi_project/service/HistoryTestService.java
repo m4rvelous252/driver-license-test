@@ -1,12 +1,12 @@
 package com.example.ifi_project.service;
 
 import com.example.ifi_project.model.*;
+import com.example.ifi_project.repository.AnswerRepository;
 import com.example.ifi_project.repository.QuizRepository;
 import com.example.ifi_project.repository.HistoryTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -15,13 +15,15 @@ import java.util.Random;
 public class HistoryTestService {
     private final QuizRepository quizRepository;
     private final HistoryTestRepository historytestRepository;
+    private final AnswerRepository answerRepository;
 
     private Random random = new Random();
 
     @Autowired
-    public HistoryTestService(QuizRepository quizRepository, HistoryTestRepository historyTestRepository) {
+    public HistoryTestService(QuizRepository quizRepository, HistoryTestRepository historyTestRepository, AnswerRepository answerRepository) {
         this.quizRepository = quizRepository;
         this.historytestRepository = historyTestRepository;
+        this.answerRepository = answerRepository;
     }
 
     public List<HistoryTest> getHistoryTest(){
@@ -32,41 +34,28 @@ public class HistoryTestService {
         return historytestRepository.findById(id);
     }
 
-    public void addNewTest(HistoryTest historyTest) {
-
-    }
-
-    public Test getTestByQuiz(Long id){
-        Test test = new Test();
-        List<Question> questions = new ArrayList<>();
-        Quiz quiz = quizRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException(" id: " + id + "does not exisits"));
-        //Get Random question in type of quiz
-        for (QuizType quizType:quiz.getQuizType()) {
-            List<Question> tempQuestions = new ArrayList(quizType.getType().getQuestions());
-            int amount = quizType.getAmount();
-            //Get Rabdom answer in question on type
-            for (int i=0 ;i<amount;i++){
-                List<Answer> answers = new ArrayList<>();
-                int index = random.nextInt(tempQuestions.size());
-                List<Answer> tempAnswers = tempQuestions.get(index).getAnswers();
-                int sizeOfAnswers = tempAnswers.size();
-                for (int j=0;j<sizeOfAnswers;j++){
-                    int indexA = random.nextInt(tempAnswers.size());
-                    answers.add(tempAnswers.get(indexA));
-                    tempAnswers.remove(indexA);
+    public HistoryTest addNewTest(HistoryTest historyTest) {
+        int mark = 0;
+        for (HistoryQuestion question: historyTest.getQuestions()) {
+            Boolean is_correct = true;
+            question.setId(null);
+            for (HistoryAnswer answer:question.getAnswers()) {
+                Answer ans = answerRepository.findById(answer.getId())
+                        .orElseThrow(() -> new IllegalStateException(" id: does not exisits"));
+                answer.setIs_correct(ans.getIs_correct());
+                if(answer.getIs_correct()!=answer.getIs_select()){
+                    is_correct=false;
                 }
-                Question question = tempQuestions.get(index);
-                question.setAnswers(answers);
-                questions.add(question);
-                tempQuestions.remove(index);
+                answer.setId(null);
             }
-
+            question.setIs_correct(is_correct);
+            if(is_correct){
+                mark++;
+            }
         }
-
-        test.setQuiz(quiz);
-        test.setQuestions(questions);
-        return test;
+        historyTest.setMark(mark);
+        historytestRepository.save(historyTest);
+        return historyTest;
     }
 
 }

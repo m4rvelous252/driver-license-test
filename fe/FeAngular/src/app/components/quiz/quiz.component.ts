@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params, Router } from '@angular/router';
+<<<<<<< HEAD
 import { KEY, STYLE } from 'src/app/model/constants';
+=======
+import { KEY } from 'src/app/model/constants';
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 import { Quiz } from 'src/app/model/quiz';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 
@@ -11,9 +15,12 @@ import { QuizService } from 'src/app/services/quiz/quiz.service';
 })
 export class QuizComponent implements OnInit {
 
+<<<<<<< HEAD
   primeTxtColor = STYLE.primeTxtColor
   primaryColor = STYLE.primeColor
 
+=======
+>>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
   id_quiz!: string
   quiz!: Quiz
 

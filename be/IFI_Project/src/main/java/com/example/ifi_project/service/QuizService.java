@@ -60,4 +60,51 @@ public class QuizService {
         quizRepository.save(quiz);
     }
 
+    public Test getTestByQuiz(Long id){
+        Test test = new Test();
+        List<Question> questions = new ArrayList<>();
+        Quiz quiz = quizRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(" id: " + id + "does not exisits"));
+        //Get Random question in type of quiz
+        for (QuizType quizType:quiz.getQuizType()) {
+            List<Question> tempQuestions = new ArrayList(quizType.getType().getQuestions());
+            int amount = quizType.getAmount();
+            if(amount > quizType.getType().getQuestions().size()){
+                amount = quizType.getType().getQuestions().size();
+            }
+            //Get Rabdom answer in question on type
+            for (int i=0 ;i<amount;i++){
+                int index = random.nextInt(tempQuestions.size());
+                Question question = tempQuestions.get(index);
+                questions.add(question);
+                tempQuestions.remove(index);
+            }
+
+        }
+        test.setQuiz(quiz);
+        test.setQuestions(randomQuestion(questions));
+        return test;
+    }
+
+    public List<Question> randomQuestion(List<Question>questions){
+        List<Question> reQuestions = new ArrayList<>();
+        int sizeOfQuestions = questions.size();
+        for(int i=0; i < sizeOfQuestions; i++) {
+            int index = random.nextInt(questions.size());
+            Question question = questions.get(index);
+            List<Answer> answers = new ArrayList<>();
+            List<Answer> tempAnswers = question.getAnswers();
+            int sizeOfAnswers = tempAnswers.size();
+            for (int j = 0; j < sizeOfAnswers; j++) {
+                int indexA = random.nextInt(tempAnswers.size());
+                answers.add(tempAnswers.get(indexA));
+                tempAnswers.remove(indexA);
+            }
+            question.setAnswers(answers);
+            reQuestions.add(question);
+            questions.remove(index);
+        }
+        return reQuestions;
+    }
+
 }
