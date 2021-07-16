@@ -18,7 +18,7 @@ export class TypesComponent implements OnInit {
 
   types: Type[] = [];
 
-  constructor(private typeService:TypeService) {  }
+  constructor(private typeService :TypeService) {  }
 
   ngOnInit(): void {
     this.typeService.getTypes().subscribe((types)=>(this.types=types,console.log(this.types)));

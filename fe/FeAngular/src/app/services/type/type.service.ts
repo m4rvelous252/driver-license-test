@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
 import {Type} from '../../model/type';
 import { HOSTNAME } from 'src/app/model/constants';
-=======
 
 const httpOptions = {
   headers: new HttpHeaders({

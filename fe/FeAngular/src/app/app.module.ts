@@ -55,8 +55,6 @@ import { RecordTestComponent } from './components/record-test/record-test.compon
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    TypesComponent,
-    TypeItemComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -74,6 +72,8 @@ import { RecordTestComponent } from './components/record-test/record-test.compon
     QuizComponent,
     ResultComponent,
     RecordTestComponent,
+    TypesComponent,
+    TypeItemComponent,
   ],
   imports: [
     BrowserModule,

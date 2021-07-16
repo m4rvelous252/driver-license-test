@@ -33,11 +33,6 @@ export class TestService {
 
   private apiUrl =`${HOSTNAME.backend}/api/historytest`
 
-  constructor(private httpClient: HttpClient,
-    private route: ActivatedRoute,
-    private router: Router,
-    ) { }
-
   getRandomQuestionByQuiz(id_quiz: string): Observable<Test>{
     let url;
     url = `${this.apiUrlQuiz}/random/${id_quiz}`
@@ -63,19 +58,12 @@ export class TestService {
   }
 
   getHistoryTestById(id_test: string){
-    
       let url=`${this.apiUrl}/${id_test}`
       return this.httpClient.get<Result>(url).subscribe((result)=>(
         localStorage.removeItem(KEY.result),
         localStorage.setItem(KEY.result,JSON.stringify(result)),
         this.router.navigate(['/result'])
-    this.httpClient.post<Result>(this.apiUrlTest,test).subscribe((result)=>(
-
-      localStorage.removeItem(KEY.result),
-      localStorage.setItem(KEY.result,JSON.stringify(result)),
-      this.router.navigate(['/result'])
-
-      ));
+        ));
   }
 
 }
