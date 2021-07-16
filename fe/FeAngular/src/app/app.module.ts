@@ -30,7 +30,6 @@ import { CategoryComponent } from './components/category/category.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { ResultComponent } from './components/result/result.component';
-<<<<<<< HEAD
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
@@ -46,8 +45,6 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 
 
 

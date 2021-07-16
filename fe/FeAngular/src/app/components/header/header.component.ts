@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Type } from 'src/app/model/type';
-<<<<<<< HEAD
 import { User } from 'src/app/model/user';
-=======
-import { User } from 'src/app/model/User';
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 import{UserService} from '../../services/user/user.service'
 
 @Component({
