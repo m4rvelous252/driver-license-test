@@ -23,6 +23,7 @@ export const KEY={
     test:"test",
     user:"user",
     result:"result",
+    durationtimelogin:1
 }
 
 export const HOSTNAME={

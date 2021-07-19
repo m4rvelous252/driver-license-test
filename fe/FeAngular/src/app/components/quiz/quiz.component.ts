@@ -28,13 +28,13 @@ export class QuizComponent implements OnInit {
         this.id_quiz = params['id_quiz'];
       }
     );
-    this.quizService.getQuizById(this.id_quiz).subscribe((quiz)=>(this.quiz=quiz,console.log(this.quiz)))
+    this.quizService.getQuizById(this.id_quiz).subscribe((res)=>(this.quiz=res.data))
   }
 
   startQuiz(){
     localStorage.removeItem(KEY.test)
-    this.quizService.getRandomQuestionByQuiz(this.id_quiz).subscribe((test)=>(
-      localStorage.setItem(KEY.test,JSON.stringify(test)),
+    this.quizService.getRandomQuestionByQuiz(this.id_quiz).subscribe((response)=>(
+      localStorage.setItem(KEY.test,JSON.stringify(response.data)),
       this.router.navigate(['/test'])
     ))
   }

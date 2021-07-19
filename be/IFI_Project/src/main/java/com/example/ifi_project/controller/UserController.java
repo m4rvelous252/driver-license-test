@@ -1,8 +1,6 @@
 package com.example.ifi_project.controller;
 
-import com.example.ifi_project.model.Type;
-import com.example.ifi_project.model.User;
-import com.example.ifi_project.model.Views;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.service.TypeService;
 import com.example.ifi_project.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -25,8 +23,16 @@ public class UserController {
     }
 
     @PostMapping(path="login")
-    public User getUserLogin(@RequestBody User user) {
-        return userService.getUserByUsername(user.getUsername());
+    public Response getUserLogin(@RequestBody User user) {
+        Response respon = new Response();
+        User reqUser = userService.getUserByUsername(user.getUsername());
+        if(reqUser == null ||reqUser.getPassword().equals(user.getPassword())){
+            respon = ConstantResponse.responseSaveFail(respon);
+        }else {
+            respon = ConstantResponse.responseLoginSuc(respon);
+            respon.data = reqUser;
+        }
+        return respon;
     }
 
     @PostMapping(path="getUser")

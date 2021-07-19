@@ -35,7 +35,7 @@ export class TypeItemComponent implements OnInit {
         this.id_type = params['id_type'];
       }
     );
-    this.typeService.getTypeQuestions(this.id_type).subscribe((type)=>(this.type=type,console.log(this.type), this.addIndex()));
+    this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data));
   }
 
   addIndex(){

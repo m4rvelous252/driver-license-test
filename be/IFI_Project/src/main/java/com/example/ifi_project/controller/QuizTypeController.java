@@ -24,13 +24,13 @@ public class QuizTypeController {
 
     @JsonView(Views.Public.class)
     @GetMapping
-    public List<QuizType> getQuizType() {
+    public Response getQuizType() {
         return quizTypeService.getAllQuizType();
     }
 
     @PostMapping(path="add")
-    public void addQuizType(@RequestBody QuizType quizType) {
-        quizTypeService.add(quizType);
+    public Response addQuizType(@RequestBody QuizType quizType) {
+        return quizTypeService.add(quizType);
     }
 
     @DeleteMapping()

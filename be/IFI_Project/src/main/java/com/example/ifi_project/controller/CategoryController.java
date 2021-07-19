@@ -1,6 +1,7 @@
 package com.example.ifi_project.controller;
 
 import com.example.ifi_project.model.Category;
+import com.example.ifi_project.model.Response;
 import com.example.ifi_project.model.Type;
 import com.example.ifi_project.model.Views;
 import com.example.ifi_project.service.CategoryService;
@@ -26,26 +27,26 @@ public class CategoryController {
 
     @JsonView(Views.Public.class)
     @GetMapping(path="all")
-    public List<Category> getAllCategory() {
+    public Response getAllCategory() {
         return categoryService.getAllCategory();
     }
 
     @JsonView(Views.Public.class)
     @GetMapping
-    public List<Category> getCategory() {
+    public Response getCategory() {
         return categoryService.getCategory();
     }
 
     @GetMapping(path="{categoryId}")
     @JsonView(Views.Internal.class)
-    public Optional<Category> getCategoryById(@PathVariable("categoryId") Long categoryId) {
+    public Response getCategoryById(@PathVariable("categoryId") Long categoryId) {
         return categoryService.getCategoryById(categoryId);
     }
 
     @PostMapping(path="add")
-    public void addNewCategory(@RequestBody Category category) {
+    public Response addNewCategory(@RequestBody Category category) {
         category.setDeleted(false);
-        categoryService.addNewCategory(category);
+        return categoryService.addNewCategory(category);
     }
 
     @DeleteMapping(path="{categoryId}")

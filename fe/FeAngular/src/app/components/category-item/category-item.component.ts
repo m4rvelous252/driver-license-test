@@ -35,7 +35,7 @@ export class CategoryItemComponent implements OnInit {
         this.id_category = params['id_category'];
       }
     );
-    this.categoryService.getCategory(this.id_category).subscribe((category) => this.category=category)
+    this.categoryService.getCategory(this.id_category).subscribe((res) => this.category=res.data)
   }
 
   viewType(){

@@ -12,6 +12,7 @@ import { RegisterComponent} from './components/register/register.component'
 import { HomeComponent} from './components/home/home.component'
 import {AuthenticationService} from './services/authentication/authentication.service'
 import {NotAuthenticationService} from './services/authentication/not-authentication.service'
+import {DurationAuthService} from './services/duration-auth/duration-auth.service'
 import { QuestionComponent } from './components/question/question.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
@@ -26,7 +27,7 @@ const routes: Routes=[
   {path: 'login',component: LoginComponent,canActivate:[NotAuthenticationService]},
   {path: 'register',component: RegisterComponent,canActivate:[NotAuthenticationService]},
 
-  {path: 'about',component: AboutComponent,canActivate:[AuthenticationService]},
+  {path: 'about',component: AboutComponent,canActivate:[DurationAuthService,AuthenticationService]},
   
   {path:'test',component: TestComponent},
 
@@ -40,7 +41,7 @@ const routes: Routes=[
 
   {path:'quiz/:id_quiz',component: QuizComponent},
 
-  {path:'result',component: ResultComponent},
+  {path:'result',component: ResultComponent,canActivate:[DurationAuthService]},
 
   {path:'recordTest',component: RecordTestComponent},
 ];

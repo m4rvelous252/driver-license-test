@@ -1,6 +1,8 @@
 package com.example.ifi_project.service;
 
 import com.example.ifi_project.model.Category;
+import com.example.ifi_project.model.ConstantResponse;
+import com.example.ifi_project.model.Response;
 import com.example.ifi_project.model.Type;
 import com.example.ifi_project.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +21,49 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> getAllCategory(){
-        return categoryRepository.findAll();
+    public Response getAllCategory(){
+        Response respon = new Response();
+        if(categoryRepository.findAll().size()==0){
+            respon.data= categoryRepository.findAll();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data= categoryRepository.findAll();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
     }
 
-    public List<Category> getCategory(){
-        return categoryRepository.getCategory();
+    public Response getCategory(){
+        Response respon = new Response();
+        if(categoryRepository.findAll().size()==0){
+            respon.data= categoryRepository.findAll();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data= categoryRepository.findAll();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
     }
 
-    public Optional<Category> getCategoryById(Long id){
-        return categoryRepository.findById(id);
+    public Response getCategoryById(Long id){
+        Response respon = new Response();
+        if(categoryRepository.findById(id).isPresent()){
+            respon.data= categoryRepository.findById(id).get();
+            respon = ConstantResponse.responseSaveSuc(respon);
+        }else{
+            respon = ConstantResponse.responseNotFount(respon);
+        }
+        return respon;
     }
 
-    public void addNewCategory(Category category) {
-        System.out.println(category);
+    public Response addNewCategory(Category category) {
+        Response respon = new Response();
+        respon = ConstantResponse.responseSaveSuc(respon);
         categoryRepository.save(category);
+        return respon;
     }
 
+    //Not use
     public void deleteCategoryById(Long id){
         LocalDate localDate = LocalDate.now();
         Category category = categoryRepository.findById(id)

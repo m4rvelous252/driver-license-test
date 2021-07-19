@@ -38,6 +38,8 @@ public class HistoryTest {
 
     private int timeStart;
 
+    private int duration;
+
     private Long id_user;
 
     private int mark;

@@ -11,4 +11,5 @@ export interface Test{
     quiz: Quiz;
     mark:number
     questions: Question[];
+    duration:number;
 }

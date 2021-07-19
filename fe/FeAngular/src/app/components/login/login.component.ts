@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import{UserService} from '../../services/user/user.service'
 import{User} from '../../model/user'
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   username!: string
   password!: string
+  save?:boolean
 
   message?:string
 
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.save = false;
   }
 
   onSubmit(){
@@ -41,22 +44,22 @@ export class LoginComponent implements OnInit {
 
     this.user = {username: this.username, password: this.password};
     this.userService.login(this.user).subscribe(
-      (user) => {
-        if(user){
-          if(user.password==this.password){
-            localStorage.setItem('user', JSON.stringify(user));
-            window.location.replace('')
-          }else{
-            this.message='Sai mật khẩu'
-          }
-          
+      (response) => {
+        if(response.status){
+          this.user = response.data;
+          this.user!.save = this.save
+          this.user!.logintime = DateTime.now().toISO();
+          localStorage.setItem('user', JSON.stringify(this.user));
+          window.location.replace('')
         }else{
-          this.message='Tài khoản không tồn tại'
-          //this.router.navigate(['login']);
+
         }
-        
       }
     )
+  }
+
+  checkboxevent(){
+    console.log(this.save)
   }
 
 }

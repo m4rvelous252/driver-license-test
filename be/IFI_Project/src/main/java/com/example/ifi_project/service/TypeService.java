@@ -1,6 +1,8 @@
 package com.example.ifi_project.service;
 
 import com.example.ifi_project.model.Category;
+import com.example.ifi_project.model.ConstantResponse;
+import com.example.ifi_project.model.Response;
 import com.example.ifi_project.model.Type;
 import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.TypeRepository;
@@ -22,28 +24,62 @@ public class TypeService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Type> getAllType(){
-        return typeRepository.findAll();
+    public Response getAllType(){
+        Response respon = new Response();
+        if(typeRepository.findAll().size()==0){
+            respon.data = typeRepository.findAll();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else {
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = typeRepository.findAll();
+        }
+        return respon;
     }
 
-    public List<Type> getType(){
-        return typeRepository.getType();
+    public Response getType(){
+        Response respon = new Response();
+        if(typeRepository.getType().size()==0){
+            respon.data = typeRepository.getType();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else {
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = typeRepository.getType();
+        }
+        return respon;
     }
 
-    public Optional<Type> getTypeById(Long id){
-        return typeRepository.findById(id);
+    public Response getTypeById(Long id){
+        Response respon = new Response();
+        if(!typeRepository.findById(id).isPresent()){
+            respon = ConstantResponse.responseNotFount(respon);
+        }else {
+            Type type = typeRepository.findById(id).get();
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = type;
+        }
+        return respon;
     }
 
-    public void addNewType(Type type) {
+    public Response addNewType(Type type) {
         type.setDeleted(false);
-        Category category = categoryRepository.findById(type.getId_category())
-                .orElseThrow(() -> new IllegalStateException(" id does not exisits"));
-        LocalDate localDate = LocalDate.now();
-        type.setCreate_date(localDate);
-        type.setCategory(category);
-        typeRepository.save(type);
+        type.setId(null);
+        Response respon = new Response();
+        if(categoryRepository.findById(type.getId_category()).isPresent()){
+            respon = ConstantResponse.responseSaveFail(respon);
+        }else {
+            Category category = categoryRepository.findById(type.getId_category()).get();
+            LocalDate localDate = LocalDate.now();
+            type.setCreate_date(localDate);
+            type.setCategory(category);
+            typeRepository.save(type);
+            respon = ConstantResponse.responseSaveSuc(respon);
+            respon.data = type;
+        }
+        return respon;
     }
 
+
+    //Not use
     public void deleteTypeById(Long id){
         LocalDate localDate = LocalDate.now();
         Type type = typeRepository.findById(id)

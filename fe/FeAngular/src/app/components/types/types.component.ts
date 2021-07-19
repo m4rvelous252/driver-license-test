@@ -21,7 +21,7 @@ export class TypesComponent implements OnInit {
   constructor(private typeService :TypeService) {  }
 
   ngOnInit(): void {
-    this.typeService.getTypes().subscribe((types)=>(this.types=types,console.log(this.types)));
+    this.typeService.getTypes().subscribe((types)=>(this.types=types.data,console.log(this.types)));
   }
 
 }

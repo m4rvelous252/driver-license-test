@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Test } from 'src/app/model/test';
 import { Quiz } from 'src/app/model/quiz';
 import { HOSTNAME } from 'src/app/model/constants';
+import { Response } from 'src/app/model/response';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,13 @@ export class QuizService {
 
   constructor(private httpClient: HttpClient,private route: ActivatedRoute) { }
 
-  getQuizById(id_quiz: string): Observable<Quiz>{
+  getQuizById(id_quiz: string): Observable<Response>{
     let url = `${this.apiUrl}/${id_quiz}`;
-    return this.httpClient.get<Quiz>(url);
+    return this.httpClient.get<Response>(url);
   }
 
-  getRandomQuestionByQuiz(id_quiz: string): Observable<Test>{
+  getRandomQuestionByQuiz(id_quiz: string): Observable<Response>{
     let url = `${this.apiUrl}/random/${id_quiz}`
-    console.log(this.httpClient.get<Test>(url))
-    return this.httpClient.get<Test>(url);
+    return this.httpClient.get<Response>(url);
   }
 }
