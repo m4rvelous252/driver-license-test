@@ -1,0 +1,47 @@
+a {
+    text-decoration: none;
+}
+
+.main{
+    margin-top: 20px;
+    display: flex;
+    width: 95vw;
+    justify-content: space-around;
+    
+}
+
+.content {
+    background-color: #ececec;
+    width: 70%;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    box-shadow: 1px 1px 2px 1px #888888;
+}
+
+
+.modeToggle {
+    background-color: #ececec;
+    width: 25%;
+    height: fit-content;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    box-shadow: 1px 1px 2px 1px #888888;
+}
+
+.modeToggle app-button{
+    padding: 5px 0px;
+    
+    
+}
+
+.content-btn{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-items: center;
+    row-gap: 20px;
+}

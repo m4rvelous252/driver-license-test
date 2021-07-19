@@ -1,0 +1,23 @@
+
+<div class=" main">
+    <div 
+    class="container questions"
+    
+    >
+        <div class="container">
+            <app-question-item
+            *ngFor="let question of type?.questions,let i = index"
+            [index]="i+1"
+            [question]="question"
+            >
+            </app-question-item>
+        </div>
+    </div>
+
+    <div 
+    class="container details"
+    >
+    <h3>{{type?.type_name}}</h3>
+    <p>Số câu hỏi: {{type?.questions?.length}}</p>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container main">
+    <div class="content">
+        <div *ngIf="viewMode=='type'" class="content-btn">
+            <div 
+            *ngFor="let type of category?.type">
+                <a href="type/{{type.id}}">
+                    <app-button
+                    color="{{primaryColor}}"
+                    textColor="{{primeTxtColor}}"
+                    text="{{type.type_name}}"
+                    widthPer="100px"
+                    >
+                    </app-button>
+                </a>
+            </div>
+            <app-button
+            color="{{primaryColor}}"
+            text="+"
+            textColor="{{primeTxtColor}}"
+            widthPer="100px"
+            (btnClick)="addType()"
+            ></app-button>
+        </div>
+
+        <div *ngIf="viewMode=='quiz'" class="content-btn">
+            <div 
+            *ngFor="let quiz of category?.quiz">
+            <app-quiz-card [quiz]="quiz">
+            </app-quiz-card>
+            </div>
+            <div>
+                <app-card
+                [img]="'/addPlus.png'"
+                [text]="'Thêm quiz'"
+                [link]="'/addQuiz'"
+                ></app-card>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modeToggle">
+        <app-button 
+        class="title"
+        color="{{navColor}}"
+        text="{{category?.name}}"
+        (btnClick)="viewDetails()"
+        >
+        </app-button>
+        <app-button
+        color="{{primaryColor}}"
+        textColor="{{primeTxtColor}}"
+        text="Type"
+        (btnClick)="viewType()"
+        ></app-button>
+        <app-button
+        color="{{primaryColor}}"
+        textColor="{{primeTxtColor}}"
+        text="Quiz"
+        (btnClick)="viewQuiz()"
+        ></app-button>
+    </div>
+</div>
