@@ -131,8 +131,8 @@ export class TestComponent implements OnInit {
     if(this.durationTime < this.quiz.time/3){
       this.alert = !this.alert;
     }
-    // if(this.durationTime==0&&this.is_submit == false){
-    //   this.submit()
-    // }
+    if(this.durationTime==0&&this.is_submit == false){
+      this.submit()
+    }
   }
 }

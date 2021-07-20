@@ -23,6 +23,8 @@ export class AnswerButtonComponent implements OnInit {
   public selectTxtColor: string = STYLE.secondTxtColor
   public unCorrectColor: string = STYLE.dangerColor
 
+  style=STYLE
+
   is_test!: boolean
 
 
@@ -63,5 +65,18 @@ export class AnswerButtonComponent implements OnInit {
     return "blue"
   }
 
+  resultColor(){
+    if (this.answer.is_correct==true){
+        return this.style.secondColor
+    }
+    else {
+      if(this.answer.is_select==true){
+        return this.style.navColor
+      }
+      else{
+        return this.style.primeColor
+      }
+    }
+  }
 
 }

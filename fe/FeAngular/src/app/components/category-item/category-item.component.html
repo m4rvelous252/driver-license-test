@@ -13,20 +13,27 @@
                     </app-button>
                 </a>
             </div>
+            <app-button
+            color="{{primaryColor}}"
+            text="+"
+            textColor="{{primeTxtColor}}"
+            widthPer="100px"
+            (btnClick)="addType()"
+            ></app-button>
         </div>
 
         <div *ngIf="viewMode=='quiz'" class="content-btn">
             <div 
             *ngFor="let quiz of category?.quiz">
-                <a href="quiz/{{quiz.id}}">
-                    <app-button
-                    color="{{primaryColor}}"
-                    textColor="{{primeTxtColor}}"
-                    text="{{quiz.name}}"
-                    widthPer="100px"
-                    >
-                    </app-button>
-                </a>
+            <app-quiz-card [quiz]="quiz">
+            </app-quiz-card>
+            </div>
+            <div>
+                <app-card
+                [img]="'/addPlus.png'"
+                [text]="'Thêm quiz'"
+                [link]="'/addQuiz'"
+                ></app-card>
             </div>
         </div>
     </div>

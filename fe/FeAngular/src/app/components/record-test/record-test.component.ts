@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Result } from 'src/app/model/result';
 import { Test } from 'src/app/model/test';
 import { TestService } from 'src/app/services/test/test.service';
+import { STYLE } from 'src/app/model/constants';
 
 @Component({
   selector: 'app-record-test',
@@ -11,6 +12,8 @@ import { TestService } from 'src/app/services/test/test.service';
 export class RecordTestComponent implements OnInit {
 
   historyResults?: Result[]
+
+  style = STYLE
 
   constructor(private testService : TestService) { }
 

@@ -49,4 +49,10 @@ export class CategoryItemComponent implements OnInit {
   viewDetails(){
 
   }
+
+  addType(){
+
+  }
+
+  
 }

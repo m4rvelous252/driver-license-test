@@ -1,13 +1,3 @@
-// export interface Style {
-//     primeColor: string,
-//     secondColor: string,
-//     navColor: string,
-//     warningColor: string,
-//     primeTxtColor: string,
-//     secondTxtColor: string,
-//     bgColor: string
-// }
-
 export const STYLE = {
     primeColor: "#086375",
     secondColor: "#7DCD85",
@@ -31,3 +21,6 @@ export const HOSTNAME={
     frontend: "http://localhost:4200",
 }
 
+export const PATHS ={
+    imgPath: "../../../assets/img"
+}
