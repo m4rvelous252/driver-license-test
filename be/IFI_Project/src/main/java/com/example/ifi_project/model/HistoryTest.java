@@ -38,13 +38,22 @@ public class HistoryTest {
 
     private int timeStart;
 
-    private int id_user;
+    private int duration;
+
+    private Long id_user;
 
     private int mark;
-    
+
+    @Transient
+    private int max;
+
+    public int getMax() {
+        return this.questions.size();
+    }
+
     @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_test_id")
-    @JsonIgnoreProperties("historyTest")
+    @JsonView(Views.Internal.class)
     List<HistoryQuestion> questions;
 
     @Override

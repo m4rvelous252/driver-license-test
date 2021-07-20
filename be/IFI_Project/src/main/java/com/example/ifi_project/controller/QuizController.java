@@ -1,11 +1,9 @@
 package com.example.ifi_project.controller;
 
-import com.example.ifi_project.model.Quiz;
-import com.example.ifi_project.model.Test;
-import com.example.ifi_project.model.Type;
-import com.example.ifi_project.model.Views;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.service.QuizService;
 import com.example.ifi_project.service.TypeService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,25 +25,26 @@ public class QuizController {
 
     @JsonView(Views.Public.class)
     @GetMapping(path="all")
-    public List<Quiz> getAllQuiz() {
+    public Response getAllQuiz() {
         return quizService.getAllQuiz();
     }
 
     @GetMapping
     @JsonView(Views.Public.class)
-    public List<Quiz> getQuiz() {
+    public Response getQuiz() {
         return quizService.getQuiz();
     }
 
     @GetMapping(path="{quizId}")
     @JsonView(Views.Internal.class)
-    public Optional<Quiz> getQuizById(@PathVariable("quizId") Long quizId) {
+    public Response getQuizById(@PathVariable("quizId") Long quizId) {
         return quizService.getQuizById(quizId);
     }
 
     @PostMapping(path="add")
-    public void addNewQuiz(@RequestBody Quiz quiz) {
-        quizService.addNewQuiz(quiz);
+    public Response addNewQuiz(@RequestBody Quiz quiz) {
+
+        return quizService.addNewQuiz(quiz);
     }
 
     @DeleteMapping(path="{quizId}")
@@ -61,7 +60,7 @@ public class QuizController {
 
     @JsonView(Views.Public.class)
     @GetMapping(path="random/{quizId}")
-    public Test getNewQuizById(@PathVariable("quizId") Long quizId) {
+    public Response getNewQuizById(@PathVariable("quizId") Long quizId) {
         return quizService.getTestByQuiz(quizId);
     }
 

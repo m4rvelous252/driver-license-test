@@ -26,8 +26,6 @@ public class Answer {
     private String text;
     private String img;
 
-    @JsonView(Views.Private.class)
-
     private Boolean is_correct;
     private LocalDate create_date;
     private LocalDate update_date;

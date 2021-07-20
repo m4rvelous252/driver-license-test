@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Category } from 'src/app/model/category';
 import { HOSTNAME } from 'src/app/model/constants';
+import { Response } from 'src/app/model/response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class CategoryService {
 
   constructor(private http:HttpClient) { }
 
-  getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.apiUrl)
+  getAllCategory(): Observable<Response> {
+    return this.http.get<Response>(this.apiUrl)
   }
-  getCategory(id_category:string): Observable<Category> {
+  getCategory(id_category:string): Observable<Response> {
     let url = `${this.apiUrl}/${id_category}`
-    return this.http.get<Category>(url)
+    return this.http.get<Response>(url)
   }
 }

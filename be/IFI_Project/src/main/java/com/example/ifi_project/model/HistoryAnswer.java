@@ -32,7 +32,6 @@ public class HistoryAnswer {
     Long history_question_id;
 
     @JsonIgnore
-
     @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "history_question_id", insertable = true, updatable = true)
     HistoryQuestion question;

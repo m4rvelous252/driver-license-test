@@ -1,7 +1,6 @@
 package com.example.ifi_project.service;
 
-import com.example.ifi_project.model.Question;
-import com.example.ifi_project.model.Type;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.QuestionRepository;
 import com.example.ifi_project.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,28 +20,61 @@ public class QuestionService {
         this.questionRepository = questionRepository;
         this.typeRepository = typeRepository;
     }
-    public List<Question> getAllQuestion(){
-        return questionRepository.findAll();
-    }
-    public List<Question> getQuestion(){
-        return questionRepository.getQuestion();
-    }
-
-    public Optional<Question> getQuestionById(Long id){
-        return questionRepository.findById(id);
-    }
-
-    public void addNewQuestion(Question question) {
-        question.setDeleted(false);
-        LocalDate localDate = LocalDate.now();
-        Long id_type = question.getType_id();
-        Type type = typeRepository.findById(id_type)
-                .orElseThrow(() -> new IllegalStateException(" id: " + id_type + "does not exisits"));
-        question.setType(type);
-        question.setCreate_date(localDate);
-        questionRepository.save(question);
+    public Response getAllQuestion(){
+        Response respon = new Response();
+        if(questionRepository.findAll().size()==0){
+            respon.data = questionRepository.findAll();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = questionRepository.findAll();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
     }
 
+    public Response getQuestion(){
+        Response respon = new Response();
+        if(questionRepository.getQuestion().size()==0){
+            respon.data = questionRepository.getQuestion();
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = questionRepository.getQuestion();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
+    }
+
+    public Response getQuestionById(Long id){
+        Response respon = new Response();
+        if(questionRepository.findById(id).isPresent()){
+            respon.data = questionRepository.findById(id).get();;
+            respon = ConstantResponse.responseSuccess(respon);
+        }else{
+            respon = ConstantResponse.responseNotFount(respon);
+        }
+        return respon;
+    }
+
+    public Response addNewQuestion(Question question) {
+        Response respon = new Response();
+        if(typeRepository.findById(question.getType_id()).isPresent()){
+            question.setDeleted(false);
+            LocalDate localDate = LocalDate.now();
+            Long id_type = question.getType_id();
+            Type type = typeRepository.findById(id_type).get();
+            question.setType(type);
+            question.setCreate_date(localDate);
+            questionRepository.save(question);
+            respon = ConstantResponse.responseSaveSuc(respon);
+        }else{
+            respon = ConstantResponse.responseSaveFail(respon);
+        }
+        return respon;
+
+    }
+
+
+    //Not use
     public void deleteQuestionById(Long id){
         LocalDate localDate = LocalDate.now();
         Question question = questionRepository.findById(id)

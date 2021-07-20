@@ -1,5 +1,6 @@
 package com.example.ifi_project.controller;
 
+import com.example.ifi_project.model.Response;
 import com.example.ifi_project.model.Type;
 import com.example.ifi_project.model.Views;
 import com.example.ifi_project.service.TypeService;
@@ -24,19 +25,19 @@ public class TypeController {
 
     @JsonView(Views.Public.class)
     @GetMapping(path="all")
-    public List<Type> getAllType() {
+    public Response getAllType() {
         return typeService.getAllType();
     }
 
     @GetMapping
     @JsonView(Views.Public.class)
-    public List<Type> getType() {
+    public Response getType() {
         return typeService.getType();
     }
 
     @GetMapping(path="{typeId}")
     @JsonView(Views.Internal.class)
-    public Optional<Type> getTypeById(@PathVariable("typeId") Long typeId) {
+    public Response getTypeById(@PathVariable("typeId") Long typeId) {
         return typeService.getTypeById(typeId);
     }
 

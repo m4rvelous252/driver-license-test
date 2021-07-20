@@ -1,6 +1,7 @@
 package com.example.ifi_project.controller;
 
 import com.example.ifi_project.model.Question;
+import com.example.ifi_project.model.Response;
 import com.example.ifi_project.model.Type;
 import com.example.ifi_project.service.QuestionService;
 import com.example.ifi_project.service.TypeService;
@@ -22,23 +23,23 @@ public class QuestionController {
     }
 
     @GetMapping(path="all")
-    public List<Question> getAllQuestion() {
+    public Response getAllQuestion() {
         return questionService.getAllQuestion();
     }
 
     @GetMapping
-    public List<Question> getQuestion() {
+    public Response getQuestion() {
         return questionService.getQuestion();
     }
 
     @GetMapping(path="{questionId}")
-    public Optional<Question> getTypeById(@PathVariable("questionId") Long questionId) {
+    public Response getTypeById(@PathVariable("questionId") Long questionId) {
         return questionService.getQuestionById(questionId);
     }
 
     @PostMapping(path="add")
-    public void addNewType(@RequestBody Question question) {
-        questionService.addNewQuestion(question);
+    public Response addNewType(@RequestBody Question question) {
+        return questionService.addNewQuestion(question);
     }
 
     @DeleteMapping(path="{questionId}")

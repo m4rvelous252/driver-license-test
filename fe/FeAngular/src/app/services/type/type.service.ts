@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
 import {Type} from '../../model/type';
 import { HOSTNAME } from 'src/app/model/constants';
+import { Response } from 'src/app/model/response';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,14 +20,13 @@ export class TypeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getTypes(): Observable<Type[]>{
-    return this.httpClient.get<Type[]>(this.apiUrl);
+  getTypes(): Observable<Response>{
+    return this.httpClient.get<Response>(this.apiUrl);
   }
 
 
-  getTypeQuestions(id_type:string): Observable<Type>{
-
+  getTypeQuestions(id_type:string): Observable<Response>{
     let url = `${this.apiUrl}/${id_type}`
-    return this.httpClient.get<Type>(url)
+    return this.httpClient.get<Response>(url)
   }
 }

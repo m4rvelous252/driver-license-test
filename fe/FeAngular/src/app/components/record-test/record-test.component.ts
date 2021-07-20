@@ -19,7 +19,7 @@ export class RecordTestComponent implements OnInit {
 
   ngOnInit(): void {
     this.testService.getHistoryTestOfUser().subscribe((Result)=>{
-      this.historyResults = Result
+      this.historyResults = Result.data
     })
   }
 

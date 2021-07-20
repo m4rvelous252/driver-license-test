@@ -1,15 +1,13 @@
 package com.example.ifi_project.service;
 
-import com.example.ifi_project.model.Quiz;
-import com.example.ifi_project.model.QuizType;
-import com.example.ifi_project.model.QuizTypePK;
-import com.example.ifi_project.model.Type;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.QuizRepository;
 import com.example.ifi_project.repository.QuizTypeRepository;
 import com.example.ifi_project.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -25,28 +23,43 @@ public class QuizTypeService {
         this.typeRepository = typeRepository;
     }
 
-    public List<QuizType> getAllQuizType(){
-        return quizTypeRepository.findAll();
-    }
-
-    public void add(QuizType quizType){
-        Quiz quiz = quizRepository.findById(quizType.getId_quiz())
-                .orElseThrow(() -> new IllegalStateException(" quiz id does not exisits"));
-        Type type = typeRepository.findById(quizType.getId_type())
-                .orElseThrow(() -> new IllegalStateException(" type id: does not exisits"));
-        int amount = type.getQuestions().size();
-        if(quizType.getAmount()>amount){
-            quizType.setAmount(amount);
+    public Response getAllQuizType(){
+        Response respon = new Response();
+        if(quizTypeRepository.findAll().size()==0){
+            respon = ConstantResponse.responseEmpty(respon);
+        }else {
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = quizTypeRepository.findAll();
         }
-        QuizTypePK quizTypePK = new QuizTypePK();
-        quizTypePK.setId_type(type.getId());
-        quizTypePK.setId_quiz(quiz.getId());
-        quizType.setId(quizTypePK);
-        quizType.setQuiz(quiz);
-        quizType.setType(type);
-        quizTypeRepository.save(quizType);
+        return respon;
     }
 
+    public Response add(QuizType quizType){
+        Response respon = new Response();
+        if(quizRepository.findById(quizType.getId_quiz()).isPresent()&&typeRepository.findById(quizType.getId_type()).isPresent()){
+            Quiz quiz = quizRepository.findById(quizType.getId_quiz()).get();
+            Type type = typeRepository.findById(quizType.getId_type()).get();
+            int amount = type.getQuestions().size();
+            if(quizType.getAmount()>amount){
+                quizType.setAmount(amount);
+            }
+            QuizTypePK quizTypePK = new QuizTypePK();
+            quizTypePK.setId_type(type.getId());
+            quizTypePK.setId_quiz(quiz.getId());
+            quizType.setId(quizTypePK);
+            quizType.setQuiz(quiz);
+            quizType.setType(type);
+            quizTypeRepository.save(quizType);
+            respon = ConstantResponse.responseSaveSuc(respon);
+        }else{
+            respon = ConstantResponse.responseSaveFail(respon);
+        }
+        return respon;
+
+    }
+
+
+    //Not use
     public void delete(QuizType quizType){
         QuizTypePK quizTypePK = new QuizTypePK();
         quizTypePK.setId_type(quizType.getId_type());

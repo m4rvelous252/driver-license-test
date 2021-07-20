@@ -1,15 +1,3 @@
-// export interface Style {
-//     primeColor: string,
-//     secondColor: string,
-//     navColor: string,
-//     warningColor: string,
-//     primeTxtColor: string,
-//     secondTxtColor: string,
-//     bgColor: string
-// }
-
-import { Quiz } from "./quiz"
-
 export const STYLE = {
     primeColor: "#086375",
     secondColor: "#7DCD85",
@@ -25,6 +13,7 @@ export const KEY={
     test:"test",
     user:"user",
     result:"result",
+    durationtimelogin:1
 }
 
 export const HOSTNAME={
