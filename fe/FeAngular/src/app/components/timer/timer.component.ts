@@ -11,7 +11,7 @@ export class TimerComponent implements OnInit {
   @Output() fiveMins: EventEmitter<any> = new EventEmitter()
   @Input() bgColor?: string;
   @Input() txColor?: string;
-  @Input() durationTime!: number
+  @Input() durationTime: any
 
 
   constructor() { }

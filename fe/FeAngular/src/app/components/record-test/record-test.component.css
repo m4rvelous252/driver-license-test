@@ -1,0 +1,20 @@
+.main{
+    background-color: #c3c3c3;
+    padding: 20px 20px;
+    border-radius: 15px;
+    display: flex;
+    /* align-items: center;
+    justify-content: flex-start; */
+    flex-wrap: wrap;
+}
+
+.content{
+    background-color: #e2e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 200px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

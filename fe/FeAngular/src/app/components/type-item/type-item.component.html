@@ -6,7 +6,8 @@
     >
         <div class="container">
             <app-question-item
-            *ngFor="let question of type?.questions"
+            *ngFor="let question of type?.questions,let i = index"
+            [index]="i+1"
             [question]="question"
             >
             </app-question-item>

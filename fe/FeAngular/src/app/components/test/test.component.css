@@ -9,7 +9,7 @@
     box-shadow: 1px 1px 10px 1px #888888;
     width: 90%;
     margin-top: 30px;
-    background-color: #c6c1c1;
+    background-color: #ececec;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -29,7 +29,7 @@
 }
 
 .exam-main{
-    background-color: #c6c1c1;
+    background-color: #ececec;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -57,12 +57,14 @@
 }
 
 .questionNav{
+    
     width: 65%;
     display: flex;
     flex-direction: column;
 }
 
 .question {
+    box-shadow: 1px 1px 10px 1px #888888;
     width: 100%;
     background-color: #e2e0e0;
     border-radius: 25px;
@@ -80,6 +82,7 @@
 }
 
 .map{
+    box-shadow: 1px 1px 10px 1px #888888;
     background-color: #e2e0e0;
     border-radius: 25px;
     width: 30%;

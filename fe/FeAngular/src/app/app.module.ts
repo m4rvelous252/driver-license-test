@@ -45,6 +45,10 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RecordTestComponent } from './components/record-test/record-test.component';
+import { RecordTestItemComponent } from './components/record-test-item/record-test-item.component';
+import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
+import { CardComponent } from './components/card/card.component';
 
 
 
@@ -54,8 +58,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    TypesComponent,
-    TypeItemComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -72,6 +74,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CategoryItemComponent,
     QuizComponent,
     ResultComponent,
+    RecordTestComponent,
+    TypesComponent,
+    TypeItemComponent,
+    RecordTestItemComponent,
+    QuizCardComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

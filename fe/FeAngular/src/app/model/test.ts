@@ -9,5 +9,6 @@ export interface Test{
     time:number;
     id_user:number;
     quiz: Quiz;
+    mark:number
     questions: Question[];
 }

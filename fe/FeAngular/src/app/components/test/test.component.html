@@ -14,6 +14,7 @@
                 <div class="question">
                     <app-question-item  
                     [question] = "curQuestion"
+                    [index]="curQuestion?.index"
                     >
                     </app-question-item>
                 </div>
@@ -42,12 +43,7 @@
                     <app-timer
                     bgColor="{{alert ? warningColor : primaryColor}}" 
                     txColor="{{alert ? secondTxtColor : primeTxtColor}}"
-<<<<<<< HEAD
                     durationTime= {{durationTime}}
-=======
-                    (fiveMins)="fiveMin()"
-                    (durationTime)="countDurationTime()"
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
                     ></app-timer>
                 </div>
 

@@ -8,11 +8,8 @@ import { Test } from 'src/app/model/test';
 import { Quiz } from 'src/app/model/quiz';
 import { DatePipe } from '@angular/common';
 import { TestService } from 'src/app/services/test/test.service';
-<<<<<<< HEAD
 import { DateTime } from 'luxon';
 import { TimeService } from 'src/app/services/time/time.service';
-=======
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
 
 
 
@@ -29,13 +26,8 @@ export class TestComponent implements OnInit {
   curQuestion?:Question;
 
   test!: Test
-<<<<<<< HEAD
+  
   quiz!: Quiz
-=======
-
-  quiz!: Quiz
-
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
   durationTime!:number
 
 
@@ -54,15 +46,10 @@ export class TestComponent implements OnInit {
   navColor = STYLE.navColor
   warningColor = STYLE.warningColor
 
-
-<<<<<<< HEAD
   constructor(private questionService: QuestionService, 
     private testService: TestService,
     private timeService: TimeService,
     ) {
-=======
-  constructor(private questionService: QuestionService, private testService: TestService) {
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
    }
 
   ngOnInit(): void {
@@ -79,20 +66,12 @@ export class TestComponent implements OnInit {
       this.curQuestion = this.questions?.find(x => x.index == 1)
       console.log(this.questions)
       this.addIndex()
-<<<<<<< HEAD
       this.countDurationTime()
       setInterval(()=>{this.checkEvent()}, 1000);
-=======
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
   }
 
   viewQuestion(question: Question){
     this.curQuestion=question;
-<<<<<<< HEAD
-=======
-    console.log(question)
-
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
     localStorage.setItem(KEY.test,JSON.stringify(this.test))
 
   }
@@ -105,10 +84,7 @@ export class TestComponent implements OnInit {
 
 
   submit(){
-<<<<<<< HEAD
     this.is_submit=true;
-=======
->>>>>>> 1bb7878c6c0a977d0bf1c4ec2005d722359bac71
     this.testService.submitTest(this.test)
   }
 
@@ -155,11 +131,5 @@ export class TestComponent implements OnInit {
       this.is_submit=true;
       this.submit()
     }
-  }
-
-  countDurationTime(){
-    let date
-    this.durationTime= Date.now()
-    return 300
   }
 }

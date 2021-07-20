@@ -1,7 +1,6 @@
-
-<div>
-    <div *ngFor="let quizType of quiz?.quizType">
-        <a href="type/{{quizType.type.id}}">
+<div class="container flex-col">
+    <div class="type">
+        <a *ngFor="let quizType of quiz?.quizType" href="type/{{quizType.type.id}}">
             <app-button
             color="{{primaryColor}}"
             textColor="{{primeTxtColor}}"
@@ -11,5 +10,5 @@
             </app-button>
         </a>
     </div>
+    <button (click)="startQuiz()">Start quiz</button>
 </div>
-<button (click)="startQuiz()">Start quiz</button>

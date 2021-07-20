@@ -18,6 +18,7 @@ import { CategoryItemComponent } from './components/category-item/category-item.
 import { CategoryComponent } from './components/category/category.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { ResultComponent } from './components/result/result.component';
+import { RecordTestComponent } from './components/record-test/record-test.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -40,6 +41,8 @@ const routes: Routes=[
   {path:'quiz/:id_quiz',component: QuizComponent},
 
   {path:'result',component: ResultComponent},
+
+  {path:'recordTest',component: RecordTestComponent},
 ];
 
 @NgModule({
