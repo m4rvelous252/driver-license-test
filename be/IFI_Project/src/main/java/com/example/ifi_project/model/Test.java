@@ -3,6 +3,7 @@ package com.example.ifi_project.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
+import javax.persistence.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;

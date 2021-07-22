@@ -2,14 +2,9 @@ package com.example.ifi_project.controller;
 
 import com.example.ifi_project.model.Question;
 import com.example.ifi_project.model.Response;
-import com.example.ifi_project.model.Type;
 import com.example.ifi_project.service.QuestionService;
-import com.example.ifi_project.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/question")
@@ -29,12 +24,12 @@ public class QuestionController {
 
     @GetMapping
     public Response getQuestion() {
-        return questionService.getQuestion();
+        return questionService.getQuestionNotDeleted();
     }
 
     @GetMapping(path="{questionId}")
     public Response getTypeById(@PathVariable("questionId") Long questionId) {
-        return questionService.getQuestionById(questionId);
+        return questionService.getQuestionByIdNotDeleted(questionId);
     }
 
     @PostMapping(path="add")

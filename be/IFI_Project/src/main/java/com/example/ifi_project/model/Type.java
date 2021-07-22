@@ -49,7 +49,33 @@ public class Type {
     @JsonIgnoreProperties("type")
     List<Question> questions;
 
+    @Transient
+    private int sizeNotDelete;
+
+    @Transient
+    private int sizeDeleted;
+
     @JsonIgnore
     @OneToMany(mappedBy = "type")
     private List<QuizType> quizType = new ArrayList<QuizType>();
+
+    public int getSizeNotDelete() {
+        int size =0;
+        for (Question q:this.getQuestions()) {
+            if(!q.getDeleted()){
+                size++;
+            }
+        }
+        return size;
+    }
+
+    public int getSizeDeleted() {
+        int size =0;
+        for (Question q:this.getQuestions()) {
+            if(q.getDeleted()){
+                size++;
+            }
+        }
+        return size;
+    }
 }

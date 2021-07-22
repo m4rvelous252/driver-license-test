@@ -9,4 +9,6 @@ export interface Type {
     deleted: boolean
     type_name: string 
     questions: Question[]
+    sizeNotDelete : number
+    sizeDeleted: number
 }

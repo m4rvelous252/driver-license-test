@@ -32,6 +32,9 @@ public class Category {
 
     private String name;
 
+    @Column(name = "id_user")
+    private Long idUser;
+
     @JsonView(Views.Internal.class)
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_category")

@@ -1,5 +1,6 @@
 package com.example.ifi_project.service;
 
+import com.example.ifi_project.filter.FilterQuestion;
 import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.QuestionRepository;
 import com.example.ifi_project.repository.TypeRepository;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class QuestionService {
     private final QuestionRepository questionRepository;
     private final TypeRepository typeRepository;
+    private AnswerService answerService;
 
     @Autowired
     public QuestionService(QuestionRepository questionRepository, TypeRepository typeRepository) {
@@ -32,25 +34,26 @@ public class QuestionService {
         return respon;
     }
 
-    public Response getQuestion(){
+    public Response getQuestionNotDeleted(){
         Response respon = new Response();
-        if(questionRepository.getQuestion().size()==0){
-            respon.data = questionRepository.getQuestion();
-            respon = ConstantResponse.responseEmpty(respon);
-        }else{
-            respon.data = questionRepository.getQuestion();
+        Optional<List<Question>> optionalQuestions = questionRepository.findAllByDeletedIsFalse();
+        if(!optionalQuestions.isPresent()){
+            respon.data = FilterQuestion.FilterListQuestionsNotDelete(optionalQuestions.get());
             respon = ConstantResponse.responseSuccess(respon);
+        }else{
+            respon = ConstantResponse.responseEmpty(respon);
         }
         return respon;
     }
 
-    public Response getQuestionById(Long id){
+    public Response getQuestionByIdNotDeleted(Long id){
         Response respon = new Response();
-        if(questionRepository.findById(id).isPresent()){
-            respon.data = questionRepository.findById(id).get();;
-            respon = ConstantResponse.responseSuccess(respon);
-        }else{
+        Optional<Question> optionalQuestion = questionRepository.findQuestionByIdAndDeletedIsFalse();
+        if(!optionalQuestion.isPresent()){
             respon = ConstantResponse.responseNotFount(respon);
+        }else{
+            respon.data = FilterQuestion.FilterQuestionNotDelete(optionalQuestion.get());
+            respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;
     }
@@ -91,4 +94,5 @@ public class QuestionService {
         question.setDelete_date(null);
         questionRepository.save(question);
     }
+
 }

@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
-    @Query("SELECT q FROM Quiz q WHERE q.deleted = false")
-    List<Quiz> getQuiz();
+    Optional<List<Quiz>> findAllByDeletedIsFalse();
+
+    Optional<Quiz> findByIdAndDeletedIsFalse(Long id);
 
 }

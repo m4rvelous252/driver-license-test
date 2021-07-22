@@ -1,9 +1,7 @@
 package com.example.ifi_project.service;
 
-import com.example.ifi_project.model.Category;
-import com.example.ifi_project.model.ConstantResponse;
-import com.example.ifi_project.model.Response;
-import com.example.ifi_project.model.Type;
+import com.example.ifi_project.filter.FilterType;
+import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +15,7 @@ import java.util.Optional;
 public class TypeService {
     private final TypeRepository typeRepository;
     private final CategoryRepository categoryRepository;
+    private QuestionService questionService;
 
     @Autowired
     public TypeService(TypeRepository typeRepository, CategoryRepository categoryRepository) {
@@ -36,26 +35,26 @@ public class TypeService {
         return respon;
     }
 
-    public Response getType(){
+    public Response getTypeNotDelete(){
         Response respon = new Response();
-        if(typeRepository.getType().size()==0){
-            respon.data = typeRepository.getType();
+        Optional<List<Type>> optionalTypes = typeRepository.findTypeByDeletedIsFalse();
+        if(!optionalTypes.isPresent()){
             respon = ConstantResponse.responseEmpty(respon);
         }else {
             respon = ConstantResponse.responseSuccess(respon);
-            respon.data = typeRepository.getType();
+            respon.data = FilterType.FilterListTypesNotDelete(optionalTypes.get());
         }
         return respon;
     }
 
-    public Response getTypeById(Long id){
+    public Response getTypeByIdNotDelete(Long id){
         Response respon = new Response();
-        if(!typeRepository.findById(id).isPresent()){
+        Optional<Type> typeOptional = typeRepository.findTypeByIdAndDeletedIsFalse(id);
+        if(!typeOptional.isPresent()){
             respon = ConstantResponse.responseNotFount(respon);
         }else {
-            Type type = typeRepository.findById(id).get();
             respon = ConstantResponse.responseSuccess(respon);
-            respon.data = type;
+            respon.data = FilterType.FilterTypeNotDelete(typeOptional.get());
         }
         return respon;
     }
@@ -64,16 +63,17 @@ public class TypeService {
         type.setDeleted(false);
         type.setId(null);
         Response respon = new Response();
-        if(categoryRepository.findById(type.getId_category()).isPresent()){
-            respon = ConstantResponse.responseSaveFail(respon);
-        }else {
-            Category category = categoryRepository.findById(type.getId_category()).get();
+        Optional<Category> categoryOptional = categoryRepository.findById(type.getId_category());
+        if(!categoryOptional.isPresent()){
             LocalDate localDate = LocalDate.now();
             type.setCreate_date(localDate);
-            type.setCategory(category);
+            type.setCategory(categoryOptional.get());
             typeRepository.save(type);
             respon = ConstantResponse.responseSaveSuc(respon);
             respon.data = type;
+        }else {
+
+            respon = ConstantResponse.responseSaveFail(respon);
         }
         return respon;
     }

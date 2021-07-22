@@ -76,6 +76,7 @@ public class HistoryTestService {
                 }
                 ans = answerRepository.findById(answer.getId()).get();
                 answer.setIs_correct(ans.getIs_correct());
+                answer.setText(ans.getText());
                 if(answer.getIs_correct()!=answer.getIs_select()){
                     is_correct=false;
                 }

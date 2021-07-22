@@ -2,14 +2,9 @@ package com.example.ifi_project.controller;
 
 import com.example.ifi_project.model.*;
 import com.example.ifi_project.service.QuizService;
-import com.example.ifi_project.service.TypeService;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/quiz")
@@ -32,13 +27,13 @@ public class QuizController {
     @GetMapping
     @JsonView(Views.Public.class)
     public Response getQuiz() {
-        return quizService.getQuiz();
+        return quizService.getQuizNotDelete();
     }
 
     @GetMapping(path="{quizId}")
     @JsonView(Views.Internal.class)
     public Response getQuizById(@PathVariable("quizId") Long quizId) {
-        return quizService.getQuizById(quizId);
+        return quizService.getQuizByIdNotDelete(quizId);
     }
 
     @PostMapping(path="add")

@@ -8,9 +8,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping(path = "api/type")
 @CrossOrigin
@@ -32,13 +29,13 @@ public class TypeController {
     @GetMapping
     @JsonView(Views.Public.class)
     public Response getType() {
-        return typeService.getType();
+        return typeService.getTypeNotDelete();
     }
 
     @GetMapping(path="{typeId}")
     @JsonView(Views.Internal.class)
     public Response getTypeById(@PathVariable("typeId") Long typeId) {
-        return typeService.getTypeById(typeId);
+        return typeService.getTypeByIdNotDelete(typeId);
     }
 
     @PostMapping(path="add")

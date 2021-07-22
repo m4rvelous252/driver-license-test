@@ -1,9 +1,9 @@
 package com.example.ifi_project.service;
 
+import com.example.ifi_project.filter.FilterCategory;
 import com.example.ifi_project.model.Category;
 import com.example.ifi_project.model.ConstantResponse;
 import com.example.ifi_project.model.Response;
-import com.example.ifi_project.model.Type;
 import com.example.ifi_project.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,9 @@ import java.util.Optional;
 @Service
 public class CategoryService {
     private final CategoryRepository categoryRepository;
+
+    private QuizService quizService;
+    private TypeService typeService;
 
     @Autowired
     public CategoryService(CategoryRepository categoryRepository) {
@@ -33,25 +36,38 @@ public class CategoryService {
         return respon;
     }
 
-    public Response getCategory(){
+    public Response getCategoryNotDelete(){
         Response respon = new Response();
-        if(categoryRepository.findAll().size()==0){
-            respon.data= categoryRepository.findAll();
+        Optional<List<Category>> categories = categoryRepository.findAllByDeletedIsFalse();
+        if(!categories.isPresent()){
             respon = ConstantResponse.responseEmpty(respon);
         }else{
-            respon.data= categoryRepository.findAll();
+            respon.data = FilterCategory.FilterListCategoriesNotDelete(categories.get());
             respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;
     }
 
-    public Response getCategoryById(Long id){
+    public Response getCategorysByUserIdNotDelete(Long idUser) {
         Response respon = new Response();
-        if(categoryRepository.findById(id).isPresent()){
-            respon.data= categoryRepository.findById(id).get();
-            respon = ConstantResponse.responseSaveSuc(respon);
-        }else{
+        Optional<List<Category>> categories = categoryRepository.findCategoryByIdUserAndDeletedIsFalse(idUser);
+        if (!categories.isPresent()) {
+            respon = ConstantResponse.responseEmpty(respon);
+        } else {
+            respon.data = FilterCategory.FilterListCategoriesNotDelete(categories.get());
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
+    }
+
+    public Response getCategoryByIdNotDelete(Long id){
+        Response respon = new Response();
+        Optional<Category> category = categoryRepository.findCategoryByIdAndDeletedIsFalse(id);
+        if(!category.isPresent()){
             respon = ConstantResponse.responseNotFount(respon);
+        }else{
+            respon.data= FilterCategory.FilterCategoryNotDelete(category.get());
+            respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;
     }
