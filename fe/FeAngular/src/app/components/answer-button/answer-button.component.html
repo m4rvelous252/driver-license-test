@@ -1,6 +1,6 @@
 
 
-<div *ngIf="is_test">
+<div *ngIf="viewMode=='test'">
     <app-button class="ticker"
     color = "{{answer.is_select ? selectColor : primaryColor}}"
     icon="{{answer.is_select ? imgSelect : imgUnselect}}"
@@ -23,7 +23,7 @@
     
 </div>
 
-<div *ngIf="!is_test">
+<div *ngIf="viewMode=='archive'||viewMode=='edit'">
     <app-button class="ticker"
     color = "{{resultColor()}}"
     img="{{answer.is_select ? imgSelect : imgUnselect}}"

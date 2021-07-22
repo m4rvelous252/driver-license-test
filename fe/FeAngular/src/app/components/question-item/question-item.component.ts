@@ -19,11 +19,12 @@ export class QuestionItemComponent implements OnInit {
   bgColor?: string;
   @Input()
   index?: number;
-  // @Input()
+  @Input()
+  viewMode?: string
   // answers?: Answer[];
 
 
-
+  @Input()
   display?: string
   constructor(private answerService: AnswerService, private uiService: UiService) { }
 

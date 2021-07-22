@@ -49,6 +49,9 @@ import { RecordTestComponent } from './components/record-test/record-test.compon
 import { RecordTestItemComponent } from './components/record-test-item/record-test-item.component';
 import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
 import { CardComponent } from './components/card/card.component';
+import { AddTypeComponent } from './components/add-type/add-type.component';
+import { AddQuestionComponent } from './components/add-question/add-question.component';
+import { AddAnswerComponent } from './components/add-answer/add-answer.component';
 
 
 
@@ -80,6 +83,9 @@ import { CardComponent } from './components/card/card.component';
     RecordTestItemComponent,
     QuizCardComponent,
     CardComponent,
+    AddTypeComponent,
+    AddQuestionComponent,
+    AddAnswerComponent,
   ],
   imports: [
     BrowserModule,
