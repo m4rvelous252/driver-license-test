@@ -1,5 +1,6 @@
 package com.example.ifi_project.service;
 
+import com.example.ifi_project.filter.FilterQuiz;
 import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.QuizRepository;
@@ -13,6 +14,7 @@ import java.util.*;
 public class QuizService {
     private final QuizRepository quizRepository;
     private final CategoryRepository categoryRepository;
+    private QuizTypeService quizTypeService;
 
     private Random random = new Random();
 
@@ -34,25 +36,27 @@ public class QuizService {
         return respon;
     }
 
-    public Response getQuiz(){
+    public Response getQuizNotDelete(){
         Response respon = new Response();
-        if(quizRepository.getQuiz().size()==0){
-            respon.data = quizRepository.getQuiz();
+        Optional<List<Quiz>> quizzes = quizRepository.findAllByDeletedIsFalse();
+        if(!quizzes.isPresent()){
             respon = ConstantResponse.responseEmpty(respon);
         }else{
-            respon.data = quizRepository.getQuiz();
+            respon.data = FilterQuiz.FilterListQuizzesNotDelete(quizzes.get());
             respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;
     }
 
-    public Response getQuizById(Long id){
+    public Response getQuizByIdNotDelete(Long id){
         Response respon = new Response();
-        if(quizRepository.findById(id).isPresent()){
-            respon.data = quizRepository.findById(id).get();
-            respon = ConstantResponse.responseSuccess(respon);
-        }else{
+        Optional<Quiz> optionalQuiz = quizRepository.findByIdAndDeletedIsFalse(id);
+        if(!optionalQuiz.isPresent()){
             respon = ConstantResponse.responseNotFount(respon);
+        }else{
+            Quiz quiz = optionalQuiz.get();
+            respon.data = FilterQuiz.FilterQuizNotDelete(quiz);
+            respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;
     }
@@ -73,11 +77,11 @@ public class QuizService {
 
     public Response getTestByQuiz(Long id){
         Response respon = new Response();
-        if(quizRepository.findById(id).isPresent()){
+        Optional<Quiz> quizOptional = quizRepository.findByIdAndDeletedIsFalse(id);
+        if(quizOptional.isPresent()){
+            Quiz quiz = FilterQuiz.FilterQuizNotDelete(quizOptional.get());
             Test test = new Test();
             List<Question> questions = new ArrayList<>();
-            Quiz quiz = quizRepository.findById(id)
-                    .orElseThrow(() -> new IllegalStateException(" id: " + id + "does not exisits"));
             //Get Random question in type of quiz
             for (QuizType quizType:quiz.getQuizType()) {
                 List<Question> tempQuestions = new ArrayList(quizType.getType().getQuestions());
@@ -144,5 +148,9 @@ public class QuizService {
         quiz.setDelete_date(null);
         quizRepository.save(quiz);
     }
+
+
+    //
+
 
 }

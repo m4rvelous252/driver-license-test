@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @JsonView(Views.Public.class)
-public class Quiz {
+public class Quiz{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,6 +35,7 @@ public class Quiz {
     private String name;
 
     private int time;
+
 
     @Column(name = "id_category", insertable = false, updatable = false)
     Long id_category;
@@ -53,4 +54,5 @@ public class Quiz {
                 "id=" + id +
                 '}';
     }
+
 }

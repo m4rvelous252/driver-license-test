@@ -24,6 +24,7 @@ export class UserService {
 
   login(user : User):Observable<Response>{
     const url = `${this.apiUrl}/login`
+    console.log(url)
     return this.httpClient.post<Response>(url,user);
   }
 

@@ -31,6 +31,8 @@ public class Answer {
     private LocalDate update_date;
     private LocalDate delete_date;
 
+    private boolean deleted = false;
+
     @Column(name = "question_id", insertable = false, updatable = false)
     Long question_id;
 
