@@ -10,7 +10,7 @@ import { STYLE } from 'src/app/model/constants';
 })
 export class AnswerButtonComponent implements OnInit {
   @Input() answer!: Answer;
-
+  @Input() viewMode?: string;
   @Input() pick_one?: boolean;
   @Output() onSelectAnswer: EventEmitter<Answer> = new EventEmitter();
   @Output() onCheck: EventEmitter<any> = new EventEmitter();

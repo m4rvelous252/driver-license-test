@@ -1,0 +1,26 @@
+<form action="">
+<label for="text">answer {{index}}</label>
+<fa-icon 
+[ngStyle]="{'color': 'red'}" 
+class="fas fa-times-circle"
+(click)="deleteAnswer()"
+></fa-icon>
+<fa-icon 
+[ngStyle]="{
+    'color': isCorrectColor
+}" 
+class="fas fa-check-circle"
+(click)="toggleIsCorrect()"
+></fa-icon>
+<fa-icon 
+[ngStyle]="{'color': 'green'}" 
+class="far fa-save"
+(click)="confirmAnswer()"
+></fa-icon>
+<input 
+type="text" 
+name="answerText" 
+[(ngModel)]="answer.text"
+id="answerText" 
+placeholder="Answer">
+</form>

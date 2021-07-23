@@ -1,0 +1,52 @@
+
+<!-- *Edit question -->
+
+
+<div *ngIf="question?.edit">
+    <app-question-item
+    [question]="question"
+    [index]="index"
+    [viewMode]="'edit'"
+    ></app-question-item>
+    <fa-icon
+    class="fas fa-edit"
+    (click)="renameQ()"
+    ></fa-icon>
+    <fa-icon 
+    [ngStyle]="{'color': 'red'}" 
+    class="fas fa-times-circle"
+    (click)="onDelete()"
+    ></fa-icon>
+</div>
+
+<div *ngIf="!question?.edit">
+    <label for="text">Question {{index}}</label>
+    <fa-icon 
+    class="fas fa-check"
+    (click)="nameQuestion(text)"
+    ></fa-icon>
+    <fa-icon 
+    [ngStyle]="{'color': 'red'}" 
+    class="fas fa-times-circle"
+    (click)="onDelete()"
+    ></fa-icon>
+    <input 
+    type="text" 
+    name="text" 
+    [(ngModel)]="text"
+    id="text" 
+    placeholder="Question">
+
+    <!-- *Edit answer -->
+    <div *ngFor="let answer of question?.answers, let i = index">
+        <app-add-answer
+        [answer]="answer"
+        [index]="i+1"
+        (onDeleteAnswer)="deleteAnswer(i)"
+        ></app-add-answer>
+    </div>
+    <button (click)="newAnswer()">Add answer</button>
+</div>
+
+
+

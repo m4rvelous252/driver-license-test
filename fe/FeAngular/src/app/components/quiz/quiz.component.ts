@@ -36,7 +36,8 @@ export class QuizComponent implements OnInit {
     this.quizService.getRandomQuestionByQuiz(this.id_quiz).subscribe((response)=>(
       localStorage.setItem(KEY.test,JSON.stringify(response.data)),
       this.router.navigate(['/test'])
-    ))
+    ));
+    
   }
 
 }

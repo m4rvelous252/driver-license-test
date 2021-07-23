@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable,of} from 'rxjs';
-import {Type} from '../../model/type';
+import {type, Type} from '../../model/type';
 import { HOSTNAME } from 'src/app/model/constants';
 import { Response } from 'src/app/model/response';
 
@@ -28,5 +28,9 @@ export class TypeService {
   getTypeQuestions(id_type:string): Observable<Response>{
     let url = `${this.apiUrl}/${id_type}`
     return this.httpClient.get<Response>(url)
+  }
+
+  addType(newType: type){
+
   }
 }

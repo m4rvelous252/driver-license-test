@@ -13,13 +13,13 @@
                     </app-button>
                 </a>
             </div>
+            <a href="/add-type">
             <app-button
             color="{{primaryColor}}"
             text="+"
             textColor="{{primeTxtColor}}"
             widthPer="100px"
-            (btnClick)="addType()"
-            ></app-button>
+            ></app-button></a>
         </div>
 
         <div *ngIf="viewMode=='quiz'" class="content-btn">
@@ -32,7 +32,7 @@
                 <app-card
                 [img]="'/addPlus.png'"
                 [text]="'Thêm quiz'"
-                [link]="'/addQuiz'"
+                [link]="'/add-quiz'"
                 ></app-card>
             </div>
         </div>

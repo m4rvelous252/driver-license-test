@@ -1,0 +1,36 @@
+<!-- *Edit tên type -->
+
+<div class="form-control" *ngIf="!isNamed">
+    <label for="text">Type name</label>
+    <fa-icon 
+    class="fas fa-check"
+    (click)="nameType()"
+    ></fa-icon>
+    <input 
+    type="text" 
+    [(ngModel)]="newT.type_name"
+    name="text" 
+    id="text" placeholder="Type name">
+</div>
+
+<div class="form-control" *ngIf="isNamed">
+    {{newT.type_name}}
+    <fa-icon
+    class="fas fa-edit"
+    (click)="rename()"
+    ></fa-icon>
+</div>
+
+<!-- *Edit câu hỏi -->
+
+<p>Questions</p>
+
+<div *ngFor="let question of newT.questions, let i = index" class="form-control">
+    <app-add-question
+    [question]="question"
+    [index]="i+1"
+    (deleteQuestion)="removeQ(i)"
+    ></app-add-question>
+</div>
+<button (click)="addQ()">ADD</button>
+<button (click)="submitT()">SAVE</button>
