@@ -3,7 +3,20 @@
         'display': display,
         'background-color': bgColor
     }">
-    <h3>{{index}}. {{question?.text}}</h3>
+    <div class="flex-row">
+        <h3>{{index}}. {{question?.text}}</h3>
+        <div class="icon flex-col" *ngIf="viewMode=='edit'||'archive'">
+            <fa-icon 
+            [ngStyle]="{'color': style.navColor}" 
+            class="fas fa-trash"
+            (click)="onDelete()"
+            ></fa-icon>
+            <fa-icon
+            class="fas fa-edit"
+            (click)="renameQ()"
+            ></fa-icon>
+        </div>
+    </div>
     <!-- <p *ngFor="let answer of question?.answers">{{answer.text}}</p> -->
     <div *ngIf="question?.img!=null && question?.img!=''">
         <img  src={{question?.img}} alt="">

@@ -38,8 +38,6 @@ const routes: Routes=[
 
   {path:'category/:id_category',component: CategoryItemComponent},
 
-  {path:'user/:id_user/category',component: CategoryComponent},
-
   {path:'category',component: CategoryComponent},
 
   {path:'quiz/:id_quiz',component: QuizComponent},

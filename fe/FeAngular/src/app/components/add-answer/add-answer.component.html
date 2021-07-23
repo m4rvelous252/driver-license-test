@@ -1,26 +1,31 @@
-<form action="">
-<label for="text">answer {{index}}</label>
-<fa-icon 
-[ngStyle]="{'color': 'red'}" 
-class="fas fa-times-circle"
-(click)="deleteAnswer()"
-></fa-icon>
-<fa-icon 
-[ngStyle]="{
-    'color': isCorrectColor
-}" 
-class="fas fa-check-circle"
-(click)="toggleIsCorrect()"
-></fa-icon>
-<fa-icon 
-[ngStyle]="{'color': 'green'}" 
-class="far fa-save"
-(click)="confirmAnswer()"
-></fa-icon>
+<div class="flex-row">
+    <label for="text">Answer {{index}}</label>
+    <!-- <div class="visi-hidden"></div> -->
+    <div class="">
+        <fa-icon 
+        [ngStyle]="{
+            'color': isCorrectColor
+        }" 
+        class="fas fa-check-circle"
+        (click)="toggleIsCorrect()"
+        ></fa-icon>
+        <fa-icon 
+        [ngStyle]="{
+            'color': style.navColor
+        }" 
+        class="fas fa-trash"
+        (click)="deleteAnswer()"
+        ></fa-icon>
+        <!-- <fa-icon 
+        [ngStyle]="{'color': 'green'}" 
+        class="far fa-save"
+        (click)="confirmAnswer()"
+        ></fa-icon> -->
+    </div>
+</div>
 <input 
 type="text" 
 name="answerText" 
 [(ngModel)]="answer.text"
 id="answerText" 
 placeholder="Answer">
-</form>

@@ -9,8 +9,6 @@ export interface Type {
     deleted?: boolean
     type_name: string 
     questions: Question[]
-    sizeNotDelete : number
-    sizeDeleted: number
 }
 
 export class type implements Type {

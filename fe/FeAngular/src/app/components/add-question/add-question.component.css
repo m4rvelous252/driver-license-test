@@ -1,0 +1,19 @@
+.questions{
+    padding: 20px 0;
+    max-width: 1000px;
+    background-color: #e2e0e0;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
+.flex-row{
+    justify-content: space-between;
+}
+
+.form-control input{
+    min-height: 80px;
+}
+
+.addAnswerBtn{
+    margin: 20px 0px;
+}

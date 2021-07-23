@@ -1,6 +1,7 @@
 import { answer } from './../../model/answer';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Answer } from 'src/app/model/answer';
+import { STYLE } from 'src/app/model/constants';
 
 
 @Component({
@@ -20,10 +21,12 @@ export class AddAnswerComponent implements OnInit {
 
   isCorrectColor!:string
 
+  style=STYLE
+
   constructor() { }
 
   ngOnInit(): void {
-    this.isCorrectColor = this.answer.is_correct ? 'green' : 'red'
+    this.isCorrectColor = this.answer.is_correct ? this.style.secondColor : this.style.navColor
   }
 
   deleteAnswer(){
@@ -38,7 +41,7 @@ export class AddAnswerComponent implements OnInit {
   toggleIsCorrect(){
     this.answer.is_correct=!this.answer.is_correct
     console.log(this.answer.is_correct) 
-    this.isCorrectColor = this.answer.is_correct ? 'green' : 'red'
+    this.isCorrectColor = this.answer.is_correct ? this.style.secondColor : this.style.navColor
   }
 
 }

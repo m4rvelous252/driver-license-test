@@ -1,4 +1,4 @@
-import { Answer } from "./answer"
+import { Answer, answer } from "./answer"
 import { Question } from "./question"
 import { Type } from "./type"
 
@@ -30,10 +30,31 @@ export const PATHS ={
 }
 
 export const NEWQUESTION: Question = {
-    index: 1,
-    text: ' ',
-    answers: [],
-    edit: false
+    'index': 1,
+    text: 'This is a new Question',
+    answers: [
+        {
+            'text': 'This is an answer'
+        },
+        {
+            'text': 'This is another answer'
+        }
+    ],
+    'edit': false
+}
+
+export const NEWQUESTION1: Question = {
+    'index': 1,
+    text: 'This is a new Question',
+    answers: [
+        {
+            'text': 'This is an answer'
+        },
+        {
+            'text': 'This is another answer'
+        }
+    ],
+    'edit': false
 }
 
 export const NEWANSWER: Answer = {

@@ -1,7 +1,7 @@
 
 import { Type } from 'src/app/model/type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
-import { Question } from 'src/app/model/question';
+import { question, Question } from 'src/app/model/question';
 import { TypeService } from 'src/app/services/type/type.service';
 import { STYLE } from 'src/app/model/constants';
 import { ActivatedRoute,Params, Router } from '@angular/router';
@@ -39,11 +39,8 @@ export class TypeItemComponent implements OnInit {
   }
 
   addIndex(){
-    var i = 1;
-    this.type?.questions.forEach((question: { index: number; }) => {
-        question.index = i;
-        i++;
-        //question.is_done='blue';
+    this.type?.questions.forEach(question => { 
+      question.edit=true
     });
   }
 
