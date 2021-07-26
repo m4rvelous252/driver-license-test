@@ -1,9 +1,13 @@
 <div class="container question" 
     [ngStyle]="{
         'display': display,
-        'background-color': bgColor
+        'background-color': style.contentBgColor
     }">
-    <div class="flex-row">
+    <div class="flex-row"
+    [ngStyle]="{
+        'color': style.primeTxtColor
+    }"
+    >
         <h3>{{index}}. {{question?.text}}</h3>
         <div class="icon flex-col" *ngIf="viewMode=='edit'||'archive'">
             <fa-icon 

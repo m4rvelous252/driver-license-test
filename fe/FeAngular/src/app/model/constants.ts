@@ -9,8 +9,10 @@ export const STYLE = {
     warningColor: "#FFC145",
     primeTxtColor: "aliceblue",
     secondTxtColor: "black",
-    bgColor:"#c3c3c3",
-    dangerColor:"#FE5F55"
+    bgColor:"rgba(255, 203, 49, 0.9)",
+    dangerColor:"#FE5F55",
+    contentBgColor:"#000000",
+    contentTxtColor:"rgba(255, 203, 49, 0.9)"
 }
 
 export const KEY={

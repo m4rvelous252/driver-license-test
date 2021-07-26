@@ -55,6 +55,7 @@ export class AddQuestionComponent implements OnInit {
   @HostListener("dblclick")
   clicked() {
     this.inside = true;
+    this.renameQ();
   }
   @HostListener("document:dblclick")
   clickedOut() {

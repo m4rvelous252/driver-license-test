@@ -21,6 +21,8 @@ export class AddAnswerComponent implements OnInit {
 
   isCorrectColor!:string
 
+  correctAnswerColor = 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0) 100%)'
+
   style=STYLE
 
   constructor() { }
@@ -42,6 +44,21 @@ export class AddAnswerComponent implements OnInit {
     this.answer.is_correct=!this.answer.is_correct
     console.log(this.answer.is_correct) 
     this.isCorrectColor = this.answer.is_correct ? this.style.secondColor : this.style.navColor
+    console.log(this.displayAnswerColor())
+  }
+
+  displayAnswerColor(){
+    if (this.answer.is_correct) 
+    return this.correctAnswerColor
+    else
+    return this.style.primeColor
+  }
+
+  displayTxtColor(){
+    if (this.answer.is_correct) 
+    return this.style.secondTxtColor
+    else
+    return this.style.primeTxtColor
   }
 
 }

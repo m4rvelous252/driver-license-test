@@ -30,13 +30,11 @@
 }
   
 .form-control input {
-    background-color: #086375;
     width: 100%;
     height: 40px;
     margin: 5px 0px;
     padding: 3px 7px;
     font-size: 17px;
-    color: aliceblue;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -71,5 +69,9 @@ fa-icon{
 
 .shadow{
     box-shadow: 1px 1px 2px 1px #888888;
+}
+
+svg{
+    height: 28px;
 }
 

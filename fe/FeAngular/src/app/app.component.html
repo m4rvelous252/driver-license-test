@@ -3,7 +3,12 @@
     <app-header></app-header>
   </header>
 
-  <div class="mb-auto content">
+  <div 
+  class="mb-auto content"
+  [ngStyle]="{
+    'background-color': style.bgColor
+  }"
+  >
     <router-outlet></router-outlet>
   </div>
 

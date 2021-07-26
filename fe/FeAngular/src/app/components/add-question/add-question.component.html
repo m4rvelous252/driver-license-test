@@ -14,7 +14,12 @@
 
     </div>
 
-    <div *ngIf="!question?.edit" class="form-control shadow">
+    <div *ngIf="!question?.edit" 
+    [ngStyle]="{
+        'background-color': style.contentBgColor,
+        'color': style.primeTxtColor
+    }"
+    class="form-control shadow edit">
         <div class="flex-row">
             <label for="text">Question {{index}}</label>
             <div>
@@ -30,6 +35,10 @@
             </div>
         </div>
         <input 
+        [ngStyle]="{
+            'color': style.primeTxtColor,
+            'background': style.primeColor
+        }" 
         type="text" 
         name="text" 
         [(ngModel)]="text"
@@ -51,6 +60,5 @@
             (btnClick)="newAnswer()"></app-button>
         </div>
     </div>
-
 </div>
 

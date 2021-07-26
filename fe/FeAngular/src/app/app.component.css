@@ -1,8 +1,8 @@
 app-header{
-    position: fixed;
     width: 100%;
 }
 
 .content{
-    padding-top: 75px;
+    /* padding-top: 75px; */
+    width: 100%;
 }
