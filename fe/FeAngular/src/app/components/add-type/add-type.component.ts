@@ -21,6 +21,8 @@ export class AddTypeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // var newQuestion:question = new question([],'This is the first question', true)
+    // this.newT.questions.push(newQuestion!)
     var newQuestion:question = new question([],'', false)
     this.newT.questions.push(newQuestion!)
   }
@@ -34,9 +36,9 @@ export class AddTypeComponent implements OnInit {
     this.isNamed = false
   }
 
-  addQ(){
+  addQ(index: number){
     var newQuestion:question = new question([],'', false)
-    this.newT.questions.push(newQuestion!)
+    this.newT.questions.splice(index+1, 0, newQuestion!)
     // this.newT.questions.push(newQ)
     console.log(this.newT)
   }

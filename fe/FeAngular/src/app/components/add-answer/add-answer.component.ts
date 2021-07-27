@@ -17,11 +17,11 @@ export class AddAnswerComponent implements OnInit {
   @Input() index?: number
 
   @Output() onDeleteAnswer: EventEmitter<number> = new EventEmitter();
-  @Output() onComfirm: EventEmitter<string> = new EventEmitter();
+  @Output() onAddAnswer: EventEmitter<string> = new EventEmitter();
 
   isCorrectColor!:string
 
-  correctAnswerColor = 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0) 100%)'
+  correctAnswerColor = 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0.37) 100%)'
 
   style=STYLE
 
@@ -51,14 +51,18 @@ export class AddAnswerComponent implements OnInit {
     if (this.answer.is_correct) 
     return this.correctAnswerColor
     else
-    return this.style.primeColor
+    return this.style.contentTxtColor
   }
 
   displayTxtColor(){
     if (this.answer.is_correct) 
     return this.style.secondTxtColor
     else
-    return this.style.primeTxtColor
+    return this.style.contentBgColor
+  }
+
+  addAnswer(){
+    this.onAddAnswer.emit()
   }
 
 }

@@ -74,7 +74,7 @@ export class AnswerButtonComponent implements OnInit {
         return this.style.navColor
       }
       else{
-        return this.style.primeColor
+        return this.style.contentTxtColor
       }
     }
   }

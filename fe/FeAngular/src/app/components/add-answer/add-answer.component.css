@@ -7,8 +7,8 @@
 }
 
 .icon{
-    position: absolute;
-    padding: 0px 7px 3px 0px;
+    /* position: absolute; */
+    padding: 0px 7px 0px 5px;
     
 }
 
@@ -19,4 +19,10 @@ svg{
 
 .input-answer input{
     background-color: radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0) 100%) !important;
+}
+
+.icon fa-icon{
+    font-size: larger;
+    margin: 3px 0 2px 5px;
+    font-weight: bold;
 }

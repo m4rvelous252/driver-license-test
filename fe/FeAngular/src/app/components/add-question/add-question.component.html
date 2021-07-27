@@ -3,7 +3,11 @@
 
 <div class="main">
     <!-- *Edit question -->
-    <div *ngIf="question?.edit" class="questions shadow">
+    <div 
+    *ngIf="question?.edit" class="questions flex-row" 
+    (mouseenter)="hover()"
+    (mouseleave)="notHover()"
+    >
         <app-question-item
         [question]="question"
         [index]="index"
@@ -11,53 +15,81 @@
         (onDeleteQ)="onDelete()"
         (onRenameQ)="renameQ()"
         ></app-question-item>
-
+        <div 
+        [ngStyle]="{
+            'background-color': style.contentBgColor,
+            'color': style.contentTxtColor
+        }"
+        class="icon flex-col"
+        *ngIf="showToolbar"
+        >
+            <fa-icon 
+            [ngStyle]="{'color': style.navColor}" 
+            class="fas fa-trash"
+            (click)="onDelete()"
+            ></fa-icon>
+            <fa-icon
+            class="fas fa-pen-square"
+            (click)="renameQ()"
+            ></fa-icon>
+        </div>
     </div>
+    <div 
+    *ngIf="!question?.edit"  class="edit-question flex-row"
+    (mouseenter)="hover()"
+    (mouseleave)="notHover()"
+    >
+        <div 
+        [ngStyle]="{
+            'background-color': style.contentBgColor,
+            'color': style.primeTxtColor
+        }"
+        class="form-control shadow edit">
+            <!-- <div>
+                <label for="text">Question {{index}}</label>
+            </div> -->
+            <textarea 
+            [ngStyle]="{
+                'color': style.contentBgColor,
+                'background': style.contentTxtColor
+            }" 
+            type="text" 
+            name="text" 
+            [(ngModel)]="question.text"
+            id="text" 
+            placeholder="Question {{index}}"></textarea>
 
-    <div *ngIf="!question?.edit" 
-    [ngStyle]="{
-        'background-color': style.contentBgColor,
-        'color': style.primeTxtColor
-    }"
-    class="form-control shadow edit">
-        <div class="flex-row">
-            <label for="text">Question {{index}}</label>
-            <div>
-                <fa-icon 
-                class="fas fa-check"
-                (click)="nameQuestion(text)"
-                ></fa-icon>
-                <fa-icon 
-                [ngStyle]="{'color': style.navColor}" 
-                class="fas fa-trash"
-                (click)="onDelete()"
-                ></fa-icon>
+            <!-- *Edit answer -->
+            <div *ngFor="let answer of question?.answers, let i = index">
+                <app-add-answer
+                [answer]="answer"
+                [index]="i+1"
+                (onDeleteAnswer)="deleteAnswer(i)"
+                (onAddAnswer)="newAnswer(i)"
+                ></app-add-answer>
             </div>
         </div>
-        <input 
+        <div 
+        class="icon flex-col"
         [ngStyle]="{
-            'color': style.primeTxtColor,
-            'background': style.primeColor
-        }" 
-        type="text" 
-        name="text" 
-        [(ngModel)]="text"
-        id="text" 
-        placeholder="Question">
-
-        <!-- *Edit answer -->
-        <div *ngFor="let answer of question?.answers, let i = index">
-            <app-add-answer
-            [answer]="answer"
-            [index]="i+1"
-            (onDeleteAnswer)="deleteAnswer(i)"
-            ></app-add-answer>
-        </div>
-        <div class="addAnswerBtn">
-            <app-button 
-            [color]="style.secondColor"
-            [text]="'Add answer'"
-            (btnClick)="newAnswer()"></app-button>
+            'background-color': style.contentBgColor,
+            'color': style.contentTxtColor
+        }"
+        *ngIf="showToolbar"
+        >
+            <fa-icon 
+            class="fas fa-save"
+            (click)="nameQuestion()"
+            ></fa-icon>
+            <fa-icon 
+            [ngStyle]="{'color': style.navColor}" 
+            class="fas fa-trash"
+            (click)="onDelete()"
+            ></fa-icon>
+            <fa-icon 
+            class="fas fa-plus-square"
+            (click)="onAddQuestion()"
+            ></fa-icon>
         </div>
     </div>
 </div>
