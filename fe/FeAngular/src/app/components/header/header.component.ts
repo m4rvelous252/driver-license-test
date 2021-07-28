@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { KEY } from 'src/app/model/constants';
 import { Type } from 'src/app/model/type';
 import { User } from 'src/app/model/user';
+import { UiService } from 'src/app/services/Ui/ui.service';
 import{UserService} from '../../services/user/user.service'
 
 @Component({
@@ -12,23 +14,36 @@ import{UserService} from '../../services/user/user.service'
 export class HeaderComponent implements OnInit {
 
   type?: Type
-  
+
   user?: User
 
   subscription!: Subscription;
 
-  constructor(private userService: UserService) {
-  
+  imgMode!: string
+
+  constructor(private userService: UserService, private ui : UiService) {
+
   }
 
   ngOnInit(): void {
     const userJson = localStorage.getItem('user');
     this.user = userJson !== null ? JSON.parse(userJson) : null;
+    let style = this.ui.getStyleMode();
+    this.imgMode = style.imgDirection;
     console.log(this.user)
   }
 
   Logout(){
     localStorage.clear();
+  }
+
+  changeMode(){
+    if(localStorage.getItem(KEY.LightMode)){
+      localStorage.removeItem(KEY.LightMode);
+    }else{
+      localStorage.setItem(KEY.LightMode,KEY.LightMode);
+    }
+    window.location.reload();
   }
 
 }

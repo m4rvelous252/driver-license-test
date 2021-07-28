@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  @Output() fiveMins: EventEmitter<any> = new EventEmitter()
+  @Output() fiveMins: EventEmitter<any> = new EventEmitter();
   @Input() bgColor?: string;
   @Input() txColor?: string;
   @Input() durationTime: any

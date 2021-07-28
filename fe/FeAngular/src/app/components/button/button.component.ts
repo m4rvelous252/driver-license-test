@@ -20,7 +20,8 @@ export class ButtonComponent implements OnInit {
   @Input() fontSize!: string
   @Input() height!: string
   @Input() icon!: string
- 
+  @Input() fontFamily!: string
+
 
   @Output() btnClick = new EventEmitter();
 

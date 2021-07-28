@@ -48,7 +48,7 @@ public class QuestionService {
 
     public Response getQuestionByIdNotDeleted(Long id){
         Response respon = new Response();
-        Optional<Question> optionalQuestion = questionRepository.findQuestionByIdAndDeletedIsFalse();
+        Optional<Question> optionalQuestion = questionRepository.findQuestionByIdAndDeletedIsFalse(id);
         if(!optionalQuestion.isPresent()){
             respon = ConstantResponse.responseNotFount(respon);
         }else{

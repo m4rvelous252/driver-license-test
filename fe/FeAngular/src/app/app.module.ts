@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -52,6 +51,8 @@ import { CardComponent } from './components/card/card.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
 import { AddQuestionComponent } from './components/add-question/add-question.component';
 import { AddAnswerComponent } from './components/add-answer/add-answer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardCategoryComponent } from './components/card-category/card-category.component';
 
 
 
@@ -86,11 +87,11 @@ import { AddAnswerComponent } from './components/add-answer/add-answer.component
     AddTypeComponent,
     AddQuestionComponent,
     AddAnswerComponent,
+    CardCategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     HttpClientModule,
     FormsModule,
     BrowserModule, 

@@ -26,13 +26,13 @@ public class CategoryController {
         return categoryService.getAllCategory();
     }
 
-    @JsonView(Views.Public.class)
+    @JsonView(Views.Back.class)
     @GetMapping
     public Response getCategory() {
         return categoryService.getCategoryNotDelete();
     }
 
-    @JsonView(Views.Public.class)
+    @JsonView(Views.Back.class)
     @GetMapping(path="user/{userId}")
     public Response getCategoryByUserId(@PathVariable("userId") Long userId) {
         return categoryService.getCategorysByUserIdNotDelete(userId);

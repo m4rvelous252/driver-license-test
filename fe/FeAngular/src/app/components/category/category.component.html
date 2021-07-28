@@ -1,15 +1,5 @@
 <div class="container main">
     <div *ngFor="let category of categories">
-        <a href="category/{{category.id}}">
-            <app-button 
-            class="content-btn"
-            text="{{category.name}}"
-            color="{{style.primeColor}}"
-            textColor="{{style.primeTxtColor}}"
-            widthPer="150px"
-            height="100px"
-            >
-            </app-button>
-        </a>
+      <app-card-category [category] = "category" ></app-card-category>
     </div>
 </div>
