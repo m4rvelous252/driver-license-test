@@ -1,5 +1,6 @@
 import { Quiz } from "./quiz";
 import { Type } from "./type";
+import { User } from "./user";
 
 export interface Category {
     id: number
@@ -9,4 +10,6 @@ export interface Category {
     name: string
     type: Type[]
     quiz: Quiz[]
+    img: string
+    user: User
 }

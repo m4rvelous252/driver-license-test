@@ -1,8 +1,9 @@
 app-header{
     position: fixed;
     width: 100%;
+    min-height: 50px;
 }
 
 .content{
-    padding-top: 75px;
+    padding-top: 50px;
 }

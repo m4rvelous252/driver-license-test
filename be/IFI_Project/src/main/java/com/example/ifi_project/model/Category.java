@@ -1,5 +1,6 @@
 package com.example.ifi_project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
@@ -32,8 +33,15 @@ public class Category {
 
     private String name;
 
-    @Column(name = "id_user")
+    private String img;
+
+    @Column(name = "id_user", insertable = false, updatable = false)
     private Long idUser;
+
+    @JoinColumn(name = "id_user", insertable = true, updatable = true)
+    @JsonView(Views.Back.class)
+    @ManyToOne(fetch = FetchType.EAGER)
+    User user;
 
     @JsonView(Views.Internal.class)
     @OneToMany(fetch = FetchType.LAZY)

@@ -9,7 +9,7 @@ public class Views {
 
     }
 
-    public static class Hide extends Public{
+    public static class Back extends Public{
 
     }
 }

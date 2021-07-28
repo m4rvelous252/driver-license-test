@@ -12,3 +12,8 @@ a:hover{
     margin-left: 10px;
 }
 
+.login{
+  align-items: center;
+  text-align: center;
+  margin-top: 3%;
+}
