@@ -29,6 +29,7 @@
             (click)="onDelete()"
             ></fa-icon>
             <fa-icon
+            [ngStyle]="{'color': 'inherit'}" 
             class="fas fa-pen-square"
             (click)="renameQ()"
             ></fa-icon>
@@ -78,6 +79,7 @@
         *ngIf="showToolbar"
         >
             <fa-icon 
+            [ngStyle]="{'color': 'inherit'}" 
             class="fas fa-save"
             (click)="nameQuestion()"
             ></fa-icon>
@@ -87,6 +89,7 @@
             (click)="onDelete()"
             ></fa-icon>
             <fa-icon 
+            [ngStyle]="{'color': 'inherit'}" 
             class="fas fa-plus-square"
             (click)="onAddQuestion()"
             ></fa-icon>

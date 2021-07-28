@@ -41,4 +41,54 @@ public class QuizType implements Serializable {
 
     private int amount;
 
+	public QuizTypePK getId() {
+		return id;
+	}
+
+	public void setId(QuizTypePK id) {
+		this.id = id;
+	}
+
+	public Long getId_quiz() {
+		return id_quiz;
+	}
+
+	public void setId_quiz(Long id_quiz) {
+		this.id_quiz = id_quiz;
+	}
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
+
+	public Long getId_type() {
+		return id_type;
+	}
+
+	public void setId_type(Long id_type) {
+		this.id_type = id_type;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+    
+    
 }

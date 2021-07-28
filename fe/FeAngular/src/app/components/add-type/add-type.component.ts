@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { question } from 'src/app/model/question';
+import { answer } from 'src/app/model/answer';
 import { type } from 'src/app/model/type';
 import { TypeService } from 'src/app/services/type/type.service';
 import { NEWQUESTION, NEWQUESTION1, STYLE } from 'src/app/model/constants';
@@ -37,7 +38,8 @@ export class AddTypeComponent implements OnInit {
   }
 
   addQ(index: number){
-    var newQuestion:question = new question([],'', false)
+    var newAnswer: answer = new answer()
+    var newQuestion:question = new question([newAnswer],'', false)
     this.newT.questions.splice(index+1, 0, newQuestion!)
     // this.newT.questions.push(newQ)
     console.log(this.newT)

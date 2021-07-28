@@ -14,18 +14,10 @@
     }
 }
 
-.questions{
-    padding: 20px 0;
-    max-width: 1000px;
-    background-color: #e2e0e0;
-    border-radius: 10px;
-}
-
 .details{
-    background-color: #e2e0e0;
     width: 30%;
-    height: 300px;
-    margin-left: 20px;
+    height: fit-content;
+    margin: 20px 0 0 0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -33,3 +25,4 @@
     align-items: center;
     /* position: fixed; */
 }
+

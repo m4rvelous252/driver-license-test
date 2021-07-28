@@ -13,7 +13,6 @@
 }
 
 .card-bg{
-    background-color: #086375;
     border-radius: 10px;
     padding: 10px;
 }
@@ -85,5 +84,10 @@ fa-icon{
 
 svg{
     height: 28px;
+}
+
+img{
+    height: auto;
+    width: 100%;
 }
 

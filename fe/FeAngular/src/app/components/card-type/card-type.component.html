@@ -1,0 +1,16 @@
+<div 
+[ngStyle]="{'background-color':style.contentBgColor}"
+class="main container"
+>
+    <div class="flex-col">
+        <img [src]="paths.imgPath +'/type_img_1.png'" alt="{{type?.type_name}}" class="top">
+        
+        <div class="bottom flex-row">
+            <img [src]="paths.imgPath + '/avatar.png'" alt="" class="avatar">
+            <div class="details">
+            {{type?.type_name}}
+            {{type?.questions?.length}}
+            </div>
+        </div>
+    </div>
+</div>

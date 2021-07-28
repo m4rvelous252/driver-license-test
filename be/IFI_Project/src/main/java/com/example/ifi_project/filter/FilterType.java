@@ -17,7 +17,7 @@ public class FilterType {
     public static List<Type> FilterListTypesNotDelete(List<Type> types) {
         List<Type> tempTypes = new ArrayList<>();
         for (Type t : types) {
-            if (t.getDeleted()) {
+            if (!t.getDeleted()) {
                 t = FilterTypeNotDelete(t);
                 tempTypes.add(t);
             }

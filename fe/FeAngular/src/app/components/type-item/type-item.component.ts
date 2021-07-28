@@ -2,6 +2,7 @@
 import { Type } from 'src/app/model/type';
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { question, Question } from 'src/app/model/question';
+import { answer } from 'src/app/model/answer';
 import { TypeService } from 'src/app/services/type/type.service';
 import { STYLE } from 'src/app/model/constants';
 import { ActivatedRoute,Params, Router } from '@angular/router';
@@ -15,7 +16,7 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
 export class TypeItemComponent implements OnInit {
 
 
-  type? : Type
+  type! : Type
   id_type!:string 
  
   primeTxtColor = STYLE.primeTxtColor
@@ -43,5 +44,18 @@ export class TypeItemComponent implements OnInit {
       question.edit=true
     });
   }
+
+    addQ(index: number){
+    var newAnswer: answer = new answer()
+    var newQuestion:question = new question([newAnswer],'', false)
+    this.type.questions.splice(index+1, 0, newQuestion!)
+    // this.newT.questions.push(newQ)
+    console.log(this.type)
+  }
+
+  removeQ(index: number){
+    this.type.questions.splice(index,1)
+  }
+
 
 }
