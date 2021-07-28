@@ -16,15 +16,8 @@ export class CategoryService {
   getAllCategory(): Observable<Response> {
     return this.http.get<Response>(this.apiUrl)
   }
-
   getCategory(id_category:string): Observable<Response> {
     let url = `${this.apiUrl}/${id_category}`
     return this.http.get<Response>(url)
   }
-
-  getAllCategoryByUser(id_user : string): Observable<Response> {
-    let url = `${this.apiUrl}/user/${id_user}`
-    return this.http.get<Response>(this.apiUrl)
-  }
-
 }

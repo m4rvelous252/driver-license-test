@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { question } from 'src/app/model/question';
 import { type } from 'src/app/model/type';
 import { TypeService } from 'src/app/services/type/type.service';
+import { NEWQUESTION, NEWQUESTION1, STYLE } from 'src/app/model/constants';
 
 @Component({
   selector: 'app-add-type',
@@ -9,6 +10,8 @@ import { TypeService } from 'src/app/services/type/type.service';
   styleUrls: ['./add-type.component.css']
 })
 export class AddTypeComponent implements OnInit {
+
+  style=STYLE
   
   newT: type = new type('', [])
 
@@ -18,6 +21,10 @@ export class AddTypeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // var newQuestion:question = new question([],'This is the first question', true)
+    // this.newT.questions.push(newQuestion!)
+    var newQuestion:question = new question([],'', false)
+    this.newT.questions.push(newQuestion!)
   }
 
   nameType(){
@@ -29,9 +36,9 @@ export class AddTypeComponent implements OnInit {
     this.isNamed = false
   }
 
-  addQ(){
-    var newQuestion:question = new question([],'')
-    this.newT.questions.push(newQuestion!)
+  addQ(index: number){
+    var newQuestion:question = new question([],'', false)
+    this.newT.questions.splice(index+1, 0, newQuestion!)
     // this.newT.questions.push(newQ)
     console.log(this.newT)
   }
@@ -40,6 +47,8 @@ export class AddTypeComponent implements OnInit {
     this.newT.questions.splice(index,1)
   }
 
-  submitT(){}
+  submitT(){
+
+  }
 
 }

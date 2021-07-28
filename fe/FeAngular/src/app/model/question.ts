@@ -38,10 +38,11 @@ export class question implements Question {
     is_done?: string;
     edit?: boolean;
 
-    constructor(answers: Answer[], text:string){
+    constructor(answers: Answer[], text:string, edit: boolean){
         this.answers=answers,
         // this.index=index,
         this.text=text
+        this.edit=edit
     }
 
     // constructor(){}

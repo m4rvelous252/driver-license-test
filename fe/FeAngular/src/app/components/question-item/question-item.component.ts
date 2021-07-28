@@ -1,7 +1,7 @@
 
 import { Answer } from '../../model/answer';
 import { AnswerService } from './../../services/answer/answer.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from 'src/app/model/question';
 import { UiService } from 'src/app/services/Ui/ui.service';
 import { STYLE } from 'src/app/model/constants';
@@ -22,9 +22,11 @@ export class QuestionItemComponent implements OnInit {
   @Input()
   viewMode?: string
   // answers?: Answer[];
+  @Output() onDeleteQ: EventEmitter<any> = new EventEmitter()
+  @Output() onRenameQ: EventEmitter<any> = new EventEmitter()
 
+  style=STYLE
 
-  @Input()
   display?: string
   constructor(private answerService: AnswerService, private uiService: UiService) { }
 
@@ -78,6 +80,14 @@ export class QuestionItemComponent implements OnInit {
       }
 
     }
+  }
+
+  onDelete(){
+    this.onDeleteQ.emit()
+  }
+
+  renameQ(){
+    this.onRenameQ.emit()
   }
 
 }

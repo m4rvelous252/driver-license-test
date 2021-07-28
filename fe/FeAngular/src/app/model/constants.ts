@@ -1,16 +1,21 @@
-import { Answer } from "./answer"
+import { Answer, answer } from "./answer"
 import { Question } from "./question"
 import { Type } from "./type"
 
 export const STYLE = {
     primeColor: "#086375",
     secondColor: "#7DCD85",
-    navColor: "#fe5f55",
+    navColor: "#F42E22",
+    // navColor: "#fe5f55",
     warningColor: "#FFC145",
     primeTxtColor: "aliceblue",
     secondTxtColor: "black",
-    bgColor:"#c3c3c3",
+    bgColor:"#31302D",
     dangerColor:"#FE5F55",
+    contentBgColor:"#000000",
+    contentTxtColor:"rgba(255, 203, 49, 0.9)"
+    // bgColor:"#c3c3c3",
+    // dangerColor:"#FE5F55",
 
 }
 
@@ -36,6 +41,7 @@ export const FailImg ={
   categoryImgFail : '../../../assets/img/category_fail.png'
 }
 
+
 export const KEY={
     test:"test",
     user:"user",
@@ -54,10 +60,31 @@ export const PATHS ={
 }
 
 export const NEWQUESTION: Question = {
-    index: 1,
-    text: ' ',
-    answers: [],
-    edit: false
+    'index': 1,
+    text: 'This is a new Question',
+    answers: [
+        {
+            'text': 'This is an answer'
+        },
+        {
+            'text': 'This is another answer'
+        }
+    ],
+    'edit': false
+}
+
+export const NEWQUESTION1: Question = {
+    'index': 1,
+    text: 'This is a new Question',
+    answers: [
+        {
+            'text': 'This is an answer'
+        },
+        {
+            'text': 'This is another answer'
+        }
+    ],
+    'edit': false
 }
 
 export const NEWANSWER: Answer = {

@@ -1,9 +1,15 @@
 <div class="container question" 
     [ngStyle]="{
         'display': display,
-        'background-color': bgColor
+        'background-color': style.contentBgColor
     }">
-    <h3>{{index}}. {{question?.text}}</h3>
+    <div class="flex-row"
+    [ngStyle]="{
+        'color': style.primeTxtColor
+    }"
+    >
+        <h3>{{index}}. {{question?.text}}</h3>
+    </div>
     <!-- <p *ngFor="let answer of question?.answers">{{answer.text}}</p> -->
     <div *ngIf="question?.img!=null && question?.img!=''">
         <img  src={{question?.img}} alt="">

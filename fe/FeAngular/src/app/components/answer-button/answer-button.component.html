@@ -1,6 +1,6 @@
 
 
-<div *ngIf="viewMode=='test'">
+<div *ngIf="viewMode=='test'" else>
     <app-button class="ticker"
     color = "{{answer.is_select ? selectColor : primaryColor}}"
     icon="{{answer.is_select ? imgSelect : imgUnselect}}"
@@ -23,7 +23,7 @@
     
 </div>
 
-<div *ngIf="viewMode=='archive'||viewMode=='edit'">
+<div *ngIf="viewMode=='archive'||'edit'||'result'">
     <app-button class="ticker"
     color = "{{resultColor()}}"
     img="{{answer.is_select ? imgSelect : imgUnselect}}"
@@ -33,7 +33,7 @@
     <app-button class="answer-text"
     color = "{{resultColor()}}"
     text="{{answer?.text}}"
-    textColor= "{{answer.is_select ? selectTxtColor : primeTxtColor}}"
+    textColor= "{{selectTxtColor}}"
     class="answer-text"
     widthPer="{{answer.img==null ? '100%' : '25%'}}"
     textAlign="start"
