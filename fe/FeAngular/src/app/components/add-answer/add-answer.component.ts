@@ -44,7 +44,6 @@ export class AddAnswerComponent implements OnInit {
     this.answer.is_correct=!this.answer.is_correct
     console.log(this.answer.is_correct) 
     this.isCorrectColor = this.answer.is_correct ? this.style.secondColor : this.style.navColor
-    console.log(this.displayAnswerColor())
   }
 
   displayAnswerColor(){

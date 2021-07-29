@@ -24,7 +24,8 @@ export class AddTypeComponent implements OnInit {
 
     // var newQuestion:question = new question([],'This is the first question', true)
     // this.newT.questions.push(newQuestion!)
-    var newQuestion:question = new question([],'', false)
+    var newAnswer:answer = new answer()
+    var newQuestion:question = new question([newAnswer],'', false)
     this.newT.questions.push(newQuestion!)
   }
 

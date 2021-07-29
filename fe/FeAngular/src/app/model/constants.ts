@@ -5,6 +5,7 @@ import { Type } from "./type"
 export const STYLE = {
     primeColor: "#086375",
     secondColor: "#7DCD85",
+    secondbgColor: "radial-gradient(114.29% 14863.93% at 28.64% 28.57%, #42B74B 0%, rgba(14, 163, 24, 0.56) 100%)",
     navColor: "#F42E22",
     // navColor: "#fe5f55",
     warningColor: "#FFC145",

@@ -17,12 +17,6 @@ export class AnswerButtonComponent implements OnInit {
 
   public imgSelect: string = "../../../assets/img/tick.png"
   public imgUnselect: string = "../../../assets/img/question-mark.png"
-  public primaryColor: string = STYLE.primeColor
-  public selectColor: string = STYLE.secondColor
-  public primeTxtColor: string = STYLE.primeTxtColor
-  public selectTxtColor: string = STYLE.secondTxtColor
-  public unCorrectColor: string = STYLE.dangerColor
-
   style=STYLE
 
   is_test!: boolean

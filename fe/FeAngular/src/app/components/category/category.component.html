@@ -1,5 +1,6 @@
 <div class="container main">
     <div *ngFor="let category of categories">
-      <app-card-category [category] = "category" ></app-card-category>
+      <a href="/category/{{category.id}}">
+      <app-card-category [category] = "category" ></app-card-category></a>
     </div>
 </div>

@@ -7,9 +7,13 @@ class="main container"
         
         <div class="bottom flex-row">
             <img [src]="paths.imgPath + '/avatar.png'" alt="" class="avatar">
-            <div class="details">
-            {{type?.type_name}}
-            {{type?.questions?.length}}
+            <div 
+            [ngStyle]="{
+                'color':style.contentTxtColor
+            }"
+            class="details flex-col">
+            <span style="font-size: larger; font-weight: bold;">{{type?.type_name}}</span>
+            <span> {{type?.questions?.length}} questions</span>
             </div>
         </div>
     </div>

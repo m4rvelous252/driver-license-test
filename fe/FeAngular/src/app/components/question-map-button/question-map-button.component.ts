@@ -16,11 +16,8 @@ export class QuestionMapButtonComponent implements OnInit {
   @Input()
   curQuestion?: Question;
 
-  public primeTxtColor = STYLE.primeTxtColor
-  public secondTxtColor = STYLE.secondTxtColor
-  public primaryColor = STYLE.primeColor
-  public selectColor = STYLE.secondColor
-  public navColor = STYLE.navColor
+
+  style=STYLE
 
   public imgDone = "https://centralresidences.vn/wp-content/uploads/2020/05/da%CC%82%CC%81u-tick-.png"
 
@@ -34,7 +31,7 @@ export class QuestionMapButtonComponent implements OnInit {
   ngOnInit(): void {
 
     if(this.question?.is_done==null)
-    {this.question!.is_done='#086375';}
+    {this.question!.is_done=this.style.contentTxtColor;}
   }
 
   toggleQuestion() {
@@ -43,9 +40,8 @@ export class QuestionMapButtonComponent implements OnInit {
 
   onClick(question?: Question){
     this.btnClick.emit(question);
-    
 
-    // console.log('add');
+    console.log(question?.is_done);
   }
   
 

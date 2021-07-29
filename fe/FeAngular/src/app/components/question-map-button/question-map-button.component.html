@@ -2,10 +2,11 @@
 <div>
     <app-button 
         (click)="onClick(question)"
-        color = "{{question==curQuestion? navColor : question?.is_done}}" 
+        color = "{{question==curQuestion? style.navColor : question?.is_done}}" 
         borderRadius="11px"
-        textColor="{{question?.is_done==primaryColor ? primeTxtColor : secondTxtColor}}"
+        textColor="{{question==curQuestion? style.primeTxtColor:style.secondTxtColor}}"
         widthPer="43px"
+        fontWeight="bolder"
         text="{{question?.index}}"
     ></app-button>
 </div>

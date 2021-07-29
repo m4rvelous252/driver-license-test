@@ -1,6 +1,7 @@
 .main{
     padding: 0 0 0 0;
     border-radius: 10px;
+    max-width: 250px;
 }
 
 .top{
@@ -8,6 +9,7 @@
 }
 
 .bottom{
+    padding: 5px;
     width: 100%;
     justify-content: flex-start ;
 }
@@ -17,4 +19,9 @@
     height: 50px;
     border-radius: 50%;
     margin: 5px;
+}
+
+.details{
+    align-items: flex-start;
+    margin: 0 0 0 5px;
 }

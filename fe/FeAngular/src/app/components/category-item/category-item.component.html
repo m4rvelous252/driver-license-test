@@ -1,23 +1,20 @@
 <div class="container main">
-    <div class="content">
+    <div
+    class="content">
         <div *ngIf="viewMode=='type'" class="content-btn">
             <div 
             *ngFor="let type of category?.type">
                 <a href="type/{{type.id}}">
-                    <app-button
-                    color="{{primaryColor}}"
-                    textColor="{{primeTxtColor}}"
-                    text="{{type.type_name}}"
-                    widthPer="100px"
-                    >
-                    </app-button>
+                    <app-card-type
+                    [type]="type"
+                    ></app-card-type>
                 </a>
             </div>
             <a href="/add-type">
             <app-button
-            color="{{primaryColor}}"
+            color="{{style.contentTxtColor}}"
             text="+"
-            textColor="{{primeTxtColor}}"
+            textColor="{{style.contentBgColor}}"
             widthPer="100px"
             ></app-button></a>
         </div>
@@ -38,7 +35,8 @@
         </div>
     </div>
     
-    <div class="modeToggle">
+    <div 
+    class="modeToggle">
         <app-button 
         class="title"
         color="{{navColor}}"
