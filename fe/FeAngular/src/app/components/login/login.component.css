@@ -1,11 +1,6 @@
 .background{
-    background-image: url('../../../assets/img/BG_Quiz.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100%;
     font-family: 'Numans', sans-serif;
-
-    height: 90vh;
 }
 .card{
     height: auto;
@@ -14,7 +9,7 @@
     width: 400px;
     background-color: rgba(0,0,0,0.7) !important;
 }
-    
+
 .social_icon span{
     font-size: 60px;
     margin-left: 10px;

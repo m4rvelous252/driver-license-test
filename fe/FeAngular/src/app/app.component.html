@@ -1,13 +1,17 @@
-<div class="d-flex flex-column h-100">
+<div class="d-flex flex-column h-100 bg"
+  style="background-image: url('{{backGroundImg}}'); background-color: '{{backGroundColor}}';"
+>
   <header>
     <app-header></app-header>
   </header>
-
-  <div 
+  <!-- <div
   class="mb-auto content"
   [ngStyle]="{
     'background-color': style.bgColor
   }"
+  > -->
+  <div
+  class="mb-auto content"
   >
     <router-outlet></router-outlet>
   </div>

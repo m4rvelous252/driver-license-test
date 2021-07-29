@@ -1,0 +1,20 @@
+.card-img-top{
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 30px!important;
+  height: 30px!important;
+  border-radius: 50%;
+}
+
+ng-template{
+  width: auto!important;
+}
+
+.carousel-cell{
+  margin-left: 5%!important;
+}

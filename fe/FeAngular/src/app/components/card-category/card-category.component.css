@@ -1,5 +1,50 @@
+a{
+  text-decoration: none;
+}
+
+.card{
+  width: 252px!important;
+  height: 240px!important;
+  background-color: #ECECEC!important;
+}
+
 .card-img-top{
-  width: 250px;
-  height: 150px;
-  background-size: cover;
+  width: 250px!important;
+  height: 150px!important;
+  background-size: cover!important;
+  object-fit:cover!important;
+}
+
+.name-category{
+  margin-bottom: 0!important;
+  color: black;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.name-user{
+  color: rgb(89, 89, 89);
+  margin-bottom: 0!important;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.name-user:hover{
+  color: rgb(0, 0, 0);
+}
+
+.card-body{
+  padding: 10px;
 }

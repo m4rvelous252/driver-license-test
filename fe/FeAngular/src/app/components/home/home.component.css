@@ -4,21 +4,21 @@
 }
 
 .content{
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin-top: 60px;
   margin-bottom: 60px;
 }
 
 .left-col{
   max-width: 500px;
-  align-self:center;
-  margin-left: 5%;
+  margin-left: 10%!important;
   margin-right: 5%;
+
 }
 
 .right-col{
-  align-self:center;
+  justify-self:center;
 }
 
 .top-heading{
@@ -39,6 +39,11 @@
   font-size: 20px;
   line-height: 35px;
   flex-grow: 1;
+}
+
+.releaseCategories{
+  padding-top: 72px;
+  padding-bottom: 64px;
 }
 
 

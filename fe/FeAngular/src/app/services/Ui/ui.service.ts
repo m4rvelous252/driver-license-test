@@ -13,8 +13,13 @@ export class UiService {
 
   private showQuestion: boolean = false;
   private subject = new Subject<any>();
+  private subjectBackGroundImg = new Subject<any>();
+  private subjectBackGroundColor = new Subject<any>();
 
-  public StyleMode = DarkMode;
+
+  public backGroundImg!: string;
+
+  public backGroundColor! :string;
 
   constructor() {
   }
@@ -36,6 +41,26 @@ export class UiService {
   onToggleColor(): Observable<Question> {
     return this.subject.asObservable();
   }
+
+  setBackGroundImg(img :string){
+    this.backGroundImg = img;
+    this.subjectBackGroundImg.next(this.backGroundImg);
+  }
+
+  getBackGroundImg(): Observable<any> {
+    return this.subjectBackGroundImg.asObservable();
+  }
+
+  setBackGroundColor(img :string){
+    this.backGroundImg = img;
+    this.subjectBackGroundColor.next(this.backGroundColor);
+  }
+
+  getBackGroundColor(): Observable<any> {
+    return this.subjectBackGroundColor.asObservable();
+  }
+
+
 
 
 

@@ -13,6 +13,8 @@ import{UserService} from '../../services/user/user.service'
 })
 export class HeaderComponent implements OnInit {
 
+  styleMode = this.ui.getStyleMode()
+
   type?: Type
 
   user?: User
@@ -29,7 +31,7 @@ export class HeaderComponent implements OnInit {
     const userJson = localStorage.getItem('user');
     this.user = userJson !== null ? JSON.parse(userJson) : null;
     let style = this.ui.getStyleMode();
-    this.imgMode = style.imgDirection;
+    this.imgMode = style.header_imgDirection;
     console.log(this.user)
   }
 

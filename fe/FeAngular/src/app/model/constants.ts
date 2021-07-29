@@ -20,21 +20,31 @@ export const STYLE = {
 }
 
 export const DarkMode ={
+  //Header
+  header_background_color: "#010101",
+  header_imgDirection : "../../../assets/icon/darkmode.png",
+  header_textColor:"#FFFFFF",
+
   //Home Page
-  imgDirection : "../../../assets/icon/darkmode.png",
-  background_top: "#FFCB31",
-  textColorOnBackGround: "#000000",
-  colorButton:"#086375",
-  textColorButton:"#FFFFFF",
+  home_background_top: "#31302D",
+  home_textColorOnBackGround: "#FFFFFF",
+  home_colorButton:"#FFCB31",
+  home_textColorButton:"#000000",
+  home_backfround_releaseCategory: "#C4C4C4",
 }
 
 export const LightMode ={
+  //Header
+  header_background_color: "#FFFFFF",
+  header_imgDirection : "../../../assets/icon/lightmode.png",
+  header_textColor:"#000000",
+
   //Home Page
-  imgDirection : "../../../assets/icon/lightmode.png",
-  background_top: "#086375",
-  textColorOnBackGround: "#FFFFFF",
-  colorButton:"#FFCB31",
-  textColorButton:"#000000",
+  home_background_top: "#086375",
+  home_textColorOnBackGround: "#FFFFFF",
+  home_colorButton:"#FFCB31",
+  home_textColorButton:"#000000",
+  home_backfround_releaseCategory: "#C4C4C4",
 }
 
 export const FailImg ={

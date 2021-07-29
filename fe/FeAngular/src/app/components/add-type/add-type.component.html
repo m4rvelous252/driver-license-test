@@ -1,4 +1,4 @@
-<div 
+<div
 class="main flex-col container"
 >
     <!-- *Edit tên type -->
@@ -8,8 +8,8 @@ class="main flex-col container"
                 <label for="text">Type name</label>
                 <fa-icon class="fas fa-check" (click)="nameType()"></fa-icon>
             </div>
-            <textarea 
-            [(ngModel)]="newT.type_name" 
+            <textarea
+            [(ngModel)]="newT.type_name"
             [ngStyle]="{
                 'background-color': style.primeColor
             }"
@@ -31,8 +31,8 @@ class="main flex-col container"
 
     <div class="container">
         <div *ngFor="let question of newT.questions, let i = index">
-            <app-add-question 
-            [question]="question" [index]="i+1" 
+            <app-add-question
+            [question]="question" [index]="i+1"
             (deleteQuestion)="removeQ(i)"
             (addQuestion)="addQ(i)"
             ></app-add-question>

@@ -1,6 +1,8 @@
 .avatar {
-    vertical-align: middle;
-    width: 30px;
-    height: 30px;
+    vertical-align: middle!important;
+    width: 30px!important;
+    height: 30px!important;
     border-radius: 50%;
+    display: inline!important;
+    object-fit:cover!important
   }
