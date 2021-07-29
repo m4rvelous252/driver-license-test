@@ -3,6 +3,7 @@ import {Router} from '@angular/router'
 import{UserService} from '../../services/user/user.service'
 import{User} from '../../model/user'
 import { DateTime } from 'luxon';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +23,16 @@ export class LoginComponent implements OnInit {
   forgotUsername?:string
   forgotPassword?:string
 
-  constructor(private userService: UserService,private router : Router) { 
+  backGroundImg = "/assets/img/BG_Quiz.jpg"
+
+  constructor(
+    private userService: UserService,
+    private router : Router,
+    private uiService: UiService) {
   }
 
   ngOnInit(): void {
+    this.uiService.setBackGroundImg(this.backGroundImg);
     this.save = false;
   }
 

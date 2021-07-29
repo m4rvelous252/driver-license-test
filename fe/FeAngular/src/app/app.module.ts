@@ -55,6 +55,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardCategoryComponent } from './components/card-category/card-category.component';
 import { CardTypeComponent } from './components/card-type/card-type.component';
 
+import { CategoryScrollComponent } from './components/category-scroll/category-scroll.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -90,15 +94,20 @@ import { CardTypeComponent } from './components/card-type/card-type.component';
     AddAnswerComponent,
     CardCategoryComponent,
     CardTypeComponent,
+    CategoryScrollComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule, 
-    CountdownModule, 
-    BrowserAnimationsModule,MdbCarouselModule, MdbCheckboxModule, MdbCollapseModule, MdbDropdownModule, MdbFormsModule, MdbModalModule, MdbPopoverModule, MdbRadioModule, MdbRangeModule, MdbRippleModule, MdbScrollspyModule, MdbTabsModule, MdbTooltipModule, MdbValidationModule,
+    BrowserModule,
+    CountdownModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    SlickCarouselModule,
+    IvyCarouselModule,
+    CarouselModule
   ],
   
   providers: [],

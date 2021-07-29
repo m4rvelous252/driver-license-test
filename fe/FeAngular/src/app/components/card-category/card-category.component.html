@@ -1,20 +1,16 @@
-<div 
-[ngStyle]="{'background-color':style.contentBgColor}"
-class="main container"
->
-    <div class="flex-col">
-        <img [src]="paths.imgPath +'/type_img_1.png'" alt="{{category?.name}}" class="top">
-        
-        <div class="bottom flex-row">
-            <img [src]="paths.imgPath + '/avatar.png'" alt="" class="avatar">
-            <div 
-            [ngStyle]="{
-                'color':style.contentTxtColor
-            }"
-            class="details flex-col">
-            <span style="font-size: larger; font-weight: bold;">{{category?.name}}</span>
-            <!-- <span> {{category?.type?.length}} questions</span> -->
-            </div>
+<a href="/category/{{category!.id}}">
+  <div class="card">
+    <img src="{{category!.img}}" onerror="this.src = '../../../assets/img/category_fail.png';" class="card-img-top" alt="...">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-auto mt-2">
+          <app-icon-avatar src = {{category!.user.img}} style="margin-left: 5px;"></app-icon-avatar>
         </div>
+        <div class = "col">
+          <a href="/category/{{category!.id}}" class="name-category" >{{category!.name}}</a>
+          <a href="home" class="name-user">{{category!.user.name}}</a>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</a>
