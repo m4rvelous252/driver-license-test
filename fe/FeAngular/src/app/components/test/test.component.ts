@@ -46,6 +46,8 @@ export class TestComponent implements OnInit {
   navColor = STYLE.navColor
   warningColor = STYLE.warningColor
 
+  style=STYLE
+
   constructor(private questionService: QuestionService, 
     private testService: TestService,
     private timeService: TimeService,

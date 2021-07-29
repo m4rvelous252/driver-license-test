@@ -1,24 +1,21 @@
 
 <div class=" main">
-    <div 
-    class="container questions"
-    
-    >
-        <div class="container">
-            <app-question-item
-            *ngFor="let question of type?.questions,let i = index"
-            [index]="i+1"
-            [question]="question"
-            [viewMode]="'archive'"
-            >
-            </app-question-item>
+    <div class="container question">
+        <div *ngFor="let question of type.questions, let i = index">
+            <app-add-question 
+            [question]="question" [index]="i+1" 
+            (deleteQuestion)="removeQ(i)"
+            (addQuestion)="addQ(i)"
+            ></app-add-question>
         </div>
     </div>
 
-    <div 
-    class="container details"
-    >
-    <h3>{{type?.type_name}}</h3>
-    <p>Số câu hỏi: {{type?.questions?.length}}</p>
-    </div>
+    <app-card-type class="details"
+    [type]="type"
+    ></app-card-type>
+
+    <button
+    [ngStyle]="{'background': 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0.37) 100%)'}"
+    >This is a test button</button>
 </div>
+

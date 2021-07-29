@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PATHS } from 'src/app/model/constants';
+import { PATHS, STYLE } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
 
 @Component({
@@ -9,6 +9,8 @@ import { Quiz } from 'src/app/model/quiz';
 })
 export class QuizCardComponent implements OnInit {
   paths = PATHS
+
+  style=STYLE
 
   @Input() quiz?: Quiz
 

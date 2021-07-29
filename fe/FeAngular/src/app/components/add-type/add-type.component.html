@@ -6,7 +6,7 @@ class="main flex-col container"
         <div class="form-control name-type shadow" *ngIf="!isNamed">
             <div class="flex-row label">
                 <label for="text">Type name</label>
-                <fa-icon class="fas fa-check" (click)="nameType()"></fa-icon>
+                <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-check" (click)="nameType()"></fa-icon>
             </div>
             <textarea
             [(ngModel)]="newT.type_name"
@@ -19,9 +19,9 @@ class="main flex-col container"
         <div class="container" *ngIf="isNamed">
             <div class="container flex-col details">
                 <div class="flex-row type-name">
-                    <fa-icon class="fas fa-edit visi-hidden"></fa-icon>
+                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit visi-hidden"></fa-icon>
                     <h3>{{newT.type_name}}</h3>
-                    <fa-icon class="fas fa-edit" (click)="rename()"></fa-icon>
+                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit" (click)="rename()"></fa-icon>
                 </div>
                 <span>Số câu hỏi: {{newT.questions?.length}}</span>
             </div>

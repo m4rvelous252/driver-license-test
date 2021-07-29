@@ -70,4 +70,98 @@ public class HistoryTest {
                 ", questions=" + questions +
                 '}';
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getCreate_date() {
+		return create_date;
+	}
+
+	public void setCreate_date(LocalDate create_date) {
+		this.create_date = create_date;
+	}
+
+	public LocalDate getDelete_date() {
+		return delete_date;
+	}
+
+	public void setDelete_date(LocalDate delete_date) {
+		this.delete_date = delete_date;
+	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public int getTimeStart() {
+		return timeStart;
+	}
+
+	public void setTimeStart(int timeStart) {
+		this.timeStart = timeStart;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public Long getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Long id_user) {
+		this.id_user = id_user;
+	}
+
+	public int getMark() {
+		return mark;
+	}
+
+	public void setMark(int mark) {
+		this.mark = mark;
+	}
+
+	public List<HistoryQuestion> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<HistoryQuestion> questions) {
+		this.questions = questions;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
+    
+    
 }

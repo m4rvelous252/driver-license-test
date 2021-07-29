@@ -21,6 +21,8 @@ export class ButtonComponent implements OnInit {
   @Input() height!: string
   @Input() icon!: string
   @Input() fontFamily!: string
+  @Input() fontWeight!: string
+  @Input() background?: string
 
 
   @Output() btnClick = new EventEmitter();
@@ -33,7 +35,6 @@ export class ButtonComponent implements OnInit {
 
   onClick(){
     this.btnClick.emit();
-    console.log("click")
   }
 
 }

@@ -76,7 +76,7 @@ export class QuestionItemComponent implements OnInit {
         return
       }
       else{
-        this.question!.is_done = STYLE.primeColor
+        this.question!.is_done = STYLE.contentTxtColor;
       }
 
     }

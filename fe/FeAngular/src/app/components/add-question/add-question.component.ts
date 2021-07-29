@@ -14,6 +14,7 @@ export class AddQuestionComponent implements OnInit {
   faTimes= faTimes
   @Input() index?: number;
   @Input() question!: Question;
+  @Input() viewMode?: string;
 
   inside = false
   style=STYLE
@@ -25,8 +26,10 @@ export class AddQuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    var newA: answer = new answer()
-    this.question?.answers.push(newA)
+    if(this.question.text){
+      this.question!.edit=true
+    }
+    
   }
 
   onDelete(){
@@ -35,7 +38,11 @@ export class AddQuestionComponent implements OnInit {
 
   nameQuestion(){
     if(this.check()){
-      // this.question!.text=text
+      this.question.answers.forEach(answer => {
+        if (answer.text==''||!answer.text){
+          this.question.answers.splice(this.question.answers.indexOf(answer), 1)
+        }
+      });
       this.question!.edit=true
     }
   }

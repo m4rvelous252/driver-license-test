@@ -10,18 +10,40 @@ a {
     
 }
 
+@media (max-width: 700px){
+    .main{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content{
+        width: 100% !important;
+        margin: 10px 0 0 0;
+    }
+
+    .modeToggle{
+        width: 100% !important;
+        flex-direction: row !important;
+    }
+
+    
+    .modeToggle app-button{
+        padding: 0px 5px !important;
+    }
+
+}
+
 .content {
-    background-color: #ececec;
     width: 70%;
     height: fit-content;
     border-radius: 10px;
     padding: 1rem 1rem;
-    box-shadow: 1px 1px 2px 1px #888888;
 }
 
 
 .modeToggle {
-    background-color: #ececec;
+
     width: 25%;
     height: fit-content;
     border-radius: 10px;
@@ -30,7 +52,6 @@ a {
     align-items: center;
     justify-content: center;
     padding: 25px;
-    box-shadow: 1px 1px 2px 1px #888888;
 }
 
 .modeToggle app-button{
@@ -41,7 +62,7 @@ a {
 
 .content-btn{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     justify-items: center;
     row-gap: 20px;
 }

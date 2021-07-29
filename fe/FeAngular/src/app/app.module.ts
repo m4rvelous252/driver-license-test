@@ -29,20 +29,20 @@ import { CategoryComponent } from './components/category/category.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { ResultComponent } from './components/result/result.component';
-// import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
-// import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
-// import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
-// import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
-// import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-// import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-// import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
-// import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
-// import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
-// import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
-// import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
-// import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
-// import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
-// import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
+import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
+import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
+import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
+import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
+import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecordTestComponent } from './components/record-test/record-test.component';
 import { RecordTestItemComponent } from './components/record-test-item/record-test-item.component';
@@ -57,6 +57,8 @@ import { CategoryScrollComponent } from './components/category-scroll/category-s
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CardTypeComponent } from './components/card-type/card-type.component';
+
 
 
 @NgModule({
@@ -91,10 +93,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AddQuestionComponent,
     AddAnswerComponent,
     CardCategoryComponent,
-    CategoryScrollComponent
+    CategoryScrollComponent,
+    CardTypeComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -106,7 +108,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     IvyCarouselModule,
     CarouselModule
   ],
-  // MdbCarouselModule, MdbCheckboxModule, MdbCollapseModule, MdbDropdownModule, MdbFormsModule, MdbModalModule, MdbPopoverModule, MdbRadioModule, MdbRangeModule, MdbRippleModule, MdbScrollspyModule, MdbTabsModule, MdbTooltipModule, MdbValidationModule,
+
   providers: [],
   bootstrap: [AppComponent]
 })

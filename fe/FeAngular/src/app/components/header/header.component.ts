@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { KEY } from 'src/app/model/constants';
+import { KEY, STYLE } from 'src/app/model/constants';
 import { Type } from 'src/app/model/type';
 import { User } from 'src/app/model/user';
 import { UiService } from 'src/app/services/Ui/ui.service';

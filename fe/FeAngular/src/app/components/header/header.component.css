@@ -3,9 +3,6 @@ a{
     text-decoration: none
 }
 
-a:hover{
-    color: #FFC312;
-}
 
 
 .login a {
@@ -16,4 +13,16 @@ a:hover{
   align-items: center;
   text-align: center;
   margin-top: 3%;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    margin-left: 1rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+}
+
+.nav-links a:hover {
+    color: #ffc312;
 }

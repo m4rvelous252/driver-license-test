@@ -3,9 +3,10 @@
     <div class="exam">
         <div class="test-name">
             <app-button
-                text="Bài thi bằng lái xe B1"
-                color="{{navColor}}"
+                text="{{quiz?.name}}"
+                color="{{style.navColor}}"
                 borderRadius="10px"
+                fontWeight="bold"
             ></app-button>
         </div>
 
@@ -21,14 +22,16 @@
                 </div>
                 <div class="nav">
                     <app-button 
-                    color="{{navColor}}"
+                    color="{{style.navColor}}"
                     text="Câu trước" 
+                    textColor="{{style.secondTxtColor}}"
                     widthPer='100px'
                     (btnClick)="preQuestion()"
                     display="{{curQuestion?.index!=1 ? '' : 'none'}}">
                     </app-button>
                     <app-button 
-                    color="{{navColor}}"
+                    color="{{style.navColor}}"
+                    textColor="{{style.secondTxtColor}}"
                     text='Câu sau' 
                     widthPer='100px'
                     (btnClick)="nextQuestion()"
@@ -39,11 +42,13 @@
             </div>
 
 
-            <div class="map">
+            <div 
+            [ngStyle]="{'background-color': style.contentBgColor}"
+            class="map">
                 <div class="timer" >
                     <app-timer
-                    bgColor="{{alert ? warningColor : primaryColor}}" 
-                    txColor="{{alert ? secondTxtColor : primeTxtColor}}"
+                    bgColor="{{alert ? style.navColor : style.contentTxtColor}}" 
+                    txColor="{{style.secondTxtColor}}"
                     durationTime= {{durationTime}}
                     ></app-timer>
                 </div>
@@ -60,9 +65,9 @@
                 
                 <div class="submit">
                     <app-button 
-                    color="{{alert ? warningColor : primaryColor}}" 
-                    text="Nộp bài" 
-                    textColor="{{alert ? secondTxtColor : primeTxtColor}}"
+                    color="{{alert ? style.navColor : style.contentTxtColor}}" 
+                    textColor="{{style.secondTxtColor}}"
+                    text="Nộp bài"
                     (btnClick)="submit()"
                     ></app-button>
                 </div>

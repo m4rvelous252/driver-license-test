@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/model/category';
+import { PATHS, STYLE } from 'src/app/model/constants';
 
 
 @Component({
@@ -9,13 +10,15 @@ import { Category } from 'src/app/model/category';
 })
 export class CardCategoryComponent implements OnInit {
 
-  @Input() category ?: Category
+  @Input() category?: Category
 
+  style=STYLE
+
+  paths=PATHS
 
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
