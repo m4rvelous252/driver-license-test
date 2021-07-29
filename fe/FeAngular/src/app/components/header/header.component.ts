@@ -13,6 +13,8 @@ import{UserService} from '../../services/user/user.service'
 })
 export class HeaderComponent implements OnInit {
 
+  style=STYLE
+
   styleMode = this.ui.getStyleMode()
 
   type?: Type
