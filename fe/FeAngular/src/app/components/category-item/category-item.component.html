@@ -28,8 +28,8 @@
             <div>
                 <app-card
                 [img]="'/addPlus.png'"
-                [text]="'Thêm quiz'"
-                [link]="'/add-quiz'"
+                [text]="'Add quiz'"
+                [link]="'/add-quiz/{{category.id}}'"
                 ></app-card>
             </div>
         </div>
@@ -39,22 +39,23 @@
     class="modeToggle">
         <app-button 
         class="title"
-        color="{{navColor}}"
+        color="{{style.navColor}}"
         text="{{category?.name}}"
         (btnClick)="viewDetails()"
         >
         </app-button>
         <app-button
-        color="{{primaryColor}}"
-        textColor="{{primeTxtColor}}"
+        color="{{style.primeColor}}"
+        textColor="{{style.primeTxtColor}}"
         text="Type"
         (btnClick)="viewType()"
         ></app-button>
         <app-button
-        color="{{primaryColor}}"
-        textColor="{{primeTxtColor}}"
+        color="{{style.primeColor}}"
+        textColor="{{style.primeTxtColor}}"
         text="Quiz"
         (btnClick)="viewQuiz()"
+        
         ></app-button>
     </div>
 </div>

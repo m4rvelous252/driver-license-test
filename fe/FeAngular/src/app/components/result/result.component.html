@@ -1,17 +1,21 @@
-<div class=" main">
+<div class="flex-row main">
     <div 
     [ngStyle]="{
-        'color': style.primeTxtColor
+        'color': style.contentTxtColor,
+        'background-color': style.contentBgColor
     }"
-    class="container details"
+    class="details"
     >
-    <h3>{{result?.name}}</h3>
-    <p>Số câu hỏi: {{result?.questions?.length}}</p>
-    <p>Điểm: {{result?.mark}}</p>
+        <h3>{{result?.name}}</h3>
+        <span>
+        Total questions: {{result?.questions?.length}} <br>
+        Correct answer(s): {{result?.mark}}<br>
+        Test duration: <label>{{ getDuration() | date:'mm:ss':'UTC'}}</label>
+        </span>
     </div>
 
     <div 
-    class="container questions"
+    class="questions"
     
     >
         <div class="container" *ngFor="let question of result?.questions; let i = index">

@@ -38,7 +38,6 @@ export class TypeItemComponent implements OnInit {
     );
     this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data));
   }
-
   addIndex(){
     this.type?.questions.forEach(question => { 
       question.edit=true

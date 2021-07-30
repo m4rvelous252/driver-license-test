@@ -6,3 +6,12 @@ export interface QuizType{
     id_type: number;
     type: Type;
 }
+
+export class quiztype implements QuizType {
+    id_quiz!: number;
+    id_type!: number;
+    type!: Type;
+
+    constructor(){
+    }
+}

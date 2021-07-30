@@ -78,7 +78,6 @@ export class QuestionItemComponent implements OnInit {
       else{
         this.question!.is_done = STYLE.contentTxtColor;
       }
-
     }
   }
 
@@ -88,6 +87,16 @@ export class QuestionItemComponent implements OnInit {
 
   renameQ(){
     this.onRenameQ.emit()
+  }
+
+  bgColorSetter(){
+    if(this.viewMode=='result'){
+    if(this.question?.is_correct)
+    return this.style.secondColor
+    else return this.style.navColor
+    }
+    else
+    return this.style.contentBgColor
   }
 
 }

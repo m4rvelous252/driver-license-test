@@ -59,6 +59,8 @@ import { CategoryScrollComponent } from './components/category-scroll/category-s
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -94,7 +96,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AddAnswerComponent,
     CardCategoryComponent,
     CardTypeComponent,
-    CategoryScrollComponent
+    CategoryScrollComponent,
+    AddQuizComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

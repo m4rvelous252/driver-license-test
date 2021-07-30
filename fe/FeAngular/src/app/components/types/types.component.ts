@@ -23,5 +23,5 @@ export class TypesComponent implements OnInit {
   ngOnInit(): void {
     this.typeService.getTypes().subscribe((types)=>(this.types=types.data,console.log(this.types)));
   }
-
+  
 }

@@ -11,7 +11,7 @@ import { STYLE } from 'src/app/model/constants';
 })
 export class ResultComponent implements OnInit {
 
-  result?:Result
+  result!:Result
   style = STYLE
 
   constructor() { }
@@ -19,6 +19,11 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     const resultJson = localStorage.getItem(KEY.result);
     this.result = resultJson !== null ? JSON.parse(resultJson) : null;
+    console.log(this.getDuration())
+  }
+
+  getDuration(){
+    return (this.result.duration!*1000)
   }
 
 }

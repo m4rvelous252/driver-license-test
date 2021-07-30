@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Params, Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { STYLE } from 'src/app/model/constants';
 import { CategoryService } from 'src/app/services/category/category.service';
 
-
 @Component({
-  selector: 'app-category-item',
-  templateUrl: './category-item.component.html',
-  styleUrls: ['./category-item.component.css']
+  selector: 'app-add-quiz',
+  templateUrl: './add-quiz.component.html',
+  styleUrls: ['./add-quiz.component.css']
 })
-export class CategoryItemComponent implements OnInit {
-
+export class AddQuizComponent implements OnInit {
 
   style = STYLE
 
@@ -20,6 +18,8 @@ export class CategoryItemComponent implements OnInit {
   id_category!:string
 
   viewMode: string = "type"
+
+  
 
   constructor(private categoryService: CategoryService, private route : ActivatedRoute) { }
 
@@ -30,23 +30,5 @@ export class CategoryItemComponent implements OnInit {
       }
     );
     this.categoryService.getCategory(this.id_category).subscribe((res) => this.category=res.data)
+    }
   }
-
-  viewType(){
-    this.viewMode="type"    
-  }
-
-  viewQuiz(){
-    this.viewMode="quiz"
-  }
-
-  viewDetails(){
-
-  }
-
-  addType(){
-
-  }
-
-  
-}

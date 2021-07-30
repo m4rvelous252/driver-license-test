@@ -39,13 +39,6 @@ export class TestComponent implements OnInit {
 
   is_submit: boolean = false;
 
-  primeTxtColor = STYLE.primeTxtColor
-  secondTxtColor = STYLE.secondTxtColor
-  primaryColor = STYLE.primeColor
-  selectColor = STYLE.secondColor
-  navColor = STYLE.navColor
-  warningColor = STYLE.warningColor
-
   style=STYLE
 
   constructor(private questionService: QuestionService, 

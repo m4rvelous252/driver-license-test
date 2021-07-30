@@ -4,15 +4,26 @@ import { QuizType } from "./quiztype";
 import { Type } from "./type";
 
 export interface Quiz{
-    id:number;
-    create_date: Date,
-    update_date: Date,
-    delete_date: Date,
-    deleted: boolean,
+    id?:number;
+    create_date?: Date,
+    update_date?: Date,
+    delete_date?: Date,
+    deleted?: boolean,
     name:string;
     time:number;
     id_category:number;
     questions: Question[];
     quizType: QuizType[];
 
+}
+
+export class quiz implements Quiz{
+    name!:string;
+    time!:number;
+    id_category!:number;
+    questions!: Question[];
+    quizType!: QuizType[];
+
+    constructor(){
+    }
 }
