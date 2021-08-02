@@ -2,14 +2,13 @@ package com.example.ifi_project.service;
 
 import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.AnswerRepository;
+import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.QuizRepository;
 import com.example.ifi_project.repository.HistoryTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -17,14 +16,16 @@ public class HistoryTestService {
     private final QuizRepository quizRepository;
     private final HistoryTestRepository historytestRepository;
     private final AnswerRepository answerRepository;
+    private final CategoryRepository categoryRepository;
 
     private Random random = new Random();
 
     @Autowired
-    public HistoryTestService(QuizRepository quizRepository, HistoryTestRepository historyTestRepository, AnswerRepository answerRepository) {
+    public HistoryTestService(QuizRepository quizRepository, HistoryTestRepository historyTestRepository, AnswerRepository answerRepository, CategoryRepository categoryRepository) {
         this.quizRepository = quizRepository;
         this.historytestRepository = historyTestRepository;
         this.answerRepository = answerRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public Response getHistoryTest(){
@@ -88,6 +89,9 @@ public class HistoryTestService {
             }
         }
         historyTest.setMark(mark);
+        Category category = categoryRepository.findById(historyTest.getId_category()).get();
+        category.setSubmit(category.getSubmit()+1);
+        categoryRepository.save(category);
         historytestRepository.save(historyTest);
         respon = ConstantResponse.responseSaveSuc(respon);
         respon.data = historyTest;

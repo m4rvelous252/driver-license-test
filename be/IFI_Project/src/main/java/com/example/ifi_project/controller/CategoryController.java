@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import static java.lang.Integer.parseInt;
+
 @RestController
 @RequestMapping(path = "api/category")
 @CrossOrigin
@@ -36,6 +38,32 @@ public class CategoryController {
     @GetMapping(path="user/{userId}")
     public Response getCategoryByUserId(@PathVariable("userId") Long userId) {
         return categoryService.getCategorysByUserIdNotDelete(userId);
+    }
+
+    @GetMapping(path="top")
+    @JsonView(Views.Back.class)
+    public Response getCategoryTopNotDelete(@RequestParam String page, @RequestParam String amount) {
+        int p = 0;
+        int a = 12;
+        try {
+            p =  parseInt(page);
+            a = parseInt(amount);
+        }catch (Exception e){
+        }
+        return categoryService.getCategoryTopNotDelete(p,a);
+    }
+
+    @GetMapping(path="new")
+    @JsonView(Views.Back.class)
+    public Response getCategoryNewNotDelete(@RequestParam String page, @RequestParam String amount) {
+        int p = 0;
+        int a = 12;
+        try {
+            p =  parseInt(page);
+            a = parseInt(amount);
+        }catch (Exception e){
+        }
+        return categoryService.getCategoryNewNotDelete(p,a);
     }
 
     @GetMapping(path="{categoryId}")

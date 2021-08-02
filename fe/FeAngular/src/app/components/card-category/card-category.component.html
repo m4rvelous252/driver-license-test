@@ -1,5 +1,5 @@
 <a href="/category/{{category!.id}}">
-  <div class="card">
+  <div class="card" [ngStyle]="{'background-color':style.cardCategory_background}">
     <img src="{{category!.img}}" onerror="this.src = '../../../assets/img/category_fail.png';" class="card-img-top" alt="...">
     <div class="card-body">
       <div class="row">
@@ -7,8 +7,8 @@
           <app-icon-avatar src = {{category!.user.img}} style="margin-left: 5px;"></app-icon-avatar>
         </div>
         <div class = "col">
-          <a href="/category/{{category!.id}}" class="name-category" >{{category!.name}}</a>
-          <a href="home" class="name-user">{{category!.user.name}}</a>
+          <a href="/category/{{category!.id}}" class="name-category"  [ngStyle]="{'color':style.cardCategory_colorTextHeader}" tooltip="{{category!.name}}">{{category!.name}}</a>
+          <a href="home" class="name-user" [ngStyle]="{'color':style.cardCategory_colorText}" tooltip="{{category!.user.name}}">{{category!.user.name}}</a>
         </div>
       </div>
     </div>

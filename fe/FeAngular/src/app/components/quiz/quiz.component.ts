@@ -35,9 +35,10 @@ export class QuizComponent implements OnInit {
     localStorage.removeItem(KEY.test)
     this.quizService.getRandomQuestionByQuiz(this.id_quiz).subscribe((response)=>(
       localStorage.setItem(KEY.test,JSON.stringify(response.data)),
+      console.log(response.data),
       this.router.navigate(['/test'])
     ));
-    
+
   }
 
 }

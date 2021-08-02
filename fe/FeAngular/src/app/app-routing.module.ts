@@ -29,11 +29,11 @@ const routes: Routes=[
   {path: 'register',component: RegisterComponent,canActivate:[NotAuthenticationService]},
 
   {path: 'about',component: AboutComponent,canActivate:[DurationAuthService,AuthenticationService]},
-  
+
   {path:'test',component: TestComponent},
 
   {path:'type',component: TypesComponent},
-  
+
   {path:'type/:id_type',component: TypeItemComponent},
 
   {path:'category/:id_category',component: CategoryItemComponent},
@@ -42,9 +42,9 @@ const routes: Routes=[
 
   {path:'quiz/:id_quiz',component: QuizComponent},
 
-  {path:'result',component: ResultComponent,canActivate:[DurationAuthService]},
+  {path:'result',component: ResultComponent},
 
-  {path:'recordTest',component: RecordTestComponent},
+  {path:'recordTest',component: RecordTestComponent,canActivate:[DurationAuthService]},
 
   {path:'add-type',component: AddTypeComponent},
 ];

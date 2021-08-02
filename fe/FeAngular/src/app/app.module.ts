@@ -58,6 +58,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardTypeComponent } from './components/card-type/card-type.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 
@@ -94,7 +96,8 @@ import { CardTypeComponent } from './components/card-type/card-type.component';
     AddAnswerComponent,
     CardCategoryComponent,
     CategoryScrollComponent,
-    CardTypeComponent
+    CardTypeComponent,
+    CategoryListComponent
   ],
   imports: [
     AppRoutingModule,
@@ -106,7 +109,8 @@ import { CardTypeComponent } from './components/card-type/card-type.component';
     FontAwesomeModule,
     SlickCarouselModule,
     IvyCarouselModule,
-    CarouselModule
+    CarouselModule,
+    TooltipModule.forRoot()
   ],
 
   providers: [],

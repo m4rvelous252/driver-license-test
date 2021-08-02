@@ -6,8 +6,8 @@
 
           </div>
 
-          <div class="collapse d-flex" style="color: white;">
-            <button class="btn"><img class="ml-4" style="width: 70px; height: 30px;" src='{{imgMode}}' (click)="changeMode()"></button>
+          <div class="collapse d-flex" [ngStyle]="{'color':styleMode.header_textColor}">
+            <button class="btn" style="border: none;"><img class="ml-4" style="width: 70px; height: 30px;" src='{{imgMode}}' (click)="changeMode()"></button>
             <ul *ngIf="user" class="nav">
               <li class="nav-item dropdown">
                 <div class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [ngStyle]="{'color':styleMode.header_textColor}">
@@ -20,8 +20,8 @@
             </ul>
             <div *ngIf="!user" class="login">
               <div *ngIf="!user" class="nav-links">
-                <a href="login">Login</a>
-                <a href="register">Sign up</a>
+                <a href="login" [ngStyle]="{'color':styleMode.header_textColor}">Login</a>
+                <a href="register" [ngStyle]="{'color':styleMode.header_textColor}">Sign up</a>
               </div>
             </div>
           </div>

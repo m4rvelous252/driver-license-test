@@ -1,0 +1,9 @@
+<div class="container main grid">
+  <div *ngFor="let category of categories">
+    <a href="/category/{{category.id}}">
+    <app-card-category [category] = "category" ></app-card-category></a>
+  </div>
+</div>
+
+<button (click)="print()"></button>
+

@@ -14,4 +14,5 @@ export interface Result{
     time:number;
     max:number;
     questions: Question[];
+    id_category: number;
 }

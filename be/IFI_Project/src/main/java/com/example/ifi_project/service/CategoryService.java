@@ -6,9 +6,14 @@ import com.example.ifi_project.model.ConstantResponse;
 import com.example.ifi_project.model.Response;
 import com.example.ifi_project.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +48,32 @@ public class CategoryService {
             respon = ConstantResponse.responseEmpty(respon);
         }else{
             respon.data = FilterCategory.FilterListCategoriesNotDelete(categories.get());
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
+    }
+
+    public Response getCategoryTopNotDelete(int page, int amount){
+        Response respon = new Response();
+        Pageable topCategory = PageRequest.of(page, amount);
+        Optional<List<Category>> optionalCategories = categoryRepository.findCategoryByDeletedIsFalseOrderBySubmitDesc(topCategory);
+        if(!optionalCategories.isPresent()){
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = optionalCategories.get();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
+    }
+
+    public Response getCategoryNewNotDelete(int page, int amount){
+        Response respon = new Response();
+        Pageable newCategory = PageRequest.of(page, amount);
+        Optional<List<Category>> optionalCategories = categoryRepository.findCategoryByDeletedIsFalseOrderByCreateDateDesc(newCategory);
+        if(!optionalCategories.isPresent()){
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = optionalCategories.get();
             respon = ConstantResponse.responseSuccess(respon);
         }
         return respon;

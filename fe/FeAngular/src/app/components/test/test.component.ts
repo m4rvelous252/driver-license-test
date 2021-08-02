@@ -26,7 +26,7 @@ export class TestComponent implements OnInit {
   curQuestion?:Question;
 
   test!: Test
-  
+
   quiz!: Quiz
   durationTime!:number
 
@@ -48,7 +48,7 @@ export class TestComponent implements OnInit {
 
   style=STYLE
 
-  constructor(private questionService: QuestionService, 
+  constructor(private questionService: QuestionService,
     private testService: TestService,
     private timeService: TimeService,
     ) {
@@ -56,6 +56,7 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
       this.test = JSON.parse(localStorage.getItem(KEY.test)!)
+      console.log(this.test)
       this.quiz=this.test.quiz
       this.questions=this.test.questions
       this.test.time = this.quiz.time;
@@ -90,7 +91,7 @@ export class TestComponent implements OnInit {
       this.is_submit=true;
       this.testService.submitTest(this.test)
     }
-    
+
   }
 
   checkwork(){
@@ -115,8 +116,8 @@ export class TestComponent implements OnInit {
         //question.is_done='blue';
     });
     this.curQuestion = this.questions?.find(x => x.index == 1)
-    
-    
+
+
   }
 
   countDurationTime(){

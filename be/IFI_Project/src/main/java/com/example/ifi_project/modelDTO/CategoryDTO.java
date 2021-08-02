@@ -45,7 +45,7 @@ public class CategoryDTO {
 
     public CategoryDTO(Category category) {
         this.id = category.getId();
-        this.create_date = category.getCreate_date();
+        this.create_date = category.getCreateDate();
         this.update_date = category.getUpdate_date();
         this.delete_date = category.getDelete_date();
         this.deleted = category.getDeleted();

@@ -19,6 +19,7 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     const resultJson = localStorage.getItem(KEY.result);
     this.result = resultJson !== null ? JSON.parse(resultJson) : null;
+    console.log(this.result)
   }
 
 }

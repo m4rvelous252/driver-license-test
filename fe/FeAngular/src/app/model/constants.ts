@@ -32,6 +32,11 @@ export const DarkMode ={
   home_colorButton:"#FFCB31",
   home_textColorButton:"#000000",
   home_backfround_releaseCategory: "#C4C4C4",
+
+  //Card Category
+  cardCategory_background: "#0B0B0B",
+  cardCategory_colorTextHeader: "#FFC312",
+  cardCategory_colorText: "#EFEFEF"
 }
 
 export const LightMode ={
@@ -41,11 +46,16 @@ export const LightMode ={
   header_textColor:"#000000",
 
   //Home Page
-  home_background_top: "#086375",
-  home_textColorOnBackGround: "#FFFFFF",
-  home_colorButton:"#FFCB31",
-  home_textColorButton:"#000000",
-  home_backfround_releaseCategory: "#C4C4C4",
+  home_background_top: "#C4C4C4",
+  home_textColorOnBackGround: "#000000",
+  home_colorButton:"#086375",
+  home_textColorButton:"#FFFFFF",
+  home_backfround_releaseCategory: "#6D6767",
+
+  //Card Category
+  cardCategory_background: "#ECECEC",
+  cardCategory_colorTextHeader: "#086375",
+  cardCategory_colorText: "#463B3B"
 }
 
 export const FailImg ={
