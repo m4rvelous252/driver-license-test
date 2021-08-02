@@ -12,4 +12,5 @@ export interface Category {
     quiz: Quiz[]
     img: string
     user: User
+    submit: number
 }

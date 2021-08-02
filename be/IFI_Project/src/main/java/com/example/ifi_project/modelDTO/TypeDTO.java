@@ -53,23 +53,23 @@ public class TypeDTO {
     public TypeDTO(Type type) {
     }
 
-//    public int getSizeNotDelete() {
-//        int size =0;
-//        for (QuestionDTO q:this.getQuestions()) {
-//            if(!q.getDeleted()){
-//                size++;
-//            }
-//        }
-//        return size;
-//    }
-//
-//    public int getSizeDeleted() {
-//        int size =0;
-//        for (QuestionDTO q:this.getQuestions()) {
-//            if(q.getDeleted()){
-//                size++;
-//            }
-//        }
-//        return size;
-//    }
+    public int getSizeNotDelete() {
+        int size =0;
+        for (QuestionDTO q:this.getQuestions()) {
+            if(!q.getDeleted()){
+                size++;
+            }
+        }
+        return size;
+    }
+
+    public int getSizeDeleted() {
+        int size =0;
+        for (QuestionDTO q:this.getQuestions()) {
+            if(q.getDeleted()){
+                size++;
+            }
+        }
+        return size;
+    }
 }

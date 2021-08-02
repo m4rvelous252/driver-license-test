@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/model/category';
 import { PATHS, STYLE } from 'src/app/model/constants';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 
 @Component({
@@ -12,13 +13,14 @@ export class CardCategoryComponent implements OnInit {
 
   @Input() category?: Category
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   paths=PATHS
 
-  constructor() { }
+  constructor(private ui : UiService) { }
 
   ngOnInit(): void {
+
   }
 
 }

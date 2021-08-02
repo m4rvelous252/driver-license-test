@@ -16,15 +16,23 @@ export class HomeComponent implements OnInit {
 
   user?: User
 
-  categories: Category[] =[];
+  topCategories: Category[] =[];
+
+  newCategories: Category[] =[];
 
   constructor(private ui : UiService, private categoryService : CategoryService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-   this.categoryService.getAllCategory().subscribe((req) => (
-      this.categories = req.data,
+   this.categoryService.getTopCategory(0,12).subscribe((req) => (
+      this.topCategories = req.data,
       this.cdr.detectChanges()
     ))
+
+    this.categoryService.getNewCategory(0,12).subscribe((req) => (
+      this.newCategories = req.data,
+      this.cdr.detectChanges()
+    ))
+
     const userJson = localStorage.getItem('user');
     this.user = userJson !== null ? JSON.parse(userJson) : null;
 

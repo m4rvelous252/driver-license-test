@@ -13,7 +13,13 @@ import java.util.List;
 public class Test {
     private LocalDate create_date = LocalDate.now();
     private int timeStart = LocalTime.now().getHour()*3600 +LocalTime.now().getMinute()*60+LocalTime.now().getSecond();
+    private long id_category;
     private Quiz quiz;
+
+    public long getId_category() {
+        return quiz.getId_category();
+    }
+
     private List<Question> questions;
 
     @Override
@@ -25,39 +31,4 @@ public class Test {
                 ", questions=" + questions +
                 '}';
     }
-
-	public LocalDate getCreate_date() {
-		return create_date;
-	}
-
-	public void setCreate_date(LocalDate create_date) {
-		this.create_date = create_date;
-	}
-
-	public int getTimeStart() {
-		return timeStart;
-	}
-
-	public void setTimeStart(int timeStart) {
-		this.timeStart = timeStart;
-	}
-
-	public Quiz getQuiz() {
-		return quiz;
-	}
-
-	public void setQuiz(Quiz quiz) {
-		this.quiz = quiz;
-	}
-
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
-	}
-    
-    
 }
-

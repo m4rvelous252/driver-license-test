@@ -2,7 +2,7 @@
   <div class="content">
     <div class="left-col">
       <p [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-heading">Take your brain to the gym</p>
-      <div  *ngIf="!user; templateName" >
+      <div  *ngIf="!user" >
         <p  [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-text">Sign up and your IQ will go to the moon</p>
         <a href="login">
           <app-button
@@ -15,7 +15,7 @@
           ></app-button>
         </a>
       </div>
-      <div #templateName>
+      <div *ngIf="user">
         <p  [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-text">Your IQ will go to the moon</p>
         <a href="#releasesCategory">
         <app-button
@@ -38,7 +38,11 @@
 </div>
 
 <div id="releasesCategory" class="releaseCategories" [ngStyle]="{'background-color': style.home_backfround_releaseCategory}">
-  <app-category-scroll [categories] = categories></app-category-scroll>
+  <app-category-scroll [categories] = topCategories></app-category-scroll>
+</div>
+
+<div>
+  <app-category-list [categories]= newCategories></app-category-list>
 </div>
 
 

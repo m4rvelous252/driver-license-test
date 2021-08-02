@@ -100,7 +100,6 @@ public class QuizService {
             }
             test.setQuiz(quiz);
             test.setQuestions(randomQuestionHideCorrectAnswer(questions));
-
             respon = ConstantResponse.responseSuccess(respon);
             respon.data = test;
         }else {

@@ -10,6 +10,7 @@ export interface Test{
     id_user:number;
     quiz: Quiz;
     mark:number
+    id_category:number;
     questions: Question[];
     duration:number;
 }

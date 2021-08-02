@@ -53,14 +53,14 @@ import { AddQuestionComponent } from './components/add-question/add-question.com
 import { AddAnswerComponent } from './components/add-answer/add-answer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardCategoryComponent } from './components/card-category/card-category.component';
-import { CardTypeComponent } from './components/card-type/card-type.component';
-
 import { CategoryScrollComponent } from './components/category-scroll/category-scroll.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { CardTypeComponent } from './components/card-type/card-type.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 
 @NgModule({
@@ -95,13 +95,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     AddQuestionComponent,
     AddAnswerComponent,
     CardCategoryComponent,
-    CardTypeComponent,
     CategoryScrollComponent,
-    AddQuizComponent,
-    ProfileComponent
+    CardTypeComponent,
+    CategoryListComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -111,9 +109,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     FontAwesomeModule,
     SlickCarouselModule,
     IvyCarouselModule,
-    CarouselModule
+    CarouselModule,
+    TooltipModule.forRoot()
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })
