@@ -44,7 +44,7 @@ public class Type {
     Category category;
 
     @JsonView(Views.Internal.class)
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "type_id")
     @JsonIgnoreProperties("type")
     List<Question> questions;

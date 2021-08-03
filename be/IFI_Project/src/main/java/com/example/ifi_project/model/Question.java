@@ -42,10 +42,10 @@ public class Question {
 
     @JoinColumn(name = "type_id", insertable = true, updatable = true)
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     Type type;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "question_id")
     @JsonIgnoreProperties("question")
     List<Answer> answers;

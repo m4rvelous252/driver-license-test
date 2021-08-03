@@ -60,6 +60,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardTypeComponent } from './components/card-type/card-type.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
 
 
 
@@ -97,7 +98,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     CardCategoryComponent,
     CategoryScrollComponent,
     CardTypeComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    AddQuizComponent
   ],
   imports: [
     AppRoutingModule,

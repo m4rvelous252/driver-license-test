@@ -2,7 +2,7 @@
     <div
     class="content">
         <div *ngIf="viewMode=='type'" class="content-btn">
-            <div 
+            <div
             *ngFor="let type of category?.type">
                 <a href="type/{{type.id}}">
                     <app-card-type
@@ -10,7 +10,7 @@
                     ></app-card-type>
                 </a>
             </div>
-            <a href="/add-type">
+            <a href={{link_add_type}}>
             <app-button
             color="{{style.contentTxtColor}}"
             text="+"
@@ -20,10 +20,8 @@
         </div>
 
         <div *ngIf="viewMode=='quiz'" class="content-btn">
-            <div 
-            *ngFor="let quiz of category?.quiz">
-            <app-quiz-card [quiz]="quiz">
-            </app-quiz-card>
+            <div *ngFor="let quiz of category?.quiz">
+              <app-quiz-card [quiz]="quiz"></app-quiz-card>
             </div>
             <div>
                 <app-card
@@ -31,13 +29,15 @@
                 [text]="'Thêm quiz'"
                 [link]="'/add-quiz'"
                 ></app-card>
+
+                <a href={{link_add_quiz}}> add quiz</a>
             </div>
         </div>
     </div>
-    
-    <div 
+
+    <div
     class="modeToggle">
-        <app-button 
+        <app-button
         class="title"
         color="{{navColor}}"
         text="{{category?.name}}"

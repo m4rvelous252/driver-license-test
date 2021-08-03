@@ -35,7 +35,7 @@ public class Answer {
     Long question_id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinColumn(name = "question_id", insertable = true, updatable = true)
     Question question;
 

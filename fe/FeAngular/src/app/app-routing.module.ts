@@ -21,6 +21,7 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { ResultComponent } from './components/result/result.component';
 import { RecordTestComponent } from './components/record-test/record-test.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
+import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -46,7 +47,9 @@ const routes: Routes=[
 
   {path:'recordTest',component: RecordTestComponent,canActivate:[DurationAuthService]},
 
-  {path:'add-type',component: AddTypeComponent},
+  {path:'category/:id_category/add-type',component: AddTypeComponent},
+
+  {path:'category/:id_category/add-quiz',component: AddQuizComponent},
 ];
 
 @NgModule({

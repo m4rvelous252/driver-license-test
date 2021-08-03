@@ -61,10 +61,10 @@ public class TypeService {
 
     public Response addNewType(Type type) {
         type.setDeleted(false);
-        type.setId(null);
         Response respon = new Response();
+        System.out.println(type.getId_category());
         Optional<Category> categoryOptional = categoryRepository.findById(type.getId_category());
-        if(!categoryOptional.isPresent()){
+        if(categoryOptional.isPresent()){
             LocalDate localDate = LocalDate.now();
             type.setCreate_date(localDate);
             type.setCategory(categoryOptional.get());

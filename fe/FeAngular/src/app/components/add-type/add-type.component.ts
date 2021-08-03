@@ -4,6 +4,9 @@ import { answer } from 'src/app/model/answer';
 import { type } from 'src/app/model/type';
 import { TypeService } from 'src/app/services/type/type.service';
 import { NEWQUESTION, NEWQUESTION1, STYLE } from 'src/app/model/constants';
+import { CategoryService } from 'src/app/services/category/category.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Category } from 'src/app/model/category';
 
 @Component({
   selector: 'app-add-type',
@@ -13,15 +16,25 @@ import { NEWQUESTION, NEWQUESTION1, STYLE } from 'src/app/model/constants';
 export class AddTypeComponent implements OnInit {
 
   style=STYLE
-  
+
   newT: type = new type('', [])
 
   isNamed: boolean = false
 
-  constructor(private typeService: TypeService) { }
+  id_category!: string
+  category?: Category
 
-  ngOnInit(): void {
+  constructor(private typeService: TypeService,private categoryService: CategoryService, private route : ActivatedRoute) { }
 
+  async ngOnInit() {
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id_category = params['id_category'];
+      }
+    );
+    await this.categoryService.getCategory(this.id_category).toPromise().then((res) => this.category=res.data)
+    this.newT.id_category = this.category?.id;
     // var newQuestion:question = new question([],'This is the first question', true)
     // this.newT.questions.push(newQuestion!)
     var newAnswer:answer = new answer()
@@ -51,7 +64,7 @@ export class AddTypeComponent implements OnInit {
   }
 
   submitT(){
-
+    this.typeService.addType(this.newT);
   }
 
 }
