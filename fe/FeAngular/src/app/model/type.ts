@@ -11,6 +11,7 @@ export interface Type {
     questions: Question[]
     sizeNotDelete?: number
     sizeDeleted?: number
+    id_category?:number;
 }
 
 export class type implements Type {
@@ -28,6 +29,7 @@ export class type implements Type {
     }
   sizeNotDelete?: number;
   sizeDeleted?: number;
+  id_category?:number;
 
     // constructor(){}
 }

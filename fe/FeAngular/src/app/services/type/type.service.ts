@@ -4,6 +4,7 @@ import {Observable,of} from 'rxjs';
 import {type, Type} from '../../model/type';
 import { HOSTNAME } from 'src/app/model/constants';
 import { Response } from 'src/app/model/response';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,7 +19,8 @@ export class TypeService {
 
   private apiUrl =`${HOSTNAME.backend}/api/type`
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private route: ActivatedRoute,
+    private router: Router,) { }
 
   getTypes(): Observable<Response>{
     return this.httpClient.get<Response>(this.apiUrl);
@@ -31,6 +33,12 @@ export class TypeService {
   }
 
   addType(newType: type){
-
+    let url = `${this.apiUrl}/add`
+    console.log(newType)
+     this.httpClient.post<Response>(url,newType).subscribe((res)=>(
+       console.log(res)
+     ));
+    let link = `category/${newType.id_category}`
+    this.router.navigate([link])
   }
 }

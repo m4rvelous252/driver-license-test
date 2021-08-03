@@ -18,12 +18,13 @@ export class CategoryService {
   }
 
   getTopCategory(page : number,amount : number): Observable<Response> {
-    let url = `${this.apiUrl}/top?page=${page}$amount=${amount}`
+    let url = `${this.apiUrl}/top?page=${page}&amount=${amount}`
+    console.log(url)
     return this.http.get<Response>(url)
   }
 
   getNewCategory(page : number,amount : number): Observable<Response> {
-    let url = `${this.apiUrl}/new?page=${page}$amount=${amount}`
+    let url = `${this.apiUrl}/new?page=${page}&amount=${amount}`
     return this.http.get<Response>(url)
   }
 

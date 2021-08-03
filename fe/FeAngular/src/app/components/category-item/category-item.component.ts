@@ -21,7 +21,10 @@ export class CategoryItemComponent implements OnInit {
 
   viewMode: string = "type"
 
-  constructor(private categoryService: CategoryService, private route : ActivatedRoute) { }
+  link_add_quiz!:string
+  link_add_type!:string
+
+  constructor(private categoryService: CategoryService, private route : ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -30,10 +33,13 @@ export class CategoryItemComponent implements OnInit {
       }
     );
     this.categoryService.getCategory(this.id_category).subscribe((res) => this.category=res.data)
+    this.link_add_quiz = this.router.url + '/add-quiz'
+    this.link_add_type = this.router.url + '/add-type'
+    console.log(this.link_add_quiz)
   }
 
   viewType(){
-    this.viewMode="type"    
+    this.viewMode="type"
   }
 
   viewQuiz(){
@@ -48,5 +54,5 @@ export class CategoryItemComponent implements OnInit {
 
   }
 
-  
+
 }

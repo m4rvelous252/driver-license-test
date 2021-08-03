@@ -39,8 +39,8 @@ public class TypeController {
     }
 
     @PostMapping(path="add")
-    public void addNewType(@RequestBody Type type) {
-        typeService.addNewType(type);
+    public Response addNewType(@RequestBody Type type) {
+        return typeService.addNewType(type);
     }
 
     @DeleteMapping(path="{typeId}")
