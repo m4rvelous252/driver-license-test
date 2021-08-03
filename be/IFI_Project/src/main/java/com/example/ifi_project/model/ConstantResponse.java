@@ -70,4 +70,62 @@ public final class ConstantResponse {
         response.status = false;
         return response;
     }
+
+	public static int getCodesuccess() {
+		return codeSuccess;
+	}
+
+	public static String getMessegesuccess() {
+		return messegeSuccess;
+	}
+
+	public static int getCodenotfount() {
+		return codeNotFount;
+	}
+
+	public static String getMessegenotfount() {
+		return messegeNotFount;
+	}
+
+	public static int getCodeempty() {
+		return codeEmpty;
+	}
+
+	public static String getMessegeempty() {
+		return messegeEmpty;
+	}
+
+	public static int getCodesavesuc() {
+		return codeSaveSuc;
+	}
+
+	public static String getMessegesavesuc() {
+		return messegeSaveSuc;
+	}
+
+	public static int getCodesavefail() {
+		return codeSaveFail;
+	}
+
+	public static String getMessegesavefail() {
+		return messegeSaveFail;
+	}
+
+	public static int getCodeloginsuc() {
+		return codeLoginSuc;
+	}
+
+	public static String getMessegeloginsuc() {
+		return messegeLoginSuc;
+	}
+
+	public static int getCodeloginfail() {
+		return codeLoginFail;
+	}
+
+	public static String getMessegeloginfail() {
+		return messegeLoginFail;
+	}
+    
+    
 }
