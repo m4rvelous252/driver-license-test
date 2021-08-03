@@ -5,7 +5,7 @@ export interface QuizType{
     id_quiz: number;
     id_type: number;
     type: Type;
-    amount: number;
+    amount?: number;
 }
 
 export class quiztype implements QuizType {
@@ -15,4 +15,5 @@ export class quiztype implements QuizType {
 
     constructor(){
     }
+    amount?: number;
 }

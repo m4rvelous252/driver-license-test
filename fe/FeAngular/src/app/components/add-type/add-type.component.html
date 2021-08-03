@@ -3,7 +3,12 @@ class="main flex-col container"
 >
     <!-- *Edit tên type -->
     <div class="container flex-row">
-        <div class="form-control name-type shadow" *ngIf="!isNamed">
+        <div 
+        [ngStyle]="{
+            'background-color': style.contentBgColor,
+            'color': style.contentTxtColor
+        }"
+        class="form-control name-type shadow" *ngIf="!isNamed">
             <div class="flex-row label">
                 <label for="text">Type name</label>
                 <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-check" (click)="nameType()"></fa-icon>
@@ -11,7 +16,7 @@ class="main flex-col container"
             <textarea
             [(ngModel)]="newT.type_name"
             [ngStyle]="{
-                'background-color': style.primeColor
+                'background-color': style.contentTxtColor
             }"
             name="text" id="text" placeholder="Type name"></textarea>
         </div>

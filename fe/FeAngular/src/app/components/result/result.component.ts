@@ -22,4 +22,7 @@ export class ResultComponent implements OnInit {
     console.log(this.result)
   }
 
+  getDuration(){
+    return(this.result.duration!*1000)
+  }
 }
