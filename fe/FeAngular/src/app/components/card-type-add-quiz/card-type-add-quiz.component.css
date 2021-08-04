@@ -1,0 +1,19 @@
+.container{
+  width: 280px;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+
+.icon{
+  width: 47px;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  align-self: center;
+  min-height: 100px;
+}
+
+.icon i{
+  margin: 5px 0px;
+  font-size: larger;
+}

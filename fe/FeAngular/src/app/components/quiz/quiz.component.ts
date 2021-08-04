@@ -41,4 +41,9 @@ export class QuizComponent implements OnInit {
 
   }
 
+  editQuiz(){
+    let url = this.router.url + '/edit'
+    this.router.navigate([url])
+  }
+
 }

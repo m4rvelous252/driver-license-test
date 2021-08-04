@@ -14,14 +14,15 @@ import java.util.*;
 public class QuizService {
     private final QuizRepository quizRepository;
     private final CategoryRepository categoryRepository;
-    private QuizTypeService quizTypeService;
+    private final QuizTypeService quizTypeService;
 
     private Random random = new Random();
 
     @Autowired
-    public QuizService(QuizRepository quizRepository, CategoryRepository categoryRepository) {
+    public QuizService(QuizRepository quizRepository, CategoryRepository categoryRepository, QuizTypeService quizTypeService) {
         this.quizRepository = quizRepository;
         this.categoryRepository = categoryRepository;
+        this.quizTypeService = quizTypeService;
     }
 
     public Response getAllQuiz(){
@@ -64,11 +65,19 @@ public class QuizService {
     public Response addNewQuiz(Quiz quiz) {
         Response respon = new Response();
         if(categoryRepository.findById(quiz.getId_category()).isPresent()){
-            quiz.setDeleted(false);
-            LocalDate localDate = LocalDate.now();
-            quiz.setCreate_date(localDate);
+            quiz.setCategory(categoryRepository.findById(quiz.getId_category()).get());
             quizRepository.save(quiz);
+            List<QuizType> quizTypeList = new ArrayList<>();
+            for (QuizType qt: quiz.getQuizType()) {
+                if(qt.getAmount()>0){
+                    qt.setId_quiz(quiz.getId());
+                    qt.setId_type(qt.getType().getId());
+                    quizTypeList.add(qt);
+                    quizTypeService.add(qt);
+                }
+            }
             respon = ConstantResponse.responseSaveSuc(respon);
+            respon.data = quiz;
         }else{
             respon = ConstantResponse.responseSaveFail(respon);
         }

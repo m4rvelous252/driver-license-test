@@ -1,10 +1,12 @@
-<div 
-[ngStyle]="{
-    'background-color': style.contentBgColor
-}"
-class="card-bg container ">
-    <a href="quiz/{{quiz?.id}}" class="flex-col">
+<div class="row">
+  <div [ngStyle]="{'background-color': style.contentBgColor}" class="card-bg container col">
+    <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
         <img [src]="paths.imgPath +'/test.png'" alt="">
         {{quiz?.name}}
     </a>
+  </div>
+  <div class="icon col-auto flex-col" style="background-color: rgb(5, 5, 5); color: yellow">
+    <a href="{{url}}"><i class="far fa-edit icon-item"></i></a>
+    <button class="btn" (click)="delete()"><i class="far fa-trash-alt icon-item"></i></button>
+  </div>
 </div>

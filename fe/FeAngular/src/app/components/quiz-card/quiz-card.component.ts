@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PATHS, STYLE } from 'src/app/model/constants';
+import { Router } from '@angular/router';
+import { PATHS, STYLE, HOSTNAME } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
 
 @Component({
@@ -14,9 +15,16 @@ export class QuizCardComponent implements OnInit {
 
   @Input() quiz?: Quiz
 
-  constructor() { }
+  url?: string
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.url =`${HOSTNAME.frontend}/quiz/${this.quiz!.id}/edit`
+  }
+
+  delete(){
+
   }
 
 }

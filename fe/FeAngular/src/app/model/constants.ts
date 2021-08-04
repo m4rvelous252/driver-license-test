@@ -77,7 +77,8 @@ export const HOSTNAME={
 }
 
 export const PATHS ={
-    imgPath: "../../../assets/img"
+    imgPath: "../../../assets/img",
+    iconPath: "../../../assets/img",
 }
 
 export const NEWQUESTION: Question = {

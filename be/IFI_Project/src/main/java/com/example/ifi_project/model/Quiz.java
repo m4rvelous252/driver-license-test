@@ -24,7 +24,7 @@ public class Quiz{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate create_date;
+    private LocalDate create_date = LocalDate.now();
 
     private LocalDate update_date;
 
@@ -42,7 +42,7 @@ public class Quiz{
 
     @JoinColumn(name = "id_category", insertable = true, updatable = true)
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     Category category;
 
     @OneToMany(mappedBy = "quiz")

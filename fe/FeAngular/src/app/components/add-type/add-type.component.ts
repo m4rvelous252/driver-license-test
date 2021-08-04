@@ -26,14 +26,14 @@ export class AddTypeComponent implements OnInit {
 
   constructor(private typeService: TypeService,private categoryService: CategoryService, private route : ActivatedRoute) { }
 
-  async ngOnInit() {
+  ngOnInit() {
 
     this.route.params.subscribe(
       (params: Params) => {
         this.id_category = params['id_category'];
       }
     );
-    await this.categoryService.getCategory(this.id_category).toPromise().then((res) => this.category=res.data)
+    this.categoryService.getCategory(this.id_category).toPromise().then((res) => this.category=res.data)
     this.newT.id_category = this.category?.id;
     // var newQuestion:question = new question([],'This is the first question', true)
     // this.newT.questions.push(newQuestion!)
@@ -64,6 +64,7 @@ export class AddTypeComponent implements OnInit {
   }
 
   submitT(){
+    this.newT.id_category = this.category?.id
     this.typeService.addType(this.newT);
   }
 
