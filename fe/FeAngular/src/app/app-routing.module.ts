@@ -22,6 +22,7 @@ import { ResultComponent } from './components/result/result.component';
 import { RecordTestComponent } from './components/record-test/record-test.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
 import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
+import { QuizEditComponent } from './components/quiz-edit/quiz-edit.component';
 
 const routes: Routes=[
   {path:'',component: HomeComponent},
@@ -42,6 +43,8 @@ const routes: Routes=[
   {path:'category',component: CategoryComponent},
 
   {path:'quiz/:id_quiz',component: QuizComponent},
+
+  {path:'quiz/:id_quiz/edit',component: QuizEditComponent},
 
   {path:'result',component: ResultComponent},
 

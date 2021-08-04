@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-left">
+      <div class="row">
+        <div class="col" *ngFor="let quiztype of quiztypes">
+          <app-card-type-add-quiz [quiztype]="quiztype"></app-card-type-add-quiz>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-auto col-right">
+        <div class="card">
+          <img src="{{category!.img}}" onerror="this.src = '../../../assets/img/category_fail.png';" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div>Tên: {{quiz.name}}</div>
+            <div>Thời gian: {{quiz!.time*1000| date:'mm:ss':'UTC'}}</div>
+            <div class="row">
+              <button class="btn col" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setValue()"><i class="far fa-edit"></i></button>
+              <button class="btn col" (click)="save()"><i class="far fa-save"></i></button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+        <div class="group">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text text-center span-input " id="inputGroup-sizing-sm">Tên </span>
+            <input type="text" class="form-control text-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="name">
+          </div>
+
+          <div class="input-group input-group-sm" style="width:170px">
+            <span class="input-group-text span-input">Thời gian</span>
+            <input type="text" aria-label="First name" class="form-control text-input" [(ngModel)]="time_min">
+            <div style="margin-left: 5px;margin-right: 5px;font-size: 22px;">:</div>
+            <input type="text" aria-label="Last name" class="form-control text-input" [(ngModel)]="time_sec">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveEdit()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+

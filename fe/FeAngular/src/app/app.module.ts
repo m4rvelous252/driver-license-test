@@ -46,6 +46,9 @@ import { CardTypeComponent } from './components/card-type/card-type.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
+import { CardTypeAddQuizComponent } from './components/card-type-add-quiz/card-type-add-quiz.component';
+import { QuizEditComponent } from './components/quiz-edit/quiz-edit.component';
+import { QuizDetailComponent } from './components/quiz-detail/quiz-detail.component';
 
 
 
@@ -84,7 +87,10 @@ import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
     CategoryScrollComponent,
     CardTypeComponent,
     CategoryListComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    CardTypeAddQuizComponent,
+    QuizEditComponent,
+    QuizDetailComponent
   ],
   imports: [
     AppRoutingModule,

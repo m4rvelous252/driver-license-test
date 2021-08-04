@@ -1,6 +1,4 @@
-
-
-a{
+.card-quiz{
     width: 100px;
     height: auto;
     text-decoration: none;
@@ -10,4 +8,22 @@ a{
 
 img{
     width: 100%;
+}
+
+.icon{
+  width: 40px;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  align-self: center;
+  min-height: 100px;
+}
+
+.icon-item{
+  margin: 5px 0px;
+  font-size: larger;
+  color: yellow;
+}
+
+.btn{
+  border: none;
 }

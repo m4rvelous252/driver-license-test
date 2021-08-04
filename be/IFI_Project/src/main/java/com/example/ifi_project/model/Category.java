@@ -47,13 +47,13 @@ public class Category {
     User user;
 
     @JsonView(Views.Internal.class)
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "id_category")
     @JsonIgnoreProperties("category")
     List<Type> type;
 
     @JsonView(Views.Internal.class)
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "id_category")
     @JsonIgnoreProperties("category")
     List<Quiz> quiz;

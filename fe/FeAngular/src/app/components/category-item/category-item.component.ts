@@ -35,7 +35,6 @@ export class CategoryItemComponent implements OnInit {
     this.categoryService.getCategory(this.id_category).subscribe((res) => this.category=res.data)
     this.link_add_quiz = this.router.url + '/add-quiz'
     this.link_add_type = this.router.url + '/add-type'
-    console.log(this.link_add_quiz)
   }
 
   viewType(){
