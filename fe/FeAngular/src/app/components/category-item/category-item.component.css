@@ -3,39 +3,29 @@ a {
 }
 
 .main{
-    margin-top: 20px;
-    display: flex;
+    flex-direction: column-reverse;
     width: 95vw;
     justify-content: space-around;
-    
+    height: 100%;
 }
 
 @media (max-width: 700px){
-    .main{
+    /* .main{
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-    }
+    } */
 
-    .content{
-        width: 100% !important;
-        margin: 10px 0 0 0;
-    }
 
     .modeToggle{
-        width: 100% !important;
-        flex-direction: row !important;
-    }
-
-    
-    .modeToggle app-button{
-        padding: 0px 5px !important;
+        width: fit-content !important;
+        /* flex-direction: row !important; */
     }
 
 }
 
 .content {
-    width: 70%;
+    width: 100%;
     height: fit-content;
     border-radius: 10px;
     padding: 1rem 1rem;
@@ -43,7 +33,6 @@ a {
 
 
 .modeToggle {
-
     width: 25%;
     height: fit-content;
     border-radius: 10px;
@@ -51,13 +40,10 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 25px;
 }
 
 .modeToggle app-button{
     padding: 5px 0px;
-    
-    
 }
 
 .content-btn{
@@ -65,4 +51,26 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     justify-items: center;
     row-gap: 20px;
+}
+
+.content-quiz-btn{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+    row-gap: 20px;
+}
+
+
+.toggle{
+    width: 100%;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    opacity: 0.8;
 }

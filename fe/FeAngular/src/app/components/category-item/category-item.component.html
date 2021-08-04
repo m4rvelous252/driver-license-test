@@ -1,4 +1,13 @@
-<div class="container main">
+<div 
+[ngStyle]="{
+    'color': style.contentTxtColor
+}"
+class="container topbar_breadcrumb">
+    <a href="/home">Trang Chủ</a> 
+    <span class="topbar__arraw"> &gt; </span> 
+    <a href="/category">Các chủ đề</a> 
+</div>
+<div class="main flex-col">
     <div
     class="content">
         <div *ngIf="viewMode=='type'" class="content-btn">
@@ -19,18 +28,16 @@
             ></app-button></a>
         </div>
 
-        <div *ngIf="viewMode=='quiz'" class="content-btn">
+        <div *ngIf="viewMode=='quiz'" class="content-quiz-btn">
             <div *ngFor="let quiz of category?.quiz">
-              <app-quiz-card [quiz]="quiz"></app-quiz-card>
+                <app-quiz-card [quiz]="quiz"></app-quiz-card>
             </div>
             <div>
                 <app-card
                 [img]="'/addPlus.png'"
-                [text]="'Add quiz'"
-                [link]="'/add-quiz/{{category.id}}'"
+                [text]="'Thêm bài thi'"
+                [link]= "link_add_quiz"
                 ></app-card>
-
-                <a href={{link_add_quiz}}> add quiz</a>
             </div>
         </div>
     </div>
@@ -41,21 +48,24 @@
         class="title"
         color="{{style.navColor}}"
         text="{{category?.name}}"
+        fontSize="25px"
         (btnClick)="viewDetails()"
         >
         </app-button>
-        <app-button
-        color="{{style.primeColor}}"
-        textColor="{{style.primeTxtColor}}"
-        text="Type"
-        (btnClick)="viewType()"
-        ></app-button>
-        <app-button
-        color="{{style.primeColor}}"
-        textColor="{{style.primeTxtColor}}"
-        text="Quiz"
-        (btnClick)="viewQuiz()"
-        
-        ></app-button>
+        <div class="flex-row toggle">
+            <app-button
+            color="{{style.primeColor}}"
+            textColor="{{style.primeTxtColor}}"
+            text="Type"
+            (btnClick)="viewType()"
+            ></app-button>
+            <app-button
+            color="{{style.primeColor}}"
+            textColor="{{style.primeTxtColor}}"
+            text="Quiz"
+            (btnClick)="viewQuiz()"
+            
+            ></app-button>
+        </div>
     </div>
 </div>

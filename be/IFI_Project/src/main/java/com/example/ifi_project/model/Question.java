@@ -42,7 +42,7 @@ public class Question {
 
     @JoinColumn(name = "type_id", insertable = true, updatable = true)
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     Type type;
 
     @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)

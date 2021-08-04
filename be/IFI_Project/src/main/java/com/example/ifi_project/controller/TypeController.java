@@ -6,6 +6,7 @@ import com.example.ifi_project.model.Views;
 import com.example.ifi_project.service.TypeService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

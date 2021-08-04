@@ -14,20 +14,10 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
   styleUrls: ['./type-item.component.css']
 })
 export class TypeItemComponent implements OnInit {
-
+  style=STYLE
 
   type! : Type
   id_type!:string 
- 
-  primeTxtColor = STYLE.primeTxtColor
-  secondTxtColor = STYLE.secondTxtColor
-  primeColor = STYLE.primeColor
-  selectColor = STYLE.secondColor
-  navColor = STYLE.navColor
-  warningColor = STYLE.warningColor
-  bgColor = STYLE.bgColor
-
-    
   constructor(private typeService:TypeService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -38,17 +28,12 @@ export class TypeItemComponent implements OnInit {
     );
     this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data));
   }
-  addIndex(){
-    this.type?.questions.forEach(question => { 
-      question.edit=true
-    });
-  }
 
-    addQ(index: number){
+  addQ(index: number){
     var newAnswer: answer = new answer()
     var newQuestion:question = new question([newAnswer],'', false)
     this.type.questions.splice(index+1, 0, newQuestion!)
-    // this.newT.questions.push(newQ)
+  // this.newT.questions.push(newQ)
     console.log(this.type)
   }
 
@@ -56,5 +41,9 @@ export class TypeItemComponent implements OnInit {
     this.type.questions.splice(index,1)
   }
 
+  submitT(){
+    this.typeService.addType(this.type);
+    console.log(this.type)
+  }
 
 }

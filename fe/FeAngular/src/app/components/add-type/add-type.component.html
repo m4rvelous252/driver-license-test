@@ -1,3 +1,15 @@
+<div class="container topbar_breadcrumb">
+    <div 
+    [ngStyle]="{
+        'color': style.contentTxtColor
+    }"
+    class="container">
+    <a href="/home" class="topbar__node">Trang Chủ</a> 
+    <span class="topbar__arraw"> &gt; </span> 
+    <a href="/category" class="topbar__node nuxt-link-active">Các chủ đề</a> 
+    <span class="topbar__arraw"> &gt; </span> 
+    <a href="/category/{{category?.id}}" class="topbar__node">{{category?.name}}</a> 
+</div></div>
 <div
 class="main flex-col container"
 >
@@ -11,7 +23,7 @@ class="main flex-col container"
         class="form-control name-type shadow" *ngIf="!isNamed">
             <div class="flex-row label">
                 <label for="text">Type name</label>
-                <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-check" (click)="nameType()"></fa-icon>
+                <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-save" (click)="nameType()"></fa-icon>
             </div>
             <textarea
             [(ngModel)]="newT.type_name"

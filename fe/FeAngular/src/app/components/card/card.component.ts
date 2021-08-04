@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PATHS } from 'src/app/model/constants';
+import { PATHS, STYLE } from 'src/app/model/constants';
 
 @Component({
   selector: 'app-card',
@@ -12,6 +12,7 @@ export class CardComponent implements OnInit {
   @Input()link?: String
 
   paths=PATHS
+  style=STYLE
 
   constructor() { }
 

@@ -68,6 +68,12 @@ public class TypeService {
             LocalDate localDate = LocalDate.now();
             type.setCreate_date(localDate);
             type.setCategory(categoryOptional.get());
+            for (Question q: type.getQuestions()) {
+                q.setType(type);
+                for (Answer a: q.getAnswers()) {
+                    a.setQuestion(q);
+                }
+            }
             typeRepository.save(type);
             respon = ConstantResponse.responseSaveSuc(respon);
             respon.data = type;

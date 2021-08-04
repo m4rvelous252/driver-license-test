@@ -35,11 +35,6 @@ export class AddAnswerComponent implements OnInit {
     this.onDeleteAnswer.emit()
   }
 
-  confirmAnswer(){
-    console.log(this.answer.text)
-    
-  }
-
   toggleIsCorrect(){
     this.answer.is_correct=!this.answer.is_correct
     console.log(this.answer.is_correct) 

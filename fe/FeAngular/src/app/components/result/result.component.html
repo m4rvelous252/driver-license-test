@@ -1,3 +1,12 @@
+<div class="nav">
+    <a href="/category">
+        <app-button
+            text="Trở về"
+            color={{style.contentTxtColor}}
+            fontWeight='bold'
+        ></app-button>
+    </a>
+</div>
 <div class="flex-row main">
     <div 
     [ngStyle]="{
@@ -8,9 +17,9 @@
     >
         <h3>{{result?.name}}</h3>
         <span>
-        Total questions: {{result?.questions?.length}} <br>
-        Correct answer(s): {{result?.mark}}<br>
-        Test duration: <label>{{ getDuration() | date:'mm:ss':'UTC'}}</label>
+        Tổng số câu: {{result?.questions?.length}} <br>
+        Số câu trả lời đúng: {{result?.mark}}<br>
+        Thời gian làm bài: <label>{{ getDuration() | date:'mm:ss':'UTC'}}</label>
         </span>
     </div>
 
@@ -20,7 +29,6 @@
     >
         <div class="container" *ngFor="let question of result?.questions; let i = index">
             <app-question-item
-            bgColor="{{question.is_correct ? '#B6E2BA':'#FE8D85'}}"
             [question]="question"
             [index]="i+1"
             [viewMode]="'result'"

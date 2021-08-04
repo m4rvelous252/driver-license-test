@@ -31,14 +31,14 @@ export class TypeService {
     let url = `${this.apiUrl}/${id_type}`
     return this.httpClient.get<Response>(url)
   }
-
+  
   addType(newType: type){
     let url = `${this.apiUrl}/add`
-    console.log(newType)
-     this.httpClient.post<Response>(url,newType).subscribe((res)=>(
-       console.log(res)
-     ));
-    let link = `category/${newType.id_category}`
-    this.router.navigate([link])
+    let link
+    this.httpClient.post<Response>(url,newType).subscribe((res)=>(
+      console.log(res),
+      link =  `type/`+res.data.id,
+      this.router.navigate([link])
+    ));
   }
 }
