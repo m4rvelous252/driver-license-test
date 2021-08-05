@@ -42,6 +42,9 @@ export class AddQuestionComponent implements OnInit {
         if (answer.text==''||!answer.text){
           this.question.answers.splice(this.question.answers.indexOf(answer), 1)
         }
+        if (answer.is_correct!=true){
+          answer.is_correct=false
+        }
       });
       this.question!.edit=true
     }

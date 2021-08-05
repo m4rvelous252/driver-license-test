@@ -17,6 +17,7 @@ export class AnswerButtonComponent implements OnInit {
 
   public imgSelect: string = "../../../assets/img/tick.png"
   public imgUnselect: string = "../../../assets/img/question-mark.png"
+  public imgWrongSelect: string = "../../../assets/img/question-mark.png"
   style=STYLE
 
   is_test!: boolean
@@ -73,4 +74,15 @@ export class AnswerButtonComponent implements OnInit {
     }
   }
 
+  imgBtnColor(){
+    if(this.viewMode=='result'){
+      if(!this.answer.is_select){
+        return this.style.contentTxtColor
+      }
+      else if(!this.answer.is_correct)
+      return this.style.navColor
+      else return this.style.secondColor
+    }
+    else return this.resultColor()
+  }
 }

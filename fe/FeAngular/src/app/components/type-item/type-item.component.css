@@ -1,29 +1,21 @@
 .main{
-    /* display: flex;
-    margin: 5vh;
-    justify-content: space-around; */
-    display: grid;
-    grid-template-columns: 3fr 1fr;
     width: 100%;
-    justify-items: center;
 }
 
 @media (max-width: 1000px){
     .main{
         grid-template-columns: 1fr;
     }
-    .details{
-        display: none !important;
-    }
 }
 
 .question{
     max-width: 1000px;
+
 }
 
 .details{
-    justify-self: self-start;
-    width: 80%;
+    align-self: flex-start;
+    width: 25%;
     height: fit-content;
     margin: 20px 0 0 0;
     border-radius: 10px;
@@ -35,3 +27,6 @@
     /* position: fixed; */
 }
 
+app-button{
+    margin-top: 15px;
+}

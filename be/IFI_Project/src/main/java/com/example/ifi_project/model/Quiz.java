@@ -55,4 +55,86 @@ public class Quiz{
                 '}';
     }
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getCreate_date() {
+		return create_date;
+	}
+
+	public void setCreate_date(LocalDate create_date) {
+		this.create_date = create_date;
+	}
+
+	public LocalDate getUpdate_date() {
+		return update_date;
+	}
+
+	public void setUpdate_date(LocalDate update_date) {
+		this.update_date = update_date;
+	}
+
+	public LocalDate getDelete_date() {
+		return delete_date;
+	}
+
+	public void setDelete_date(LocalDate delete_date) {
+		this.delete_date = delete_date;
+	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public Long getId_category() {
+		return id_category;
+	}
+
+	public void setId_category(Long id_category) {
+		this.id_category = id_category;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<QuizType> getQuizType() {
+		return quizType;
+	}
+
+	public void setQuizType(List<QuizType> quizType) {
+		this.quizType = quizType;
+	}
+    
+    
+
 }

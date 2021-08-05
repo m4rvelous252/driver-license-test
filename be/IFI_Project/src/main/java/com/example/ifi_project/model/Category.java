@@ -57,4 +57,102 @@ public class Category {
     @JoinColumn(name = "id_category")
     @JsonIgnoreProperties("category")
     List<Quiz> quiz;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+
+	public LocalDate getUpdate_date() {
+		return update_date;
+	}
+
+	public void setUpdate_date(LocalDate update_date) {
+		this.update_date = update_date;
+	}
+
+	public LocalDate getDelete_date() {
+		return delete_date;
+	}
+
+	public void setDelete_date(LocalDate delete_date) {
+		this.delete_date = delete_date;
+	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public int getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(int submit) {
+		this.submit = submit;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Type> getType() {
+		return type;
+	}
+
+	public void setType(List<Type> type) {
+		this.type = type;
+	}
+
+	public List<Quiz> getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(List<Quiz> quiz) {
+		this.quiz = quiz;
+	}
+    
+    
 }

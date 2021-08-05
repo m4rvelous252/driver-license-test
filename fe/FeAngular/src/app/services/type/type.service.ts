@@ -31,7 +31,7 @@ export class TypeService {
     let url = `${this.apiUrl}/${id_type}`
     return this.httpClient.get<Response>(url)
   }
-
+  
   addType(newType: type){
     let url = `${this.apiUrl}/add`
     let link

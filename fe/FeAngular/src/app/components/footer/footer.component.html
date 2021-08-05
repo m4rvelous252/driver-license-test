@@ -1,3 +1,24 @@
-<div class="text-center" style="background-color: rgb(114, 114, 114);">
-    Footer!
+<div 
+[ngStyle]="{
+    'background-color': style.contentBgColor,
+    'color': style.contentTxtColor
+}"
+class="main flex-row">
+    <div class="container flex-row">
+    <span>Follow us</span>
+    <div 
+    [ngStyle]="{
+        'color': style.contentTxtColor
+    }"
+    class="icons flex-row">
+        <fa-icon 
+        class="fab fa-facebook-square">
+        </fa-icon>
+        <fa-icon 
+        class="fab fa-twitter-square">
+        </fa-icon>
+        <fa-icon 
+        class="fab fa-youtube-square">
+        </fa-icon> 
+    </div></div>
 </div>

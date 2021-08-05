@@ -16,6 +16,7 @@ img{
   border-radius: 10px;
   align-self: center;
   min-height: 100px;
+  color: inherit;
 }
 
 .icon-item{
@@ -25,4 +26,8 @@ img{
 
 .btn{
   border: none;
+}
+
+.option{
+  color: inherit;
 }

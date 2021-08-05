@@ -1,4 +1,8 @@
-<div class="card-bg container ">
+<div
+[ngStyle]="{
+    'background-color': style.contentBgColor
+}"
+class="card-bg container">
     <a href="{{link}}" class="flex-col">
         <img [src]="paths.imgPath +img" alt="">
         {{text}}

@@ -11,7 +11,7 @@ import { STYLE } from 'src/app/model/constants';
 })
 export class ResultComponent implements OnInit {
 
-  result?:Result
+  result!:Result
   style = STYLE
 
   constructor() { }
@@ -22,4 +22,7 @@ export class ResultComponent implements OnInit {
     console.log(this.result)
   }
 
+  getDuration(){
+    return(this.result.duration!*1000)
+  }
 }

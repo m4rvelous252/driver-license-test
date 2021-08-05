@@ -1,14 +1,27 @@
-<div class="container flex-col">
+<app-button
+    text="Trở về"
+    color={{style.contentTxtColor}}
+    fontWeight='bold'
+    (btnClick)=backClicked()
+></app-button>
+<div class="main">
+    <div class="container flex-row">
+
+    <app-button
+    text="Bắt đầu bài thi"
+    color={{style.secondColor}}
+    fontWeight='bolder'
+    (btnClick)=startQuiz()
+    ></app-button>
+    </div>
     <div class="type">
-        <a *ngFor="let quizType of quiz?.quizType" href="type/{{quizType.type.id}}">
-            <app-button
-            color="{{primaryColor}}"
-            textColor="{{primeTxtColor}}"
-            text="{{quizType.type.type_name}}"
-            widthPer="100px"
-            >
-            </app-button>
-        </a>
+        <div *ngFor="let quizType of quiz?.quizType">
+            <a href="type/{{quizType.type.id}}">
+                <app-card-type
+                [type]="quizType.type"
+                ></app-card-type>
+            </a>
+        </div>
     </div>
     <button (click)="startQuiz()">Start quiz</button>
     <button (click)="editQuiz()">Edit quiz</button>

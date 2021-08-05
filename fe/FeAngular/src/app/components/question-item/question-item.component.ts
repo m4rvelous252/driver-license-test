@@ -16,8 +16,6 @@ export class QuestionItemComponent implements OnInit {
   @Input()
   question?: Question;
   @Input()
-  bgColor?: string;
-  @Input()
   index?: number;
   @Input()
   viewMode?: string
@@ -31,20 +29,8 @@ export class QuestionItemComponent implements OnInit {
   constructor(private answerService: AnswerService, private uiService: UiService) { }
 
   ngOnInit(): void {
-    //this.answerService.getAnswer().subscribe((pickedAnswers) => this.pickedAnswers = pickedAnswers)
   }
 
-  // makeAnswer(answer: Answer){
-  //   if (answer.is_select==true){
-  //     this.answerService.addAnswer(answer).subscribe((answer) => (this.answers?.push(answer)))
-  //     console.log('add')
-  //   }
-  //   else{
-  //     this.answerService.removeAnswer(answer).subscribe(() => (this.pickedAnswers?.push(answer)))
-  //     console.log('remove')
-  //   }
-  //   // this.test.emit()
-  // }
 
   toggleChoice(answer: Answer){
       if(this.question?.pick_one){
@@ -78,7 +64,6 @@ export class QuestionItemComponent implements OnInit {
       else{
         this.question!.is_done = STYLE.contentTxtColor;
       }
-
     }
   }
 
@@ -88,6 +73,26 @@ export class QuestionItemComponent implements OnInit {
 
   renameQ(){
     this.onRenameQ.emit()
+  }
+
+  bgColorSetter(){
+    if(this.viewMode=='result'){
+    if(this.question?.is_correct)
+    return this.style.secondColor
+    else return this.style.navColor
+    }
+    else
+    return this.style.contentBgColor
+  }
+
+  textColorSetter(){
+    if(this.viewMode=='result'){
+      if(this.question?.is_correct)
+      return this.style.secondTxtColor
+      else return this.style.primeTxtColor
+      }
+      else
+      return this.style.contentTxtColor
   }
 
 }

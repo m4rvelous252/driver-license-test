@@ -1,11 +1,26 @@
-<div class="container row">
-  <div class="col">
+<div class="container flex-row">
+  <div class="">
     <app-card-type [type]="quiztype.type"></app-card-type>
   </div>
 
-  <div class="icon col-auto flex-col" style="background-color: rgb(5, 5, 5); color: yellow">
+  <div 
+  [ngStyle]="{
+    'background-color': style.contentBgColor,
+    'color': style.contentTxtColor
+  }"
+  class="icon col-auto flex-col">
     <i class="fas fa-chevron-up" (click) ="up()"></i>
-    <div>{{quiztype.amount}}</div>
+    <input 
+    [ngStyle]="{
+      'background-color': style.contentBgColor,
+      'color': style.contentTxtColor,
+      'border': 'none'
+    }" 
+    type="text" 
+    name="quiztypeAmount" 
+    [(ngModel)]="quiztype.amount"
+    id="quiztypeAmount" 
+    >
     <i class="fas fa-chevron-down" (click) ="down()"></i>
   </div>
 </div>

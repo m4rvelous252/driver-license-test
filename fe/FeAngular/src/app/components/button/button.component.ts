@@ -30,7 +30,6 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.img)
   }
 
   onClick(){

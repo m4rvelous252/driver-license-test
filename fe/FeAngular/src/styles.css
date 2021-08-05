@@ -116,3 +116,13 @@ img{
     width: 100%;
 }
 
+.topbar_breadcrumb{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    max-width: 1000px;
+    margin-top: 15px;
+}

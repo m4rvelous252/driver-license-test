@@ -15,12 +15,6 @@ import { UiService } from 'src/app/services/Ui/ui.service';
 })
 export class CategoryItemComponent implements OnInit {
 
-  primeTxtColor = STYLE.primeTxtColor
-  secondTxtColor = STYLE.secondTxtColor
-  primaryColor = STYLE.primeColor
-  selectColor = STYLE.secondColor
-  navColor = STYLE.navColor
-  warningColor = STYLE.warningColor
 
   style = STYLE
 

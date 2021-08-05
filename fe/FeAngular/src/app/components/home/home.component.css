@@ -1,13 +1,16 @@
 .top-container{
   padding-top: 10px;
   padding-bottom: 10px;
+  width: 100%;
 }
 
 .content{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-right: 1px solid;
+  border-left: 1px solid;
 }
 
 .left-col{

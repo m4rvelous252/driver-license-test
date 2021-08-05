@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Category } from 'src/app/model/category';
+import { STYLE } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
 import { QuizType } from 'src/app/model/quiztype';
 import { Type } from 'src/app/model/type';
@@ -20,6 +21,8 @@ export class QuizDetailComponent implements OnInit {
   category?: Category
   types: Type[] = []
   quiztypes : QuizType[] =[]
+
+  style=STYLE
 
   name!: string
   time_min!: number

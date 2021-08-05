@@ -6,14 +6,15 @@ class="main container"
         <img [src]="paths.imgPath +'/type_img_1.png'" alt="{{type?.type_name}}" class="top">
         
         <div class="bottom flex-row">
-            <img [src]="paths.imgPath + '/avatar.png'" alt="" class="avatar">
             <div 
             [ngStyle]="{
                 'color':style.contentTxtColor
             }"
             class="details flex-col">
-            <span style="font-size: larger; font-weight: bold;">{{type?.type_name}}</span>
-            <span> {{type?.questions?.length}} questions</span>
+            <span style="font-size: larger; font-weight: bold;">
+            {{type?.type_name}}</span>
+
+            <span> {{type?.questions?.length}} câu hỏi</span>
             </div>
         </div>
     </div>

@@ -1,5 +1,10 @@
 <div class="container main">
-    <div *ngFor="let result of historyResults" class="container content">
+    <div 
+    [ngStyle]="{
+        'background-color': style.contentBgColor,
+        'color': style.contentTxtColor
+    }"
+    *ngFor="let result of historyResults" class="container content">
         <app-record-test-item
         [result]="result"
         ></app-record-test-item>

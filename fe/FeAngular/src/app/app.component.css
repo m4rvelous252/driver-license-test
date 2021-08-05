@@ -1,6 +1,5 @@
-app-header{
+header{
     width: 100%;
-    min-height: 50px;
 }
 
 .content{
@@ -12,3 +11,10 @@ app-header{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.main{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 56px 1fr 62px;
+}
+

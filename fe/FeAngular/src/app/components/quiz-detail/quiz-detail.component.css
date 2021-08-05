@@ -1,37 +1,36 @@
-.container{
 
-  margin-top: 30px;
+.types{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  justify-items: center;
+  max-width: 1000px !important;
 }
 
-.col-left{
-
+.main{
+  width: 100%;
+  flex-direction: column-reverse !important;
 }
 
-.col-right{
-
+.bigMain{
+  width: 100% !important;
 }
 
-.card{
-  width: 252px!important;
+.icons{
+  justify-content: space-around;
 }
 
-.card-img-top{
-  width: 250px!important;
-  height: 150px!important;
-  background-size: cover!important;
-  object-fit:cover!important;
+.details{
+  width: 307px;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin: 15px;
 }
 
-.name-category{
-  margin-bottom: 0!important;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 2; /* number of lines to show */
-   -webkit-box-orient: vertical;
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .btn{

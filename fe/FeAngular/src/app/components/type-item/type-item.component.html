@@ -1,5 +1,11 @@
 
-<div class=" main">
+<app-button
+text="Trở về"
+color={{style.contentTxtColor}}
+fontWeight='bold'
+(btnClick)=backClicked()
+></app-button>
+<div class="flex-row main">
     <div class="container question">
         <div *ngFor="let question of type.questions, let i = index">
             <app-add-question 
@@ -9,13 +15,11 @@
             ></app-add-question>
         </div>
     </div>
-
-    <app-card-type class="details"
+    <div class="details">
+    <app-card-type
     [type]="type"
     ></app-card-type>
-
-    <button
-    [ngStyle]="{'background': 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0.37) 100%)'}"
-    >This is a test button</button>
+    <app-button [textColor]="style.contentBgColor" [color]="style.secondColor" [text]="'Save'" (btnClick)="submitT()"></app-button>
+    </div>
 </div>
 

@@ -20,7 +20,11 @@ export class RecordTestItemComponent implements OnInit {
   }
 
   viewDetails(result: Result){
-    this.testService.getHistoryTestById(`${result.id}`);
+    this.testService.getHistoryTestById(`${result.id}`)
+  }
+
+  getDuration(){
+    return(this.result?.duration!*1000)
   }
 
 }

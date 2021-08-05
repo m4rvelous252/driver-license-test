@@ -3,6 +3,7 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
 import { KEY, STYLE } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-quiz',
@@ -17,10 +18,13 @@ export class QuizComponent implements OnInit {
   id_quiz!: string
   quiz!: Quiz
 
+  style=STYLE
+
   constructor(
     private quizService:QuizService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -41,6 +45,10 @@ export class QuizComponent implements OnInit {
 
   }
 
+  backClicked() {
+    this._location.back();
+  }
+  
   editQuiz(){
     let url = this.router.url + '/edit'
     this.router.navigate([url])

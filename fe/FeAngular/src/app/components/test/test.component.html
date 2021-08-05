@@ -1,9 +1,15 @@
 
 <div class="body">
     <div class="exam">
-        <div class="test-name">
+        <div class="test-name flex-row">
             <app-button
-                text="{{quiz?.name}}"
+                text="Trở về chủ đề"
+                color="{{style.navColor}}"
+                borderRadius="10px"
+                fontWeight="bold"
+            ></app-button>
+            <app-button
+                text="Bài thi {{quiz?.name}}"
                 color="{{style.navColor}}"
                 borderRadius="10px"
                 fontWeight="bold"

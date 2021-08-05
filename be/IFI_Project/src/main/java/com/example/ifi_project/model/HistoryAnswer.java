@@ -47,4 +47,62 @@ public class HistoryAnswer {
                 ", history_question_id=" + history_question_id +
                 '}';
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public Boolean getIs_correct() {
+		return is_correct;
+	}
+
+	public void setIs_correct(Boolean is_correct) {
+		this.is_correct = is_correct;
+	}
+
+	public Boolean getIs_select() {
+		return is_select;
+	}
+
+	public void setIs_select(Boolean is_select) {
+		this.is_select = is_select;
+	}
+
+	public Long getHistory_question_id() {
+		return history_question_id;
+	}
+
+	public void setHistory_question_id(Long history_question_id) {
+		this.history_question_id = history_question_id;
+	}
+
+	public HistoryQuestion getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(HistoryQuestion question) {
+		this.question = question;
+	}
+    
+    
 }
