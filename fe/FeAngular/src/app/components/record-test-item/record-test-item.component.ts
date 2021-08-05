@@ -29,9 +29,9 @@ export class RecordTestItemComponent implements OnInit {
 
   getPass(){
     if(this.result?.pass){
-      return "green"
+      return this.style.secondColor
     }else{
-      return "red"
+      return this.style.navColor
     }
   }
 
