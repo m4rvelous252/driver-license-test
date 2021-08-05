@@ -6,6 +6,7 @@ import { answer } from 'src/app/model/answer';
 import { TypeService } from 'src/app/services/type/type.service';
 import { STYLE } from 'src/app/model/constants';
 import { ActivatedRoute,Params, Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class TypeItemComponent implements OnInit {
 
   type! : Type
   id_type!:string 
-  constructor(private typeService:TypeService, private route : ActivatedRoute) { }
+  constructor(
+    private typeService:TypeService, 
+    private route : ActivatedRoute,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -44,6 +48,10 @@ export class TypeItemComponent implements OnInit {
   submitT(){
     this.typeService.addType(this.type);
     console.log(this.type)
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
 }

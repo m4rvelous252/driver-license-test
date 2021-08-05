@@ -7,6 +7,11 @@ fa-icon{
     font-size: 40px;
 }
 
+fa-icon:hover{
+    transform: translateY(-8px);
+}
+
+
 .icons{
     margin: 0 0 0 15px;
     justify-content: space-between;
@@ -26,3 +31,4 @@ span{
         width: 100%;
     }
 }
+

@@ -48,6 +48,7 @@ export class QuizComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
+  
   editQuiz(){
     let url = this.router.url + '/edit'
     this.router.navigate([url])

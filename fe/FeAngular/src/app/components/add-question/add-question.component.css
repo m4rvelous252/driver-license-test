@@ -27,6 +27,7 @@ app-question-item{
 
 .icon{
     width: 47px;
+    min-width: 47px;
     margin: 0 0 0 10px;
     border-radius: 10px;
     align-self: center;
