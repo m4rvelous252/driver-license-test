@@ -35,6 +35,7 @@ public class Quiz{
     private String name;
 
     private int time;
+    
 
 
     @Column(name = "id_category", insertable = false, updatable = false)
@@ -111,12 +112,14 @@ public class Quiz{
 		this.time = time;
 	}
 
-	public Long getId_category() {
-		return id_category;
+	
+
+	public Long getIdCategory() {
+		return idCategory;
 	}
 
-	public void setId_category(Long id_category) {
-		this.id_category = id_category;
+	public void setIdCategory(Long idCategory) {
+		this.idCategory = idCategory;
 	}
 
 	public Category getCategory() {
