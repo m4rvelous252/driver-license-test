@@ -2,3 +2,13 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.main{
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 200px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

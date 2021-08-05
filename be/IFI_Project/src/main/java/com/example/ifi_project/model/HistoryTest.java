@@ -175,6 +175,23 @@ public class HistoryTest {
 	public void setMax(int max) {
 		this.max = max;
 	}
+
+	public int getPassMark() {
+		return passMark;
+	}
+
+	public void setPassMark(int passMark) {
+		this.passMark = passMark;
+	}
+
+	public boolean isPass() {
+		return pass;
+	}
+
+	public void setPass(boolean pass) {
+		this.pass = pass;
+	}
     
+	
     
 }

@@ -31,3 +31,12 @@ img{
 .option{
   color: inherit;
 }
+
+.icon i {
+  color: inherit;
+  cursor: pointer;
+}
+
+.icon a{
+  color: inherit;
+}

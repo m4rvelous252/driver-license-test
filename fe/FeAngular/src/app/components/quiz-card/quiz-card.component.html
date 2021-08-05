@@ -19,14 +19,18 @@
 </div>
 
 <div class="row" *ngIf="quiz!.deleted">
-  <div [ngStyle]="{'background-color': '#dc0c0c'}" class="card-bg container col">
+  <div [ngStyle]="{'background-color': style.navColor}" class="card-bg container col">
     <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
         <img [src]="paths.imgPath +'/test.png'" alt="">
         <div [ngStyle]="{'color': 'black'}">{{quiz?.name}}</div>
     </a>
   </div>
-  <div class="icon col-auto flex-col" [ngStyle]="{'background-color': '#dc0c0c'}">
-    <a href="{{url}}" [ngStyle]="{'color': '#0fe00f'}"><i class="far fa-edit icon-item"></i></a>
-    <button class="btn" (click)="redo()" [ngStyle]="{'color': '#0fe00f'}"><i class="fas fa-reply"></i></button>
+  <div class="icon col-auto flex-col" 
+  [ngStyle]="{
+    'background-color': style.navColor,
+    'color': style.contentBgColor 
+    }">
+    <a href="{{url}}"><i class="far fa-edit icon-item"></i></a>
+    <i class="fas fa-reply" (click)="redo()"></i>
   </div>
 </div>

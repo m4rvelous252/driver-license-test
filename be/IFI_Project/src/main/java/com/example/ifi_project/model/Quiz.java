@@ -64,6 +64,8 @@ public class Quiz{
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
 
     public LocalDate getCreate_date() {
         return create_date;
@@ -117,25 +119,14 @@ public class Quiz{
         return passMark;
     }
 
-<<<<<<< HEAD
+
     public void setPassMark(int passMark) {
         this.passMark = passMark;
     }
 
-    public Long getIdCategory() {
-        return idCategory;
-    }
-=======
-	
-
 	public Long getIdCategory() {
 		return idCategory;
 	}
-
-	public void setIdCategory(Long idCategory) {
-		this.idCategory = idCategory;
-	}
->>>>>>> nghia_code
 
     public void setIdCategory(Long idCategory) {
         this.idCategory = idCategory;
