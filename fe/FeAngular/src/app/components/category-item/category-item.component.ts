@@ -56,10 +56,10 @@ export class CategoryItemComponent implements OnInit {
     this.viewMode="type"
   }
 
-  async viewQuiz(){
-    await this.quizService.getQuizNotDeletedByCategoryId(this.category!.id).toPromise().then((res)=>{
-      this.category!.quiz = res.data
-    })
+  viewQuiz(){
+    // await this.quizService.getQuizNotDeletedByCategoryId(this.category!.id).toPromise().then((res)=>{
+    //   this.category!.quiz = res.data
+    // })
     this.viewMode="quiz"
   }
 

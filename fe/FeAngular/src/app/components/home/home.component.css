@@ -49,5 +49,8 @@
   padding-bottom: 64px;
 }
 
-
+#trending{
+  border-right: 1px solid;
+  border-left: 1px solid;
+}
 
