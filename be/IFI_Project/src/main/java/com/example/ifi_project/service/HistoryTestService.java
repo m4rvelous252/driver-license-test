@@ -89,6 +89,11 @@ public class HistoryTestService {
             }
         }
         historyTest.setMark(mark);
+        if(historyTest.getMark()>historyTest.getPassMark()){
+            historyTest.setPass(true);
+        }else{
+            historyTest.setPass(false);
+        }
         Category category = categoryRepository.findById(historyTest.getId_category()).get();
         category.setSubmit(category.getSubmit()+1);
         categoryRepository.save(category);

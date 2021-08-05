@@ -1,11 +1,11 @@
-<div 
+<div
 [ngStyle]="{
     'color': style.contentTxtColor
 }"
 class="container topbar_breadcrumb">
-    <a href="/home">Trang Chủ</a> 
-    <span class="topbar__arraw"> &gt; </span> 
-    <a href="/category">Các chủ đề</a> 
+    <a href="/home">Trang Chủ</a>
+    <span class="topbar__arraw"> &gt; </span>
+    <a href="/category">Các chủ đề</a>
 </div>
 <div class="main flex-col">
     <div
@@ -30,7 +30,7 @@ class="container topbar_breadcrumb">
 
         <div *ngIf="viewMode=='quiz'" class="content-quiz-btn">
             <div *ngFor="let quiz of category?.quiz">
-                <app-quiz-card [quiz]="quiz"></app-quiz-card>
+                <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)"></app-quiz-card>
             </div>
             <div>
                 <app-card
@@ -43,7 +43,7 @@ class="container topbar_breadcrumb">
 
         <div *ngIf="viewMode=='deleteQuiz'" class="content-btn">
           <div *ngFor="let quiz of quizDeleted">
-            <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)" (redoClick)="redoQuiz(quiz)"></app-quiz-card>
+            <app-quiz-card [quiz]="quiz" (redoClick)="redoQuiz(quiz)"></app-quiz-card>
         </div>
         <div>
             <app-card
@@ -78,7 +78,12 @@ class="container topbar_breadcrumb">
             textColor="{{style.primeTxtColor}}"
             text="Quiz"
             (btnClick)="viewQuiz()"
-            
+            ></app-button>
+            <app-button
+            color="{{style.primeColor}}"
+            textColor="{{style.primeTxtColor}}"
+            text="Quiz Delete"
+            (btnClick)="viewDeleteQuiz()"
             ></app-button>
         </div>
     </div>

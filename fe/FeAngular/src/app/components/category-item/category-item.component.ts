@@ -72,6 +72,7 @@ export class CategoryItemComponent implements OnInit {
   }
 
   deleteQuiz(quiz : Quiz){
+    console.log("hey")
     this.category?.quiz.splice(this.category.quiz.indexOf(quiz),1)
     this.quizService.deleteQuiz(quiz)
 

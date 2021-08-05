@@ -14,6 +14,7 @@ export class Quiz{
     id_category!:number;
     questions!: Question[];
     quizType!: QuizType[];
+    passMark!: number;
 
     constructor(){
 

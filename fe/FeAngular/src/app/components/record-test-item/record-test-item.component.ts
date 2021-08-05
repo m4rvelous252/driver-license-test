@@ -27,4 +27,12 @@ export class RecordTestItemComponent implements OnInit {
     return(this.result?.duration!*1000)
   }
 
+  getPass(){
+    if(this.result?.pass){
+      return "green"
+    }else{
+      return "red"
+    }
+  }
+
 }

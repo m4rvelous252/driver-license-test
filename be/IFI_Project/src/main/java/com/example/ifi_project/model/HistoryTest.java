@@ -45,6 +45,10 @@ public class HistoryTest {
 
     private long id_category;
 
+    private int passMark;
+
+    private boolean pass;
+
     @Transient
     private int max;
 
