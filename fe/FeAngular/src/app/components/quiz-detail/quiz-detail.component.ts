@@ -31,8 +31,8 @@ export class QuizDetailComponent implements OnInit {
   constructor(private categoryService: CategoryService, private route : ActivatedRoute, private quizService : QuizService) { }
 
   async ngOnInit() {
-    console.log("id"+this.quiz.id_category)
-    this.id_category = this.quiz.id_category+""
+    console.log("id"+this.quiz.idCategory)
+    this.id_category = this.quiz.idCategory+""
     await this.categoryService.getCategory(this.id_category).toPromise().then((res) => this.category=res.data)
     this.category!.type.forEach(type => {
       let quiztype = new QuizType;
