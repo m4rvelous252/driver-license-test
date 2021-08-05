@@ -74,6 +74,20 @@ export class AnswerButtonComponent implements OnInit {
     }
   }
 
+  resultTxtColor(){
+    if (this.answer.is_correct==true){
+      return this.style.contentBgColor
+  }
+  else {
+    if(this.answer.is_select==true){
+      return this.style.primeTxtColor
+    }
+    else{
+      return this.style.secondTxtColor
+    }
+  }
+  }
+
   imgBtnColor(){
     if(this.viewMode=='result'){
       if(!this.answer.is_select){

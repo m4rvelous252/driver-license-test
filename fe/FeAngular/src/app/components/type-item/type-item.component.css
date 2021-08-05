@@ -4,7 +4,14 @@
 
 @media (max-width: 1000px){
     .main{
-        grid-template-columns: 1fr;
+        flex-direction: column-reverse !important;
+    }
+    .details{
+        align-self:auto !important;
+        flex-direction: row !important;
+    }
+    .details app-button{
+        margin-left: 15px;
     }
 }
 
@@ -28,5 +35,9 @@
 }
 
 app-button{
+    margin-top: 15px;
+}
+
+.backClick{
     margin-top: 15px;
 }
