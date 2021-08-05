@@ -5,8 +5,15 @@
         {{quiz?.name}}
     </a>
   </div>
-  <div class="icon col-auto flex-col" style="background-color: rgb(5, 5, 5); color: yellow">
-    <a href="{{url}}"><i class="far fa-edit icon-item"></i></a>
-    <button class="btn" (click)="delete()"><i class="far fa-trash-alt icon-item"></i></button>
+  <div 
+  class="icon flex-col" 
+  [ngStyle]="{
+    'background-color': style.contentBgColor,
+    'color': style.contentTxtColor
+  }">
+    <a href="{{url}}" class="option"><i class="far fa-edit icon-item"></i></a>
+    <i 
+    [ngStyle]="{'color': style.navColor}"
+    class="far fa-trash-alt icon-item"></i>
   </div>
 </div>

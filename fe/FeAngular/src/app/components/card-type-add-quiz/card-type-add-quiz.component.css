@@ -1,5 +1,5 @@
 .container{
-  width: 280px;
+  width: 346.5px;
   margin: 0px;
   padding: 0px;
   margin-bottom: 20px;
@@ -16,4 +16,9 @@
 .icon i{
   margin: 5px 0px;
   font-size: larger;
+}
+
+input{
+  width: 50%;
+  text-align: center;
 }

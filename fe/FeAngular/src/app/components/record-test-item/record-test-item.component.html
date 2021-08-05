@@ -1,9 +1,16 @@
-<div>
-{{result?.name}}
-<app-button 
-(btnClick)="viewDetails(result!)"
-text="Xem"
-color="{{style.primeColor}}"
-textColor="{{style.primeTxtColor}}"
-></app-button>
+<div class="flex-col">
+    <div class="flex-row">
+        <h3>{{result?.name}}</h3>
+        <app-button 
+        (btnClick)="viewDetails(result!)"
+        text="Xem"
+        color="{{style.contentTxtColor}}"
+        textColor="{{style.secondTxtColor}}"
+        ></app-button>
+    </div>
+        <span>
+        Tổng số câu: {{result?.questions?.length}} <br>
+        Số câu trả lời đúng: {{result?.mark}}<br>
+        Thời gian làm bài: <label>{{ getDuration() | date:'mm:ss':'UTC'}}</label>
+        </span>
 </div>

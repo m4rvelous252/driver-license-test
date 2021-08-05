@@ -15,15 +15,20 @@ img{
   margin: 0 0 0 10px;
   border-radius: 10px;
   align-self: center;
-  min-height: 100px;
+  min-height: 100px;  
+  color: inherit;
 }
 
 .icon-item{
   margin: 5px 0px;
   font-size: larger;
-  color: yellow;
+
 }
 
 .btn{
   border: none;
+}
+
+.option{
+  color: inherit;
 }

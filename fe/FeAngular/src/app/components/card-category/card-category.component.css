@@ -1,5 +1,6 @@
 a{
   text-decoration: none;
+  color: white;
 }
 
 .card{
@@ -39,7 +40,7 @@ a{
 }
 
 .name-user:hover{
-  color: rgb(0, 0, 0);
+  opacity: 0.8;
 }
 
 .card-body{

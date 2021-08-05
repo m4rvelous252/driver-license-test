@@ -1,5 +1,9 @@
-<div class="top-container" [ngStyle]="{'background-color': style.home_background_top}">
-  <div class="content">
+<div 
+class="top-container content" 
+[ngStyle]="{
+  'background-color': style.home_background_top,
+  'border-color': style.home_backfround_releaseCategory
+}">
     <div class="left-col">
       <p [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-heading">Take your brain to the gym</p>
       <div  *ngIf="!user" >
@@ -34,7 +38,6 @@
     <div class="right-col">
       <img src="../../../assets/img/test.png">
     </div>
-  </div>
 </div>
 
 <div id="releasesCategory" class="releaseCategories" [ngStyle]="{'background-color': style.home_backfround_releaseCategory}">
