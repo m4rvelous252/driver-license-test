@@ -17,8 +17,8 @@ export class TypeItemComponent implements OnInit {
 
 
   type! : Type
-  id_type!:string 
- 
+  id_type!:string
+
   primeTxtColor = STYLE.primeTxtColor
   secondTxtColor = STYLE.secondTxtColor
   primeColor = STYLE.primeColor
@@ -27,7 +27,7 @@ export class TypeItemComponent implements OnInit {
   warningColor = STYLE.warningColor
   bgColor = STYLE.bgColor
 
-    
+
   constructor(private typeService:TypeService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class TypeItemComponent implements OnInit {
   }
 
   addIndex(){
-    this.type?.questions.forEach(question => { 
+    this.type?.questions.forEach(question => {
       question.edit=true
     });
   }
@@ -54,7 +54,7 @@ export class TypeItemComponent implements OnInit {
   }
 
   removeQ(index: number){
-    this.type.questions.splice(index,1)
+    let i = index
   }
 
 

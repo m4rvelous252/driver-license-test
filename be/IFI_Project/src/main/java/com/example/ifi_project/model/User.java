@@ -24,14 +24,15 @@ public class User {
     private Long id;
 
     private String username;
-    @JsonIgnore
+
+    @JsonView(Views.Private.class)
     private String password;
 
     private String name;
     private String img;
 
     @JsonView(Views.Internal.class)
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
     @JoinColumn(name = "id_user")
     @JsonIgnoreProperties("user")
     private List<Category> categories;

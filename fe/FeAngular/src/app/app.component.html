@@ -1,5 +1,6 @@
-<div class="d-flex flex-column h-100 bg"
-  style="background-image: url('{{backGroundImg}}'); background-color: '{{backGroundColor}}';"
+<div class="d-flex flex-column bg" style="min-height: 100%;"
+  style="background-image: url('{{backGroundImg}}');"
+  [ngStyle]="{'background-color': backGroundColor}"
 >
   <header>
     <app-header></app-header>
@@ -15,7 +16,6 @@
   >
     <router-outlet></router-outlet>
   </div>
-
   <footer class="footer bg-light">
     <app-footer></app-footer>
   </footer>

@@ -1,12 +1,25 @@
-<div class="row">
-  <div [ngStyle]="{'background-color': style.contentBgColor}" class="card-bg container col">
+<div class="row" *ngIf="!quiz!.deleted">
+  <div [ngStyle]="{'background-color': style.cardQuiz_background}" class="card-bg container col">
     <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
         <img [src]="paths.imgPath +'/test.png'" alt="">
-        {{quiz?.name}}
+        <div [ngStyle]="{'color': style.cardQuiz_textColor}">{{quiz?.name}}</div>
     </a>
   </div>
-  <div class="icon col-auto flex-col" style="background-color: rgb(5, 5, 5); color: yellow">
-    <a href="{{url}}"><i class="far fa-edit icon-item"></i></a>
-    <button class="btn" (click)="delete()"><i class="far fa-trash-alt icon-item"></i></button>
+  <div class="icon col-auto flex-col" [ngStyle]="{'background-color': style.cardQuiz_background}">
+    <a href="{{url}}" [ngStyle]="{'color': style.cardQuiz_iconColor}"><i class="far fa-edit icon-item"></i></a>
+    <button class="btn" (click)="delete()" [ngStyle]="{'color': style.cardQuiz_iconColor}"><i class="far fa-trash-alt icon-item"></i></button>
+  </div>
+</div>
+
+<div class="row" *ngIf="quiz!.deleted">
+  <div [ngStyle]="{'background-color': '#dc0c0c'}" class="card-bg container col">
+    <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
+        <img [src]="paths.imgPath +'/test.png'" alt="">
+        <div [ngStyle]="{'color': 'black'}">{{quiz?.name}}</div>
+    </a>
+  </div>
+  <div class="icon col-auto flex-col" [ngStyle]="{'background-color': '#dc0c0c'}">
+    <a href="{{url}}" [ngStyle]="{'color': '#0fe00f'}"><i class="far fa-edit icon-item"></i></a>
+    <button class="btn" (click)="redo()" [ngStyle]="{'color': '#0fe00f'}"><i class="fas fa-reply"></i></button>
   </div>
 </div>

@@ -23,10 +23,11 @@ public class UserController {
     }
 
     @PostMapping(path="login")
+    @JsonView(Views.Private.class)
     public Response getUserLogin(@RequestBody User user) {
         Response respon = new Response();
         User reqUser = userService.getUserByUsername(user.getUsername());
-        if(reqUser == null ||reqUser.getPassword().equals(user.getPassword())){
+        if(reqUser == null ||!reqUser.getPassword().equals(user.getPassword())){
             respon = ConstantResponse.responseSaveFail(respon);
         }else {
             respon = ConstantResponse.responseLoginSuc(respon);
@@ -41,6 +42,7 @@ public class UserController {
     }
 
     @PostMapping(path="register")
+    @JsonView(Views.Private.class)
     public User registerUser(@RequestBody User user) {
         return userService.registerUser(user);
     }

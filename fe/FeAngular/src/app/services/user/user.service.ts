@@ -33,6 +33,7 @@ export class UserService {
   }
 
   registerUser(user?: User):Observable<User>{
+    console.log(user)
     const url = `${this.apiUrl}/register`
     return this.httpClient.post<User>(url,user);
   }

@@ -62,10 +62,34 @@ public class QuizService {
         return respon;
     }
 
+    public Response getQuizDeletedByCategoryId(Long id){
+        Response respon = new Response();
+        Optional<List<Quiz>> optionalQuizList = quizRepository.findQuizByIdCategoryAndDeletedIsTrue(id);
+        if(optionalQuizList.isPresent()){
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = optionalQuizList.get();
+        }else{
+            respon = ConstantResponse.responseNotFount(respon);
+        }
+        return respon;
+    }
+
+    public Response getQuizNotDeletedByCategoryId(Long id){
+        Response respon = new Response();
+        Optional<List<Quiz>> optionalQuizList = quizRepository.findQuizByIdCategoryAndDeletedIsFalse(id);
+        if(optionalQuizList.isPresent()){
+            respon = ConstantResponse.responseSuccess(respon);
+            respon.data = optionalQuizList.get();
+        }else{
+            respon = ConstantResponse.responseNotFount(respon);
+        }
+        return respon;
+    }
+
     public Response addNewQuiz(Quiz quiz) {
         Response respon = new Response();
-        if(categoryRepository.findById(quiz.getId_category()).isPresent()){
-            quiz.setCategory(categoryRepository.findById(quiz.getId_category()).get());
+        if(categoryRepository.findById(quiz.getIdCategory()).isPresent()){
+            quiz.setCategory(categoryRepository.findById(quiz.getIdCategory()).get());
             quizRepository.save(quiz);
             List<QuizType> quizTypeList = new ArrayList<>();
             for (QuizType qt: quiz.getQuizType()) {

@@ -13,8 +13,9 @@ export class UiService {
 
   private showQuestion: boolean = false;
   private subject = new Subject<any>();
-  private subjectBackGroundImg = new Subject<any>();
   private subjectBackGroundColor = new Subject<any>();
+  private subjectBackGroundImg = new Subject<any>();
+
 
 
   public backGroundImg!: string;
@@ -51,9 +52,8 @@ export class UiService {
     return this.subjectBackGroundImg.asObservable();
   }
 
-  setBackGroundColor(img :string){
-    this.backGroundImg = img;
-    this.subjectBackGroundColor.next(this.backGroundColor);
+  setBackGroundColor(color :string){
+    this.subjectBackGroundColor.next(color);
   }
 
   getBackGroundColor(): Observable<any> {

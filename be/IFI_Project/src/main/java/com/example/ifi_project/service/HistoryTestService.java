@@ -43,10 +43,10 @@ public class HistoryTestService {
     public Response getHistoryTestById(Long id){
         Response respon = new Response();
         if(historytestRepository.findById(id).isPresent()){
-            respon = ConstantResponse.responseNotFount(respon);
-        }else{
             respon.data= historytestRepository.findById(id).get();
             respon = ConstantResponse.responseSuccess(respon);
+        }else{
+            respon = ConstantResponse.responseNotFount(respon);
         }
         return respon;
     }

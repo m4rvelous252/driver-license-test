@@ -38,7 +38,7 @@ public class Quiz{
 
 
     @Column(name = "id_category", insertable = false, updatable = false)
-    Long id_category;
+    Long idCategory;
 
     @JoinColumn(name = "id_category", insertable = true, updatable = true)
     @JsonIgnore

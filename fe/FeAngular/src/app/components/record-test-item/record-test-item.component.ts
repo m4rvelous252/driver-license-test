@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { STYLE } from 'src/app/model/constants';
 import { Result } from 'src/app/model/result';
+import { TestService } from 'src/app/services/test/test.service';
 
 @Component({
   selector: 'app-record-test-item',
@@ -12,16 +13,14 @@ export class RecordTestItemComponent implements OnInit {
 
   @Input() result?: Result
 
-  @Output() onViewDetails: EventEmitter<Result> = new EventEmitter()
-  
 
-  constructor() { }
+  constructor(private testService : TestService) { }
 
   ngOnInit(): void {
   }
 
   viewDetails(result: Result){
-    this.onViewDetails.emit(result)
+    this.testService.getHistoryTestById(`${result.id}`);
   }
 
 }

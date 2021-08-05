@@ -21,7 +21,7 @@
 
         <div *ngIf="viewMode=='quiz'" class="content-btn">
             <div *ngFor="let quiz of category?.quiz">
-              <app-quiz-card [quiz]="quiz"></app-quiz-card>
+              <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)"></app-quiz-card>
             </div>
             <div>
                 <app-card
@@ -33,6 +33,20 @@
                 <a href={{link_add_quiz}}> add quiz</a>
             </div>
         </div>
+
+        <div *ngIf="viewMode=='deleteQuiz'" class="content-btn">
+          <div *ngFor="let quiz of quizDeleted">
+            <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)" (redoClick)="redoQuiz(quiz)"></app-quiz-card>
+          </div>
+          <div>
+              <app-card
+              [img]="'/addPlus.png'"
+              [text]="'Thêm quiz'"
+              [link]="'/add-quiz'"
+              ></app-card>
+          </div>
+      </div>
+
     </div>
 
     <div
@@ -55,6 +69,12 @@
         textColor="{{primeTxtColor}}"
         text="Quiz"
         (btnClick)="viewQuiz()"
+        ></app-button>
+        <app-button
+        color="{{primaryColor}}"
+        textColor="{{primeTxtColor}}"
+        text="Quiz Delete"
+        (btnClick)="viewDeleteQuiz()"
         ></app-button>
     </div>
 </div>

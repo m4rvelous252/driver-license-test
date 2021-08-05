@@ -65,6 +65,7 @@ export class TestService {
       let url=`${this.apiUrl}/${id_test}`
       return this.httpClient.get<Response>(url).subscribe((result)=>(
         this.res = result,
+        console.log(url),
         localStorage.removeItem(KEY.result),
         localStorage.setItem(KEY.result,JSON.stringify(this.res.data)),
         this.router.navigate(['/result'])
