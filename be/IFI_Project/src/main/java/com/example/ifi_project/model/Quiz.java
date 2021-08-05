@@ -117,6 +117,7 @@ public class Quiz{
         return passMark;
     }
 
+<<<<<<< HEAD
     public void setPassMark(int passMark) {
         this.passMark = passMark;
     }
@@ -124,6 +125,17 @@ public class Quiz{
     public Long getIdCategory() {
         return idCategory;
     }
+=======
+	
+
+	public Long getIdCategory() {
+		return idCategory;
+	}
+
+	public void setIdCategory(Long idCategory) {
+		this.idCategory = idCategory;
+	}
+>>>>>>> nghia_code
 
     public void setIdCategory(Long idCategory) {
         this.idCategory = idCategory;
