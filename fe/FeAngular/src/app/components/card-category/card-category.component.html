@@ -6,13 +6,13 @@
         <div class="col-auto mt-2">
           <app-icon-avatar src = {{category!.user.img}} style="margin-left: 5px;"></app-icon-avatar>
         </div>
-        <div 
-        [ngStyle]="{'color':'white'}" 
+        <div
+        [ngStyle]="{'color': style.cardCategory_colorText}"
         class = "col">
           <span>{{category!.name}}</span>
-          <a 
-          href="home" class="name-user" 
-          tooltip="{{category!.user.name}}">{{category!.user.name}}</a>
+          <a
+          href="home" class="name-user"
+          tooltip="{{category!.user.name}}" [ngStyle]="{'color': style.cardCategory_colorText}">{{category!.user.name}}</a>
         </div>
       </div>
     </div>

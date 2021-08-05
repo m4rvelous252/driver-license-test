@@ -3,7 +3,7 @@
     'color': style.contentTxtColor
 }"
 class="container topbar_breadcrumb">
-    <a href="/home">Trang Chủ</a>
+    <a href="">Trang Chủ</a>
     <span class="topbar__arraw"> &gt; </span>
     <a href="/category">Các chủ đề</a>
 </div>
@@ -79,10 +79,9 @@ class="container topbar_breadcrumb">
             text="Quiz"
             (btnClick)="viewQuiz()"
             ></app-button>
-          </app-button>
           <app-button
-          color="{{primaryColor}}"
-          textColor="{{primeTxtColor}}"
+          color="{{style.primeColor}}"
+          textColor="{{style.primeTxtColor}}"
           text="Quiz Delete"
           (btnClick)="viewDeleteQuiz()"
           ></app-button>
