@@ -1,0 +1,17 @@
+.main{
+    padding: 20px 20px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    width: 100vh;
+}
+
+.content{
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 200px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

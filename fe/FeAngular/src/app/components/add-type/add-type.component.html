@@ -1,0 +1,61 @@
+<div class="container topbar_breadcrumb">
+    <div 
+    [ngStyle]="{
+        'color': style.contentTxtColor
+    }"
+    class="container">
+    <a href="/home" class="topbar__node">Trang Chủ</a> 
+    <span class="topbar__arraw"> &gt; </span> 
+    <a href="/category" class="topbar__node nuxt-link-active">Các chủ đề</a> 
+    <span class="topbar__arraw"> &gt; </span> 
+    <a href="/category/{{category?.id}}" class="topbar__node">{{category?.name}}</a> 
+</div></div>
+<div
+class="main flex-col container"
+>
+    <!-- *Edit tên type -->
+    <div class="container flex-row">
+        <div 
+        [ngStyle]="{
+            'background-color': style.contentBgColor,
+            'color': style.contentTxtColor
+        }"
+        class="form-control name-type shadow" *ngIf="!isNamed">
+            <div class="flex-row label">
+                <label for="text">Type name</label>
+                <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-save" (click)="nameType()"></fa-icon>
+            </div>
+            <textarea
+            [(ngModel)]="newT.type_name"
+            [ngStyle]="{
+                'background-color': style.contentTxtColor
+            }"
+            name="text" id="text" placeholder="Type name"></textarea>
+        </div>
+
+        <div class="container" *ngIf="isNamed">
+            <div class="container flex-col details">
+                <div class="flex-row type-name">
+                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit visi-hidden"></fa-icon>
+                    <h3>{{newT.type_name}}</h3>
+                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit" (click)="rename()"></fa-icon>
+                </div>
+                <span>Số câu hỏi: {{newT.questions?.length}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- *Edit câu hỏi -->
+
+    <div class="container">
+        <div *ngFor="let question of newT.questions, let i = index">
+            <app-add-question
+            [question]="question" [index]="i+1"
+            (deleteQuestion)="removeQ(i)"
+            (addQuestion)="addQ(i)"
+            ></app-add-question>
+        </div>
+        <div class="buttons flex-row">
+            <app-button [textColor]="style.contentBgColor" [color]="style.secondColor" [text]="'Save'" (btnClick)="submitT()"></app-button>
+        </div>
+    </div>
+</div>

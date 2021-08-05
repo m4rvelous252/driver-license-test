@@ -1,0 +1,43 @@
+.main{
+    width: 100%;
+}
+
+@media (max-width: 1000px){
+    .main{
+        flex-direction: column-reverse !important;
+    }
+    .details{
+        align-self:auto !important;
+        flex-direction: row !important;
+    }
+    .details app-button{
+        margin-left: 15px;
+    }
+}
+
+.question{
+    max-width: 1000px;
+
+}
+
+.details{
+    align-self: flex-start;
+    width: 25%;
+    height: fit-content;
+    margin: 20px 0 0 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-width: 260px;
+    /* position: fixed; */
+}
+
+app-button{
+    margin-top: 15px;
+}
+
+.backClick{
+    margin-top: 15px;
+}

@@ -1,0 +1,22 @@
+<div class="timer">
+    <app-timer></app-timer>
+</div>
+<div class="map">
+    <app-question-map-button 
+    *ngFor="let question of questions" 
+    [question]="question"
+    (btnClick)="toggleQuestion()"
+    >
+    </app-question-map-button>
+</div>
+<div class="submit">
+   <app-button 
+   color="grey" 
+   text="Nộp bài" 
+   border="1px solid black"
+   (btnClick)="submit()"
+   ></app-button>
+</div>
+
+
+ 

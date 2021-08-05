@@ -1,0 +1,47 @@
+.questions{
+    /* max-width: 1000px; */
+    border-radius: 10px;
+    /* margin: 20px 0px; */
+}
+
+.flex-row{
+    justify-content: space-between;
+}
+
+app-question-item{
+    flex-grow: 8;
+    margin: 20px 0px;
+}
+
+.form-control input{
+    min-height: 80px;
+}
+
+.addAnswerBtn{
+    margin: 20px 0px 0px 0px;
+}
+
+.edit{
+    padding: 20px;
+}
+
+.icon{
+    width: 47px;
+    min-width: 47px;
+    margin: 0 0 0 10px;
+    border-radius: 10px;
+    align-self: center;
+    min-height: 100px;
+}
+
+.icon fa-icon{
+    margin: 5px 0px;
+    font-size: larger;
+}
+
+.edit-question{
+    max-width: 1000px;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+

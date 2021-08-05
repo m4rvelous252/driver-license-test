@@ -1,0 +1,16 @@
+
+
+<div
+[ngStyle]="{
+    'background-color': bgColor
+    
+}"
+>
+    <countdown 
+        [ngStyle]="{
+            'color': txColor
+        }"
+        [config]="{ leftTime: durationTime, format: 'm:ss'}"
+    ></countdown>
+</div>
+

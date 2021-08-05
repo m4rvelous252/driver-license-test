@@ -1,0 +1,19 @@
+<div class="row" *ngIf="!quiz!.deleted">
+  <div [ngStyle]="{'background-color': style.contentBgColor}" class="card-bg container col">
+    <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
+        <img [src]="paths.imgPath +'/test.png'" alt="">
+        <div [ngStyle]="{'color': style.contentTxtColor}">{{quiz?.name}}</div>
+    </a>
+  </div>
+  <div 
+  class="icon flex-col" 
+  [ngStyle]="{
+    'background-color': style.contentBgColor,
+    'color': style.contentTxtColor
+  }">
+    <a href="{{url}}" class="option"><i class="far fa-edit icon-item"></i></a>
+    <i 
+    [ngStyle]="{'color': style.navColor}"
+    class="far fa-trash-alt icon-item"></i>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+ng add @fortawesome/angular-fontawesome
+npm install bootstrap --save
+npm install --save luxon
+ npm install --save-dev @types/luxon
+
+ npm i angular-responsive-carousel
+
+npm install ngx-owl-carousel-o

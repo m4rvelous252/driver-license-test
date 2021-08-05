@@ -1,0 +1,40 @@
+app-question-item{
+    margin: 10px;
+}
+
+.main{
+    flex-direction: row-reverse !important;
+    padding: 20px;
+}
+
+@media (max-width: 800px){
+    .main{
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .details{
+        margin: 20px 0 0 0 !important;
+        align-self: center !important;
+    }
+
+}
+
+.questions{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.details{
+    max-width: 300px;
+    min-width: 250px;
+    width: fit-content;
+    padding: 20px 20px;
+    border-radius: 15px;
+    align-self: flex-start;
+    margin-top: 20px;
+}
+
+.nav{
+    margin-top: 15px;
+}

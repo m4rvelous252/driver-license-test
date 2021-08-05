@@ -1,0 +1,21 @@
+<div 
+[ngStyle]="{'background-color':style.contentBgColor}"
+class="main container"
+>
+    <div class="flex-col">
+        <img [src]="paths.imgPath +'/type_img_1.png'" alt="{{type?.type_name}}" class="top">
+        
+        <div class="bottom flex-row">
+            <div 
+            [ngStyle]="{
+                'color':style.contentTxtColor
+            }"
+            class="details flex-col">
+            <span style="font-size: larger; font-weight: bold;">
+            {{type?.type_name}}</span>
+
+            <span> {{type?.questions?.length}} câu hỏi</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+
+.question{
+    border-radius: 15px;
+    padding: 20px 10px;
+}
+
+.details{
+
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    /* position: fixed; */
+}
+
+.type-name{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fa-edit{
+    font-size: small;
+    justify-self: right;
+}
+
+.label{
+    justify-content: space-between;
+}
+
+.buttons{
+    justify-content: space-between;
+}
+
+.main .container{
+    max-width: 1000px;
+}
+
+.main{
+    width: 100vw;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    opacity: 0.8;
+}

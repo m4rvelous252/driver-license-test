@@ -1,0 +1,19 @@
+<div class="main"
+  style="background-color: '{{backGroundColor}}';"
+>
+  <header>
+    <app-header></app-header>
+  </header>
+  <div
+  class="flex-col"
+  [ngStyle]="{
+    'background-color': style.bgColor
+  }"
+  >
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div>
