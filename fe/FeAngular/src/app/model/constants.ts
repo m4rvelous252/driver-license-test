@@ -36,7 +36,14 @@ export const DarkMode ={
   //Card Category
   cardCategory_background: "#0B0B0B",
   cardCategory_colorTextHeader: "#FFC312",
-  cardCategory_colorText: "#EFEFEF"
+  cardCategory_colorText: "#EFEFEF",
+
+  //Card Quiz
+  cardQuiz_background: "#000000",
+  cardQuiz_textColor: "#fff",
+  cardQuiz_iconColor: "#fcff00",
+
+
 }
 
 export const LightMode ={
@@ -55,7 +62,12 @@ export const LightMode ={
   //Card Category
   cardCategory_background: "#ECECEC",
   cardCategory_colorTextHeader: "#086375",
-  cardCategory_colorText: "#463B3B"
+  cardCategory_colorText: "#463B3B",
+
+  //Card Quiz
+  cardQuiz_background: "#C4C4C4",
+  cardQuiz_textColor: "#000000",
+  cardQuiz_iconColor: "#086375",
 }
 
 export const FailImg ={

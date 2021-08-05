@@ -36,6 +36,18 @@ public class QuizController {
         return quizService.getQuizByIdNotDelete(quizId);
     }
 
+    @GetMapping(path="category/{categoryId}/deleted")
+    @JsonView(Views.Internal.class)
+    public Response getQuizDeletedByCategoryId(@PathVariable("categoryId") Long categoryId) {
+        return quizService.getQuizDeletedByCategoryId(categoryId);
+    }
+
+    @GetMapping(path="category/{categoryId}/notdeleted")
+    @JsonView(Views.Internal.class)
+    public Response getQuizNotDeletedByCategoryId(@PathVariable("categoryId") Long categoryId) {
+        return quizService.getQuizNotDeletedByCategoryId(categoryId);
+    }
+
     @PostMapping(path="add")
     public Response addNewQuiz(@RequestBody Quiz quiz) {
 

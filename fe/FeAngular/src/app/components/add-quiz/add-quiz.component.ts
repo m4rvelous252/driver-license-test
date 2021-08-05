@@ -17,7 +17,9 @@ export class AddQuizComponent implements OnInit {
   category?: Category
   quiz?: Quiz
 
+
   constructor(private categoryService: CategoryService, private route : ActivatedRoute) { }
+
 
   async ngOnInit() {
     this.route.params.subscribe(

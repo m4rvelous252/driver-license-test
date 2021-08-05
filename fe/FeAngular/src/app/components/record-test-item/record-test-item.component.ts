@@ -13,10 +13,8 @@ export class RecordTestItemComponent implements OnInit {
 
   @Input() result?: Result
 
-  @Output() onViewDetails: EventEmitter<Result> = new EventEmitter()
-  
 
-  constructor(private testService: TestService) { }
+  constructor(private testService : TestService) { }
 
   ngOnInit(): void {
   }

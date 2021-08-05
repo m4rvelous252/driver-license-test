@@ -3,7 +3,6 @@ package com.example.ifi_project.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
-import javax.persistence.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -17,7 +16,7 @@ public class Test {
     private Quiz quiz;
 
     public long getId_category() {
-        return quiz.getId_category();
+        return quiz.getIdCategory();
     }
 
     private List<Question> questions;

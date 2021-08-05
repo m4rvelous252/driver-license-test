@@ -23,8 +23,4 @@ export class RecordTestComponent implements OnInit {
     })
   }
 
-  viewDetailResult(result : Result){
-    this.testService.getHistoryTestById(`${result.id}`)
-  }
-
 }

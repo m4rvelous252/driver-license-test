@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   forgotPassword?:string
   forgotRepassword?:string
 
-  constructor(private userService: UserService,private router : Router) { 
+  constructor(private userService: UserService,private router : Router) {
   }
 
 
@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
             }
           )
         }
-        
+
       }
     )
   }

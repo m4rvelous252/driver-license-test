@@ -22,8 +22,6 @@ export class AppComponent {
   ngOnInit() {
     this.uiService.getBackGroundImg().subscribe((value)=>(this.backGroundImg=value))
     this.uiService.getBackGroundColor().subscribe((value)=>(this.backGroundColor=value))
-    this.backGroundColor = this.uiService.backGroundColor;
-    this.backGroundImg = this.uiService.backGroundImg;
     this.cdref.detectChanges();
   }
 }

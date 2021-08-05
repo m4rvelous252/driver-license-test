@@ -12,6 +12,8 @@ public class Views {
     public static class Back extends Public{
 
     }
-    
-    
+
+    public static class Private extends Public{
+
+    }
 }

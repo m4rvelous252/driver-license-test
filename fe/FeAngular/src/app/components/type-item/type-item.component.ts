@@ -42,7 +42,7 @@ export class TypeItemComponent implements OnInit {
   }
 
   removeQ(index: number){
-    this.type.questions.splice(index,1)
+    let i = index
   }
 
   submitT(){

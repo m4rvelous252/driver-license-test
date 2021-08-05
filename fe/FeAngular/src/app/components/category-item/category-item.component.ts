@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params, Router } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { STYLE } from 'src/app/model/constants';
+import { Quiz } from 'src/app/model/quiz';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { QuizService } from 'src/app/services/quiz/quiz.service';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 
 @Component({
@@ -24,9 +27,21 @@ export class CategoryItemComponent implements OnInit {
   link_add_quiz!:string
   link_add_type!:string
 
-  constructor(private categoryService: CategoryService, private route : ActivatedRoute, private router: Router) { }
+  quizDeleted : Quiz[] = []
+
+  backGroundColor = "#6D6767"
+
+
+
+  constructor(
+    private quizService: QuizService,
+    private categoryService: CategoryService,
+    private route : ActivatedRoute,
+    private router: Router,
+    private uiService: UiService) { }
 
   ngOnInit(): void {
+    this.uiService.setBackGroundColor(this.backGroundColor);
     this.route.params.subscribe(
       (params: Params) => {
         this.id_category = params['id_category'];
@@ -41,7 +56,10 @@ export class CategoryItemComponent implements OnInit {
     this.viewMode="type"
   }
 
-  viewQuiz(){
+  async viewQuiz(){
+    await this.quizService.getQuizNotDeletedByCategoryId(this.category!.id).toPromise().then((res)=>{
+      this.category!.quiz = res.data
+    })
     this.viewMode="quiz"
   }
 
@@ -51,6 +69,24 @@ export class CategoryItemComponent implements OnInit {
 
   addType(){
 
+  }
+
+  deleteQuiz(quiz : Quiz){
+    this.category?.quiz.splice(this.category.quiz.indexOf(quiz),1)
+    this.quizService.deleteQuiz(quiz)
+
+  }
+
+  async viewDeleteQuiz(){
+    await this.quizService.getQuizDeletedByCategoryId(this.category!.id).toPromise().then((res)=>{
+      this.quizDeleted = res.data
+    })
+    this.viewMode="deleteQuiz"
+  }
+
+  async redoQuiz(quiz : Quiz){
+    this.quizDeleted.splice(this.quizDeleted.indexOf(quiz),1)
+    this.quizService.redoQuiz(quiz)
   }
 
 

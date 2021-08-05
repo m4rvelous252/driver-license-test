@@ -40,6 +40,20 @@ class="container topbar_breadcrumb">
                 ></app-card>
             </div>
         </div>
+
+        <div *ngIf="viewMode=='deleteQuiz'" class="content-btn">
+          <div *ngFor="let quiz of quizDeleted">
+            <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)" (redoClick)="redoQuiz(quiz)"></app-quiz-card>
+          </div>
+          <div>
+              <app-card
+              [img]="'/addPlus.png'"
+              [text]="'Thêm quiz'"
+              [link]="'/add-quiz'"
+              ></app-card>
+          </div>
+      </div>
+
     </div>
 
     <div

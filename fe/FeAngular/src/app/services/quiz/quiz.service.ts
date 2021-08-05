@@ -38,9 +38,27 @@ export class QuizService {
     await this.httpClient.post<Response>(url,quiz).toPromise().then((res)=>(
       id_quiz = res.data.id
     ));
-
     link =  `quiz/`+id_quiz!
     this.router.navigate([link])
+  }
 
+  deleteQuiz(quiz : Quiz){
+    let url = `${this.apiUrl}/${quiz.id}`
+    this.httpClient.delete<Response>(url).subscribe((res)=>{})
+  }
+
+  getQuizDeletedByCategoryId(categoryId : number){
+    let url = `${this.apiUrl}/category/${categoryId}/deleted`
+    return this.httpClient.get<Response>(url);
+  }
+
+  getQuizNotDeletedByCategoryId(categoryId : number){
+    let url = `${this.apiUrl}/category/${categoryId}/notdeleted`
+    return this.httpClient.get<Response>(url);
+  }
+
+  redoQuiz(quiz : Quiz){
+    let url = `${this.apiUrl}/restore/${quiz.id}`
+    this.httpClient.put<Response>(url,quiz).subscribe()
   }
 }
