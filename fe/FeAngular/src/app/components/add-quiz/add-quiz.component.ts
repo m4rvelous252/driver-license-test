@@ -32,7 +32,7 @@ export class AddQuizComponent implements OnInit {
       this.quiz.quizType = [],
       this.quiz.name = "New Quiz",
       this.quiz.time = 600,
-      this.quiz.id_category = res.data.id
+      this.quiz.idCategory = res.data.id
     })
   }
 

@@ -16,4 +16,6 @@ export interface Result{
     questions: Question[];
     id_category: number;
     duration?: number
+    passMark?:number
+    pass?:boolean
 }

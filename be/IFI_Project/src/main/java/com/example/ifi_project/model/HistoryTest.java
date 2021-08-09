@@ -45,6 +45,10 @@ public class HistoryTest {
 
     private long id_category;
 
+    private int passMark;
+
+    private boolean pass;
+
     @Transient
     private int max;
 
@@ -171,6 +175,23 @@ public class HistoryTest {
 	public void setMax(int max) {
 		this.max = max;
 	}
+
+	public int getPassMark() {
+		return passMark;
+	}
+
+	public void setPassMark(int passMark) {
+		this.passMark = passMark;
+	}
+
+	public boolean isPass() {
+		return pass;
+	}
+
+	public void setPass(boolean pass) {
+		this.pass = pass;
+	}
     
+	
     
 }

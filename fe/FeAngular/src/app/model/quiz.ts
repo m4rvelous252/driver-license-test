@@ -11,9 +11,10 @@ export class Quiz{
     deleted!: boolean;
     name!:string;
     time!:number;
-    id_category!:number;
+    idCategory!:number;
     questions!: Question[];
     quizType!: QuizType[];
+    passMark!: number;
 
     constructor(){
 

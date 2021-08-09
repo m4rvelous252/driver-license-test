@@ -12,8 +12,25 @@
     'color': style.contentTxtColor
   }">
     <a href="{{url}}" class="option"><i class="far fa-edit icon-item"></i></a>
-    <i 
+    <button class="btn" (click)="delete()" ><i
     [ngStyle]="{'color': style.navColor}"
-    class="far fa-trash-alt icon-item"></i>
+    class="far fa-trash-alt icon-item"></i></button>
+  </div>
+</div>
+
+<div class="row" *ngIf="quiz!.deleted">
+  <div [ngStyle]="{'background-color': style.navColor}" class="card-bg container col">
+    <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
+        <img [src]="paths.imgPath +'/test.png'" alt="">
+        <div [ngStyle]="{'color': 'black'}">{{quiz?.name}}</div>
+    </a>
+  </div>
+  <div class="icon col-auto flex-col" 
+  [ngStyle]="{
+    'background-color': style.navColor,
+    'color': style.contentBgColor 
+    }">
+    <a href="{{url}}"><i class="far fa-edit icon-item"></i></a>
+    <i class="fas fa-reply" (click)="redo()"></i>
   </div>
 </div>

@@ -29,6 +29,7 @@ export class QuizCardComponent implements OnInit {
   }
 
   delete(){
+    console.log("h")
     this.deleteClick.emit()
   }
 
