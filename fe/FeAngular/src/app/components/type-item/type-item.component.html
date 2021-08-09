@@ -11,7 +11,7 @@
         <div *ngFor="let question of type.questions, let i = index">
             <app-add-question 
             [question]="question" [index]="i+1" 
-            (deleteQuestion)="removeQ(i)"
+            (deleteQuestion)="removeQ($event, i)"
             (addQuestion)="addQ(i)"
             ></app-add-question>
         </div>

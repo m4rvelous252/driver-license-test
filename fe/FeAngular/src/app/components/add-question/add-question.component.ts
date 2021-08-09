@@ -33,7 +33,7 @@ export class AddQuestionComponent implements OnInit {
   }
 
   onDelete(){
-    this.deleteQuestion.emit()
+    this.deleteQuestion.emit(this.question.id)
   }
 
   nameQuestion(){

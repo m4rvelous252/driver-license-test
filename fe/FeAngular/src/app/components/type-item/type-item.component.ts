@@ -17,7 +17,9 @@ import {Location} from '@angular/common';
 export class TypeItemComponent implements OnInit {
   style=STYLE
 
-  type! : Type
+  deletedQuestions: Question[] = []
+
+  type : Type = {type_name:'', questions: []}
   id_type!:string 
   constructor(
     private typeService:TypeService, 
@@ -41,8 +43,14 @@ export class TypeItemComponent implements OnInit {
     console.log(this.type)
   }
 
-  removeQ(index: number){
-    let i = index
+  removeQ(id: number, index: number){
+  
+    let deletedQuestion : Question[] = this.type.questions.filter(question => {return question.id === id})
+    this.deletedQuestions.push(deletedQuestion[0])
+
+    this.type.questions.splice(index,1)
+    console.log(this.deletedQuestions)
+    console.log(this.type.questions)
   }
 
   submitT(){

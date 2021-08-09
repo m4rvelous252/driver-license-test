@@ -29,10 +29,6 @@ export class CategoryItemComponent implements OnInit {
 
   quizDeleted : Quiz[] = []
 
-  backGroundColor = "#6D6767"
-
-
-
   constructor(
     private quizService: QuizService,
     private categoryService: CategoryService,
@@ -41,7 +37,7 @@ export class CategoryItemComponent implements OnInit {
     private uiService: UiService) { }
 
   ngOnInit(): void {
-    this.uiService.setBackGroundColor(this.backGroundColor);
+    // this.uiService.setBackGroundColor(this.backGroundColor);
     this.route.params.subscribe(
       (params: Params) => {
         this.id_category = params['id_category'];
