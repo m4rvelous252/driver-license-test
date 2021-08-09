@@ -13,7 +13,7 @@ import { UiService } from 'src/app/services/Ui/ui.service';
 export class QuizCardComponent implements OnInit {
   paths = PATHS
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   @Input() quiz?: Quiz
 

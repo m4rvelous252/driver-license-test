@@ -1,10 +1,11 @@
 <div
 [ngStyle]="{
-    'background-color': style.contentBgColor
+    'background-color': style.contentTxtColor,
+    'color': style.contentBgColor
 }"
 class="card-bg container">
     <a href="{{link}}" class="flex-col">
-        <img [src]="paths.imgPath +img" alt="">
+        <fa-icon class="{{icon}}"></fa-icon>
         {{text}}
     </a>
 </div>

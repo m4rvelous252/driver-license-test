@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PATHS, STYLE } from 'src/app/model/constants';
 import { type } from 'src/app/model/type';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
   selector: 'app-card-type',
@@ -9,13 +10,13 @@ import { type } from 'src/app/model/type';
 })
 export class CardTypeComponent implements OnInit {
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   paths=PATHS
 
   @Input() type! : type
 
-  constructor() { }
+  constructor(private ui: UiService) { }
 
   ngOnInit(): void {
   }

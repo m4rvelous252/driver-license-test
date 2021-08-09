@@ -1,16 +1,16 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark " [ngStyle]="{'background-color':styleMode.header_background_color}">
+    <nav class="navbar navbar-expand-lg navbar-dark " [ngStyle]="{'background-color':style.contentBgColor}">
         <div class="container-fluid">
           <div>
-            <a class="navbar-brand" href="" [ngStyle]="{'color':styleMode.header_textColor}">Home</a>
+            <a class="navbar-brand" href="" [ngStyle]="{'color':style.primeTxtColor}">Home</a>
 
           </div>
 
-          <div class="collapse d-flex" [ngStyle]="{'color':styleMode.header_textColor}">
+          <div class="collapse d-flex" [ngStyle]="{'color':style.primeTxtColor}">
             <button class="btn" style="border: none;"><img class="ml-4" style="width: 70px; height: 30px;" src='{{imgMode}}' (click)="changeMode()"></button>
             <ul *ngIf="user" class="nav">
               <li class="nav-item dropdown">
-                <div class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [ngStyle]="{'color':styleMode.header_textColor}">
+                <div class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [ngStyle]="{'color':style.primeTxtColor}">
                   {{user?.name ? user?.name : user?.username}} <app-icon-avatar src = {{user?.img}} style="margin-left: 5px;"></app-icon-avatar>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
@@ -21,8 +21,8 @@
             </ul>
             <div *ngIf="!user" class="login">
               <div *ngIf="!user" class="nav-links">
-                <a href="login" [ngStyle]="{'color':styleMode.header_textColor}">Login</a>
-                <a href="register" [ngStyle]="{'color':styleMode.header_textColor}">Sign up</a>
+                <a href="login" [ngStyle]="{'color':style.primeTxtColor}">Login</a>
+                <a href="register" [ngStyle]="{'color':style.primeTxtColor}">Sign up</a>
               </div>
             </div>
           </div>

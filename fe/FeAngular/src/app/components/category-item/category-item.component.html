@@ -47,7 +47,7 @@ class="container topbar_breadcrumb">
         </div>
         <div>
             <app-card
-            [img]="'/addPlus.png'"
+            icon="'fas fa-plus'"
             [text]="'Thêm quiz'"
             [link]="'/add-quiz'"
             ></app-card>
@@ -61,6 +61,7 @@ class="container topbar_breadcrumb">
         <app-button
         class="title"
         color="{{style.contentTxtColor}}"
+        textColor= "{{style.secondTxtColor}}"
         text="{{category?.name}}"
         fontSize="25px"
         (btnClick)="viewDetails()"
@@ -68,21 +69,21 @@ class="container topbar_breadcrumb">
         </app-button>
         <div class="flex-row toggle">
             <app-button
-            color="{{style.primeColor}}"
-            textColor="{{style.primeTxtColor}}"
-            text="Type"
+            color="{{style.contentBgColor}}"
+            textColor="{{style.contentTxtColor}}"
+            text="Các bộ câu hỏi"
             (btnClick)="viewType()"
             ></app-button>
             <app-button
-            color="{{style.primeColor}}"
-            textColor="{{style.primeTxtColor}}"
-            text="Quiz"
+            color="{{style.contentBgColor}}"
+            textColor="{{style.contentTxtColor}}"
+            text="Bài thi"
             (btnClick)="viewQuiz()"
             ></app-button>
             <app-button
-            color="{{style.primeColor}}"
-            textColor="{{style.primeTxtColor}}"
-            text="Quiz Delete"
+            color="{{style.contentBgColor}}"
+            textColor="{{style.contentTxtColor}}"
+            text="Thùng rác"
             (btnClick)="viewDeleteQuiz()"
             ></app-button>
         </div>

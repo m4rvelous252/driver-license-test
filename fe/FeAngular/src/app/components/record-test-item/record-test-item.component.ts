@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { STYLE } from 'src/app/model/constants';
 import { Result } from 'src/app/model/result';
 import { TestService } from 'src/app/services/test/test.service';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
   selector: 'app-record-test-item',
@@ -9,12 +10,14 @@ import { TestService } from 'src/app/services/test/test.service';
   styleUrls: ['./record-test-item.component.css']
 })
 export class RecordTestItemComponent implements OnInit {
-  style = STYLE
+  style = this.ui.getStyleMode()
 
   @Input() result?: Result
 
 
-  constructor(private testService : TestService) { }
+  constructor(
+    private testService : TestService,
+    private ui: UiService) { }
 
   ngOnInit(): void {
   }

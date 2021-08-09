@@ -1,17 +1,17 @@
 <div 
 class="top-container content" 
 [ngStyle]="{
-  'background-color': style.home_background_top,
-  'border-color': style.home_backfround_releaseCategory
+  'background-color': style.bgColor,
+  'border-color': '#6D6767'
 }">
     <div class="left-col">
-      <p [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-heading">Take your brain to the gym</p>
+      <p [ngStyle]="{'color':style.primeTxtColor}" class="top-heading">Take your brain to the gym</p>
       <div  *ngIf="!user" >
-        <p  [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-text">Sign up and your IQ will go to the moon</p>
+        <p  [ngStyle]="{'color':style.primeTxtColor}" class="top-text">Sign up and your IQ will go to the moon</p>
         <a href="login">
           <app-button
-            color = {{style.home_colorButton}}
-            textColor = {{style.home_textColorButton}}
+            color = {{style.contentTxtColor}}
+            textColor = {{style.contentBgColor}}
             text="Sign up"
             fontSize="22px"
             widthPer="150px"
@@ -20,11 +20,11 @@ class="top-container content"
         </a>
       </div>
       <div *ngIf="user">
-        <p  [ngStyle]="{'color':style.home_textColorOnBackGround}" class="top-text">Your IQ will go to the moon</p>
+        <p  [ngStyle]="{'color':style.primeTxtColor}" class="top-text">Your IQ will go to the moon</p>
         <a href="#releasesCategory">
         <app-button
-            color = {{style.home_colorButton}}
-            textColor = {{style.home_textColorButton}}
+            color = {{style.contentTxtColor}}
+            textColor = {{style.contentBgColor}}
             text="Start"
             fontSize="22px"
             widthPer="150px"
@@ -40,7 +40,7 @@ class="top-container content"
     </div>
 </div>
 
-<div id="releasesCategory" class="releaseCategories" [ngStyle]="{'background-color': style.home_backfround_releaseCategory}">
+<div id="releasesCategory" class="releaseCategories" [ngStyle]="{'background-color': '#6D6767'}">
   <app-category-scroll [categories] = topCategories></app-category-scroll>
 </div>
 

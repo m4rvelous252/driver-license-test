@@ -22,52 +22,38 @@ export const STYLE = {
 
 export const DarkMode ={
   //Header
-  header_background_color: "#010101",
+
   header_imgDirection : "../../../assets/icon/darkmode.png",
-  header_textColor:"#FFFFFF",
 
-  //Home Page
-  home_background_top: "#31302D",
-  home_textColorOnBackGround: "#FFFFFF",
-  home_colorButton:"#FFCB31",
-  home_textColorButton:"#000000",
-  home_backfround_releaseCategory: "#C4C4C4",
-
-  //Card Category
-  cardCategory_background: "#0B0B0B",
-  cardCategory_colorTextHeader: "#FFC312",
-  cardCategory_colorText: "#EFEFEF",
-
-  //Card Quiz
-  cardQuiz_background: "#000000",
-  cardQuiz_textColor: "#fff",
-  cardQuiz_iconColor: "#fcff00",
-
+  complementColor: "#086375",
+  secondColor: "#7DCD85",
+  bgColor:"#31302D",
+  secondbgColor: '#6D6767',
+  navColor: "#F42E22",
+  blackColor: "black",
+  primeTxtColor: "white",
+  secondTxtColor: "black",
+  dangerColor:"#FE5F55",
+  contentBgColor:"black",
+  contentTxtColor:"#F5C73D"
 
 }
 
 export const LightMode ={
   //Header
-  header_background_color: "#FFFFFF",
   header_imgDirection : "../../../assets/icon/lightmode.png",
-  header_textColor:"#000000",
 
-  //Home Page
-  home_background_top: "#C4C4C4",
-  home_textColorOnBackGround: "#000000",
-  home_colorButton:"#086375",
-  home_textColorButton:"#FFFFFF",
-  home_backfround_releaseCategory: "#6D6767",
-
-  //Card Category
-  cardCategory_background: "#ECECEC",
-  cardCategory_colorTextHeader: "#086375",
-  cardCategory_colorText: "#463B3B",
-
-  //Card Quiz
-  cardQuiz_background: "#C4C4C4",
-  cardQuiz_textColor: "#000000",
-  cardQuiz_iconColor: "#086375",
+  complementColor: "#F5C73D",
+  secondColor: "#7DCD85",
+  bgColor:"#C4C4C4",
+  secondbgColor: "#6D6767",
+  navColor: "#F42E22",
+  blackColor: "black",
+  primeTxtColor: "black",
+  secondTxtColor: "white",
+  dangerColor:"#FE5F55",
+  contentBgColor:"white",
+  contentTxtColor:"#086375"
 }
 
 export const FailImg ={

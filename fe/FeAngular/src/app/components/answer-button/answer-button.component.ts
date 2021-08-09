@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Answer } from 'src/app/model/answer';
 import { STYLE } from 'src/app/model/constants';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 
 @Component({
@@ -18,12 +19,12 @@ export class AnswerButtonComponent implements OnInit {
   public imgSelect: string = "../../../assets/img/tick.png"
   public imgUnselect: string = "../../../assets/img/question-mark.png"
   public imgWrongSelect: string = "../../../assets/img/question-mark.png"
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   is_test!: boolean
 
 
-  constructor() { 
+  constructor(private ui: UiService) { 
   }
 
   ngOnInit(): void {
@@ -76,7 +77,7 @@ export class AnswerButtonComponent implements OnInit {
 
   resultTxtColor(){
     if (this.answer.is_correct==true){
-      return this.style.contentBgColor
+      return this.style.blackColor
   }
   else {
     if(this.answer.is_select==true){

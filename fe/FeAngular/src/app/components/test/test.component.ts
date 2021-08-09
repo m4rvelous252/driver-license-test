@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 import { TestService } from 'src/app/services/test/test.service';
 import { DateTime } from 'luxon';
 import { TimeService } from 'src/app/services/time/time.service';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 
 
@@ -39,11 +40,12 @@ export class TestComponent implements OnInit {
 
   is_submit: boolean = false;
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   constructor(private questionService: QuestionService,
     private testService: TestService,
     private timeService: TimeService,
+    private ui: UiService
     ) {
    }
 

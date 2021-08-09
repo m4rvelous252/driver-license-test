@@ -23,7 +23,7 @@ export class QuestionItemComponent implements OnInit {
   @Output() onDeleteQ: EventEmitter<any> = new EventEmitter()
   @Output() onRenameQ: EventEmitter<any> = new EventEmitter()
 
-  style=STYLE
+  style=this.uiService.getStyleMode()
 
   display?: string
   constructor(private answerService: AnswerService, private uiService: UiService) { }

@@ -16,7 +16,7 @@ import { UiService } from 'src/app/services/Ui/ui.service';
 export class CategoryItemComponent implements OnInit {
 
 
-  style = STYLE
+  style = this.uiService.getStyleMode()
 
   category?: Category
 
@@ -37,7 +37,7 @@ export class CategoryItemComponent implements OnInit {
     private uiService: UiService) { }
 
   ngOnInit(): void {
-    // this.uiService.setBackGroundColor(this.backGroundColor);
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id_category = params['id_category'];

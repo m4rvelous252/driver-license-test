@@ -3,6 +3,7 @@ import { KEY } from 'src/app/model/constants';
 import { Result } from 'src/app/model/result';
 import { Test } from 'src/app/model/test';
 import { STYLE } from 'src/app/model/constants';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
   selector: 'app-result',
@@ -12,9 +13,9 @@ import { STYLE } from 'src/app/model/constants';
 export class ResultComponent implements OnInit {
 
   result!:Result
-  style = STYLE
+  style = this.ui.getStyleMode()
 
-  constructor() { }
+  constructor(private ui: UiService) { }
 
   ngOnInit(): void {
     const resultJson = localStorage.getItem(KEY.result);

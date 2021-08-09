@@ -11,7 +11,7 @@ import {ChangeDetectorRef } from '@angular/core';
 })
 export class AppComponent {
   title = 'FeAngular';
-  style = STYLE
+  style = this.uiService.getStyleMode()
   subscription?: Subscription
 
   public backGroundImg ?: string;
