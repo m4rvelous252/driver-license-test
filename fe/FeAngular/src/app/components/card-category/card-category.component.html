@@ -7,10 +7,14 @@
           <app-icon-avatar src = {{category!.user.img}} style="margin-left: 5px;"></app-icon-avatar>
         </div>
         <div 
-        [ngStyle]="{'color':'white'}" 
+        [ngStyle]="{'color': style.contentTxtColor}" 
         class = "col">
           <span>{{category!.name}}</span>
           <a 
+          [ngStyle]="{
+            'color': style.contentTxtColor,
+            'font-size': 'small'
+        }" 
           href="home" class="name-user" 
           tooltip="{{category!.user.name}}">{{category!.user.name}}</a>
         </div>

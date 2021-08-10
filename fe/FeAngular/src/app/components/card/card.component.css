@@ -5,6 +5,7 @@ a{
     text-decoration: none;
     color: aliceblue;
     font-weight: bold;
+    color: inherit;
 }
 
 img{

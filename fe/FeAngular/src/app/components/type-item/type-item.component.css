@@ -8,7 +8,7 @@
     }
     .details{
         align-self:auto !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
     }
     .details app-button{
         margin-left: 15px;

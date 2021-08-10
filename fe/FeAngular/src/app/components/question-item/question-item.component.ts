@@ -58,11 +58,11 @@ export class QuestionItemComponent implements OnInit {
     console.log(this.question)        
     for(let answer of this.question!.answers){
       if(answer?.is_select == true){
-        this.question!.is_done = STYLE.secondColor;
+        this.question!.is_done = this.style.secondColor;
         return
       }
       else{
-        this.question!.is_done = STYLE.contentTxtColor;
+        this.question!.is_done = this.style.contentTxtColor;
       }
     }
   }
@@ -88,7 +88,7 @@ export class QuestionItemComponent implements OnInit {
   textColorSetter(){
     if(this.viewMode=='result'){
       if(this.question?.is_correct)
-      return this.style.secondTxtColor
+      return this.style.blackColor
       else return this.style.primeTxtColor
       }
       else

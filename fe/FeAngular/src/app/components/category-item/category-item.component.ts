@@ -3,6 +3,7 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { STYLE } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
+import { User } from 'src/app/model/user';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import { UiService } from 'src/app/services/Ui/ui.service';
@@ -29,6 +30,10 @@ export class CategoryItemComponent implements OnInit {
 
   quizDeleted : Quiz[] = []
 
+  user?: User
+
+  ownerId?: number
+
   constructor(
     private quizService: QuizService,
     private categoryService: CategoryService,
@@ -43,13 +48,18 @@ export class CategoryItemComponent implements OnInit {
         this.id_category = params['id_category'];
       }
     );
-    this.categoryService.getCategory(this.id_category).subscribe((res) => this.category=res.data)
+    this.categoryService.getCategory(this.id_category).subscribe((res) => (this.category=res.data, this.ownerId=res.data.idUser))
     this.link_add_quiz = this.router.url + '/add-quiz'
     this.link_add_type = this.router.url + '/add-type'
+
+    const userJson = localStorage.getItem('user');
+    this.user = userJson !== null ? JSON.parse(userJson) : null;
+
   }
 
   viewType(){
     this.viewMode="type"
+
   }
 
   viewQuiz(){
@@ -86,5 +96,12 @@ export class CategoryItemComponent implements OnInit {
     this.quizService.redoQuiz(quiz)
   }
 
+  checkOwner(){
+    if(this.ownerId==this.user?.id){
+      return true
+    } else {   
+      return false
+    }
+  }
 
 }

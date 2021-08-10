@@ -7,6 +7,7 @@ import { QuizType } from 'src/app/model/quiztype';
 import { Type } from 'src/app/model/type';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
   selector: 'app-quiz-detail',
@@ -22,13 +23,13 @@ export class QuizDetailComponent implements OnInit {
   types: Type[] = []
   quiztypes : QuizType[] =[]
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   name!: string
   time_min!: number
   time_sec!: number
 
-  constructor(private categoryService: CategoryService, private route : ActivatedRoute, private quizService : QuizService) { }
+  constructor(private categoryService: CategoryService, private route : ActivatedRoute, private quizService : QuizService, private ui: UiService) { }
 
   async ngOnInit() {
     console.log("id"+this.quiz.idCategory)

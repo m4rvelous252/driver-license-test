@@ -17,7 +17,7 @@ export class QuestionMapButtonComponent implements OnInit {
   curQuestion?: Question;
 
 
-  style=STYLE
+  style=this.uiService.getStyleMode()
 
   public imgDone = "https://centralresidences.vn/wp-content/uploads/2020/05/da%CC%82%CC%81u-tick-.png"
 
@@ -44,6 +44,12 @@ export class QuestionMapButtonComponent implements OnInit {
     console.log(question?.is_done);
   }
   
-
+  btnTxtColor(){
+    if(this.question?.is_done !== this.style.contentTxtColor){
+      return this.style.blackColor
+    }else{
+      return this.style.contentBgColor
+    }
+  }
 
 }

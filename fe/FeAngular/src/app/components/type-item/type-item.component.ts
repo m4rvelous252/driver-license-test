@@ -4,9 +4,12 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { question, Question } from 'src/app/model/question';
 import { answer } from 'src/app/model/answer';
 import { TypeService } from 'src/app/services/type/type.service';
-import { STYLE } from 'src/app/model/constants';
 import { ActivatedRoute,Params, Router } from '@angular/router';
 import {Location} from '@angular/common';
+import { UiService } from 'src/app/services/Ui/ui.service';
+import { User } from 'src/app/model/user';
+import { CategoryService } from 'src/app/services/category/category.service';
+import { Category } from 'src/app/model/category';
 
 
 @Component({
@@ -15,16 +18,26 @@ import {Location} from '@angular/common';
   styleUrls: ['./type-item.component.css']
 })
 export class TypeItemComponent implements OnInit {
-  style=STYLE
+  style=this.ui.getStyleMode()
 
   deletedQuestions: Question[] = []
 
+  ownerId?: number;
+
+  user?: User
+
+  category: Category = {name: '',user: {},type:[], quiz:[], id: 0}
+
   type : Type = {type_name:'', questions: []}
   id_type!:string 
+  idCategory: string = ''
+
   constructor(
     private typeService:TypeService, 
     private route : ActivatedRoute,
-    private _location: Location) { }
+    private _location: Location,
+    private ui: UiService,
+    private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -32,7 +45,16 @@ export class TypeItemComponent implements OnInit {
         this.id_type = params['id_type'];
       }
     );
-    this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data));
+    this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data, this.idCategory = res.data.id_category));
+    
+    setTimeout(() =>{
+    this.categoryService.getCategory(this.idCategory!).subscribe((res)=>(this.category=res.data, this.ownerId=res.data.idUser))
+  },500)
+
+
+
+    const userJson = localStorage.getItem('user');
+    this.user = userJson !== null ? JSON.parse(userJson) : null;
   }
 
   addQ(index: number){
@@ -49,8 +71,8 @@ export class TypeItemComponent implements OnInit {
     this.deletedQuestions.push(deletedQuestion[0])
 
     this.type.questions.splice(index,1)
-    console.log(this.deletedQuestions)
-    console.log(this.type.questions)
+    // console.log(this.deletedQuestions)
+    // console.log(this.type.questions)
   }
 
   submitT(){
@@ -60,6 +82,14 @@ export class TypeItemComponent implements OnInit {
 
   backClicked() {
     this._location.back();
+  }
+
+  checkOwner(){
+    if(this.ownerId==this.user?.id){
+      return true
+    } else {   
+      return false
+    }
   }
 
 }

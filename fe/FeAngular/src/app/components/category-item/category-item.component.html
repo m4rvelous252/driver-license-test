@@ -19,7 +19,7 @@ class="container topbar_breadcrumb">
                     ></app-card-type>
                 </a>
             </div>
-            <a href={{link_add_type}}>
+            <a *ngIf="checkOwner()" href={{link_add_type}}>
             <app-button
             color="{{style.contentTxtColor}}"
             text="+"
@@ -30,9 +30,12 @@ class="container topbar_breadcrumb">
 
         <div *ngIf="viewMode=='quiz'" class="content-quiz-btn">
             <div *ngFor="let quiz of category?.quiz">
-                <app-quiz-card [quiz]="quiz" (deleteClick)="deleteQuiz(quiz)"></app-quiz-card>
+                <app-quiz-card 
+                [checkOwner]="checkOwner()"
+                [quiz]="quiz" 
+                (deleteClick)="deleteQuiz(quiz)"></app-quiz-card>
             </div>
-            <div>
+            <div *ngIf="checkOwner()">
                 <app-card
                 [img]="'/addPlus.png'"
                 [text]="'Thêm bài thi'"
@@ -43,14 +46,11 @@ class="container topbar_breadcrumb">
 
         <div *ngIf="viewMode=='deleteQuiz'" class="content-btn">
           <div *ngFor="let quiz of quizDeleted">
-            <app-quiz-card [quiz]="quiz" (redoClick)="redoQuiz(quiz)"></app-quiz-card>
-        </div>
-        <div>
-            <app-card
-            icon="'fas fa-plus'"
-            [text]="'Thêm quiz'"
-            [link]="'/add-quiz'"
-            ></app-card>
+            <app-quiz-card 
+            [checkOwner]="checkOwner()"
+            [quiz]="quiz" 
+            (redoClick)="redoQuiz(quiz)"
+            ></app-quiz-card>
         </div>
     </div>
 
@@ -85,6 +85,7 @@ class="container topbar_breadcrumb">
             textColor="{{style.contentTxtColor}}"
             text="Thùng rác"
             (btnClick)="viewDeleteQuiz()"
+            *ngIf="checkOwner()"
             ></app-button>
         </div>
     </div>

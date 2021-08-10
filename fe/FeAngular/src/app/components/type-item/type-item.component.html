@@ -2,6 +2,7 @@
     <app-button
     text="Trở về"
     color={{style.contentTxtColor}}
+    textColor={{style.contentBgColor}}
     fontWeight='bold'
     (btnClick)=backClicked()
     ></app-button>
@@ -10,17 +11,25 @@
     <div class="container question">
         <div *ngFor="let question of type.questions, let i = index">
             <app-add-question 
-            [question]="question" [index]="i+1" 
+            [question]="question" 
+            [ownerId]="ownerId"
+            [index]="i+1" 
             (deleteQuestion)="removeQ($event, i)"
             (addQuestion)="addQ(i)"
             ></app-add-question>
         </div>
     </div>
     <div class="details">
-    <app-card-type
-    [type]="type"
-    ></app-card-type>
-    <app-button [textColor]="style.contentBgColor" [color]="style.secondColor" [text]="'Save'" (btnClick)="submitT()"></app-button>
+        <app-card-type
+        [type]="type"
+        ></app-card-type>
+        <app-button 
+        [textColor]="style.blackColor" 
+        [color]="style.secondColor" 
+        [text]="'Lưu chỉnh sửa'" 
+        (btnClick)="submitT()"
+        *ngIf="checkOwner()"
+        ></app-button>
     </div>
 </div>
 

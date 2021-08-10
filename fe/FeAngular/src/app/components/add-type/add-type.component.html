@@ -49,13 +49,14 @@ class="main flex-col container"
     <div class="container">
         <div *ngFor="let question of newT.questions, let i = index">
             <app-add-question
+            [ownerId]="ownerId"
             [question]="question" [index]="i+1"
             (deleteQuestion)="removeQ(i)"
             (addQuestion)="addQ(i)"
             ></app-add-question>
         </div>
         <div class="buttons flex-row">
-            <app-button [textColor]="style.contentBgColor" [color]="style.secondColor" [text]="'Save'" (btnClick)="submitT()"></app-button>
+            <app-button [textColor]="style.blackColor" [color]="style.secondColor" [text]="'Save'" (btnClick)="submitT()"></app-button>
         </div>
     </div>
 </div>

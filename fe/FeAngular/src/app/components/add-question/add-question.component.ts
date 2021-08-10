@@ -3,6 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@a
 import { Question, question } from 'src/app/model/question';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { STYLE } from 'src/app/model/constants';
+import { UiService } from 'src/app/services/Ui/ui.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-add-question',
@@ -15,21 +17,24 @@ export class AddQuestionComponent implements OnInit {
   @Input() index?: number;
   @Input() question!: Question;
   @Input() viewMode?: string;
+  @Input() ownerId?: number;
 
   inside = false
-  style=STYLE
+  style=this.ui.getStyleMode()
   showToolbar=false
+  user?: User
 
   @Output() deleteQuestion: EventEmitter<any> = new EventEmitter();
   @Output() addQuestion: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private ui: UiService) { }
 
   ngOnInit(): void {
     if(this.question.text){
       this.question!.edit=true
     }
-    
+    const userJson = localStorage.getItem('user');
+    this.user = userJson !== null ? JSON.parse(userJson) : null;
   }
 
   onDelete(){
@@ -65,8 +70,10 @@ export class AddQuestionComponent implements OnInit {
 
   @HostListener("dblclick")
   clicked() {
-    this.inside = true;
-    this.renameQ();
+    if (this.checkOwner()){
+      this.inside = true;
+      this.renameQ();
+    }
   }
   @HostListener("document:dblclick")
   clickedOut() {
@@ -91,11 +98,21 @@ export class AddQuestionComponent implements OnInit {
   }
 
   hover(){
-    this.showToolbar=true;
+    if(this.checkOwner()){
+      this.showToolbar=true;
+    }
   }
 
   notHover(){
     this.showToolbar=false;
+  }
+
+  checkOwner(){
+    if(this.ownerId==this.user?.id){
+      return true
+    } else {   
+      return false
+    }
   }
 
 }

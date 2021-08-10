@@ -4,7 +4,7 @@
         (click)="onClick(question)"
         color = "{{question==curQuestion? style.navColor : question?.is_done}}" 
         borderRadius="11px"
-        textColor="{{question==curQuestion? style.primeTxtColor:style.secondTxtColor}}"
+        textColor="{{btnTxtColor()}}"
         widthPer="43px"
         fontWeight="bolder"
         text="{{question?.index}}"

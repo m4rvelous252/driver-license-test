@@ -29,7 +29,9 @@ export class CategoryService {
   }
 
   getCategory(id_category:string): Observable<Response> {
+    console.log(id_category)
     let url = `${this.apiUrl}/${id_category}`
     return this.http.get<Response>(url)
+    
   }
 }

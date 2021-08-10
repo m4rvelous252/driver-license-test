@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DateTime } from 'luxon';
 import { PATHS, STYLE, HOSTNAME } from 'src/app/model/constants';
 import { Quiz } from 'src/app/model/quiz';
+import { User } from 'src/app/model/user';
 import { UiService } from 'src/app/services/Ui/ui.service';
 
 @Component({
@@ -13,9 +14,12 @@ import { UiService } from 'src/app/services/Ui/ui.service';
 export class QuizCardComponent implements OnInit {
   paths = PATHS
 
+  user?: User
+
   style=this.ui.getStyleMode()
 
-  @Input() quiz?: Quiz
+  @Input() quiz?: Quiz;
+  @Input() checkOwner?: boolean;
 
   @Output() deleteClick = new EventEmitter();
   @Output() redoClick = new EventEmitter();
@@ -26,6 +30,8 @@ export class QuizCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.url =`${HOSTNAME.frontend}/quiz/${this.quiz!.id}/edit`
+
+    console.log(this.checkOwner)
   }
 
   delete(){
@@ -36,5 +42,7 @@ export class QuizCardComponent implements OnInit {
   redo(){
     this.redoClick.emit()
   }
+
+
 
 }

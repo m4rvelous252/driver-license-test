@@ -40,3 +40,15 @@ img{
 .icon a{
   color: inherit;
 }
+
+.name{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.name:hover{
+  white-space: normal;
+  overflow: visible;
+}

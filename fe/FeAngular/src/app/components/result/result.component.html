@@ -1,11 +1,12 @@
 <div class="nav">
     <a href="/category">
-        <app-button
-            text="Trở về"
-            color={{style.contentTxtColor}},
-            textColor={{style.contentBgColor}}
-            fontWeight='bold'
-        ></app-button>
+        <button
+            class="btn"
+            [ngStyle]="{
+                'background-color': style.contentTxtColor,
+                'color': style.contentBgColor
+            }"
+        >Trở về</button>
     </a>
 </div>
 <div class="flex-row main">

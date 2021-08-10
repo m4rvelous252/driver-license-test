@@ -2,7 +2,7 @@
   <div [ngStyle]="{'background-color': style.contentBgColor}" class="card-bg container col">
     <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
         <img [src]="paths.imgPath +'/test.png'" alt="">
-        <div [ngStyle]="{'color': style.contentTxtColor}">{{quiz?.name}}</div>
+        <div [ngStyle]="{'color': style.contentTxtColor}" class="name">{{quiz?.name}}</div>
     </a>
   </div>
   <div 
@@ -10,7 +10,9 @@
   [ngStyle]="{
     'background-color': style.contentBgColor,
     'color': style.contentTxtColor
-  }">
+  }"
+  *ngIf="checkOwner"
+  >
     <a href="{{url}}" class="option"><i class="far fa-edit icon-item"></i></a>
     <button class="btn" (click)="delete()" ><i
     [ngStyle]="{'color': style.navColor}"

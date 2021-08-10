@@ -2,6 +2,7 @@ import { answer } from './../../model/answer';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Answer } from 'src/app/model/answer';
 import { STYLE } from 'src/app/model/constants';
+import { UiService } from 'src/app/services/Ui/ui.service';
 
 
 @Component({
@@ -23,9 +24,9 @@ export class AddAnswerComponent implements OnInit {
 
   correctAnswerColor = 'radial-gradient(79.59% 13727.03% at 19.21% 20.41%, #83D589 0%, rgba(0, 194, 14, 0.37) 100%)'
 
-  style=STYLE
+  style=this.ui.getStyleMode()
 
-  constructor() { }
+  constructor(private ui: UiService) { }
 
   ngOnInit(): void {
     this.isCorrectColor = this.answer.is_correct ? this.style.secondColor : this.style.navColor
@@ -50,7 +51,7 @@ export class AddAnswerComponent implements OnInit {
 
   displayTxtColor(){
     if (this.answer.is_correct) 
-    return this.style.secondTxtColor
+    return this.style.blackColor
     else
     return this.style.contentBgColor
   }

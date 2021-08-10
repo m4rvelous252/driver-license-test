@@ -11,7 +11,7 @@
     <app-button class="answer-text" *ngIf="!answer.img"
     color = "{{answer.is_select ? style.secondColor : style.contentTxtColor}}"
     text="{{answer?.text}}"
-    textColor= "{{style.secondTxtColor}}"
+    textColor= "{{resultTxtColor()}}"
     class="answer-text"
     widthPer="{{answer.img==null ? '100%' : '25%'}}"
     textAlign="start"
