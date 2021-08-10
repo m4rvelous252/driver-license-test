@@ -64,10 +64,13 @@ CREATE TABLE `category` (
   `update_date` date DEFAULT NULL,
   `delete_date` date DEFAULT NULL,
   `deleted` tinyint NOT NULL DEFAULT '0',
-  `id_user` bigint DEFAULT NULL,
+  `id_user` int DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
   `submit` int NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_category_user_idx` (`id_user`),
+  CONSTRAINT `fk_category_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  CONSTRAINT `FKtgjsfmg3x6q0gpaell9hle3xp` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -373,4 +376,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 16:06:58
+-- Dump completed on 2021-08-10 16:24:23
