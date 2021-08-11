@@ -1,5 +1,5 @@
-<div 
-class="top-container content" 
+<div
+class="top-container content"
 [ngStyle]="{
   'background-color': style.bgColor,
   'border-color': '#6D6767'
@@ -21,7 +21,7 @@ class="top-container content"
       </div>
       <div *ngIf="user">
         <p  [ngStyle]="{'color':style.primeTxtColor}" class="top-text">Your IQ will go to the moon</p>
-        <a href="#releasesCategory">
+        <a href="#trending">
         <app-button
             color = {{style.contentTxtColor}}
             textColor = {{style.contentBgColor}}
@@ -40,13 +40,18 @@ class="top-container content"
     </div>
 </div>
 
-<div id="releasesCategory" class="releaseCategories" [ngStyle]="{'background-color': '#6D6767'}">
+<div id="trending" class="releaseCategories" [ngStyle]="{'background-color': '#6D6767'}">
   <app-category-scroll [categories] = topCategories></app-category-scroll>
 </div>
 
-<div id="trending">
+<div id="releasesCategory">
   <app-category-list [categories]= newCategories></app-category-list>
 </div>
+
+<div>
+  <app-quiz-list [quizzes]= topquizzes></app-quiz-list>
+</div>
+
 
 
 

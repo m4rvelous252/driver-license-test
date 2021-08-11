@@ -29,29 +29,25 @@ export class TypeItemComponent implements OnInit {
   category: Category = {name: '',user: {},type:[], quiz:[], id: 0}
 
   type : Type = {type_name:'', questions: []}
-  id_type!:string 
+  id_type!:string
   idCategory: string = ''
 
   constructor(
-    private typeService:TypeService, 
+    private typeService:TypeService,
     private route : ActivatedRoute,
     private _location: Location,
     private ui: UiService,
     private categoryService: CategoryService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         this.id_type = params['id_type'];
       }
     );
-    this.typeService.getTypeQuestions(this.id_type).subscribe((res)=>(this.type=res.data, this.idCategory = res.data.id_category));
-    
-    setTimeout(() =>{
-    this.categoryService.getCategory(this.idCategory!).subscribe((res)=>(this.category=res.data, this.ownerId=res.data.idUser))
-  },500)
+    await this.typeService.getTypeQuestions(this.id_type).toPromise().then((res)=>(this.type=res.data, this.idCategory = res.data.id_category));
 
-
+    await this.categoryService.getCategory(this.idCategory!).toPromise().then((res)=>(this.category=res.data, this.ownerId=res.data.idUser))
 
     const userJson = localStorage.getItem('user');
     this.user = userJson !== null ? JSON.parse(userJson) : null;
@@ -66,7 +62,7 @@ export class TypeItemComponent implements OnInit {
   }
 
   removeQ(id: number, index: number){
-  
+
     let deletedQuestion : Question[] = this.type.questions.filter(question => {return question.id === id})
     this.deletedQuestions.push(deletedQuestion[0])
 
@@ -87,7 +83,7 @@ export class TypeItemComponent implements OnInit {
   checkOwner(){
     if(this.ownerId==this.user?.id){
       return true
-    } else {   
+    } else {
       return false
     }
   }

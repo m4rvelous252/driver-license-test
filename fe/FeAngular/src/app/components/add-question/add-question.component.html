@@ -3,8 +3,8 @@
 
 <div class="main">
     <!-- *Edit question -->
-    <div 
-    *ngIf="question?.edit" class="questions flex-row" 
+    <div
+    *ngIf="question?.edit" class="questions flex-row"
     (mouseenter)="hover()"
     (mouseleave)="notHover()"
     >
@@ -15,7 +15,7 @@
         (onDeleteQ)="onDelete()"
         (onRenameQ)="renameQ()"
         ></app-question-item>
-        <div 
+        <div
         [ngStyle]="{
             'background-color': style.contentBgColor,
             'color': style.contentTxtColor
@@ -23,24 +23,22 @@
         class="icon flex-col"
         *ngIf="showToolbar"
         >
-            <fa-icon 
-            [ngStyle]="{'color': style.navColor}" 
-            class="fas fa-trash"
+            <i class="fas fa-trash"
+            [ngStyle]="{'color': style.navColor}"
             (click)="onDelete()"
-            ></fa-icon>
-            <fa-icon
-            [ngStyle]="{'color': 'inherit'}" 
-            class="fas fa-pen-square"
+            ></i>
+            <i class="fas fa-pen-square"
+            [ngStyle]="{'color': 'inherit'}"
             (click)="renameQ()"
-            ></fa-icon>
+            ></i>
         </div>
     </div>
-    <div 
+    <div
     *ngIf="!question?.edit"  class="edit-question flex-row"
     (mouseenter)="hover()"
     (mouseleave)="notHover()"
     >
-        <div 
+        <div
         [ngStyle]="{
             'background-color': style.contentBgColor,
             'color': style.primeTxtColor
@@ -49,15 +47,15 @@
             <!-- <div>
                 <label for="text">Question {{index}}</label>
             </div> -->
-            <textarea 
+            <textarea
             [ngStyle]="{
                 'color': style.contentBgColor,
                 'background': style.contentTxtColor
-            }" 
-            type="text" 
-            name="text" 
+            }"
+            type="text"
+            name="text"
             [(ngModel)]="question.text"
-            id="text" 
+            id="text"
             placeholder="Question {{index}}"></textarea>
 
             <!-- *Edit answer -->
@@ -70,7 +68,7 @@
                 ></app-add-answer>
             </div>
         </div>
-        <div 
+        <div
         class="icon flex-col"
         [ngStyle]="{
             'background-color': style.contentBgColor,
@@ -78,21 +76,21 @@
         }"
         *ngIf="showToolbar"
         >
-            <fa-icon 
-            [ngStyle]="{'color': 'inherit'}" 
+            <i
+            [ngStyle]="{'color': 'inherit'}"
             class="fas fa-save"
             (click)="nameQuestion()"
-            ></fa-icon>
-            <fa-icon 
-            [ngStyle]="{'color': style.navColor}" 
+            ></i>
+            <i
+            [ngStyle]="{'color': style.navColor}"
             class="fas fa-trash"
             (click)="onDelete()"
-            ></fa-icon>
-            <fa-icon 
-            [ngStyle]="{'color': 'inherit'}" 
+            ></i>
+            <i
+            [ngStyle]="{'color': 'inherit'}"
             class="fas fa-plus-square"
             (click)="onAddQuestion()"
-            ></fa-icon>
+            ></i>
         </div>
     </div>
 </div>

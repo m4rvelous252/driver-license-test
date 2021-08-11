@@ -9,7 +9,7 @@
 .icon{
     /* position: absolute; */
     padding: 0px 7px 0px 5px;
-    
+
 }
 
 svg{
@@ -26,3 +26,10 @@ svg{
     margin: 3px 0 2px 5px;
     font-weight: bold;
 }
+.fas{
+  margin-left: 3px;
+  margin-right: 3px;
+  font-size: 20px;
+  cursor: pointer;
+}
+

@@ -47,3 +47,8 @@ a {
 a:hover{
     opacity: 0.8;
 }
+
+.fas{
+  font-size: 20px;
+  cursor: pointer;
+}

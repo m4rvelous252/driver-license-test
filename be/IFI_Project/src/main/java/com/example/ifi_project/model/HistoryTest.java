@@ -45,6 +45,8 @@ public class HistoryTest {
 
     private long id_category;
 
+	private long idQuiz=0;
+
     private int passMark;
 
     private boolean pass;

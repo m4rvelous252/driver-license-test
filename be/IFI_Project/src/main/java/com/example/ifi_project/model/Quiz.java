@@ -24,7 +24,8 @@ public class Quiz{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate create_date = LocalDate.now();
+    @Column(name = "create_date")
+    private LocalDate createDate = LocalDate.now();
 
     private LocalDate update_date;
 
@@ -37,6 +38,8 @@ public class Quiz{
     private int time;
 
     private int passMark = 0;
+
+    private int  submit = 0;
 
 
     @Column(name = "id_category", insertable = false, updatable = false)
@@ -68,11 +71,11 @@ public class Quiz{
     
 
     public LocalDate getCreate_date() {
-        return create_date;
+        return createDate;
     }
 
     public void setCreate_date(LocalDate create_date) {
-        this.create_date = create_date;
+        this.createDate = create_date;
     }
 
     public LocalDate getUpdate_date() {

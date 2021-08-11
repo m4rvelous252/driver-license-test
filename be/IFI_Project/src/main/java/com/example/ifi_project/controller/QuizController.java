@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import static java.lang.Integer.parseInt;
+
 @RestController
 @RequestMapping(path = "api/quiz")
 @CrossOrigin
@@ -46,6 +48,32 @@ public class QuizController {
     @JsonView(Views.Internal.class)
     public Response getQuizNotDeletedByCategoryId(@PathVariable("categoryId") Long categoryId) {
         return quizService.getQuizNotDeletedByCategoryId(categoryId);
+    }
+
+    @GetMapping(path="top")
+    @JsonView(Views.Back.class)
+    public Response getQuizTopNotDelete(@RequestParam String page, @RequestParam String amount) {
+        int p = 0;
+        int a = 12;
+        try {
+            p =  parseInt(page);
+            a = parseInt(amount);
+        }catch (Exception e){
+        }
+        return quizService.getQuizTopNotDelete(p,a);
+    }
+
+    @GetMapping(path="new")
+    @JsonView(Views.Back.class)
+    public Response getQuizNewNotDelete(@RequestParam String page, @RequestParam String amount) {
+        int p = 0;
+        int a = 12;
+        try {
+            p =  parseInt(page);
+            a = parseInt(amount);
+        }catch (Exception e){
+        }
+        return quizService.getQuizNewNotDelete(p,a);
     }
 
     @PostMapping(path="add")

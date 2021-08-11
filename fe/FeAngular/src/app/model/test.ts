@@ -11,6 +11,7 @@ export interface Test{
     quiz: Quiz;
     mark:number
     id_category:number;
+    idQuiz:number;
     questions: Question[];
     duration:number;
 }

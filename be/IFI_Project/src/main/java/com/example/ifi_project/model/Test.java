@@ -13,6 +13,7 @@ public class Test {
     private LocalDate create_date = LocalDate.now();
     private int timeStart = LocalTime.now().getHour()*3600 +LocalTime.now().getMinute()*60+LocalTime.now().getSecond();
     private long id_category;
+	private long idQuiz;
     private Quiz quiz;
 
     public long getId_category() {
@@ -21,7 +22,11 @@ public class Test {
 
     private List<Question> questions;
 
-    @Override
+	public long getIdQuiz() {
+		return quiz.getId();
+	}
+
+	@Override
     public String toString() {
         return "Test{" +
                 "create_date=" + create_date +

@@ -1,0 +1,6 @@
+<div class="container main grid">
+  <div *ngFor="let quiz of quizzes">
+    <a href="/quiz/{{quiz.id}}">
+    <app-quiz-card [quiz] = "quiz" ></app-quiz-card></a>
+  </div>
+</div>

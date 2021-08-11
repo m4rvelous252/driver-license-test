@@ -97,6 +97,9 @@ public class HistoryTestService {
         Category category = categoryRepository.findById(historyTest.getId_category()).get();
         category.setSubmit(category.getSubmit()+1);
         categoryRepository.save(category);
+        Quiz quiz = quizRepository.findById(historyTest.getIdQuiz()).get();
+        quiz.setSubmit(quiz.getSubmit()+1);
+        quizRepository.save(quiz);
         historytestRepository.save(historyTest);
         respon = ConstantResponse.responseSaveSuc(respon);
         respon.data = historyTest;
