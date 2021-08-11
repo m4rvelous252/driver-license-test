@@ -45,3 +45,10 @@ app-question-item{
     margin: 20px 0px;
 }
 
+.fas{
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+

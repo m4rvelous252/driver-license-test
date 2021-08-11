@@ -24,7 +24,7 @@ public class Category {
     private Long id;
 
     @Column(name = "create_date")
-    private LocalDate createDate;
+    private LocalDate createDate = LocalDate.now();
 
     private LocalDate update_date;
 

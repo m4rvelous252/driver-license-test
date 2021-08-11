@@ -52,6 +52,17 @@ export class QuizService {
     return this.httpClient.get<Response>(url);
   }
 
+  getTopQuiz(page : number,amount : number): Observable<Response> {
+    let url = `${this.apiUrl}/top?page=${page}&amount=${amount}`
+    console.log(url)
+    return this.httpClient.get<Response>(url)
+  }
+
+  getNewQuiz(page : number,amount : number): Observable<Response> {
+    let url = `${this.apiUrl}/new?page=${page}&amount=${amount}`
+    return this.httpClient.get<Response>(url)
+  }
+
   getQuizNotDeletedByCategoryId(categoryId : number){
     let url = `${this.apiUrl}/category/${categoryId}/notdeleted`
     return this.httpClient.get<Response>(url);

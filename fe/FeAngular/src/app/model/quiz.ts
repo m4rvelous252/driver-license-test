@@ -5,7 +5,7 @@ import { Type } from "./type";
 
 export class Quiz{
     id?:number;
-    create_date!: Date;
+    createDate!: Date;
     update_date!: Date;
     delete_date!: Date;
     deleted!: boolean;
@@ -15,6 +15,7 @@ export class Quiz{
     questions!: Question[];
     quizType!: QuizType[];
     passMark!: number;
+    submit!:number;
 
     constructor(){
 

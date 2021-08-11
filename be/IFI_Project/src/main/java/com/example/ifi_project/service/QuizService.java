@@ -5,6 +5,8 @@ import com.example.ifi_project.model.*;
 import com.example.ifi_project.repository.CategoryRepository;
 import com.example.ifi_project.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -161,6 +163,32 @@ public class QuizService {
             questions.remove(index);
         }
         return reQuestions;
+    }
+
+    public Response getQuizTopNotDelete(int page, int amount){
+        Response respon = new Response();
+        Pageable topQuiz = PageRequest.of(page, amount);
+        Optional<List<Quiz>> optionalQuizzes = quizRepository.findQuizByDeletedIsFalseOrderBySubmitDesc(topQuiz);
+        if(!optionalQuizzes.isPresent()){
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = optionalQuizzes.get();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
+    }
+
+    public Response getQuizNewNotDelete(int page, int amount){
+        Response respon = new Response();
+        Pageable newQuiz = PageRequest.of(page, amount);
+        Optional<List<Quiz>> optionalQuizzes = quizRepository.findQuizByDeletedIsFalseOrderByCreateDateDesc(newQuiz);
+        if(!optionalQuizzes.isPresent()){
+            respon = ConstantResponse.responseEmpty(respon);
+        }else{
+            respon.data = optionalQuizzes.get();
+            respon = ConstantResponse.responseSuccess(respon);
+        }
+        return respon;
     }
 
     //Not use

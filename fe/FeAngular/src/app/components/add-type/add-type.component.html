@@ -1,21 +1,21 @@
 <div class="container topbar_breadcrumb">
-    <div 
+    <div
     [ngStyle]="{
         'color': style.contentTxtColor
     }"
     class="container">
-    <a href="/home" class="topbar__node">Trang Chủ</a> 
-    <span class="topbar__arraw"> &gt; </span> 
-    <a href="/category" class="topbar__node nuxt-link-active">Các chủ đề</a> 
-    <span class="topbar__arraw"> &gt; </span> 
-    <a href="/category/{{category?.id}}" class="topbar__node">{{category?.name}}</a> 
+    <a href="/home" class="topbar__node">Trang Chủ</a>
+    <span class="topbar__arraw"> &gt; </span>
+    <a href="/category" class="topbar__node nuxt-link-active">Các chủ đề</a>
+    <span class="topbar__arraw"> &gt; </span>
+    <a href="/category/{{category?.id}}" class="topbar__node">{{category?.name}}</a>
 </div></div>
 <div
 class="main flex-col container"
 >
     <!-- *Edit tên type -->
     <div class="container flex-row">
-        <div 
+        <div
         [ngStyle]="{
             'background-color': style.contentBgColor,
             'color': style.contentTxtColor
@@ -23,7 +23,7 @@ class="main flex-col container"
         class="form-control name-type shadow" *ngIf="!isNamed">
             <div class="flex-row label">
                 <label for="text">Type name</label>
-                <fa-icon [ngStyle]="{'color': 'inherit'}" class="fas fa-save" (click)="nameType()"></fa-icon>
+                <i [ngStyle]="{'color': 'inherit'}" class="fas fa-save" (click)="nameType()"></i>
             </div>
             <textarea
             [(ngModel)]="newT.type_name"
@@ -32,17 +32,16 @@ class="main flex-col container"
             }"
             name="text" id="text" placeholder="Type name"></textarea>
         </div>
-
         <div class="container" *ngIf="isNamed">
-            <div 
+            <div
             [ngStyle]="{'color': style.contentTxtColor}"
             class="container flex-col details">
-                <div 
+                <div
                 [ngStyle]="{'color': style.contentTxtColor}"
                 class="flex-row type-name">
-                    <fa-icon class="fas fa-edit visi-hidden"></fa-icon>
+                    <i class="fas fa-edit visi-hidden"></i>
                     <h3>{{newT.type_name}}</h3>
-                    <fa-icon [ngStyle]="{'color': style.contentTxtColor}"  class="fas fa-edit" (click)="rename()"></fa-icon>
+                    <i [ngStyle]="{'color': style.contentTxtColor}"  class="fas fa-edit" (click)="rename()"></i>
                 </div>
                 <span>Số câu hỏi: {{newT.questions?.length}}</span>
             </div>

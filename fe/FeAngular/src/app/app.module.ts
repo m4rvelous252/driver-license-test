@@ -49,6 +49,7 @@ import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
 import { CardTypeAddQuizComponent } from './components/card-type-add-quiz/card-type-add-quiz.component';
 import { QuizEditComponent } from './components/quiz-edit/quiz-edit.component';
 import { QuizDetailComponent } from './components/quiz-detail/quiz-detail.component';
+import { QuizListComponent } from './components/quiz-list/quiz-list.component';
 
 
 
@@ -90,7 +91,8 @@ import { QuizDetailComponent } from './components/quiz-detail/quiz-detail.compon
     AddQuizComponent,
     CardTypeAddQuizComponent,
     QuizEditComponent,
-    QuizDetailComponent
+    QuizDetailComponent,
+    QuizListComponent
   ],
   imports: [
     AppRoutingModule,
