@@ -34,11 +34,15 @@ class="main flex-col container"
         </div>
 
         <div class="container" *ngIf="isNamed">
-            <div class="container flex-col details">
-                <div class="flex-row type-name">
-                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit visi-hidden"></fa-icon>
+            <div 
+            [ngStyle]="{'color': style.contentTxtColor}"
+            class="container flex-col details">
+                <div 
+                [ngStyle]="{'color': style.contentTxtColor}"
+                class="flex-row type-name">
+                    <fa-icon class="fas fa-edit visi-hidden"></fa-icon>
                     <h3>{{newT.type_name}}</h3>
-                    <fa-icon [ngStyle]="{'color': 'inherit'}"  class="fas fa-edit" (click)="rename()"></fa-icon>
+                    <fa-icon [ngStyle]="{'color': style.contentTxtColor}"  class="fas fa-edit" (click)="rename()"></fa-icon>
                 </div>
                 <span>Số câu hỏi: {{newT.questions?.length}}</span>
             </div>
