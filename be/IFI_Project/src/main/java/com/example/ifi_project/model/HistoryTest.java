@@ -78,6 +78,20 @@ public class HistoryTest {
                 '}';
     }
 
+    
+    
+	public long getIdQuiz() {
+		return idQuiz;
+	}
+
+
+
+	public void setIdQuiz(long idQuiz) {
+		this.idQuiz = idQuiz;
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}

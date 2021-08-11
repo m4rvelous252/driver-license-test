@@ -70,7 +70,23 @@ public class Quiz{
     
     
 
-    public LocalDate getCreate_date() {
+    public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+
+	public int getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(int submit) {
+		this.submit = submit;
+	}
+
+	public LocalDate getCreate_date() {
         return createDate;
     }
 

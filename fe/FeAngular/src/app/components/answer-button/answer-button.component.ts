@@ -81,7 +81,7 @@ export class AnswerButtonComponent implements OnInit {
   }
   else {
     if(this.answer.is_select==true){
-      return this.style.primeTxtColor
+      return this.style.blackColor
     }
     else{
       return this.style.secondTxtColor
