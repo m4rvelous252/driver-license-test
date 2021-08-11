@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   Logout(){
-    localStorage.clear();
+    localStorage.removeItem('user');
   }
 
   changeMode(){

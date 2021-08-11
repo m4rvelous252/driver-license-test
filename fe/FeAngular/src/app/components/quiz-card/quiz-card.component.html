@@ -2,7 +2,7 @@
   <div [ngStyle]="{'background-color': style.contentBgColor}" class="card-bg container col">
     <a href="quiz/{{quiz?.id}}" class="flex-col card-quiz">
         <img [src]="paths.imgPath +'/test.png'" alt="">
-        <div [ngStyle]="{'color': style.contentTxtColor}" class="name flex-col">{{quiz?.name}}</div>
+        <div [ngStyle]="{'color': style.contentTxtColor}" class="name flex-row">{{quiz?.name}}</div>
     </a>
   </div>
   <div 
